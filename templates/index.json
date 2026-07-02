@@ -15,8 +15,7 @@
         "image_8k7KaP": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/w60-banner-10-pc.jpg",
-            "mobile_image": "shopify://shop_images/w60-banner-10.jpg",
+            "image": "shopify://shop_images/ee53b25a993bf2946b05aad8f113009e6a42e313.jpg",
             "content_max_width": 780,
             "content_max_width_mob": 320,
             "mobile_text_position": "place-self-center text-center",
@@ -64,8 +63,7 @@
         "image_JdmJdT": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/PD_-_banner-2PC_4f0e0af2-d412-4555-a944-6560e8392768.jpg",
-            "mobile_image": "shopify://shop_images/PD___banner_2MOB.jpg",
+            "image": "shopify://shop_images/Merach_R28R1_Water_Rowing_Machine_detail_xqy_eu_uk.jpg",
             "content_max_width": 780,
             "content_max_width_mob": 260,
             "mobile_text_position": "place-self-start-center text-center",
@@ -125,7 +123,7 @@
         "use_seo_title": true,
         "allow_transparent_header": true,
         "show_initial_transition": false,
-        "image_size": "auto",
+        "image_size": "lg",
         "controls_type": "dots",
         "dot_position": 20,
         "dot_position_mob": 15,
@@ -150,73 +148,61 @@
         "collection_d8kakY": {
           "type": "collection",
           "settings": {
-            "collection": "rowing-machines",
-            "img": "shopify://shop_images/Frame_1289.jpg",
+            "collection": "bike",
             "title": "Rowing Machine",
             "link": "shopify://collections/rowing-machines",
             "text-color": "#1a1a1a",
-            "block-bg": "#fff",
-            "track_item_name": ""
+            "block-bg": "#fff"
           }
         },
         "collection_43rzDb": {
           "type": "collection",
           "settings": {
-            "collection": "exercise-bikes",
-            "img": "shopify://shop_images/Frame_1289_6.jpg",
+            "collection": "air-resistance-rowing-machines",
             "title": "Exercise Bike",
             "link": "shopify://collections/exercise-bikes",
             "text-color": "#1a1a1a",
-            "block-bg": "#fff",
-            "track_item_name": ""
+            "block-bg": "#fff"
           }
         },
         "collection_zJjkcn": {
           "type": "collection",
           "settings": {
-            "collection": "treadmills",
-            "img": "shopify://shop_images/Frame_1289_3.jpg",
+            "collection": "clearance-sale",
             "title": "Treadmill",
             "link": "shopify://collections/treadmills",
             "text-color": "#1a1a1a",
-            "block-bg": "#fff",
-            "track_item_name": ""
+            "block-bg": "#fff"
           }
         },
         "collection_MGwTG9": {
           "type": "collection",
           "settings": {
             "collection": "walking-pad",
-            "img": "shopify://shop_images/w60-main-collextion_8d71b976-55b1-4ba7-86c2-8e13f22dd29b.jpg",
             "title": "Walking Pad",
             "link": "shopify://collections/walking-pad",
             "text-color": "#1a1a1a",
-            "block-bg": "#fff",
-            "track_item_name": ""
+            "block-bg": "#fff"
           }
         },
         "collection_GmhTED": {
           "type": "collection",
           "settings": {
-            "collection": "others",
-            "img": "shopify://shop_images/Frame_1289_4.jpg",
+            "collection": "clearance",
             "title": "Essential",
             "link": "shopify://collections/others",
             "text-color": "#1a1a1a",
-            "block-bg": "#fff",
-            "track_item_name": ""
+            "block-bg": "#fff"
           }
         },
         "collection_a9NKmV": {
           "type": "collection",
           "settings": {
-            "collection": "",
-            "img": "shopify://shop_images/Frame_1289_5.jpg",
+            "collection": "all-products-1",
             "title": "App",
             "link": "https://merachfit.com/pages/merach-app",
             "text-color": "#1a1a1a",
-            "block-bg": "#fff",
-            "track_item_name": ""
+            "block-bg": "#fff"
           }
         }
       },
@@ -248,11 +234,7 @@
         "section-bg": "#101820",
         "title-color": "#ffffff",
         "pag_bg": "#53565a",
-        "pag_step_bg": "#ecece7",
-        "tracking_enabled": false,
-        "tracking_module_type_metaobject": "",
-        "tracking_content_overrides": "",
-        "module_title": ""
+        "pag_step_bg": "#ecece7"
       }
     },
     "link_tab_check_3MqV6Q": {
@@ -264,8 +246,8 @@
             "image-flex": "left",
             "content-flex": "left",
             "item-name": "",
-            "img": "shopify://shop_images/w60-main-page.jpg",
-            "product": "merach-ultrawalk-w60-plus",
+            "img": "shopify://shop_images/MERACH_S29R3_Exercise_Bike_with_21.5_Rotating_Display_ZT_9.jpg",
+            "product": "family-package-treadmill-exercise-bike",
             "discount_mode": "percentage",
             "badge_width": 75,
             "badge_height": 75,
@@ -299,7 +281,6 @@
         "padding-top": 20,
         "padding-bottom": 20,
         "padding-gap": 20,
-        "badge_img": "shopify://shop_images/20260526-115520.png",
         "max-width": 1140,
         "padding-top-mob": 0,
         "padding-bottom-mob": 20,
@@ -321,11 +302,7 @@
         "button-color-active": "#ffffff",
         "button-bg-active": "linear-gradient(360deg, rgba(0, 150, 246, 1), rgba(164, 200, 255, 1) 100%)",
         "button-color-active2": "#000000",
-        "button-bg-active2": "#ffffff",
-        "tracking_enabled": false,
-        "tracking_module_type_metaobject": "",
-        "tracking_content_overrides": "",
-        "module_title": ""
+        "button-bg-active2": "#ffffff"
       }
     },
     "collection_tab_7wBh9N": {
@@ -418,11 +395,7 @@
         "button_text": "Shop Now",
         "show_number": 3,
         "radius": 15,
-        "card_space": 35,
-        "tracking_enabled": false,
-        "tracking_module_type_metaobject": "",
-        "tracking_content_overrides": "",
-        "module_title": ""
+        "card_space": 35
       }
     },
     "float_image_block_c8pEDk": {
@@ -432,7 +405,6 @@
           "type": "block",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Slice_2.png",
             "url": "",
             "title": "Verywell Fit",
             "subtitle": "Merach’s NovaRow R50 Rower is an excellent value."
@@ -442,7 +414,6 @@
           "type": "block",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Slice_3.png",
             "url": "",
             "title": "BarBend",
             "subtitle": "Dual magnetic and water resistance gives each stroke a unique feel."
@@ -452,7 +423,6 @@
           "type": "block",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Slice_4_2efe06d2-c9fa-4e49-866c-2f09ecd516a4.png",
             "url": "",
             "title": "Life Hacker",
             "subtitle": "It's now almost two years since I started using it, and it has held together well."
@@ -462,7 +432,6 @@
           "type": "block",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Slice_5_ea4588cd-3a6a-4829-aba7-7fab2a51c720.png",
             "url": "",
             "title": "Women's Health",
             "subtitle": "The sturdy frame feels stable at all times no matter what speed I’m going, which is impressive for its small size."
@@ -497,11 +466,7 @@
         "subtitle-color": "linear-gradient(90deg, rgba(17, 54, 158, 1), rgba(23, 175, 225, 1) 100%)",
         "card-bg": "#101820",
         "card-title-color": "#ffffff",
-        "card_description_color": "#ecece7",
-        "tracking_enabled": false,
-        "tracking_module_type_metaobject": "",
-        "tracking_content_overrides": "",
-        "module_title": ""
+        "card_description_color": "#ecece7"
       }
     },
     "press_wXC8xp": {
@@ -510,7 +475,6 @@
         "quote_dmpGmM": {
           "type": "quote",
           "settings": {
-            "logo": "shopify://shop_images/20260525-171055.jpg",
             "logo_width": 350,
             "author": "",
             "content": "Overall, a fantastic product that delivers on both performance and convenience — highly recommended!",
@@ -521,7 +485,6 @@
         "quote_gF4dzD": {
           "type": "quote",
           "settings": {
-            "logo": "shopify://shop_images/Forbes_logo_1822b417-ce94-4458-82f3-d22d37eed182.svg",
             "logo_width": 100,
             "author": "",
             "content": "Merach Rowing Machine is easy to assemble and makes virtually no noise when in use!",
@@ -572,11 +535,7 @@
         "heading_color": "",
         "heading_gradient": "",
         "logo_item_background": "",
-        "logo_item_border": "",
-        "tracking_enabled": false,
-        "tracking_module_type_metaobject": "",
-        "tracking_content_overrides": "",
-        "module_title": ""
+        "logo_item_border": ""
       }
     },
     "custom_grid_kmi4Ra": {
@@ -586,7 +545,6 @@
           "type": "grid",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Frame_1474.jpg",
             "url": "https://merachfit.com/pages/cardio",
             "title": "Minute Workouts",
             "subtitle": "Find the time. Make it count."
@@ -596,7 +554,6 @@
           "type": "grid",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Frame_1475.jpg",
             "url": "https://merachfit.com/pages/weight-loss",
             "title": "Reshape Your Body",
             "subtitle": "Tone the muscle. Refine the frame."
@@ -606,7 +563,6 @@
           "type": "grid",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Frame_1476.jpg",
             "url": "https://merachfit.com/pages/strength",
             "title": "Advanced Training",
             "subtitle": "Push the pace. Break the peak."
@@ -616,7 +572,6 @@
           "type": "grid",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Frame_1477.jpg",
             "url": "https://merachfit.com/pages/relaxation",
             "title": "The Legacy Series",
             "subtitle": "Grace in motion. Power in longevity."
@@ -669,11 +624,7 @@
         "slide_per_splite_mob": 2,
         "grid-rows-mob": 4,
         "slide_gap_mob": 10,
-        "show_pagination_mob": false,
-        "tracking_enabled": false,
-        "tracking_module_type_metaobject": "",
-        "tracking_content_overrides": "",
-        "module_title": ""
+        "show_pagination_mob": false
       }
     },
     "slide_banner_LALm4i": {
@@ -682,8 +633,6 @@
         "banner_biqBQU": {
           "type": "banner",
           "settings": {
-            "image": "shopify://shop_images/20260526-103635.jpg",
-            "image_mob": "shopify://shop_images/20260525-171050.jpg",
             "url": ""
           }
         }
@@ -736,12 +685,7 @@
         "slide_per_view_mob": 1,
         "slide_per_splite_mob": 0,
         "slide_gap_mob": 20,
-        "show_mob_pag": false,
-        "tracking_enabled": false,
-        "posthog_page_type_metaobject": "",
-        "tracking_module_type_metaobject": "",
-        "tracking_content_overrides": "",
-        "module_title": ""
+        "show_mob_pag": false
       }
     },
     "slide_banner_NWXnWL": {
@@ -751,8 +695,6 @@
           "type": "article",
           "settings": {
             "article": "",
-            "image": "shopify://shop_images/Frame_1380_1.jpg",
-            "image_mob": "shopify://shop_images/Frame_1380_1_144eb515-22d9-42f0-aa6e-8d83487ac90b.jpg",
             "article_title": "",
             "article_description": "My first rowing machine, purchased based on research that air rower of simlar construction provide full workout for all range of resisand effort. Arrived well packaged. Easy to assemble, complete within 30 minutes.",
             "article_url": "",
@@ -763,8 +705,6 @@
           "type": "article",
           "settings": {
             "article": "",
-            "image": "shopify://shop_images/Frame_1380.jpg",
-            "image_mob": "shopify://shop_images/Frame_1380_bc8a8aff-c708-40c4-9d10-4256f8b67a81.jpg",
             "article_title": "",
             "article_description": "Got this rower a few days ago. Assembly was fairly easy. I am 5'9\" and the range is perfect. Shoe size 9.5, feet fit perfectly in the pedals. Used a funnel to add distilled water to the tank. Took around 3 gallons to fill to max line.",
             "article_url": "",
@@ -775,8 +715,6 @@
           "type": "article",
           "settings": {
             "article": "",
-            "image": "shopify://shop_images/Frame_1380_2.jpg",
-            "image_mob": "shopify://shop_images/Frame_1380_2_f6914b6d-dde7-470d-8552-085daeb6c7d2.jpg",
             "article_title": "",
             "article_description": "For under $400, this is a great little option. Comfortable walk. I’m 5’6”, 145 lbs, had no issues with stepping on the sides, even at a little higher speeds and with the incline.",
             "article_url": "",
@@ -834,15 +772,9 @@
         "slide_per_view_mob": 1,
         "slide_per_splite_mob": 2,
         "slide_gap_mob": 20,
-        "show_mob_pag": false,
-        "tracking_enabled": false,
-        "posthog_page_type_metaobject": "",
-        "tracking_module_type_metaobject": "",
-        "tracking_content_overrides": "",
-        "module_title": ""
+        "show_mob_pag": false
       }
     },
-
     "text_with_icons_Rwf4A3": {
       "type": "us-text-with-icons",
       "blocks": {
@@ -850,7 +782,6 @@
           "type": "item",
           "settings": {
             "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/Group_1288115672.png",
             "mobile_icon_width": 72,
             "icon_width": 60,
             "icon_background_type": "none",
@@ -864,7 +795,6 @@
           "type": "item",
           "settings": {
             "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/Group_1288115675.png",
             "mobile_icon_width": 72,
             "icon_width": 60,
             "icon_background_type": "none",
@@ -878,7 +808,6 @@
           "type": "item",
           "settings": {
             "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/20260522-1738051.png",
             "mobile_icon_width": 72,
             "icon_width": 48,
             "icon_background_type": "none",
@@ -892,7 +821,6 @@
           "type": "item",
           "settings": {
             "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/Group_1288115673.png",
             "mobile_icon_width": 72,
             "icon_width": 60,
             "icon_background_type": "none",
@@ -929,11 +857,7 @@
         "background": "",
         "background_gradient": "",
         "text_color": "#000000",
-        "sub_text_color": "#97999b",
-        "tracking_enabled": false,
-        "tracking_module_type_metaobject": "",
-        "tracking_content_overrides": "",
-        "module_title": ""
+        "sub_text_color": "#97999b"
       }
     },
     "slide_banner_Ha4kn3": {
@@ -942,8 +866,6 @@
         "default_PtyhKU": {
           "type": "default",
           "settings": {
-            "image": "shopify://shop_images/merach-magnetic-rower-reviews.webp",
-            "image_mob": "shopify://shop_images/merach-magnetic-rower-reviews.webp",
             "title": "R15 vs. Q1S vs. R7 Which Rower Is Better?",
             "subtitle": "Looking for the home magnetic rowing machine? Compare Merach R7, Q1S & R15 magnetic rowers for noise, resistance, storage & smart features. See which rower fits your home gym, budget, and fitness goals.",
             "url": "https://merachfit.com/blogs/rowing-machines/merach-magnetic-rower-reviews",
@@ -953,8 +875,6 @@
         "default_rLLJeU": {
           "type": "default",
           "settings": {
-            "image": "shopify://shop_images/rowing-machine-vs-treadmill-vs-bike_76abec7f-c262-475e-9661-a191fc86db54.webp",
-            "image_mob": "shopify://shop_images/rowing-machine-vs-treadmill-vs-bike_76abec7f-c262-475e-9661-a191fc86db54.webp",
             "title": "Simple Routines to Build Cardio at Home",
             "subtitle": "Discover the best stationary bike workout for beginners with simple routines designed specifically for effective cardio and improved fitness at home.",
             "url": "https://merachfit.com/blogs/workout/stationary-bike-workouts-for-beginners",
@@ -964,8 +884,6 @@
         "default_ccBCq8": {
           "type": "default",
           "settings": {
-            "image": "shopify://shop_images/stationary-bike-workouts-for-beginners.webp",
-            "image_mob": "shopify://shop_images/stationary-bike-workouts-for-beginners.webp",
             "title": "Rowing vs. Treadmill vs. Bike: Which Is Best for Home Workouts?",
             "subtitle": "Explore which cardio machine stands out as the best in the rowing machine vs. treadmill vs. bike debate. Learn the difference between all three machines and understand their individual benefits.",
             "url": "https://merachfit.com/blogs/rowing-machines/rowing-machine-vs-treadmill-vs-bike",
@@ -1020,12 +938,7 @@
         "slide_per_view_mob": 1,
         "slide_per_splite_mob": 0,
         "slide_gap_mob": 20,
-        "show_mob_pag": true,
-        "tracking_enabled": false,
-        "posthog_page_type_metaobject": "",
-        "tracking_module_type_metaobject": "",
-        "tracking_content_overrides": "",
-        "module_title": ""
+        "show_mob_pag": true
       }
     },
     "custom_grid_8RKaiy": {
@@ -1035,7 +948,6 @@
           "type": "grid",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Frame_1468_0df5b18d-d8ca-4a44-ad3a-9fc5afbebab7.jpg",
             "url": "",
             "title": "First Responders",
             "subtitle": "Police, Fire and EMT"
@@ -1045,7 +957,6 @@
           "type": "grid",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Frame_1470_60957d8d-10c7-48d0-9da1-a330d4dc9e9f.jpg",
             "url": "",
             "title": "Military and Veterans",
             "subtitle": "Active Duty, Veterans & Retirees"
@@ -1055,7 +966,6 @@
           "type": "grid",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Frame_1469_1.jpg",
             "url": "",
             "title": "Students",
             "subtitle": "University Students"
@@ -1065,7 +975,6 @@
           "type": "grid",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Frame_1474_d81d9ebf-9cf6-400a-bf59-f2ffdd2198b5.jpg",
             "url": "",
             "title": "Healthcare Workers",
             "subtitle": "Doctors, Nurses & staff"
@@ -1075,7 +984,6 @@
           "type": "grid",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Frame_1472_d234044e-2ab8-4064-9c66-a88d5f26f289.jpg",
             "url": "",
             "title": "Teachers",
             "subtitle": "Pre-K, K-12 and Professors"
@@ -1085,7 +993,6 @@
           "type": "grid",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Frame_1476_ab134d4e-978b-4c40-934b-54a45b87d731.jpg",
             "url": "",
             "title": "Government Employees",
             "subtitle": "Federal and Local"
@@ -1095,7 +1002,6 @@
           "type": "grid",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Frame_1471_e6c7ae9d-3ef7-443a-bc93-5a1c733e8a6c.jpg",
             "url": "",
             "title": "Senior Citizens (60+)",
             "subtitle": "Senior citizens (60+)"
@@ -1155,11 +1061,7 @@
         "slide_per_splite_mob": 2,
         "grid-rows-mob": 4,
         "slide_gap_mob": 10,
-        "show_pagination_mob": true,
-        "tracking_enabled": false,
-        "tracking_module_type_metaobject": "",
-        "tracking_content_overrides": "",
-        "module_title": ""
+        "show_pagination_mob": true
       }
     },
     "slideshow_Fdnz6t": {
@@ -1168,8 +1070,6 @@
         "image_BBrUYc": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/c061c754d632a5c6f07290461ade41c3201d871f.png",
-            "mobile_image": "shopify://shop_images/12_f5ed3e64-e325-421d-bc60-e0b329cdc125.jpg",
             "content_max_width": 780,
             "content_max_width_mob": 310,
             "mobile_text_position": "place-self-start-center text-center",
