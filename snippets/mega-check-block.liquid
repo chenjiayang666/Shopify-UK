@@ -1,0 +1,838 @@
+{%- if is_mobile -%}
+  <style>
+       #mega-check-accordion-{{ block.id }} {
+        --tab-normal-color: {{ block.settings.tab_normal_color | default: '#666666' }};
+        --tab-active-color: {{ block.settings.tab_active_color | default: '#000000' }};
+      }
+    /* Mobile-specific styles for mega-check-block accordion */
+    #mega-check-accordion-{{ block.id }} {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+          background: #fafafc;
+    }
+    #mega-check-accordion-{{ block.id }} .accordion-item {
+    }
+
+    #mega-check-accordion-{{ block.id }} .accordion-header {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 12px 0 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--tab-normal-color);
+      text-decoration: underline;
+      margin-bottom:14px;
+    }
+        #mega-check-accordion-{{ block.id }} .accordion-item.active .accordion-header{
+      color: var(--tab-active-color);
+    }
+    #mega-check-accordion-{{ block.id }} .accordion-between-btn {
+      display: none;
+      margin-bottom: 12px;
+      font-size: 12px;
+      padding: 8px 20px;
+      line-height: 16px;
+      border-radius: 20px;
+      text-decoration: none !important;
+      border: 1px solid #53565A;
+      color: #53565A;
+          text-align: center;
+    justify-content: center;
+    }
+    #mega-check-accordion-{{ block.id }} .accordion-item.active .accordion-between-btn {
+      display: flex;
+    }
+    #mega-check-accordion-{{ block.id }} .accordion-icon path{
+      fill:var(--tab-normal-color);
+    }
+    #mega-check-accordion-{{ block.id }} .accordion-item.active .accordion-icon path{
+      fill:var(--tab-active-color);
+    }
+    #mega-check-accordion-{{ block.id }} .accordion-title {
+      font-size: 12px;
+      font-weight: 400;
+    }
+    #mega-check-accordion-{{ block.id }} .accordion-icon {
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #mega-check-accordion-{{ block.id }} .accordion-header[aria-expanded="true"] .accordion-icon {
+      transform: rotate(180deg);
+    }
+    #mega-check-accordion-{{ block.id }} .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #mega-check-accordion-{{ block.id }} .accordion-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding-bottom: 16px;
+    }
+    #mega-check-accordion-{{ block.id }} .accordion-product-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 30px 10px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+    #mega-check-accordion-{{ block.id }} .sale_tag {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      font-size: 10px;
+      line-height: 16px;
+      font-weight: 600;
+      padding: 0 8px;
+      border-radius: 10px;
+      z-index: 2;
+       width: fit-content;
+    }
+    #mega-check-accordion-{{ block.id }} .product-card-media {
+      display: block;
+      width: 100%;
+      aspect-ratio: 106 / 65;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    #mega-check-accordion-{{ block.id }} .product-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #mega-check-accordion-{{ block.id }} .product-card-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex-grow: 1;
+    }
+    #mega-check-accordion-{{ block.id }} .product-card-title {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 14px;
+      color: #000;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      height: 14px;
+    }
+    #mega-check-accordion-{{ block.id }} .product-card-des {
+      font-size: 12px;
+      line-height: 14px;
+      color: #53565A;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      height: 28px;
+    }
+    #mega-check-accordion-{{ block.id }} .product-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+    #mega-check-accordion-{{ block.id }} .product-card-price {
+      font-size: 12px;
+      font-weight: 500;
+      color: #000;
+    }
+    #mega-check-accordion-{{ block.id }} .product-card-btn {
+      font-size: 12px;
+      font-weight: 500;
+      text-decoration: underline;
+      color: #000;
+    }
+    #mega-check-accordion-{{ block.id }} .mobile-mega-check-accordion{
+      display:flex;
+      gap:30px;
+      flex-direction:column;
+    }
+    #mega-check-accordion-{{ block.id }} .right-card-buttons{
+            display:flex;
+      gap:10px;
+      flex-direction:column;
+      margin-top:20px;
+    }
+    #mega-check-accordion-{{ block.id }} .right-card-media {
+        display: block;
+        width: 100%;
+        aspect-ratio: 325/216;
+        border-radius:15px;
+        overflow: hidden;
+        position: relative;
+      }
+    #mega-check-accordion-{{ block.id }} .right-card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+     #mega-check-accordion-{{ block.id }} .block-right-card{
+          padding: 10px 20px 30px;
+    }
+     #mega-check-accordion-{{ block.id }} .accordion-box{
+      padding:0 20px;
+      background:#fafafc;
+    }
+      #mega-check-accordion-{{ block.id }} .block-content-title{
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+    }
+      #mega-check-accordion-{{ block.id }} .header-shop-all-btn-sm{
+      font-size: 12px;
+      line-height: 16px;
+          padding: 6px 10px;
+    }
+  </style>
+
+  <div class="mobile-mega-check-accordion" id="mega-check-accordion-{{ block.id }}">
+    {% if block.settings.product != blank %}
+      {%- assign right_image = block.settings.image | default: block.settings.product.featured_image -%}
+      {%- assign right_url = block.settings.link_url | default: block.settings.product.url -%}
+      <div class="block-right-card">
+        {%- if right_image != blank -%}
+          <a class="right-card-media" href="{{ right_url }}">
+            <img
+              src="{{ right_image | image_url: width: 400 }}"
+              alt="{{ block.settings.image.alt | default: block.settings.product.title | escape }}"
+              loading="lazy"
+            >
+            <span class="block-content-title">
+              {{-
+                block.settings.product.metafields.custom.custom_product_title
+                | default: block.settings.product.title
+                | truncate: 20
+              -}}
+            </span>
+          </a>
+        {%- endif -%}
+        <div class="right-card-buttons">
+          {% if block.settings.bottom_group_btn_href != blank %}
+            <a
+              href="{{  block.settings.bottom_group_btn_href }}"
+              class="header-shop-all-btn header-bottom-btn"
+            >
+              {{- block.settings.bottom_group_btn_text -}}
+            </a>
+          {% endif %}
+          {% if block.settings.button_group_compare_href != blank %}
+            <a
+              style="background:black;color:white;border: 1px solid black;"
+              class=" header-shop-all-btn header-bottom-btn"
+              href="{{  block.settings.button_group_compare_href }}"
+            >
+              {{- block.settings.button_group_compare_text -}}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    {%- for tab_link in link.links -%}
+      {%- if tab_link.object.products.size > 0 -%}
+        <div class="accordion-box">
+          <div class="accordion-item{% if forloop.first %} active{% endif %}">
+            <button
+              class="accordion-header w-full text-left"
+              aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+            >
+              <span class="accordion-title">{{ tab_link.title }}</span>
+              <span class="accordion-icon">
+                {%- render 'icon' with 'chevron-bottom-thin', direction_aware: true -%}
+              </span>
+            </button>
+            <a href="{{ tab_link.object.url }}" class="header-shop-all-btn accordion-between-btn">Shop All</a>
+            <div
+              class="accordion-content"
+              style="{% if forloop.first %}max-height: none;{% else %}max-height: 0px;{% endif %}"
+            >
+              <div class="accordion-grid">
+                {%- for product in tab_link.object.products limit: 4 -%}
+                  <div class="accordion-product-card">
+                    {% if product.metafields.custom.sale_tag_text != blank %}
+                      <span
+                        class="sale_tag"
+                        style="background:{{product.metafields.custom.sale_tag_background | default:'#0096F9'}};color:{{ product.metafields.custom.sale_tag_color | default:'#fff' }}"
+                      >
+                        {{- product.metafields.custom.sale_tag_text -}}
+                      </span>
+                    {% endif %}
+                    <a class="product-card-media" href="{{ product.url }}">
+                      {% if product.metafields.custom.header_featured_image != blank %}
+                        <img
+                          src="{{ product.metafields.custom.header_featured_image | image_url: width: 250 }}"
+                          alt="{{ product.title | escape }}"
+                          loading="lazy"
+                        >
+                      {% else %}
+                        <img
+                          src="{{ product.featured_image | image_url: width: 250 }}"
+                          loading="lazy"
+                          alt="{{ product.title | escape }}"
+                        >
+                      {% endif %}
+                    </a>
+                    <div class="product-card-info">
+                      <div class="product-card-title">
+                        {{ product.metafields.custom.custom_product_title | default: product.title }}
+                      </div>
+                      <div class="product-card-des">
+                        {{
+                          product.metafields.custom.custom_description
+                          | metafield_tag
+                          | default: product.description
+                          | strip_html
+                          | truncate: 40
+                        }}
+                      </div>
+                      <span class="product-card-price">{{ product.price | money }}</span>
+
+                      <div class="product-card-bottom">
+                        <a
+                          href="{{ product.url }}"
+                          class="header-shop-all-btn header-shop-all-btn-sm"
+                        >
+                          Shop Now
+                        </a>
+
+                        {% if product.metafields.custom.custom_cta_url != blank %}
+                          <a href="{{ product.metafields.custom.custom_cta_url }}" class="product-card-btn">
+                            {{- product.metafields.custom.custom_cta_text | default: 'Explore' -}}
+                          </a>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {%- endfor -%}
+              </div>
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <script>
+    (function () {
+      function initMegaCheckAccordion() {
+        const container = document.getElementById('mega-check-accordion-{{ block.id }}');
+        if (!container) return;
+
+        const items = container.querySelectorAll('.accordion-item');
+        items.forEach((item) => {
+          const header = item.querySelector('.accordion-header');
+          const content = item.querySelector('.accordion-content');
+
+          header.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+              header.setAttribute('aria-expanded', 'false');
+              item.classList.remove('active');
+              content.style.maxHeight = content.scrollHeight + 'px';
+              // Force reflow
+              content.offsetHeight;
+              content.style.maxHeight = '0px';
+            } else {
+              // Close other items
+              items.forEach((otherItem) => {
+                const otherHeader = otherItem.querySelector('.accordion-header');
+                const otherContent = otherItem.querySelector('.accordion-content');
+                if (otherHeader !== header && otherHeader.getAttribute('aria-expanded') === 'true') {
+                  otherHeader.setAttribute('aria-expanded', 'false');
+                  otherItem.classList.remove('active');
+                  otherContent.style.maxHeight = otherContent.scrollHeight + 'px';
+                  otherContent.offsetHeight;
+                  otherContent.style.maxHeight = '0px';
+                }
+              });
+
+              header.setAttribute('aria-expanded', 'true');
+              item.classList.add('active');
+              content.style.maxHeight = content.scrollHeight + 'px';
+              setTimeout(() => {
+                if (header.getAttribute('aria-expanded') === 'true') {
+                  content.style.maxHeight = 'none';
+                }
+              }, 300);
+            }
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMegaCheckAccordion);
+      } else {
+        initMegaCheckAccordion();
+      }
+    })();
+  </script>
+{%- else -%}
+  <style>
+      #header-check-block-container-{{ block.id }}{
+        --tab-normal-bg-color: {{ block.settings.tab_normal_bg_color | default: '#666666' }};
+
+        --tab-normal-color: {{ block.settings.tab_normal_color | default: '#666666' }};
+        --tab-active-color: {{ block.settings.tab_active_color | default: '#000000' }};
+        --tab-active-border-color: {{ block.settings.tab_active_border_color | default: '#000000' }};
+        --btn-bg-color: {{ block.settings.btn_bg_color | default: '#000000' }};
+        --btn-text-color: {{ block.settings.btn_text_color | default: '#ffffff' }};
+      }
+
+      #mega-check-block-{{ block.id }} {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+        padding: 16px 0 32px;
+      }
+
+      #mega-check-block-{{ block.id }} .check-tab {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 50px;
+      }
+
+      #mega-check-block-{{ block.id }} .check-tab-item {
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 500;
+        color: var(--tab-normal-color);
+        cursor: pointer;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      #mega-check-block-{{ block.id }} .check-tab-item:hover,
+      #mega-check-block-{{ block.id }} .check-tab-item.active {
+        color: var(--tab-active-color);
+      }
+
+      #mega-check-block-{{ block.id }} .check-tab-item::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--tab-active-border-color);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      #mega-check-block-{{ block.id }} .check-tab-item.active::after {
+        transform: scaleX(1);
+      }
+
+      #mega-check-block-{{ block.id }} .check-content {
+        width: 100%;
+        position: relative;
+      }
+
+      #mega-check-block-{{ block.id }} .check-content-pane {
+        display: none;
+        flex-direction: row;
+        gap: 24px;
+        width: 100%;
+      }
+
+      #mega-check-block-{{ block.id }} .check-content-pane.active {
+        display: flex;
+        animation: megaCheckFadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+      .dropdown-mega_item_trigger.active #header-check-block-container-{{ block.id }} .block-right-card {
+        animation: megaCheckFadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+      @keyframes megaCheckFadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      #mega-check-block-{{ block.id }} .header-check-block-item {
+        flex: 1 1 0%;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        border-radius: 8px;
+        background: var(--tab-normal-bg-color);
+        transition: all 0.3s ease;
+        padding:25px 17px;
+        position:relative;
+        max-width:254px;
+      }
+
+      {% comment %} #mega-check-block-{{ block.id }} .header-check-block-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      } {% endcomment %}
+
+      #mega-check-block-{{ block.id }} .block-media {
+        display: block;
+        width: 100%;
+        aspect-ratio: 240 / 148;
+        overflow: hidden;
+        border-radius: 8px;
+        position: relative;
+      }
+
+      #mega-check-block-{{ block.id }} .block-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      #mega-check-block-{{ block.id }} .header-check-block-item:hover .block-media img {
+        transform: scale(1.05);
+      }
+
+      #mega-check-block-{{ block.id }} .block-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 16px;
+      }
+
+      #mega-check-block-{{ block.id }} .block-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: #000000;
+        line-height: 19px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      #mega-check-block-{{ block.id }} .block-des {
+        font-size: 12px;
+        font-weight: 400;
+        color: #777777;
+        line-height: 20px;
+        height: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      #mega-check-block-{{ block.id }} .block-rating {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 5px;
+      }
+
+      #mega-check-block-{{ block.id }} .block-price {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 500;
+        color: #000000;
+      }
+
+      #mega-check-block-{{ block.id }} .header-shop-all-btn {
+        display: inline-block;
+        padding: 6px 16px;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+        color: #53565A;
+        border:1px solid;
+        border-radius: 20px;
+        text-decoration: none;
+        transition: opacity 0.3s ease, transform 0.2s ease;
+      }
+
+      #mega-check-block-{{ block.id }} .header-shop-all-btn:hover {
+        opacity: 0.9;
+        color: var(--btn-text-color);
+        background: var(--btn-bg-color);
+      }
+
+      #mega-check-block-{{ block.id }} .header-shop-all-btn:active {
+        transform: scale(0.95);
+      }
+
+      #header-check-block-container-{{ block.id }} {
+        display: flex;
+        gap: 24px;
+        width: 100%;
+      }
+      #header-check-block-container-{{ block.id }} .sale_tag{
+        position:absolute;
+        left:10px;
+        top:10px;
+        width: fit-content;
+        font-size:12px;
+        line-height:19px;
+        font-weight:600;
+        padding:0 10px;
+        border-radius:20px;
+        z-index:2;
+    }
+      @media screen and (min-width: 1150px) {
+        #header-check-block-container-{{ block.id }} {
+          flex-direction: row;
+          gap: 40px;
+          align-items: flex-end;
+        }
+      }
+
+      #header-check-block-container-{{ block.id }} .mega-check-block {
+        flex: 1;
+        min-width: 0;
+      }
+
+      #header-check-block-container-{{ block.id }} .block-right-card {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 360px;
+        gap: 0px;
+      }
+
+      @media screen and (min-width: 1150px) {
+        #header-check-block-container-{{ block.id }} .block-right-card {
+          width: 360px;
+          flex-shrink: 0;
+        }
+      }
+
+      #header-check-block-container-{{ block.id }} .block-right-card:hover {
+        {% comment %} transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05); {% endcomment %}
+      }
+
+      #header-check-block-container-{{ block.id }} .right-card-media {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16/10;
+        border-radius:15px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      #header-check-block-container-{{ block.id }} .right-card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      #header-check-block-container-{{ block.id }} .block-right-card:hover .right-card-media img {
+        transform: scale(1.05);
+      }
+
+      #header-check-block-container-{{ block.id }} .right-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 13px;
+        flex-grow: 1;
+      }
+
+      #header-check-block-container-{{ block.id }} .right-card-title {
+        font-size: 20px;
+        font-weight: 400;
+        color: #000000;
+        line-height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      #header-check-block-container-{{ block.id }} .right-card-des {
+        font-size: 12px;
+        font-weight: 400;
+        color: #53565A;
+        line-height: 18px;
+        height: 36px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      #header-check-block-container-{{ block.id }} .right-card-btn {
+        font-size: 14px;
+        line-height:20px;
+        font-weight: 600;
+        color: var(--tab-active-color);
+        text-decoration: none;
+        transition: opacity 0.3s ease, transform 0.2s ease;
+        margin-top: 5px;
+        right-card-btn
+      }
+
+      #header-check-block-container-{{ block.id }} .right-card-btn:hover {
+        opacity: 0.9;
+      }
+
+      #header-check-block-container-{{ block.id }} .right-card-btn:active {
+        transform: scale(0.95);
+      }
+      #header-check-block-container-{{ block.id }} .product-card-btn{
+        font-size:14px;
+        text-decoration: underline;
+        color:#53565A;
+      }
+      @media(max-width:750px){
+        #header-check-block-container-{{ block.id }}{
+          flex-direction: column-reverse;
+        }
+      }
+  </style>
+  <div id="header-check-block-container-{{ block.id }}" class="header-check-block-container">
+    <div id="mega-check-block-{{ block.id }}" class="mega-check-block">
+      <div class="check-tab">
+        {%- for tab_link in link.links -%}
+          {%- if tab_link.object.products.size > 0 -%}
+            <a
+              href="{{ tab_link.url }}"
+              class="check-tab-item{% if forloop.first %} active{% endif %}"
+              data-tab="{{ block.id }}-{{ forloop.index }}"
+            >
+              {{ tab_link.title }}
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <div class="check-content">
+        {%- for tab_link in link.links -%}
+          {%- if tab_link.object.products.size > 0 -%}
+            <div
+              class="check-content-pane{% if forloop.first %} active{% endif %}"
+              data-tab="{{ block.id }}-{{ forloop.index }}"
+            >
+              {%- for product in tab_link.object.products limit: 3 -%}
+                <div class="header-check-block-item">
+                  {% if product.metafields.custom.sale_tag_text != blank %}
+                    <span
+                      class="sale_tag"
+                      style="background:{{product.metafields.custom.sale_tag_background | default:'#0096F9'}};color:{{ product.metafields.custom.sale_tag_color | default:'#fff' }}"
+                    >
+                      {{- product.metafields.custom.sale_tag_text -}}
+                    </span>
+                  {% endif %}
+                  <a class="block-media" href="{{ product.url }}">
+                    {% if product.metafields.custom.header_featured_image != blank %}
+                      <img
+                        src="{{ product.metafields.custom.header_featured_image | image_url }}"
+                        alt="{{ product.title }}"
+                        loading="lazy"
+                      >
+                    {% else %}
+                      <img src="{{ product.featured_image | image_url }}" loading="lazy" alt="{{ product.title }}">
+                    {% endif %}
+                  </a>
+                  <div class="block-content">
+                    <div class="block-title">{{ product.metafields.custom.custom_product_title | default: product.title }}</div>
+                    <div class="block-des">
+                      {{ product.metafields.custom.custom_description | metafield_tag | default: product.description }}
+                    </div>
+                    <div class="block-price">{{ product.price | money }}</div>
+
+                    <div class="block-rating">
+                      <a
+                        href="{{ product.url }}"
+                        class="shop-all-btn header-shop-all-btn"
+                      >
+                        Shop Now
+                      </a>
+                      {% if product.metafields.custom.custom_cta_url != blank %}
+                        <a href="{{ product.metafields.custom.custom_cta_url }}" class="product-card-btn">
+                          {{- product.metafields.custom.custom_cta_text | default: 'Explore' -}}
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+    {% if block.settings.product != blank %}
+      {%- assign right_image = block.settings.image | default: block.settings.product.featured_image -%}
+      {%- assign right_url = block.settings.link_url | default: block.settings.product.url -%}
+      <div class="block-right-card">
+        {%- if right_image != blank -%}
+          <a class="right-card-media" href="{{ right_url }}">
+            <img
+              src="{{ right_image | image_url: width: 400 }}"
+              alt="{{ block.settings.image.alt | default: block.settings.product.title | escape }}"
+              loading="lazy"
+            >
+          </a>
+        {%- endif -%}
+        <div class="right-card-content">
+          <div class="right-card-title">{{ block.settings.title | default: block.settings.product.title }}</div>
+          <div class="right-card-des">
+            {{ block.settings.description | default: block.settings.product.description | strip_html | truncate: 75 }}
+          </div>
+          <a class="right-card-btn" href="{{ right_url }}">
+            {{- block.settings.link_text | default: 'Shop Now' | escape -}}
+          </a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+  <script>
+    (function () {
+      function initMegaCheckBlock() {
+        const container = document.getElementById('mega-check-block-{{ block.id }}');
+        if (!container) return;
+
+        const tabs = container.querySelectorAll('.check-tab-item');
+        const panes = container.querySelectorAll('.check-content-pane');
+
+        tabs.forEach((tab, index) => {
+          tab.addEventListener('mouseenter', () => {
+            tabs.forEach((t) => t.classList.remove('active'));
+            panes.forEach((p) => p.classList.remove('active'));
+
+            tab.classList.add('active');
+            if (panes[index]) {
+              panes[index].classList.add('active');
+            }
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMegaCheckBlock);
+      } else {
+        initMegaCheckBlock();
+      }
+    })();
+  </script>
+{%- endif -%}
