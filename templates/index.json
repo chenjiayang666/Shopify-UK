@@ -551,6 +551,7 @@
           "type": "grid",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Merach_S29R1_Exercise_Bike_social_update_3.jpg",
             "url": "https://merachfit.com/pages/cardio",
             "title": "Minute Workouts",
             "subtitle": "Find the time. Make it count."
@@ -560,6 +561,7 @@
           "type": "grid",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Merach_S29R1_Exercise_Bike_eu_banner_update.jpg",
             "url": "https://merachfit.com/pages/weight-loss",
             "title": "Reshape Your Body",
             "subtitle": "Tone the muscle. Refine the frame."
@@ -569,6 +571,7 @@
           "type": "grid",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Merach_S29R1_Exercise_Bike_social_update_4.jpg",
             "url": "https://merachfit.com/pages/strength",
             "title": "Advanced Training",
             "subtitle": "Push the pace. Break the peak."
@@ -578,6 +581,7 @@
           "type": "grid",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Merach_Q3_Self-powered_Magnetic_Rowing_Machine_sy_update.jpg",
             "url": "https://merachfit.com/pages/relaxation",
             "title": "The Legacy Series",
             "subtitle": "Grace in motion. Power in longevity."
