@@ -1041,6 +1041,7 @@
           "type": "grid",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Frame_1468_0df5b18d-d8ca-4a44-ad3a-9fc5afbebab7.jpg",
             "url": "",
             "title": "First Responders",
             "subtitle": "Police, Fire and EMT"
@@ -1050,6 +1051,7 @@
           "type": "grid",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Frame_1470_60957d8d-10c7-48d0-9da1-a330d4dc9e9f.jpg",
             "url": "",
             "title": "Military and Veterans",
             "subtitle": "Active Duty, Veterans & Retirees"
@@ -1059,6 +1061,7 @@
           "type": "grid",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Frame_1469_1.jpg",
             "url": "",
             "title": "Students",
             "subtitle": "University Students"
@@ -1068,6 +1071,7 @@
           "type": "grid",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Frame_1474_d81d9ebf-9cf6-400a-bf59-f2ffdd2198b5_1.jpg",
             "url": "",
             "title": "Healthcare Workers",
             "subtitle": "Doctors, Nurses & staff"
@@ -1077,6 +1081,7 @@
           "type": "grid",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Frame_1468_0df5b18d-d8ca-4a44-ad3a-9fc5afbebab7.jpg",
             "url": "",
             "title": "Teachers",
             "subtitle": "Pre-K, K-12 and Professors"
@@ -1086,6 +1091,7 @@
           "type": "grid",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Frame_1474_d81d9ebf-9cf6-400a-bf59-f2ffdd2198b5_1.jpg",
             "url": "",
             "title": "Government Employees",
             "subtitle": "Federal and Local"
@@ -1095,6 +1101,7 @@
           "type": "grid",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Frame_1469_1.jpg",
             "url": "",
             "title": "Senior Citizens (60+)",
             "subtitle": "Senior citizens (60+)"
