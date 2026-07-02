@@ -433,71 +433,9 @@
   }
   }
 </style>
-{%- render 'posthog-context',
-  page_type: 'PDP',
-  page_type_label: 'Product Detail Page',
-  page_type_metaobject: section.settings.posthog_page_type_metaobject
--%}
-{%- liquid
-  assign tracking_enabled = section.settings.tracking_enabled
-  assign tracking_page_type = 'PDP'
-  assign tracking_module_name = 'you_may_like'
-  assign tracking_module_label = section.settings.title | default: 'You may also like'
-  assign tracking_module_source = 'fallback'
-  assign tracking_module_type_metaobject = section.settings.tracking_module_type_metaobject
-  assign tracking_template = template.name
-  assign tracking_page_sku = product.selected_or_first_available_variant.sku | default: product.handle
-  assign tracking_page_handle = product.handle | default:page.handle
 
-  if tracking_module_type_metaobject != blank
-    assign tracking_module_name_from_metaobject = tracking_module_type_metaobject.key.value | default: tracking_module_type_metaobject.module_name.value | default: tracking_module_type_metaobject.module_type.value | default: tracking_module_type_metaobject.system.handle
-    assign tracking_module_label_from_metaobject = tracking_module_type_metaobject.label.value | default: tracking_module_type_metaobject.name.value | default: tracking_module_type_metaobject.title.value | default: tracking_module_type_metaobject.system.handle
-
-    if tracking_module_name_from_metaobject != blank
-      assign tracking_module_name = tracking_module_name_from_metaobject
-      assign tracking_module_label = tracking_module_label_from_metaobject
-      assign tracking_module_source = 'metaobject'
-    endif
-  endif
-
-  if template.suffix != blank
-    assign tracking_template = template.name | append: '.' | append: template.suffix
-  endif
--%}
-
-{%- liquid
-  assign tracking_content_key = product.handle | replace: '-', '_'
-  assign tracking_content_overrides = section.settings.tracking_content_overrides | newline_to_br | split: '<br />'
-  assign tracking_content_key = product.handle | replace: '-', '_'
-  assign tracking_content_sku = product.selected_or_first_available_variant.sku | default: product.handle
-  for override in tracking_content_overrides
-    assign override_parts = override | strip | split: '='
-    assign override_handle = override_parts[0] | strip
-    assign override_key = override_parts[1] | strip
-
-    if override_handle == page.handle or override_handle == product.handle and override_key != blank
-      assign tracking_content_key = override_key
-    endif
-  endfor
-  assign tracking_name = tracking_page_type | upcase | append: '_' | append: tracking_page_sku | append: '_' | append: tracking_module_name | append: '_' | append: tracking_content_key
--%}
 <section
-      {% if tracking_enabled %}
-    data-mrk-track-section
-    data-mrk-track-action="view"
-    data-mrk-track-page-type="{{ tracking_page_type | upcase | escape }}"
-    data-mrk-track-module-name="{{ tracking_module_name | escape }}"
-    data-mrk-track-module-label="{{ tracking_module_label | escape }}"
-    data-mrk-track-module-source="{{ tracking_module_source | escape }}"
-    data-mrk-track-module-title="{{ section.settings.module_title | escape }}"
-    data-mrk-track-content-key="{{ tracking_content_key }}"
-    data-mrk-track-content-type="module"
-    data-mrk-track-tracking-name="{{ tracking_page_type | upcase }}{% if tracking_page_sku != blank %}_{{ tracking_page_sku }}{% endif %} _{{ tracking_module_name }} _{{ tracking_content_key }}"
-    data-mrk-track-template="{{ tracking_template | escape }}"
-    data-mrk-track-section-id="{{ section.id | escape }}"
-    data-mrk-track-section-type="{{ section.type | escape }}"
-    data-mrk-track-page-handle="{{ tracking_page_handle | escape }}"
-  {% endif %}
+      
   id="feature-list-{{ section.settings.anchor_id | default: section.id }}"
   class="link-tab-check section-padding"
 >
@@ -771,94 +709,7 @@
     });
   });
 </script>
-{% if tracking_enabled %}
-  <script>
-    (() => {
-      const section = document.getElementById('shopify-section-{{ section.id }}');
-      if (!section || !window.posthog) {
-        return;
-      }
 
-      const firstValue = (...values) => values.find((value) => (typeof value === 'string' ? value.trim() : value));
-      const buildTrackingName = (...values) => values.filter(Boolean).join('_');
-
-      const buildPayload = (element, action) => {
-        const pageContext = window.MerachTrackingContext || {};
-        const pageType = firstValue(pageContext.page_type, element.dataset.mrkTrackPageType);
-        const pageSku = firstValue(pageContext.page_sku);
-        const moduleName = firstValue(element.dataset.mrkTrackModuleName);
-        const contentKey = firstValue(element.dataset.mrkTrackContentKey);
-        const contentSku = firstValue(element.dataset.mrkTrackContentSku);
-        const actionSku = action === 'click' ? firstValue(element.dataset.mrkTrackActionSku, contentSku) : null;
-        const trackingName =
-          buildTrackingName(pageType, pageSku, moduleName, contentKey) || element.dataset.mrkTrackTrackingName;
-
-        const payload = {
-          ...pageContext,
-          schema_version: '1.0',
-          action,
-          tracking_name: trackingName,
-          page_type: pageType,
-          page_key: pageSku,
-          page_sku: pageSku,
-          page_handle: firstValue(pageContext.page_handle, element.dataset.mrkTrackPageHandle),
-          page_url: window.location.href,
-          module_name: moduleName,
-          module_label: element.dataset.mrkTrackModuleLabel,
-          module_source: element.dataset.mrkTrackModuleSource,
-          module_title: element.dataset.mrkTrackModuleTitle,
-          content_key: contentKey,
-          content_sku: contentSku,
-          content_type: element.dataset.mrkTrackContentType,
-          content_handle: element.dataset.mrkTrackContentHandle,
-          item_position: Number(element.dataset.mrkTrackItemPosition || 0) || null,
-          template: firstValue(pageContext.template, element.dataset.mrkTrackTemplate),
-          section_id: element.dataset.mrkTrackSectionId,
-          section_type: element.dataset.mrkTrackSectionType,
-          utm_source: sessionStorage.getItem('utm_source') || '',
-        };
-
-        if (actionSku) {
-          payload.action_sku = actionSku;
-        }
-
-        return payload;
-      };
-
-      const capture = (element, action) => {
-        const trackedActions = (element.dataset.mrkTrackedActions || '').split('|');
-
-        if (trackedActions.includes(action)) {
-          return;
-        }
-
-        window.posthog.capture('merach_module_interaction', buildPayload(element, action));
-        element.dataset.mrkTrackedActions = `${element.dataset.mrkTrackedActions || ''}|${action}`;
-      };
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              capture(entry.target, entry.target.dataset.mrkTrackAction || 'view');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.35 }
-      );
-
-      section.querySelectorAll('[data-mrk-track-section],[data-mrk-track-item]').forEach((element) => observer.observe(element));
-
-      section.addEventListener('click', (event) => {
-        const item = event.target.closest('[data-mrk-track-item]');
-        if (item) {
-          capture(item, item.dataset.mrkTrackClickAction || 'click');
-        }
-      });
-    })();
-  </script>
-{% endif %}
 {% schema %}
 {
   "name": "link-tab-check",
@@ -1098,34 +949,7 @@
       "label": "按钮2文本背景",
       "default": "#ffffff"
     },
-     {
-      "type": "header",
-      "content": "埋点相关配置"
-    },
-    {
-      "type": "checkbox",
-      "id": "tracking_enabled",
-      "label": "Enable tracking demo",
-      "default": false
-    },
-    {
-      "type": "metaobject",
-      "id": "tracking_module_type_metaobject",
-      "label": "PostHog module type",
-      "metaobject_type": "test_posthog_module_type",
-      "info": "Select the module type entry maintained by business, for example you_may_like."
-    },
-    {
-      "type": "textarea",
-      "id": "tracking_content_overrides",
-      "label": "Tracking content overrides",
-      "info": "One per line: product-handle=content_key"
-    },
-    {
-      "type": "text",
-      "id": "module_title",
-      "label": "Module title on capture"
-    }
+     
   ],
   "blocks": [
     {
