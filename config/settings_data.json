@@ -1,1 +1,311 @@
-{"current":{"section_vertical_spacing":"medium","button_border_radius":60,"input_border_radius":8,"block_border_radius":24,"block_shadow_opacity":10,"block_shadow_vertical_offset":18,"background":"#ffffff","text_color":"#1a1a1a","success_background":"#fffff","header_background":"#000000","header_text_color":"#ffffff","footer_background":"#000000","footer_text_color":"#ffffff","dialog_background":"#ffffff","primary_button_background":"#000000","primary_button_text_color":"#ffffff","secondary_button_background":"#01111e","secondary_button_text_color":"#ffffff","product_card_text_color":"#1a1a1a","product_sold_out_badge_background":"#000000","product_primary_badge_background":"#803cee","heading_font":"din_next_n7","heading_font_size":"large","heading_letter_spacing":-2,"text_font":"din_next_n4","heading_apparition":"split_fade","discount_mode":"saving","product_color_display":"swatch","product_info_alignment":"start","cart_type":"popover","cart_icon":"shopping_basket","cart_free_shipping_threshold":"","social_facebook":"http:\/\/www.facebook.com\/merachfit.uk","social_twitter":"https:\/\/x.com\/Merach_uk?t=YIfJDeRWGH9gOMtBh_bVew&s=09","social_instagram":"https:\/\/www.instagram.com\/merach_uk\/","social_youtube":"https:\/\/www.youtube.com\/@MerachUK","social_tiktok":"https:\/\/www.tiktok.com\/@merachsports.uk","social_telegram":"https:\/\/t.me\/merachuk","social_discord":"","favicon":"shopify:\/\/shop_images\/merach_smart_fitness_logo-1.png","checkout_accent_color":"#f0c417","checkout_button_color":"#1a1a1a","content_for_index":[],"blocks":{"15683396631634586217":{"type":"shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b","disabled":false,"settings":{"button_color":"#000000","secondary_color":"#FFFFFF","ternary_color":"#6A6A6A","button_icon":"chat_bubble","button_text":"chat_with_us","button_horizontal_position":"bottom_right","button_vertical_position":"higher","greeting_message":"Welcome to Merach! How can we help you today? \n\n[1] Pre-sales\n[2] After-sales\n[3] About Warranty\n[4] Have questions? Email us at info.uk@merachfit.com"}},"14327677521557774844":{"type":"shopify:\/\/apps\/simprosys-google-shopping-feed\/blocks\/core_settings_block\/1f0b859e-9fa6-4007-97e8-4513aff5ff3b","disabled":false,"settings":{}},"15351435345818755577":{"type":"shopify:\/\/apps\/pandectes-gdpr\/blocks\/banner\/58c0baa2-6cc1-480c-9ea6-38d6d559556a","disabled":false,"settings":{}},"15796953133730294439":{"type":"shopify:\/\/apps\/growave-loyalty-wishlist\/blocks\/block.embed.socialshopwave-helper\/b3d2efbe-110a-4e27-84a8-1f2ed63996a4","disabled":false,"settings":{"disable_shadow_root_globally":false}},"9356323809658795675":{"type":"shopify:\/\/apps\/reelup-shoppable-videos-reels\/blocks\/reelup\/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b","disabled":false,"settings":{"debugging_global_script":"","enable_reelPops":true}},"13790739142488346433":{"type":"shopify:\/\/apps\/lai-product-reviews\/blocks\/appBlockEmbed\/cad3c6c6-329e-4416-ba74-b79359b5b6e1","disabled":false,"settings":{}},"1744161739547163668":{"type":"shopify:\/\/apps\/hextom-timer-bar\/blocks\/ctb-embeded-block\/f7b88b6e-2e87-46bc-87a9-3e3638a24fa9","disabled":false,"settings":{}},"18228966181090706294":{"type":"shopify:\/\/apps\/selleasy\/blocks\/app-embed\/790c1a03-a71f-4bc1-9869-00dad526d3c2","disabled":false,"settings":{"storefrontAccessToken":""}},"17368511000352060744":{"type":"shopify:\/\/apps\/goaffpro-affiliate-marketing\/blocks\/goaffpro-embedded-pixel\/2f4d802b-86c2-47e4-8096-ae1aa3efbab2","disabled":false,"settings":{}},"3842503713604335150":{"type":"shopify:\/\/apps\/vify-order-printer\/blocks\/invoice_download_embed\/8e413796-b0ed-4419-ae4e-893123b931a9","disabled":false,"settings":{"icon":true,"label":"Download PDF Invoice","fontSize":16,"align":"center","singleLine":false,"autoDetectLanguage":false,"language":"en","color":"#ffffff","bgColor":"#1A7BFF","marginTop":10,"marginBottom":10,"marginLeft":10,"marginRight":10}},"9859414570452352049":{"type":"shopify:\/\/apps\/bixgrow-affiliate\/blocks\/bixgrow_tracker\/b4f8e2e0-5ee6-49dd-b333-2e5542feb60a","disabled":false,"settings":{}},"15708221509552732220":{"type":"shopify:\/\/apps\/vify-order-printer\/blocks\/refund_download_embed\/8e413796-b0ed-4419-ae4e-893123b931a9","disabled":false,"settings":{"icon":true,"label":"Download PDF Refund","fontSize":16,"align":"center","singleLine":false,"autoDetectLanguage":false,"language":"en","color":"#ffffff","bgColor":"#2AA744","marginTop":10,"marginBottom":10,"marginLeft":10,"marginRight":10}},"1592368672439559791":{"type":"shopify:\/\/apps\/bixgrow-affiliate\/blocks\/toolbar\/b4f8e2e0-5ee6-49dd-b333-2e5542feb60a","disabled":false,"settings":{}},"11094386660110182669":{"type":"shopify:\/\/apps\/vify-order-printer\/blocks\/create_draft_order_embed\/8e413796-b0ed-4419-ae4e-893123b931a9","disabled":false,"settings":{"label":"Request A Draft Order","address_required":"","draft_order_success":"","enableDownload":false,"download_link_message":"","requireAddress":true,"autoDetectLanguage":false,"language":"en","fontSize":15,"color":"#ffffff","bgColor":"#1A7BFF","align":"full","marginTop":5,"marginBottom":5,"marginLeft":0,"marginRight":0}},"2539598332178966696":{"type":"shopify:\/\/apps\/xcotton-post-purchase-guard\/blocks\/insurance\/6531bb8b-340c-42d4-b5da-1734c7a2c524","disabled":false,"settings":{}},"2408178403731195062":{"type":"shopify:\/\/apps\/tradedoubler-affiliate\/blocks\/app-embed\/5336782f-9a78-4117-be6f-8cc073d67e6c","disabled":false,"settings":{}},"1513253815146976218":{"type":"shopify:\/\/apps\/omnisend-email-marketing-sms\/blocks\/app-embed\/44704aa2-794f-4c5d-8c8e-039c841158e9","disabled":false,"settings":{}},"4599381594862710133":{"type":"shopify:\/\/apps\/notim\/blocks\/app-embed\/ce956955-2f3f-4a66-96d2-8c88d6e6cd48","disabled":true,"settings":{}},"8367999757253633140":{"type":"shopify:\/\/apps\/schema-plus-for-seo\/blocks\/schemaplus_app_embed\/0199c405-aef8-7230-87a6-aacc5fab62ed","disabled":false,"settings":{}}}},"presets":{"Sound":{"section_vertical_spacing":"medium","button_border_radius":60,"input_border_radius":8,"block_border_radius":24,"block_shadow_opacity":10,"block_shadow_vertical_offset":18,"background":"#f0f0f0","text_color":"#1a1a1a","header_background":"#f0f0f0","header_text_color":"#1a1a1a","footer_background":"#ffffff","footer_text_color":"#1a1a1a","primary_button_background":"#1a1a1a","primary_button_text_color":"#ffffff","secondary_button_background":"#f0c417","secondary_button_text_color":"#1a1a1a","product_card_text_color":"#1a1a1a","product_primary_badge_background":"#803cee","heading_font":"barlow_n7","heading_font_size":"large","heading_letter_spacing":-2,"text_font":"barlow_n4","cart_icon":"shopping_basket","heading_apparition":"split_fade","product_color_display":"swatch","product_info_alignment":"start","checkout_accent_color":"#f0c417","checkout_button_color":"#1a1a1a"},"Home":{"section_vertical_spacing":"medium","section_boxed_horizontal_spacing":"large","button_hover_effect":"reverse","background":"#ffffff","text_color":"#272727","success_color":"#708a5c","warning_color":"#e37e16","error_color":"#aa2826","header_background":"#ffffff","header_text_color":"#272727","footer_background":"#f2f2f2","footer_text_color":"#272727","primary_button_background":"#272727","primary_button_text_color":"#ffffff","secondary_button_background":"#3c619e","secondary_button_text_color":"#ffffff","product_card_text_color":"#272727","product_on_sale_accent":"#e34f4f","product_sold_out_badge_background":"#bebdb9","product_primary_badge_background":"#3c619e","heading_font":"jost_n7","heading_font_size":"large","heading_text_transform":"normal","heading_letter_spacing":-1,"text_font":"jost_n4","cart_icon":"shopping_basket","heading_apparition":"split_rotation","color_swatch_style":"rectangle","product_color_display":"swatch","cart_type":"drawer","checkout_body_background_color":"#f2f2f2","checkout_sidebar_background_color":"#ffffff","checkout_accent_color":"#3c619e","checkout_button_color":"#3c619e"},"Shape":{"page_width":1440,"section_vertical_spacing":"small","section_boxed_horizontal_spacing":"medium","button_border_radius":60,"input_border_radius":8,"block_border_radius":20,"icon_stroke_width":1.5,"button_style":"fill","button_hover_effect":"reverse","text_color":"#2a555a","header_background":"#ffffff","header_text_color":"#2a555a","footer_background":"#f7f7f7","footer_text_color":"#2a555a","primary_button_background":"#2a555a","primary_button_text_color":"#ffffff","secondary_button_background":"#d9967e","product_card_text_color":"#2a555a","cart_icon":"tote_bag","heading_font":"fraunces_n3","heading_font_size":"large","heading_text_transform":"normal","heading_letter_spacing":-1,"text_font":"muli_n4","text_font_size_desktop":15,"product_color_display":"swatch","product_info_alignment":"center"}}}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "section_vertical_spacing": "medium",
+    "button_border_radius": 60,
+    "input_border_radius": 8,
+    "block_border_radius": 24,
+    "block_shadow_opacity": 10,
+    "block_shadow_vertical_offset": 18,
+    "background": "#ffffff",
+    "text_color": "#1a1a1a",
+    "success_background": "#fffff",
+    "header_background": "#FFFFFF",
+    "header_text_color": "#000000",
+    "footer_background": "#000000",
+    "footer_text_color": "#ffffff",
+    "dialog_background": "#ffffff",
+    "primary_button_background": "#000000",
+    "primary_button_text_color": "#ffffff",
+    "secondary_button_background": "#01111e",
+    "secondary_button_text_color": "#ffffff",
+    "product_card_text_color": "#1a1a1a",
+    "product_sold_out_badge_background": "#000000",
+    "product_primary_badge_background": "#803cee",
+    "heading_font": "din_next_n7",
+    "heading_font_size": "large",
+    "heading_letter_spacing": -2,
+    "text_font": "din_next_n4",
+    "heading_apparition": "split_fade",
+    "discount_mode": "saving",
+    "product_color_display": "swatch",
+    "product_info_alignment": "start",
+    "cart_type": "popover",
+    "cart_icon": "shopping_basket",
+    "cart_free_shipping_threshold": "",
+    "social_facebook": "http://www.facebook.com/merachfit.uk",
+    "social_twitter": "https://x.com/Merach_uk?t=YIfJDeRWGH9gOMtBh_bVew&s=09",
+    "social_instagram": "https://www.instagram.com/merach_uk/",
+    "social_youtube": "https://www.youtube.com/@MerachUK",
+    "social_tiktok": "https://www.tiktok.com/@merachsports.uk",
+    "social_telegram": "https://t.me/merachuk",
+    "social_discord": "",
+    "favicon": "shopify://shop_images/merach_smart_fitness_logo-1.png",
+    "checkout_accent_color": "#f0c417",
+    "checkout_button_color": "#1a1a1a",
+    "content_for_index": [],
+    "blocks": {
+      "15683396631634586217": {
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": false,
+        "settings": {
+          "greeting_message": "Welcome to Merach! How can we help you today? \n\n[1] Pre-sales\n[2] After-sales\n[3] About Warranty\n[4] Have questions? Email us at info.uk@merachfit.com",
+          "button_color": "#000000",
+          "secondary_color": "#FFFFFF",
+          "ternary_color": "#6A6A6A",
+          "button_icon": "chat_bubble",
+          "button_text": "chat_with_us",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "higher"
+        }
+      },
+      "14327677521557774844": {
+        "type": "shopify://apps/simprosys-google-shopping-feed/blocks/core_settings_block/1f0b859e-9fa6-4007-97e8-4513aff5ff3b",
+        "disabled": false,
+        "settings": {}
+      },
+      "15351435345818755577": {
+        "type": "shopify://apps/pandectes-gdpr/blocks/banner/58c0baa2-6cc1-480c-9ea6-38d6d559556a",
+        "disabled": false,
+        "settings": {}
+      },
+      "15796953133730294439": {
+        "type": "shopify://apps/growave-loyalty-wishlist/blocks/block.embed.socialshopwave-helper/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+        "disabled": false,
+        "settings": {
+          "disable_shadow_root_globally": false
+        }
+      },
+      "9356323809658795675": {
+        "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
+        "disabled": false,
+        "settings": {
+          "debugging_global_script": "",
+          "enable_reelPops": true
+        }
+      },
+      "13790739142488346433": {
+        "type": "shopify://apps/lai-product-reviews/blocks/appBlockEmbed/cad3c6c6-329e-4416-ba74-b79359b5b6e1",
+        "disabled": false,
+        "settings": {}
+      },
+      "1744161739547163668": {
+        "type": "shopify://apps/hextom-timer-bar/blocks/ctb-embeded-block/f7b88b6e-2e87-46bc-87a9-3e3638a24fa9",
+        "disabled": false,
+        "settings": {}
+      },
+      "18228966181090706294": {
+        "type": "shopify://apps/selleasy/blocks/app-embed/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+        "disabled": false,
+        "settings": {
+          "storefrontAccessToken": ""
+        }
+      },
+      "17368511000352060744": {
+        "type": "shopify://apps/goaffpro-affiliate-marketing/blocks/goaffpro-embedded-pixel/2f4d802b-86c2-47e4-8096-ae1aa3efbab2",
+        "disabled": false,
+        "settings": {}
+      },
+      "3842503713604335150": {
+        "type": "shopify://apps/vify-order-printer/blocks/invoice_download_embed/8e413796-b0ed-4419-ae4e-893123b931a9",
+        "disabled": false,
+        "settings": {
+          "icon": true,
+          "label": "Download PDF Invoice",
+          "fontSize": 16,
+          "align": "center",
+          "singleLine": false,
+          "autoDetectLanguage": false,
+          "language": "en",
+          "color": "#ffffff",
+          "bgColor": "#1A7BFF",
+          "marginTop": 10,
+          "marginBottom": 10,
+          "marginLeft": 10,
+          "marginRight": 10
+        }
+      },
+      "9859414570452352049": {
+        "type": "shopify://apps/bixgrow-affiliate/blocks/bixgrow_tracker/b4f8e2e0-5ee6-49dd-b333-2e5542feb60a",
+        "disabled": false,
+        "settings": {}
+      },
+      "15708221509552732220": {
+        "type": "shopify://apps/vify-order-printer/blocks/refund_download_embed/8e413796-b0ed-4419-ae4e-893123b931a9",
+        "disabled": false,
+        "settings": {
+          "icon": true,
+          "label": "Download PDF Refund",
+          "fontSize": 16,
+          "align": "center",
+          "singleLine": false,
+          "autoDetectLanguage": false,
+          "language": "en",
+          "color": "#ffffff",
+          "bgColor": "#2AA744",
+          "marginTop": 10,
+          "marginBottom": 10,
+          "marginLeft": 10,
+          "marginRight": 10
+        }
+      },
+      "1592368672439559791": {
+        "type": "shopify://apps/bixgrow-affiliate/blocks/toolbar/b4f8e2e0-5ee6-49dd-b333-2e5542feb60a",
+        "disabled": false,
+        "settings": {}
+      },
+      "11094386660110182669": {
+        "type": "shopify://apps/vify-order-printer/blocks/create_draft_order_embed/8e413796-b0ed-4419-ae4e-893123b931a9",
+        "disabled": false,
+        "settings": {
+          "label": "Request A Draft Order",
+          "address_required": "",
+          "draft_order_success": "",
+          "enableDownload": false,
+          "download_link_message": "",
+          "requireAddress": true,
+          "autoDetectLanguage": false,
+          "language": "en",
+          "fontSize": 15,
+          "color": "#ffffff",
+          "bgColor": "#1A7BFF",
+          "align": "full",
+          "marginTop": 5,
+          "marginBottom": 5,
+          "marginLeft": 0,
+          "marginRight": 0
+        }
+      },
+      "2539598332178966696": {
+        "type": "shopify://apps/xcotton-post-purchase-guard/blocks/insurance/6531bb8b-340c-42d4-b5da-1734c7a2c524",
+        "disabled": false,
+        "settings": {}
+      },
+      "2408178403731195062": {
+        "type": "shopify://apps/tradedoubler-affiliate/blocks/app-embed/5336782f-9a78-4117-be6f-8cc073d67e6c",
+        "disabled": false,
+        "settings": {}
+      },
+      "1513253815146976218": {
+        "type": "shopify://apps/omnisend-email-marketing-sms/blocks/app-embed/44704aa2-794f-4c5d-8c8e-039c841158e9",
+        "disabled": false,
+        "settings": {}
+      },
+      "4599381594862710133": {
+        "type": "shopify://apps/notim/blocks/app-embed/ce956955-2f3f-4a66-96d2-8c88d6e6cd48",
+        "disabled": true,
+        "settings": {}
+      },
+      "8367999757253633140": {
+        "type": "shopify://apps/schema-plus-for-seo/blocks/schemaplus_app_embed/0199c405-aef8-7230-87a6-aacc5fab62ed",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
+  "presets": {
+    "Sound": {
+      "section_vertical_spacing": "medium",
+      "button_border_radius": 60,
+      "input_border_radius": 8,
+      "block_border_radius": 24,
+      "block_shadow_opacity": 10,
+      "block_shadow_vertical_offset": 18,
+      "background": "#f0f0f0",
+      "text_color": "#1a1a1a",
+      "header_background": "#f0f0f0",
+      "header_text_color": "#1a1a1a",
+      "footer_background": "#ffffff",
+      "footer_text_color": "#1a1a1a",
+      "primary_button_background": "#1a1a1a",
+      "primary_button_text_color": "#ffffff",
+      "secondary_button_background": "#f0c417",
+      "secondary_button_text_color": "#1a1a1a",
+      "product_card_text_color": "#1a1a1a",
+      "product_primary_badge_background": "#803cee",
+      "heading_font": "barlow_n7",
+      "heading_font_size": "large",
+      "heading_letter_spacing": -2,
+      "text_font": "barlow_n4",
+      "cart_icon": "shopping_basket",
+      "heading_apparition": "split_fade",
+      "product_color_display": "swatch",
+      "product_info_alignment": "start",
+      "checkout_accent_color": "#f0c417",
+      "checkout_button_color": "#1a1a1a"
+    },
+    "Home": {
+      "section_vertical_spacing": "medium",
+      "section_boxed_horizontal_spacing": "large",
+      "button_hover_effect": "reverse",
+      "background": "#ffffff",
+      "text_color": "#272727",
+      "success_color": "#708a5c",
+      "warning_color": "#e37e16",
+      "error_color": "#aa2826",
+      "header_background": "#ffffff",
+      "header_text_color": "#272727",
+      "footer_background": "#f2f2f2",
+      "footer_text_color": "#272727",
+      "primary_button_background": "#272727",
+      "primary_button_text_color": "#ffffff",
+      "secondary_button_background": "#3c619e",
+      "secondary_button_text_color": "#ffffff",
+      "product_card_text_color": "#272727",
+      "product_on_sale_accent": "#e34f4f",
+      "product_sold_out_badge_background": "#bebdb9",
+      "product_primary_badge_background": "#3c619e",
+      "heading_font": "jost_n7",
+      "heading_font_size": "large",
+      "heading_text_transform": "normal",
+      "heading_letter_spacing": -1,
+      "text_font": "jost_n4",
+      "cart_icon": "shopping_basket",
+      "heading_apparition": "split_rotation",
+      "color_swatch_style": "rectangle",
+      "product_color_display": "swatch",
+      "cart_type": "drawer",
+      "checkout_body_background_color": "#f2f2f2",
+      "checkout_sidebar_background_color": "#ffffff",
+      "checkout_accent_color": "#3c619e",
+      "checkout_button_color": "#3c619e"
+    },
+    "Shape": {
+      "page_width": 1440,
+      "section_vertical_spacing": "small",
+      "section_boxed_horizontal_spacing": "medium",
+      "button_border_radius": 60,
+      "input_border_radius": 8,
+      "block_border_radius": 20,
+      "icon_stroke_width": 1.5,
+      "button_style": "fill",
+      "button_hover_effect": "reverse",
+      "text_color": "#2a555a",
+      "header_background": "#ffffff",
+      "header_text_color": "#2a555a",
+      "footer_background": "#f7f7f7",
+      "footer_text_color": "#2a555a",
+      "primary_button_background": "#2a555a",
+      "primary_button_text_color": "#ffffff",
+      "secondary_button_background": "#d9967e",
+      "product_card_text_color": "#2a555a",
+      "cart_icon": "tote_bag",
+      "heading_font": "fraunces_n3",
+      "heading_font_size": "large",
+      "heading_text_transform": "normal",
+      "heading_letter_spacing": -1,
+      "text_font": "muli_n4",
+      "text_font_size_desktop": 15,
+      "product_color_display": "swatch",
+      "product_info_alignment": "center"
+    }
+  }
+}
