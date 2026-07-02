@@ -1,0 +1,594 @@
+{%- if is_mobile -%}
+  <style>
+    #mega-grid-mobile-{{ block.id }} {
+      --tab-normal-color: {{ block.settings.tab_normal_color | default: '#666666' }};
+      --grid-card-bg: {{ block.settings.grid_card_bg | default: '#fafafc' }};
+      --grid-title-color: {{ block.settings.grid_title_color | default: '#000000' }};
+      --grid-price-color: {{ block.settings.grid_price_color | default: '#000000' }};
+    }
+
+    #mega-grid-mobile-{{ block.id }} {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+    }
+    #mega-grid-mobile-{{ block.id }} .block-right-card {
+      padding: 10px 20px 30px;
+    }
+    #mega-grid-mobile-{{ block.id }} .right-card-media {
+      display: block;
+      width: 100%;
+      aspect-ratio: 325/216;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+    }
+    #mega-grid-mobile-{{ block.id }} .right-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #mega-grid-mobile-{{ block.id }} .right-card-buttons {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+    .grid-mobile-columns-wrap{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 12px 20px;
+      background: #FAFAFC;
+    }
+    #mega-grid-mobile-{{ block.id }} .grid-mobile-column-box {
+    }
+    #mega-grid-mobile-{{ block.id }} .grid-mobile-column-title {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--grid-tab-title-color);
+      margin-bottom: 14px;
+      display: block;
+    }
+    #mega-grid-mobile-{{ block.id }} .grid-mobile-products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding-bottom: 12px;
+    }
+    #mega-grid-mobile-{{ block.id }} .grid-mobile-product-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 30px 12px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+    #mega-grid-mobile-{{ block.id }} .sale_tag {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      font-size: 10px;
+      line-height: 16px;
+      font-weight: 600;
+      padding: 0 8px;
+      border-radius: 10px;
+      z-index: 2;
+      width: fit-content;
+    }
+    #mega-grid-mobile-{{ block.id }} .product-card-media {
+      display: block;
+      width: 100%;
+      aspect-ratio: 148 / 85;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    #mega-grid-mobile-{{ block.id }} .product-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #mega-grid-mobile-{{ block.id }} .product-card-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex-grow: 1;
+      align-items: center;
+    }
+    #mega-grid-mobile-{{ block.id }} .product-card-title {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 18px;
+      color: var(--grid-title-color);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      height: 36px;
+      text-align: center;
+    }
+    #mega-grid-mobile-{{ block.id }} .product-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+    #mega-grid-mobile-{{ block.id }} .product-card-price {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--grid-price-color);
+    }
+    #mega-grid-mobile-{{ block.id }} .grid-mobile-shop-all-wrap {
+      display: flex;
+      margin-top: 4px;
+      margin-bottom: 20px;
+    }
+    #mega-grid-mobile-{{ block.id }} .grid-mobile-shop-all-btn {
+      font-size: 12px;
+      padding: 8px 20px;
+      line-height: 16px;
+      border-radius: 20px;
+      text-decoration: none !important;
+      border: 1px solid #53565A;
+      color: #53565A;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+    }
+     #mega-grid-mobile-{{ block.id }} .block-content-title{
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    #mega-grid-mobile-{{ block.id }} .header-shop-all-btn-sm{
+      font-size: 12px;
+      line-height: 16px;
+          padding: 6px 10px;
+    }
+  </style>
+
+  <div class="mobile-mega-grid-block" id="mega-grid-mobile-{{ block.id }}">
+    {% if block.settings.product != blank %}
+      {%- assign right_image = block.settings.image | default: block.settings.product.featured_image -%}
+      {%- assign right_url = block.settings.link_url | default: block.settings.product.url -%}
+      <div class="block-right-card">
+        {%- if right_image != blank -%}
+          <a class="right-card-media" href="{{ right_url }}">
+            <img
+              src="{{ right_image | image_url: width: 400 }}"
+              alt="{{ block.settings.image.alt | default: block.settings.product.title | escape }}"
+              loading="lazy"
+            >
+            <span class="block-content-title">
+              {{-
+                block.settings.product.metafields.custom.custom_product_title
+                | default: block.settings.product.title
+                | truncate: 20
+              -}}
+            </span>
+          </a>
+        {%- endif -%}
+        <div class="right-card-buttons">
+          {% if block.settings.bottom_group_btn_href != blank %}
+            <a
+              href="{{  block.settings.bottom_group_btn_href }}"
+              class="header-shop-all-btn header-bottom-btn"
+            >
+              {{- block.settings.bottom_group_btn_text -}}
+            </a>
+          {% endif %}
+          {% if block.settings.button_group_compare_href != blank %}
+            <a
+              style="background:black;color:white;border: 1px solid black;"
+              class=" header-shop-all-btn header-bottom-btn"
+              href="{{  block.settings.button_group_compare_href }}"
+            >
+              {{- block.settings.button_group_compare_text -}}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    <div class="grid-mobile-columns-wrap">
+      {%- for grid_link in link.links limit: 5 -%}
+        {%- if grid_link.object.products.size > 0 -%}
+          <div class="grid-mobile-column-box">
+            <a href="{{ grid_link.object.url }}" class="grid-mobile-column-title">{{ grid_link.title | escape }}</a>
+            <div class="grid-mobile-shop-all-wrap">
+              <a href="{{ grid_link.object.url }}" class="header-shop-all-btn grid-mobile-shop-all-btn">Shop All</a>
+            </div>
+            <div class="grid-mobile-products-grid">
+              {%- for product in grid_link.object.products limit: 2 -%}
+                <div class="grid-mobile-product-card">
+                  {% if product.metafields.custom.sale_tag_text != blank %}
+                    <span
+                      class="sale_tag"
+                      style="background:{{product.metafields.custom.sale_tag_background | default:'#0096F9'}};color:{{ product.metafields.custom.sale_tag_color | default:'#fff' }}"
+                    >
+                      {{- product.metafields.custom.sale_tag_text -}}
+                    </span>
+                  {% endif %}
+                  <a class="product-card-media" href="{{ product.url }}">
+                    {% if product.metafields.custom.header_featured_image != blank %}
+                      <img
+                        src="{{ product.metafields.custom.header_featured_image | image_url: width: 250 }}"
+                        alt="{{ product.title | escape }}"
+                        loading="lazy"
+                      >
+                    {% else %}
+                      <img
+                        src="{{ product.featured_image | image_url: width: 250 }}"
+                        loading="lazy"
+                        alt="{{ product.title | escape }}"
+                      >
+                    {% endif %}
+                  </a>
+                  <div class="product-card-info">
+                    <div class="product-card-title">
+                      {{ product.metafields.custom.custom_product_title | default: product.title }}
+                    </div>
+                    <div class="product-card-bottom">
+                      <span class="product-card-price">{{ product.price | money }}</span>
+                    </div>
+                    <a
+                      href="{{ product.url }}"
+                      class="header-shop-all-btn header-shop-all-btn-sm"
+                    >
+                      Shop Now
+                    </a>
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+{%- else -%}
+  <style>
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} {
+        --grid-tab-title-color: {{ block.settings.grid_tab_color | default: '#000000' }};
+        --tab-active-color: {{ block.settings.tab_active_color | default: '#000000' }};
+        --grid-card-bg: {{ block.settings.grid_card_bg | default: '#fafafc' }};
+        --grid-title-color: {{ block.settings.grid_title_color | default: '#000000' }};
+        --grid-price-color: {{ block.settings.grid_price_color | default: '#000000' }};
+        --btn-bg-color: {{ block.settings.grid_btn_bg_color | default: '#000000' }};
+        --btn-text-color: {{ block.settings.grid_btn_text_color | default: '#ffffff' }};
+      }
+
+      #mega-grid-block-{{ block.id }} {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        width: 100%;
+        padding: 16px 0;
+      }
+
+      #mega-grid-block-{{ block.id }} .grid-column {
+        display: flex;
+        flex-direction: column;
+        background: var(--grid-card-bg);
+        border-radius: 8px;
+        padding: 8px 10px 10px;
+            flex: auto;
+      }
+
+       #mega-grid-block-{{ block.id }} .grid-column-container{
+        width: 100%;
+        flex: 1 1 0%;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+        opacity: 0;
+        max-width:20%;
+      }
+
+      .dropdown-mega_item_trigger.active #mega-grid-block-{{ block.id }} .grid-column-container {
+        animation: megaGridFadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+      .dropdown-mega_item_trigger.active #mega-grid-blockheader-grid-block-container-{{ block.id }} .block-right-card {
+        animation: megaGridFadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      @keyframes megaGridFadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      #mega-grid-block-{{ block.id }} .header-grid-block-item {
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+        padding: 19px 13px;
+        width: 100%;
+        box-sizing: border-box;
+        gap:5px;
+        position:relative;
+      }
+      #mega-grid-block-{{ block.id }} .sale_tag{
+        position:absolute;
+        left:0;
+        top:0;
+        font-size:12px;
+        line-height:19px;
+        font-weight:600;
+        padding:0 10px;
+        border-radius:20px;
+        width: fit-content;
+        z-index:2;
+    }
+
+      #mega-grid-block-{{ block.id }} .header-grid-block-item:hover {
+        {% comment %} transform: translateY(-4px); {% endcomment %}
+      }
+      #mega-grid-block-{{ block.id }} .grid-column-title{
+        font-size:16px;
+        line-height:24px;
+        font-weight: 500;
+        color:var(--grid-tab-title-color);
+        text-decoration: underline;
+      }
+
+      #mega-grid-block-{{ block.id }} .block-media {
+        display: block;
+        width: 100%;
+        aspect-ratio: 148 / 85;
+        position: relative;
+        margin-bottom:10px;
+      }
+
+      #mega-grid-block-{{ block.id }} .block-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      #mega-grid-block-{{ block.id }} .header-grid-block-item:hover .block-media img {
+        transform: scale(1.05);
+      }
+
+      #mega-grid-block-{{ block.id }} .block-content {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+            align-items: center;
+      }
+
+      #mega-grid-block-{{ block.id }} .block-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--grid-title-color);
+        line-height: 18px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        /* 多行截断 */
+        display: -webkit-box;        /* 必须，用于启用弹性盒模型 */
+        -webkit-line-clamp: 2;       /* 显示最多两行 */
+        -webkit-box-orient: vertical; /* 必须，定义主轴方向为纵向 */
+        text-align:center;
+        height: 36px;
+      }
+
+      #mega-grid-block-{{ block.id }} .block-price {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 500;
+        color: var(--grid-price-color);
+            margin-bottom: 10px;
+      }
+
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} {
+        display: flex;
+        gap: 24px;
+        width: 100%;
+      }
+
+      @media screen and (min-width: 1150px) {
+        #mega-grid-blockheader-grid-block-container-{{ block.id }} {
+          flex-direction: row;
+          gap: 40px;
+          align-items: center;
+        }
+      }
+
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .mega-grid-block {
+        flex: 1;
+        min-width: 0;
+      }
+
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .block-right-card {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 360px;
+        gap: 0px;
+      }
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .grid-shop-all-btn{
+            display: inline-block;
+        padding: 6px 16px;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+        color: #53565A;
+        border:1px solid;
+        border-radius: 20px;
+        text-decoration: none;
+        transition: opacity 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            margin-top: auto;
+    }
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .grid-shop-all-btn:hover {
+        opacity: 0.9;
+        color: var(--btn-text-color);
+        background: var(--btn-bg-color);
+      }
+      @media screen and (min-width: 1150px) {
+        #mega-grid-blockheader-grid-block-container-{{ block.id }} .block-right-card {
+          width: 360px;
+          flex-shrink: 0;
+        }
+      }
+
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .right-card-media {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16/10;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .right-card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .block-right-card:hover .right-card-media img {
+        transform: scale(1.05);
+      }
+
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .right-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 13px;
+        flex-grow: 1;
+      }
+
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .right-card-title {
+        font-size: 20px;
+        font-weight: 400;
+        color: #000000;
+        line-height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .right-card-des {
+        font-size: 12px;
+        font-weight: 400;
+        color: #53565A;
+        line-height: 18px;
+        height: 36px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .right-card-btn {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+        color: var(--tab-active-color);
+        text-decoration: none;
+        transition: opacity 0.3s ease, transform 0.2s ease;
+        margin-top: 5px;
+        text-decoration: underline;
+      }
+
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .right-card-btn:hover {
+        opacity: 0.9;
+      }
+
+      #mega-grid-blockheader-grid-block-container-{{ block.id }} .right-card-btn:active {
+        transform: scale(0.95);
+      }
+  </style>
+
+  <div
+    id="mega-grid-blockheader-grid-block-container-{{ block.id }}"
+    class="mega-grid-blockheader-grid-block-container"
+  >
+    <div id="mega-grid-block-{{ block.id }}" class="mega-grid-block">
+      {%- for grid_link in link.links limit: 5 -%}
+        {%- if grid_link.object.products.size > 0 -%}
+          <div class="grid-column-container">
+            <a href="{{ grid_link.url}}" class="grid-column-title">{{ grid_link.title | escape }}</a>
+            <div class="grid-column">
+              {%- for product in grid_link.object.products limit: 2 -%}
+                <div class="header-grid-block-item">
+                  {% if product.metafields.custom.sale_tag_text != blank %}
+                    <span
+                      class="sale_tag"
+                      style="background:{{product.metafields.custom.sale_tag_background | default:'#0096F9'}};color:{{ product.metafields.custom.sale_tag_color | default:'#fff' }}"
+                    >
+                      {{- product.metafields.custom.sale_tag_text -}}
+                    </span>
+                  {% endif %}
+                  <a class="block-media" href="{{ product.url }}">
+                    {% if product.metafields.custom.header_featured_image != blank %}
+                      <img
+                        src="{{ product.metafields.custom.header_featured_image | image_url: width: 300 }}"
+                        alt="{{ product.title | escape }}"
+                        loading="lazy"
+                      >
+                    {% else %}
+                      <img
+                        src="{{ product.featured_image | image_url: width: 300 }}"
+                        loading="lazy"
+                        alt="{{ product.title | escape }}"
+                      >
+                    {% endif %}
+                  </a>
+                  <div class="block-content">
+                    <a class="block-title" href="{{ product.url }}">
+                      {{- product.metafields.custom.custom_product_title | default: product.title -}}
+                    </a>
+                    <div class="block-price">{{ product.price | money }}</div>
+                    <a href="{{ grid_link.object.url }}" class="grid-shop-all-btn">Shop Now</a>
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {% if block.settings.product != blank %}
+      {%- assign right_image = block.settings.image | default: block.settings.product.featured_image -%}
+      {%- assign right_url = block.settings.link_url | default: block.settings.product.url -%}
+      <div class="block-right-card">
+        {%- if right_image != blank -%}
+          <a class="right-card-media" href="{{ right_url }}">
+            <img
+              src="{{ right_image | image_url: width: 400 }}"
+              alt="{{ block.settings.image.alt | default: block.settings.product.title | escape }}"
+              loading="lazy"
+            >
+          </a>
+        {%- endif -%}
+        <div class="right-card-content">
+          <div class="right-card-title">{{ block.settings.title | default: block.settings.product.title }}</div>
+          <div class="right-card-des">
+            {{ block.settings.description | default: block.settings.product.description | strip_html | truncate: 75 }}
+          </div>
+          <a class="right-card-btn" href="{{ right_url }}">
+            {{- block.settings.link_text | default: 'Shop Now' | escape -}}
+          </a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{%- endif -%}
