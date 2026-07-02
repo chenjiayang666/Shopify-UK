@@ -21,6 +21,7 @@
     "success_background": "#fffff",
     "header_background": "#FFFFFF",
     "header_text_color": "#000000",
+    "mobile_menu_drawer_background": "#1A1A1A",
     "footer_background": "#000000",
     "footer_text_color": "#ffffff",
     "dialog_background": "#ffffff",
