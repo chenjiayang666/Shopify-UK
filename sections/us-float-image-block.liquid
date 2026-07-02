@@ -1,0 +1,762 @@
+{% render 'section-settings' %}
+<style>
+   #shopify-section-{{ section.id }} .float-image-block-item{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: {{ section.settings.card-bg }};
+      border-radius:10px;
+      overflow:hidden;
+      {% comment %} box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); {% endcomment %}
+      height: auto;
+        transition: all 0.3s ease; /* 平滑过渡 */
+    }
+        {% comment %} #shopify-section-{{ section.id }} .float-image-block-item:hover{
+        transform: translateY(-3px); /* 稍微上浮 */
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25); /* 阴影更浓一些 */
+    } {% endcomment %}
+   #shopify-section-{{ section.id }} .float-image-block-item-img{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex:3;
+      overflow:hidden;
+  }
+   #shopify-section-{{ section.id }} .float-image-block-item-img img,
+   #shopify-section-{{ section.id }} .float-image-block-item-img video{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:flex;
+        aspect-ratio: 260 / 305;
+    transition: transform 0.3s ease;
+
+    }
+    #shopify-section-{{ section.id }} .float-image-block-item-img:hover img{
+    transform: scale(1.1);
+    }
+   #shopify-section-{{ section.id }} .float-image-block-item-info{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 1;
+    width: 100%;
+    gap: 10px;
+  }
+   #shopify-section-{{ section.id }} .float-image-block-item-info .title{
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 120%;
+      color: {{ section.settings.card-title-color }};
+  }
+   #shopify-section-{{ section.id }} .float-image-block-item-info .subtitle{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: 0;
+    color: {{ section.settings.card_description_color }};
+  }
+   #shopify-section-{{ section.id }} .block-container{
+      display:flex;
+      gap:20px;
+          align-items: flex-end;
+  }
+   #shopify-section-{{ section.id }} .block-middle{
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+      width: calc(2 * ((100% - 20px*2 - 20px) / 4) + 20px);
+  }
+   #shopify-section-{{ section.id }} .float-image-block-item-left,
+   #shopify-section-{{ section.id }} .float-image-block-item-right{
+        width: calc((100% - 20px*2 - 20px) / 4);
+  }
+   #shopify-section-{{ section.id }} .middle-float-top{
+      display: flex;
+      gap: 20px;
+  }
+     #shopify-section-{{ section.id }} .middle-float-top .float-image-block-item{
+      width: calc((100% - 20px) / 2);
+  }
+   #shopify-section-{{ section.id }} .middle-float-bottom{
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+   #shopify-section-{{ section.id }} .tab-header .title{
+      background:{{ section.settings.title-color}};
+      -webkit-background-clip: text;
+      -webkit-text-fill-color:
+      background-clip: text;
+      color: transparent;
+  }
+   #shopify-section-{{ section.id }} .tab-header .subtitle{
+      background:{{ section.settings.subtitle-color}};
+      -webkit-background-clip: text;
+      -webkit-text-fill-color:
+      background-clip: text;
+      color: transparent;
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 26px;
+  }
+  #shopify-section-{{ section.id }} .tab-header{
+    text-align:center;
+    }
+
+    @media(max-width:750px){
+      #shopify-section-{{ section.id }} .block-container{
+        display:none;
+      }
+      #shopify-section-{{ section.id }} .tab-header{
+        text-align:center;
+        margin-bottom:30px; 
+        padding-right:{{section.settings.padding-gap-mob }}px;
+        gap:10px;
+        display:flex;
+        flex-direction:column;
+     }
+     #shopify-section-{{ section.id }} .mobile-slide {
+      width:100%;
+      overflow:hidden;
+    }
+       #shopify-section-{{ section.id }} .float-image-block-container {
+    padding-right: 0;
+  }
+  #shopify-section-{{ section.id }} .tab-header .subtitle{
+      font-size: 16px;
+    line-height: 20px;
+    font-weight:500;
+            max-width: 230px;
+        margin: 0 auto;
+  }
+    }
+</style>
+{%- render 'posthog-context',
+  page_type: 'PDP',
+  page_type_label: 'Product Detail Page',
+  page_type_metaobject: section.settings.posthog_page_type_metaobject
+-%}
+{%- liquid
+  assign tracking_enabled = section.settings.tracking_enabled
+  assign tracking_page_type = 'PDP'
+  assign tracking_module_name = 'you_may_like'
+  assign tracking_module_label = section.settings.title | default: 'You may also like'
+  assign tracking_module_source = 'fallback'
+  assign tracking_module_type_metaobject = section.settings.tracking_module_type_metaobject
+  assign tracking_template = template.name
+  assign tracking_page_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  assign tracking_page_handle = product.handle | default:page.handle
+
+  if tracking_module_type_metaobject != blank
+    assign tracking_module_name_from_metaobject = tracking_module_type_metaobject.key.value | default: tracking_module_type_metaobject.module_name.value | default: tracking_module_type_metaobject.module_type.value | default: tracking_module_type_metaobject.system.handle
+    assign tracking_module_label_from_metaobject = tracking_module_type_metaobject.label.value | default: tracking_module_type_metaobject.name.value | default: tracking_module_type_metaobject.title.value | default: tracking_module_type_metaobject.system.handle
+
+    if tracking_module_name_from_metaobject != blank
+      assign tracking_module_name = tracking_module_name_from_metaobject
+      assign tracking_module_label = tracking_module_label_from_metaobject
+      assign tracking_module_source = 'metaobject'
+    endif
+  endif
+
+  if template.suffix != blank
+    assign tracking_template = template.name | append: '.' | append: template.suffix
+  endif
+-%}
+
+{%- liquid
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_overrides = section.settings.tracking_content_overrides | newline_to_br | split: '<br />'
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  for override in tracking_content_overrides
+    assign override_parts = override | strip | split: '='
+    assign override_handle = override_parts[0] | strip
+    assign override_key = override_parts[1] | strip
+
+    if override_handle == page.handle or override_handle == product.handle and override_key != blank
+      assign tracking_content_key = override_key
+    endif
+  endfor
+  assign tracking_name = tracking_page_type | upcase | append: '_' | append: tracking_page_sku | append: '_' | append: tracking_module_name | append: '_' | append: tracking_content_key
+-%}
+<section
+  {% if tracking_enabled %}
+    data-mrk-track-section
+    data-mrk-track-action="view"
+    data-mrk-track-page-type="{{ tracking_page_type | upcase | escape }}"
+    data-mrk-track-module-name="{{ tracking_module_name | escape }}"
+    data-mrk-track-module-label="{{ tracking_module_label | escape }}"
+    data-mrk-track-module-source="{{ tracking_module_source | escape }}"
+    data-mrk-track-module-title="{{ section.settings.module_title | escape }}"
+    data-mrk-track-content-key="{{ tracking_content_key }}"
+    data-mrk-track-content-type="module"
+    data-mrk-track-tracking-name="{{ tracking_page_type | upcase }}{% if tracking_page_sku != blank %}_{{ tracking_page_sku }}{% endif %} _{{ tracking_module_name }} _{{ tracking_content_key }}"
+    data-mrk-track-template="{{ tracking_template | escape }}"
+    data-mrk-track-section-id="{{ section.id | escape }}"
+    data-mrk-track-section-type="{{ section.type | escape }}"
+    data-mrk-track-page-handle="{{ tracking_page_handle | escape }}"
+  {% endif %} 
+   class="float-image-block section-padding">
+  <div class="float-image-block-container section-maxwidth section-gap {% if section.settings.animate %}fade-element{% endif %}">
+    <div class="block-container sm:block sm-max:hidden">
+
+    {% if section.blocks[0] != blank %}
+      {% assign block = section.blocks[0] %}
+      <div class="float-image-block-item float-image-block-item-left">
+        <div class="float-image-block-item-img">
+          {% if block.settings.video != blank %}
+            {{-
+              block.settings.video
+              | video_tag:
+                playsinline: true,
+                preload: 'metadata',
+                autoplay: true,
+                muted: true,
+                loop: true,
+                controls: true,
+                image_size: '800x',
+                class: 'lazy-video  media'
+            -}}
+          {% elsif block.settings.image != blank %}
+            <a {% if block.settings.url == blank and block.settings.product.url == blank %} style="pointer-events: none;" {% endif %} href="{{ block.settings.url | default: block.settings.product.url }}">
+                <img
+                src="{{ block.settings.image | image_url: width: 800 }}"
+                loading="lazy"
+                alt="{{ block.settings.title }}"
+                >
+            </a>
+
+          {% endif %}
+        </div>
+        <div class="float-image-block-item-info">
+          <h3 class="title">{{ block.settings.title }}</h3>
+          <p class="subtitle">{{ block.settings.subtitle | truncate: 70 }}</p>
+        </div>
+      </div>
+    {% endif %}
+    {% if section.blocks[1] != blank and section.blocks[2] != blank %}
+      <div class="block-middle">
+        <div class="middle-float-top">
+          {% assign block = section.blocks[1] %}
+          <div class="float-image-block-item">
+            <div class="float-image-block-item-img">
+            {% if block.settings.video != blank %}
+                {{-
+                block.settings.video
+                | video_tag:
+                    playsinline: true,
+                    preload: 'metadata',
+                    autoplay: true,
+                    muted: true,
+                    loop: true,
+                    controls: true,
+                    image_size: '800x',
+                    class: 'lazy-video  media'
+                -}}
+            {% elsif block.settings.image != blank %}
+                <a {% if block.settings.url == blank and block.settings.product.url == blank %} style="pointer-events: none;" {% endif %} href="{{ block.settings.url | default: block.settings.product.url }}">
+                    <img
+                    src="{{ block.settings.image | image_url: width: 800 }}"
+                    loading="lazy"
+                    alt="{{ block.settings.title }}"
+                    >
+                </a>
+
+            {% endif %}
+            </div>
+            <div class="float-image-block-item-info">
+              <h3 class="title">{{ block.settings.title }}</h3>
+              <p class="subtitle">{{ block.settings.subtitle | truncate: 70 }}</p>
+            </div>
+          </div>
+          {% assign block = section.blocks[2] %}
+          <div class="float-image-block-item">
+        <div class="float-image-block-item-img">
+          {% if block.settings.video != blank %}
+            {{-
+              block.settings.video
+              | video_tag:
+                playsinline: true,
+                preload: 'metadata',
+                autoplay: true,
+                muted: true,
+                loop: true,
+                controls: true,
+                image_size: '800x',
+                class: 'lazy-video  media'
+            -}}
+          {% elsif block.settings.image != blank %}
+            <a {% if block.settings.url == blank and block.settings.product.url == blank %} style="pointer-events: none;" {% endif %} href="{{ block.settings.url | default: block.settings.product.url }}">
+                <img
+                src="{{ block.settings.image | image_url: width: 800 }}"
+                loading="lazy"
+                alt="{{ block.settings.title }}"
+                >
+            </a>
+
+          {% endif %}
+        </div>
+            <div class="float-image-block-item-info">
+              <h3 class="title">{{ block.settings.title }}</h3>
+              <p class="subtitle">{{ block.settings.subtitle | truncate: 70 }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="middle-float-bottom">
+          <div class="tab-header">
+            {% if section.settings.title != blank %}
+              <div class="{{ section.settings.heading_tag }} title">{{ section.settings.title }}</div>
+            {% endif %}
+            {% if section.settings.subtitle != blank %}
+              <div class="subtitle">{{ section.settings.subtitle }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    {% if section.blocks[3] != blank %}
+      {% assign block = section.blocks[3] %}
+      <div class="float-image-block-item float-image-block-item-right">
+        <div class="float-image-block-item-img">
+          {% if block.settings.video != blank %}
+            {{-
+              block.settings.video
+              | video_tag:
+                playsinline: true,
+                preload: 'metadata',
+                autoplay: true,
+                muted: true,
+                loop: true,
+                controls: true,
+                image_size: '800x',
+                class: 'lazy-video  media'
+            -}}
+          {% elsif block.settings.image != blank %}
+            <a {% if block.settings.url == blank and block.settings.product.url == blank %} style="pointer-events: none;" {% endif %} href="{{ block.settings.url | default: block.settings.product.url }}">
+                <img
+                src="{{ block.settings.image | image_url: width: 800 }}"
+                loading="lazy"
+                alt="{{ block.settings.title }}"
+                >
+            </a>
+
+          {% endif %}
+        </div>
+        <div class="float-image-block-item-info">
+          <h3 class="title">{{ block.settings.title }}</h3>
+          <p class="subtitle">{{ block.settings.subtitle | truncate: 70 }}</p>
+        </div>
+      </div>
+    {% endif %}
+    </div>
+    <div class="mobile-slide sm:hidden sm-max:block">
+      <div class="tab-header">
+        {% if section.settings.title != blank %}
+          <div class="{{ section.settings.heading_tag }} title">{{ section.settings.title }}</div>
+        {% endif %}
+        {% if section.settings.subtitle != blank %}
+          <div class="subtitle">{{ section.settings.subtitle }}</div>
+        {% endif %}
+      </div>
+      <div class="slide-container swiper-{{ section.id }}">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="float-image-block-item swiper-slide">
+              <div class="float-image-block-item-img">
+                {% if block.settings.video != blank %}
+                  {{-
+                    block.settings.video
+                    | video_tag:
+                      playsinline: true,
+                      preload: 'metadata',
+                      autoplay: true,
+                      muted: true,
+                      loop: true,
+                      controls: true,
+                      image_size: '800x',
+                      class: 'lazy-video  media'
+                  -}}
+                {% elsif block.settings.image != blank %}
+                  <a {% if block.settings.url == blank and block.settings.product.url == blank %} style="pointer-events: none;" {% endif %} href="{{ block.settings.url | default: block.settings.product.url }}">
+                      <img
+                      src="{{ block.settings.image | image_url: width: 800 }}"
+                      loading="lazy"
+                      alt="{{ block.settings.title }}"
+                      >
+                  </a>
+
+                {% endif %}
+              </div>
+              <div class="float-image-block-item-info">
+                <h3 class="title">{{ block.settings.title }}</h3>
+                <p class="subtitle">{{ block.settings.subtitle | truncate: 70 }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  (function(){
+    var floatswiper = new Swiper('.swiper-{{ section.id }}', {
+          slidesPerView: 1.3,
+          spaceBetween: 20,
+          breakpoints:{
+          0:{
+          spaceBetween: 10,
+          }
+          }
+      })
+  })()
+</script>
+{% if tracking_enabled %}
+  <script>
+    (() => {
+      const section = document.getElementById('shopify-section-{{ section.id }}');
+      if (!section || !window.posthog) {
+        return;
+      }
+
+      const firstValue = (...values) => values.find((value) => (typeof value === 'string' ? value.trim() : value));
+      const buildTrackingName = (...values) => values.filter(Boolean).join('_');
+
+      const buildPayload = (element, action) => {
+        const pageContext = window.MerachTrackingContext || {};
+        const pageType = firstValue(pageContext.page_type, element.dataset.mrkTrackPageType);
+        const pageSku = firstValue(pageContext.page_sku);
+        const moduleName = firstValue(element.dataset.mrkTrackModuleName);
+        const contentKey = firstValue(element.dataset.mrkTrackContentKey);
+        const contentSku = firstValue(element.dataset.mrkTrackContentSku);
+        const actionSku = action === 'click' ? firstValue(element.dataset.mrkTrackActionSku, contentSku) : null;
+        const trackingName =
+          buildTrackingName(pageType, pageSku, moduleName, contentKey) || element.dataset.mrkTrackTrackingName;
+
+        const payload = {
+          ...pageContext,
+          schema_version: '1.0',
+          action,
+          tracking_name: trackingName,
+          page_type: pageType,
+          page_key: pageSku,
+          page_sku: pageSku,
+          page_handle: firstValue(pageContext.page_handle, element.dataset.mrkTrackPageHandle),
+          page_url: window.location.href,
+          module_name: moduleName,
+          module_label: element.dataset.mrkTrackModuleLabel,
+          module_source: element.dataset.mrkTrackModuleSource,
+          module_title: element.dataset.mrkTrackModuleTitle,
+          content_key: contentKey,
+          content_sku: contentSku,
+          content_type: element.dataset.mrkTrackContentType,
+          content_handle: element.dataset.mrkTrackContentHandle,
+          item_position: Number(element.dataset.mrkTrackItemPosition || 0) || null,
+          template: firstValue(pageContext.template, element.dataset.mrkTrackTemplate),
+          section_id: element.dataset.mrkTrackSectionId,
+          section_type: element.dataset.mrkTrackSectionType,
+          utm_source: sessionStorage.getItem('utm_source') || '',
+        };
+
+        if (actionSku) {
+          payload.action_sku = actionSku;
+        }
+
+        return payload;
+      };
+
+      const capture = (element, action) => {
+        const trackedActions = (element.dataset.mrkTrackedActions || '').split('|');
+
+        if (trackedActions.includes(action)) {
+          return;
+        }
+
+        window.posthog.capture('merach_module_interaction', buildPayload(element, action));
+        element.dataset.mrkTrackedActions = `${element.dataset.mrkTrackedActions || ''}|${action}`;
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              capture(entry.target, entry.target.dataset.mrkTrackAction || 'view');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+
+      section.querySelectorAll('[data-mrk-track-section],[data-mrk-track-item]').forEach((element) => observer.observe(element));
+
+      section.addEventListener('click', (event) => {
+        const item = event.target.closest('[data-mrk-track-item]');
+        if (item) {
+          capture(item, item.dataset.mrkTrackClickAction || 'click');
+        }
+      });
+    })();
+  </script>
+{% endif %}
+{% schema %}
+{
+  "name": "Float Image Block",
+  "class": "float-image-block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Unique ID for anchor links",
+      "default": "multi-column-product-pro"
+    },
+                {
+      "type": "checkbox",
+      "id": "animate",
+      "label": "启用键入动画",
+      "default": true,
+      "info": "修改配置的时候关闭"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom"
+    },
+    {
+      "type": "range",
+      "id": "padding-gap",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap"
+    },
+    {
+      "type": "header",
+      "content": "Width restriction",
+      "info": "Section maxWidth"
+    },
+    {
+      "type": "range",
+      "id": "max-width",
+      "max": 1920,
+      "min": 1100,
+      "step": 20,
+      "default": 1600,
+      "label": "Section width"
+    },
+    {
+      "type": "header",
+      "content": "Mob setting"
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-gap-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap mob"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "WHY MERACH"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Style",
+      "options": [
+        {
+          "value": "h1",
+          "label": "X-Large"
+        },
+        {
+          "value": "h2",
+          "label": "Large"
+        },
+        {
+          "value": "h3",
+          "label": "Medium"
+        },
+        {
+          "value": "h4",
+          "label": "Small"
+        },
+        {
+          "value": "h5",
+          "label": "X-Small"
+        },
+        {
+          "value": "h6",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+    },
+    {
+      "type": "header",
+      "content": "Color settings"
+    },
+    {
+      "type": "color_background",
+      "id": "section-bg",
+      "label": "Section background"
+    },
+    {
+      "type": "color_background",
+      "id": "title-color",
+      "label": "Title color",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "subtitle-color",
+      "label": "Subtitle color",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "card-bg",
+      "label": "Card background",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "card-title-color",
+      "label": "卡片标题颜色",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "card_description_color",
+      "label": "卡片描述颜色",
+      "default": "#ECECE7"
+    },
+    {
+      "type": "header",
+      "content": "埋点相关配置"
+    },
+    {
+      "type": "checkbox",
+      "id": "tracking_enabled",
+      "label": "Enable tracking demo",
+      "default": false
+    },
+    {
+      "type": "metaobject",
+      "id": "tracking_module_type_metaobject",
+      "label": "PostHog module type",
+      "metaobject_type": "test_posthog_module_type",
+      "info": "Select the module type entry maintained by business, for example you_may_like."
+    },
+    {
+      "type": "textarea",
+      "id": "tracking_content_overrides",
+      "label": "Tracking content overrides",
+      "info": "One per line: product-handle=content_key"
+    },
+    {
+      "type": "text",
+      "id": "module_title",
+      "label": "Module title on capture"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "BarBend"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Discover our new collection of high-quality products."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Float Image Block",
+      "blocks": [
+        { "type": "block", "settings": { "title": "BarBend" } },
+        { "type": "block", "settings": { "title": "BarBend" } },
+        { "type": "block", "settings": { "title": "BarBend" } },
+        { "type": "block", "settings": { "title": "BarBend" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
