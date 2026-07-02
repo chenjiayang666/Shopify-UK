@@ -405,6 +405,7 @@
           "type": "block",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Merach_R15_Pro_Electromagnetic_Rowing_Machine_social_update.jpg",
             "url": "",
             "title": "Verywell Fit",
             "subtitle": "Merach’s NovaRow R50 Rower is an excellent value."
@@ -424,6 +425,7 @@
           "type": "block",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Merach_S29R2_Self-Powered_Exercise_Bike_social_update_3.jpg",
             "url": "",
             "title": "Life Hacker",
             "subtitle": "It's now almost two years since I started using it, and it has held together well."
