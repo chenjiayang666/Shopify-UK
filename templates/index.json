@@ -1170,6 +1170,8 @@
         "image_BBrUYc": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/c061c754d632a5c6f07290461ade41c3201d871f_1.png",
+            "mobile_image": "shopify://shop_images/12_f5ed3e64-e325-421d-bc60-e0b329cdc125.jpg",
             "content_max_width": 780,
             "content_max_width_mob": 310,
             "mobile_text_position": "place-self-start-center text-center",
