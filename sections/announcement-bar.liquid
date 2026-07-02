@@ -1,39 +1,102 @@
+{% if template.suffix == 't70' or template.suffix == 't70-1' %}
+    <style>
+        .announcement-bar{
+            display: none;
+        }
+    </style>
+{% endif %}
+
 {%- if section.blocks.size > 0 -%}
   {%- comment -%}
-  ------------------------------------------------------------------------------------------------------------------------
-  CSS
-  ------------------------------------------------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------------------------------------------------
+    CSS
+    ------------------------------------------------------------------------------------------------------------------------
   {%- endcomment -%}
   <style>
-    :root {
-      --sticky-announcement-bar-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
+      :root {
+        --sticky-announcement-bar-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
+        {%- if section.settings.disable_sticky_bar_on_product_page and template.name == 'product' -%}--not-fix-announcement-bar-header-top-value: 0;{% endif %}{% comment %} 这个0，表示header部分的top为0 {% endcomment %}
+      }
+
+      {%- if section.settings.enable_sticky -%}
+        #shopify-section-{{ section.id }} {
+          position: sticky;
+          top: 0;
+          z-index: 20;
+        }
+
+        .shopify-section--header ~ #shopify-section-{{ section.id }} {
+          top: calc(var(--sticky-header-enabled, 0) * var(--header-height, 0px));
+        }
+      {%- endif -%}
+
+      {%- if section.settings.disable_sticky_bar_on_product_page and template.name == 'product' -%}
+        #shopify-section-{{ section.id }} {
+          position: relative;
+        }
+      {%- endif -%}
+
+        {% comment %} 暂时修复header移动端显示问题,不完全保证不影响别的 {% endcomment %}
+
+    @media(max-width:750px){
+      html.lock aside{
+        top: 0 !important;
+        position: fixed !important;
+        width: 100%;
+      }
     }
 
-    {%- if section.settings.enable_sticky -%}
-      #shopify-section-{{ section.id }} {
-        position: sticky;
-        top: 0;
-        z-index: 20;
-      }
-
-      .shopify-section--header ~ #shopify-section-{{ section.id }} {
-        top: calc(var(--sticky-header-enabled, 0) * var(--header-height, 0px));
-      }
-    {%- endif -%}
+    #shopify-section-{{ section.id }} .reveal-invisible.is-selected{
+      opacity: 1;
+      visibility: visible;
+    }
   </style>
 
   {%- comment -%}
-  ------------------------------------------------------------------------------------------------------------------------
-  LIQUID
-  ------------------------------------------------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------------------------------------------------
+    LIQUID
+    ------------------------------------------------------------------------------------------------------------------------
   {%- endcomment -%}
 
-  <height-observer variable="announcement-bar">
-    <div {% render 'surface', class: 'announcement-bar', background_gradient: section.settings.background_gradient, background: section.settings.background, text_color: section.settings.text_color %}>
-      {%- if section.settings.navigation_mode == 'scrolling' -%}
-        <marquee-text scrolling-speed="{{ section.settings.scrolling_speed }}" class="announcement-bar__scrolling-list">
-          {%- capture content -%}
+  {%- assign hide_bar = false -%}
+
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'blacklist'   -%}
+      {% if block.settings.text == page.handle or block.settings.text == product.title  or block.settings.text == template.name%}
+        
+      {%- assign hide_bar = true -%}
+      {% endif %}
+
+    {%- endif -%}
+  {%- endfor -%}
+
+  {% if hide_bar %}
+    <style>
+  {% comment %} :root {
+    --announcement-bar-height: 0;
+  } {% endcomment %}
+    </style>
+  {% endif %}
+
+  {% unless hide_bar %}
+    
+    <height-observer variable="announcement-bar" data-handle="{{page.handle }}" >
+      <div
+        {% render 'surface',
+          class: 'announcement-bar',
+          background_gradient: section.settings.background_gradient,
+          background: section.settings.background,
+          text_color: section.settings.text_color
+        %}
+      >
+        {%- if section.settings.navigation_mode == 'scrolling' -%}
+          <marquee-text
+            scrolling-speed="{{ section.settings.scrolling_speed }}"
+            class="announcement-bar__scrolling-list"
+          >
+            {%- capture content -%}
             {%- for block in section.blocks -%}
+             {% if block.type == 'message' %}
               <p class="bold {{ section.settings.text_size }}" {{ block.shopify_attributes }}>
                 {%- if block.settings.url != blank -%}
                   <a href="{{ block.settings.url }}">{{ block.settings.text | escape }}</a>
@@ -43,50 +106,81 @@
               </p>
 
               <span class="shape-circle shape--sm"></span>
+              {% endif %}
             {%- endfor -%}
           {%- endcapture -%}
 
-          {%- for i in (1..10) -%}
-            <span class="announcement-bar__item" {% unless forloop.first %}aria-hidden="true"{% endunless %}>
-              {{- content -}}
-            </span>
-          {%- endfor -%}
-        </marquee-text>
-      {%- else -%}
-        <div class="container">
-          <div class="announcement-bar__wrapper {% if section.blocks.size == 1 %}justify-center{% else %}justify-between{% endif %}">
-            {%- if section.blocks.size > 1 -%}
-              <button class="tap-area" is="prev-button" aria-controls="announcement-bar" aria-label="{{ 'general.accessibility.previous' | t }}">
-                {%- render 'icon' with 'chevron-left', direction_aware: true -%}
-              </button>
-            {%- endif -%}
+            {%- for i in (1..10) -%}
+              <span
+                class="announcement-bar__item"
+                {% unless forloop.first %}
+                  aria-hidden="true"
+                {% endunless %}
+              >
+                {{- content -}}
+              </span>
+            {%- endfor -%}
+          </marquee-text>
+        {%- else -%}
+          <div class="container">
+            <div class="announcement-bar__wrapper {% if section.blocks.size == 1 %}justify-center{% else %}justify-between{% endif %}">
+              {%- if section.blocks.size > 1 -%}
+                <button
+                  class="tap-area"
+                  is="prev-button"
+                  aria-controls="announcement-bar"
+                  aria-label="{{ 'general.accessibility.previous' | t }}"
+                >
+                  {%- render 'icon' with 'chevron-left', direction_aware: true -%}
+                </button>
+              {%- endif -%}
 
-            <announcement-bar swipeable {% if section.settings.autoplay %}autoplay="{{ section.settings.cycle_speed }}"{% endif %} id="announcement-bar" class="announcement-bar__static-list">
-              {%- for block in section.blocks -%}
-                <p class="bold {{ section.settings.text_size }} {% unless forloop.first %}reveal-invisible{% endunless %}" {{ block.shopify_attributes }}>
-                  {%- if block.settings.url != blank -%}
-                    <a href="{{ block.settings.url }}">{{ block.settings.text | escape }}</a>
-                  {%- else -%}
-                    {{ block.settings.text | escape }}
-                  {%- endif -%}
-                </p>
-              {%- endfor -%}
-            </announcement-bar>
+              <announcement-bar
+                swipeable
+                {% if section.settings.autoplay %}
+                  autoplay="{{ section.settings.cycle_speed }}"
+                {% endif %}
+                id="announcement-bar"
+                class="announcement-bar__static-list"
+              >
+                {%- for block in section.blocks -%}
+                  {% if block.type == 'message' %}
+                  <p
+                    class="bold {{ section.settings.text_size }} {% unless forloop.first %}reveal-invisible{% endunless %}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {%- if block.settings.url != blank -%}
+                      <a href="{{ block.settings.url }}">{{ block.settings.text | escape }}</a>
+                    {%- else -%}
+                      {{ block.settings.text | escape }}
+                    {%- endif -%}
+                  </p>
+                  {% endif %}
+                {%- endfor -%}
+              </announcement-bar>
 
-            {%- if section.blocks.size > 1 -%}
-              <button class="tap-area" is="next-button" aria-controls="announcement-bar" aria-label="{{ 'general.accessibility.next' | t }}">
-                {%- render 'icon' with 'chevron-right', direction_aware: true -%}
-              </button>
-            {%- endif -%}
+              {%- if section.blocks.size > 1 -%}
+                <button
+                  class="tap-area"
+                  is="next-button"
+                  aria-controls="announcement-bar"
+                  aria-label="{{ 'general.accessibility.next' | t }}"
+                >
+                  {%- render 'icon' with 'chevron-right', direction_aware: true -%}
+                </button>
+              {%- endif -%}
+            </div>
           </div>
-        </div>
-      {%- endif -%}
-    </div>
-  </height-observer>
-
-  <script>
-    document.documentElement.style.setProperty('--announcement-bar-height', Math.round(document.getElementById('shopify-section-{{ section.id }}').clientHeight) + 'px');
-  </script>
+        {%- endif -%}
+      </div>
+    </height-observer>
+  {% endunless %}
+      <script>
+      document.documentElement.style.setProperty(
+        '--announcement-bar-height',
+        Math.round(document.getElementById('shopify-section-{{ section.id }}').clientHeight) + 'px'
+      );
+    </script>
 {%- endif -%}
 
 {% schema %}
@@ -94,7 +188,6 @@
   "name": "Announcement bar",
   "class": "shopify-section--announcement-bar",
   "tag": "aside",
-  "max_blocks": 5,
   "blocks": [
     {
       "type": "message",
@@ -112,6 +205,18 @@
           "label": "Link"
         }
       ]
+    },
+    {
+      "type": "blacklist",
+      "name": "Black list (页面黑名单)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "页面名称(如:index 或 products 或 about)",
+          "default": "index"
+        }
+      ]
     }
   ],
   "settings": [
@@ -120,6 +225,13 @@
       "id": "enable_sticky",
       "label": "Enable sticky bar",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_sticky_bar_on_product_page",
+      "label": "产品页disable sticky bar",
+      "default": false,
+      "info": "当产品页顶部有Shop Now Bar时，我们可以开启此选项。"
     },
     {
       "type": "checkbox",
