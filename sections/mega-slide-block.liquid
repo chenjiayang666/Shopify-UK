@@ -1,0 +1,691 @@
+{%- if is_mobile -%}
+  <style>
+    #mega-slide-mobile-{{ block.id }} {
+      --slide-card-bg: {{ block.settings.slide_card_bg | default: '#fafafc' }};
+      --slide-title-color: {{ block.settings.slide_title_color | default: '#000000' }};
+      --slide-des-color: {{ block.settings.slide_des_color | default: '#777777' }};
+      --btn-bg-color: {{ block.settings.slide_btn_bg_color | default: '#000000' }};
+      --btn-text-color: {{ block.settings.slide_btn_text_color | default: '#ffffff' }};
+    }
+
+    #mega-slide-mobile-{{ block.id }} {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    #mega-slide-mobile-{{ block.id }} .slide-mobile-columns-wrap{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px 20px;
+      background: #fafafc;
+    }
+    #mega-slide-mobile-{{ block.id }} .header-slide-block-item {
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      background: white;
+      position: relative;
+      box-sizing: border-box;
+      overflow: hidden;
+      height: auto;
+    }
+
+    #mega-slide-mobile-{{ block.id }} .block-media {
+      display: block;
+      width: 100%;
+      aspect-ratio: 412 / 248;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #mega-slide-mobile-{{ block.id }} .block-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #mega-slide-mobile-{{ block.id }} .block-content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 15px 20px 15px;
+      flex-grow: 1;
+    }
+
+    #mega-slide-mobile-{{ block.id }} .block-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--slide-title-color);
+      line-height: 1.2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-decoration: none;
+    }
+
+    #mega-slide-mobile-{{ block.id }} .block-des {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--slide-des-color);
+      line-height: 16px;
+      height: auto;
+      max-height: 32px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    #mega-slide-mobile-{{ block.id }} .block-rating {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    #mega-slide-mobile-{{ block.id }} .block-price {
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 500;
+      color: var(--slide-title-color);
+    }
+
+    #mega-slide-mobile-{{ block.id }} .header-shop-all-btn {
+      display: inline-block;
+      padding: 6px 16px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 400;
+      color: #53565A;
+      border: 1px solid;
+      border-radius: 20px;
+      text-decoration: none;
+    }
+
+    #mega-slide-mobile-{{ block.id }} .sale_tag {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: fit-content;
+      font-size: 12px;
+      line-height: 19px;
+      font-weight: 600;
+      padding: 0 10px;
+      border-radius: 20px;
+      z-index: 2;
+    }
+
+    #mega-slide-mobile-{{ block.id }} .product-card-btn {
+      font-size: 12px;
+      text-decoration: underline;
+      color: #53565A;
+    }
+
+    #mega-slide-mobile-{{ block.id }} .block-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    #mega-slide-mobile-{{ block.id }} .block-right-card{
+      padding: 12px 20px;
+    }
+    #mega-slide-mobile-{{ block.id }} .right-card-buttons{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #mega-slide-mobile-{{ block.id }} .header-shop-all-btn-xl{
+      font-size: 14px;
+      line-height: 16px;
+      padding: 8px 16px;
+    }
+  </style>
+
+  <div class="mobile-mega-slide-block" id="mega-slide-mobile-{{ block.id }}">
+    {% if block.settings.bottom_group_btn_href != blank or block.settings.button_group_compare_href != blank %}
+      <div class="block-right-card">
+        <div class="right-card-buttons">
+          {% if block.settings.bottom_group_btn_href != blank %}
+            <a
+              href="{{  block.settings.bottom_group_btn_href }}"
+              class="header-shop-all-btn header-bottom-btn header-shop-all-btn-xl"
+            >
+              {{- block.settings.bottom_group_btn_text -}}
+            </a>
+          {% endif %}
+          {% if block.settings.button_group_compare_href != blank %}
+            <a
+              style="background:black;color:white;border: 1px solid black;"
+              class=" header-shop-all-btn header-bottom-btn header-shop-all-btn-xl"
+              href="{{  block.settings.button_group_compare_href }}"
+            >
+              {{- block.settings.button_group_compare_text -}}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    <div class="slide-mobile-columns-wrap">
+      {%- for tab_link in link.links -%}
+        {%- if tab_link.object.products.size > 0 -%}
+          {%- for product in tab_link.object.products limit: 6 -%}
+            <div class="header-slide-block-item">
+              {% if product.metafields.custom.sale_tag_text != blank %}
+                <span
+                  class="sale_tag"
+                  style="background:{{ product.metafields.custom.sale_tag_background | default:'#0096F9' }};color:{{ product.metafields.custom.sale_tag_color | default:'#fff' }}"
+                >
+                  {{- product.metafields.custom.sale_tag_text -}}
+                </span>
+              {% endif %}
+              <a class="block-media" href="{{ product.url }}">
+                {% if product.metafields.custom.header_slide_image != blank %}
+                  <img
+                    src="{{ product.metafields.custom.header_slide_image | image_url }}"
+                    alt="{{ product.title | escape }}"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <img
+                    src="{{ product.featured_image | image_url }}"
+                    loading="lazy"
+                    alt="{{ product.title | escape }}"
+                  >
+                {% endif %}
+              </a>
+              <div class="block-content">
+                <a class="block-title" href="{{ product.url }}">
+                  {{- product.metafields.custom.custom_product_title | default: product.title | truncate: 30 -}}
+                </a>
+                <div class="block-des">
+                  {{ product.metafields.custom.custom_description | metafield_tag | default: product.description }}
+                </div>
+                <div class="block-rating">
+                  <div class="block-price">{{ product.price | money }}</div>
+                  <div class="block-actions">
+                    {% if product.metafields.custom.custom_cta_url != blank %}
+                      <a href="{{ product.metafields.custom.custom_cta_url }}" class="product-card-btn">
+                        {{- product.metafields.custom.custom_cta_text | default: 'Explore' -}}
+                      </a>
+                    {% endif %}
+                    <a href="{{ product.url }}" class="shop-all-btn header-shop-all-btn">Shop Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+{%- else -%}
+  <style>
+      #header-slide-block-container-{{ block.id }} {
+        --slide-card-bg: {{ block.settings.slide_card_bg | default: '#fafafc' }};
+        --slide-title-color: {{ block.settings.slide_title_color | default: '#000000' }};
+        --slide-des-color: {{ block.settings.slide_des_color | default: '#777777' }};
+        --btn-bg-color: {{ block.settings.slide_btn_bg_color | default: '#000000' }};
+        --btn-text-color: {{ block.settings.slide_btn_text_color | default: '#ffffff' }};
+      }
+
+      #header-slide-block-container-{{ block.id }} {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      #mega-slide-block-{{ block.id }} {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 16px 0 0;
+        opacity: 0;
+        transform: translateY(12px);
+        gap:20px;
+      }
+
+      .dropdown-mega_item_trigger.active #mega-slide-block-{{ block.id }} {
+        animation: megaSlideFadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      @keyframes megaSlideFadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      #header-slide-block-container-{{ block.id }} .slide-block-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+      }
+
+      #header-slide-block-container-{{ block.id }} .slide-swiper-controls {
+        display: flex;
+        gap: 12px;
+      }
+
+      #header-slide-block-container-{{ block.id }} .slide-swiper-prev,
+      #header-slide-block-container-{{ block.id }} .slide-swiper-next {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid #B1B3B3;
+        background: #b1b3b3;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0;
+      }
+
+      #header-slide-block-container-{{ block.id }} .slide-swiper-prev:hover,
+      #header-slide-block-container-{{ block.id }} .slide-swiper-next:hover {
+        background: #ffffff;
+        border-color: #B1B3B3;
+        color: #B1B3B3;
+      }
+
+      #header-slide-block-container-{{ block.id }} .slide-swiper-prev.swiper-button-disabled,
+      #header-slide-block-container-{{ block.id }} .slide-swiper-next.swiper-button-disabled {
+        opacity: 1;
+        cursor: not-allowed;
+        background: #ffffff;
+        border-color: #B1B3B3;
+        color: #B1B3B3;
+      }
+
+      #header-slide-block-container-{{ block.id }} .slide-swiper-prev svg,
+      #header-slide-block-container-{{ block.id }} .slide-swiper-next svg {
+        width: 8px;
+        height: 12px;
+        display: block;
+      }
+
+      #header-slide-block-container-{{ block.id }} .slide-swiper {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        padding:0;
+    }
+
+      #header-slide-block-container-{{ block.id }} .header-slide-block-item {
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        background: var(--slide-card-bg);
+        transition: all 0.3s ease;
+        position: relative;
+        box-sizing: border-box;
+        overflow: hidden;
+        height: auto;
+        {% comment %} box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); {% endcomment %}
+
+      }
+
+      {% comment %} #header-slide-block-container-{{ block.id }} .header-slide-block-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      } {% endcomment %}
+
+      #header-slide-block-container-{{ block.id }} .block-media {
+        display: block;
+        width: 100%;
+        aspect-ratio: 412 / 248;
+        overflow: hidden;
+        position: relative;
+      }
+
+      #header-slide-block-container-{{ block.id }} .block-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      #header-slide-block-container-{{ block.id }} .header-slide-block-item:hover .block-media img {
+        transform: scale(1.05);
+      }
+
+      #header-slide-block-container-{{ block.id }} .block-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 25px 25px;
+        flex-grow: 1;
+      }
+
+      #header-slide-block-container-{{ block.id }} .block-title {
+        font-size: 19px;
+        font-weight: 500;
+        color: var(--slide-title-color);
+        line-height: 22px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-decoration: none;
+      }
+
+      #header-slide-block-container-{{ block.id }} .block-des {
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--slide-des-color);
+        line-height: 16px;
+        height: 32px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      #header-slide-block-container-{{ block.id }} .block-rating {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+      }
+      #header-slide-block-container-{{ block.id }} .block-price {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 500;
+        color: var(--slide-title-color);
+      }
+      #header-slide-block-container-{{ block.id }} .header-shop-all-btn {
+        display: inline-block;
+        padding: 6px 16px;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+        color: #53565A;
+        border:1px solid;
+        border-radius: 20px;
+        text-decoration: none;
+        transition: opacity 0.3s ease, transform 0.2s ease;
+      }
+
+      #header-slide-block-container-{{ block.id }} .header-shop-all-btn:hover {
+        opacity: 0.9;
+        color: var(--btn-text-color);
+        background: var(--btn-bg-color);
+      }
+      #header-slide-block-container-{{ block.id }} .sale_tag {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        width: fit-content;
+        font-size: 12px;
+        line-height: 19px;
+        font-weight: 600;
+        padding: 0 10px;
+        border-radius: 20px;
+        z-index: 2;
+      }
+      #header-slide-block-container-{{ block.id }} .product-card-btn{
+            font-size:14px;
+            text-decoration: underline;
+            color:#53565A;
+          }
+          #header-slide-block-container-{{ block.id }} .block-actions{
+              display: flex;
+              align-items: center;
+              gap: 20px;
+          }
+
+
+          #header-slide-block-container-{{ block.id }} .block-right-card {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 360px;
+        gap: 0px;
+      }
+
+      @media screen and (min-width: 1150px) {
+        #header-slide-block-container-{{ block.id }} .block-right-card {
+          width: 360px;
+          flex-shrink: 0;
+        }
+      }
+
+      #header-slide-block-container-{{ block.id }} .block-right-card:hover {
+        {% comment %} transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05); {% endcomment %}
+      }
+
+      #header-slide-block-container-{{ block.id }} .right-card-media {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16/10;
+        border-radius:15px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      #header-slide-block-container-{{ block.id }} .right-card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      #header-slide-block-container-{{ block.id }} .block-right-card:hover .right-card-media img {
+        transform: scale(1.05);
+      }
+
+      #header-slide-block-container-{{ block.id }} .right-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 13px;
+        flex-grow: 1;
+      }
+
+      #header-slide-block-container-{{ block.id }} .right-card-title {
+        font-size: 20px;
+        font-weight: 400;
+        color: #000000;
+        line-height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      #header-slide-block-container-{{ block.id }} .right-card-des {
+        font-size: 12px;
+        font-weight: 400;
+        color: #53565A;
+        line-height: 18px;
+        height: 36px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      #header-slide-block-container-{{ block.id }} .right-card-btn {
+        font-size: 14px;
+        line-height:20px;
+        font-weight: 600;
+        color: var(--tab-active-color);
+        text-decoration: none;
+        transition: opacity 0.3s ease, transform 0.2s ease;
+        margin-top: 5px;
+      }
+
+      #header-slide-block-container-{{ block.id }} .right-card-btn:hover {
+        opacity: 0.9;
+      }
+
+      #header-slide-block-container-{{ block.id }} .right-card-btn:active {
+        transform: scale(0.95);
+      }
+  </style>
+
+  <div id="header-slide-block-container-{{ block.id }}" class="header-slide-block-container">
+    <div id="mega-slide-block-{{ block.id }}" class="mega-slide-block">
+      <!-- Controls row in the top right -->
+      <div class="slide-block-header">
+        <div class="slide-swiper-controls">
+          <button class="slide-swiper-prev" aria-label="Previous slide">
+            {%- render 'icon' with 'chevron-left' -%}
+          </button>
+          <button class="slide-swiper-next" aria-label="Next slide">
+            {%- render 'icon' with 'chevron-right' -%}
+          </button>
+        </div>
+      </div>
+
+      <!-- Swiper body container -->
+      <div id="mega-slide-swiper-{{ block.id }}" class="swiper slide-swiper">
+        <div class="swiper-wrapper">
+          {%- for tab_link in link.links -%}
+            {%- if tab_link.object.products.size > 0 -%}
+              {%- for product in tab_link.object.products limit: 6 -%}
+                <div class="swiper-slide header-slide-block-item">
+                  {% if product.metafields.custom.sale_tag_text != blank %}
+                    <span
+                      class="sale_tag"
+                      style="background:{{ product.metafields.custom.sale_tag_background | default:'#0096F9' }};color:{{ product.metafields.custom.sale_tag_color | default:'#fff' }}"
+                    >
+                      {{- product.metafields.custom.sale_tag_text -}}
+                    </span>
+                  {% endif %}
+                  <a class="block-media" href="{{ product.url }}">
+                    {% if product.metafields.custom.header_slide_image != blank %}
+                      <img
+                        src="{{ product.metafields.custom.header_slide_image | image_url: width: 412 }}"
+                        srcset="
+                          {{ product.metafields.custom.header_slide_image | image_url: width: 412 }} 412w,
+                          {{ product.metafields.custom.header_slide_image | image_url: width: 824 }} 824w,
+                          {{ product.metafields.custom.header_slide_image | image_url: width: 1236 }} 1236w
+                        "
+                        sizes="(max-width: 768px) 100vw, 412px"
+                        alt="{{ product.title | escape }}"
+                        loading="lazy"
+                      >
+                    {% else %}
+                      <img
+                        src="{{ product.featured_image | image_url: width: 412 }}"
+                        srcset="
+                          {{ product.featured_image | image_url: width: 412 }} 412w,
+                          {{ product.featured_image | image_url: width: 824 }} 824w,
+                          {{ product.featured_image | image_url: width: 1236 }} 1236w
+                        "
+                        sizes="(max-width: 768px) 100vw, 412px"
+                        alt="{{ product.title | escape }}"
+                        loading="lazy"
+                      >
+                    {% endif %}
+                  </a>
+                  <div class="block-content">
+                    <a class="block-title" href="{{ product.url }}">
+                      {{- product.metafields.custom.custom_product_title | default: product.title -}}
+                    </a>
+                    <div class="block-des">
+                      {{ product.metafields.custom.custom_description | metafield_tag | default: product.description }}
+                    </div>
+                    <div class="block-rating">
+                      <div class="block-price">{{ product.price | money }}</div>
+                      <div class="block-actions">
+                        {% if product.metafields.custom.custom_cta_url != blank %}
+                          <a href="{{ product.metafields.custom.custom_cta_url }}" class="product-card-btn">
+                            {{- product.metafields.custom.custom_cta_text | default: 'Explore' -}}
+                          </a>
+                        {% endif %}
+                        <a href="{{ product.url }}" class="shop-all-btn header-shop-all-btn">Shop Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+    {% if false %}
+      {%- assign right_image = block.settings.image | default: block.settings.product.featured_image -%}
+      {%- assign right_url = block.settings.link_url | default: block.settings.product.url -%}
+      <div class="block-right-card">
+        {%- if right_image != blank -%}
+          <a class="right-card-media" href="{{ right_url }}">
+            <img
+              src="{{ right_image | image_url: width: 400 }}"
+              alt="{{ block.settings.image.alt | default: block.settings.product.title | escape }}"
+              loading="lazy"
+            >
+          </a>
+        {%- endif -%}
+        <div class="right-card-content">
+          <div class="right-card-title">{{ block.settings.title | default: block.settings.product.title }}</div>
+          <div class="right-card-des">
+            {{ block.settings.description | default: block.settings.product.description | strip_html | truncate: 75 }}
+          </div>
+          <a class="right-card-btn" href="{{ right_url }}">
+            {{- block.settings.link_text | default: 'Shop Now' | escape -}}
+          </a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <script>
+    (function () {
+      function initMegaSlideBlock() {
+        const swiperEl = document.getElementById('mega-slide-swiper-{{ block.id }}');
+        if (!swiperEl) return;
+
+        if (typeof Swiper === 'undefined') {
+          setTimeout(initMegaSlideBlock, 100);
+          return;
+        }
+
+        new Swiper(swiperEl, {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+          spaceBetween: 24,
+          observer: true,
+          observeParents: true,
+          navigation: {
+            nextEl: '#header-slide-block-container-{{ block.id }} .slide-swiper-next',
+            prevEl: '#header-slide-block-container-{{ block.id }} .slide-swiper-prev',
+          },
+          breakpoints: {
+            320: {
+              slidesPerView: 1.2,
+              spaceBetween: 16,
+            },
+            750: {
+              slidesPerView: 2.2,
+              spaceBetween: 20,
+            },
+            1150: {
+              slidesPerView: 3,
+              spaceBetween: 24,
+            },
+          },
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMegaSlideBlock);
+      } else {
+        initMegaSlideBlock();
+      }
+    })();
+  </script>
+{%- endif -%}
