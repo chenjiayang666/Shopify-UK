@@ -643,6 +643,8 @@
         "banner_biqBQU": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/20260526-103635.jpg",
+            "image_mob": "shopify://shop_images/20260525-171050.jpg",
             "url": ""
           }
         }
