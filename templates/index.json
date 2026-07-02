@@ -707,6 +707,7 @@
           "type": "article",
           "settings": {
             "article": "",
+            "image": "shopify://shop_images/Frame_1380_1.jpg",
             "article_title": "",
             "article_description": "My first rowing machine, purchased based on research that air rower of simlar construction provide full workout for all range of resisand effort. Arrived well packaged. Easy to assemble, complete within 30 minutes.",
             "article_url": "",
@@ -717,6 +718,8 @@
           "type": "article",
           "settings": {
             "article": "",
+            "image": "shopify://shop_images/Frame_1380.jpg",
+            "image_mob": "shopify://shop_images/Frame_1380_bc8a8aff-c708-40c4-9d10-4256f8b67a81.jpg",
             "article_title": "",
             "article_description": "Got this rower a few days ago. Assembly was fairly easy. I am 5'9\" and the range is perfect. Shoe size 9.5, feet fit perfectly in the pedals. Used a funnel to add distilled water to the tank. Took around 3 gallons to fill to max line.",
             "article_url": "",
@@ -727,6 +730,8 @@
           "type": "article",
           "settings": {
             "article": "",
+            "image": "shopify://shop_images/Frame_1380_1.jpg",
+            "image_mob": "shopify://shop_images/Frame_1380_1_144eb515-22d9-42f0-aa6e-8d83487ac90b.jpg",
             "article_title": "",
             "article_description": "For under $400, this is a great little option. Comfortable walk. I’m 5’6”, 145 lbs, had no issues with stepping on the sides, even at a little higher speeds and with the incline.",
             "article_url": "",
