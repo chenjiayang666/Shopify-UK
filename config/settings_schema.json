@@ -288,6 +288,22 @@
       },
       {
         "type": "header",
+        "content": "Mobile Menu Drawer"
+      },
+      {
+        "type": "color",
+        "id": "mobile_menu_drawer_background",
+        "label": "Background",
+        "default": "#1e316a"
+      },
+      {
+        "type": "color",
+        "id": "mobile_menu_drawer_text_color",
+        "label": "Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
         "content": "Footer"
       },
       {
