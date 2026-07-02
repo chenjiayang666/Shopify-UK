@@ -121,7 +121,6 @@
           "settings": {
             "enable": true,
             "name": "Canada",
-            "flag_image": "shopify://shop_images/20251103-180407.png",
             "link": "https://www.merachfit.ca/"
           }
         },
@@ -130,7 +129,6 @@
           "settings": {
             "enable": true,
             "name": "Australia",
-            "flag_image": "shopify://shop_images/20260114-143157.png",
             "link": "https://au.merachfit.com/"
           }
         },
@@ -139,7 +137,6 @@
           "settings": {
             "enable": true,
             "name": "Mexico",
-            "flag_image": "shopify://shop_images/20251127-161813.png",
             "link": "https://merachfit.mx/"
           }
         },
@@ -148,7 +145,6 @@
           "settings": {
             "enable": true,
             "name": "Europe",
-            "flag_image": "shopify://shop_images/EU_6ca98856-40a4-4498-a90b-c453417f1b86.png",
             "link": "https://merachfit.eu/"
           }
         },
@@ -157,7 +153,6 @@
           "settings": {
             "enable": true,
             "name": "Germany",
-            "flag_image": "shopify://shop_images/DE_52e05159-d80c-42c1-816d-493f1bc690e5.png",
             "link": "https://merachfit.de/"
           }
         },
@@ -175,7 +170,6 @@
           "settings": {
             "enable": true,
             "name": "France",
-            "flag_image": "shopify://shop_images/FR_07261a88-d895-4628-946c-757c87f86efb.png",
             "link": "https://fr.merachfit.com/"
           }
         },
@@ -202,7 +196,8 @@
             "slide_btn_bg_color": "linear-gradient(180deg, rgba(164, 200, 255, 1) 21.7%, rgba(0, 150, 249, 1) 100%)",
             "slide_btn_text_color": "#ffffff",
             "link_color": "#53565a",
-            "product": "",
+            "product": "family-package-exercise-bike-elliptical-trainer",
+            "image": "shopify://shop_images/ee53b25a993bf2946b05aad8f113009e6a42e313.jpg",
             "title": "",
             "description": "",
             "link_url": "",
@@ -441,7 +436,6 @@
             "slide_btn_text_color": "#ffffff",
             "link_color": "#53565a",
             "product": "corerow-r300-rubberwood-water-rower",
-            "image": "shopify://shop_images/Frame_1288115874.jpg",
             "title": "Merach App",
             "description": "All you need for smart home fitness is Merach.",
             "link_url": "https://merachfit.com/pages/merach-app",
@@ -476,7 +470,6 @@
             "slide_btn_text_color": "#ffffff",
             "link_color": "#53565a",
             "product": "corerow-r300-rubberwood-water-rower",
-            "image": "shopify://shop_images/Frame_1288115874.jpg",
             "title": "Merach App",
             "description": "All you need for smart home fitness is Merach.",
             "link_url": "https://merachfit.com/pages/merach-app",
@@ -511,7 +504,6 @@
             "slide_btn_text_color": "#ffffff",
             "link_color": "#53565a",
             "product": "corerow-r300-rubberwood-water-rower",
-            "image": "shopify://shop_images/Frame_1288115874.jpg",
             "title": "Merach App",
             "description": "All you need for smart home fitness is Merach.",
             "link_url": "https://merachfit.com/pages/merach-app",
@@ -546,7 +538,6 @@
             "slide_btn_text_color": "#ffffff",
             "link_color": "#53565a",
             "product": "merach-3d-vibration-plate",
-            "image": "shopify://shop_images/Frame_1288115874.jpg",
             "title": "Merach App",
             "description": "All you need for smart home fitness is Merach.",
             "link_url": "https://merachfit.com/pages/merach-app",
@@ -665,7 +656,6 @@
       "settings": {
         "enable_sticky": true,
         "hide_on_scroll": false,
-        "logo": "shopify://shop_images/Frame_1_035c8d87-a83a-4896-9276-f025545b8a4e.png",
         "logo_max_width": 120,
         "logo_mobile_max_width": 100,
         "menu": "new-header",
