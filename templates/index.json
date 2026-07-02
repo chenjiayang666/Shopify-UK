@@ -9,815 +9,519 @@
  */
 {
   "sections": {
-    "slideshow": {
-      "type": "slideshow",
+    "slideshow_aURKfq": {
+      "type": "us-slideshow",
       "blocks": {
-        "slide-1": {
+        "image_8k7KaP": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/PRIME_DAY_SALE_BANNER_4.jpg",
-            "mobile_image": "shopify://shop_images/PRIME_DAY_SALE_BANNER_3.jpg",
-            "content_max_width": 600,
-            "mobile_text_position": "place-self-end-center text-center",
-            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "image": "shopify://shop_images/w60-banner-10-pc.jpg",
+            "mobile_image": "shopify://shop_images/w60-banner-10.jpg",
+            "content_max_width": 780,
+            "content_max_width_mob": 320,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "addition_offset_mob": "",
+            "addition_offset": "",
             "subheading": "",
+            "subheading_tag": "h2",
+            "subheading_size": "dev-xx-small",
             "title": "",
-            "heading_tag": "h4",
+            "heading_size": "dev-xx-large",
+            "description": "",
+            "title_seo1": "",
+            "heading_tag1": "h1",
+            "pc_heading_width1": "auto",
+            "h5_heading_width1": "auto",
+            "heading_size1": "dev-xx-large",
+            "title_seo2": "",
+            "heading_tag2": "h1",
+            "pc_heading_width2": "auto",
+            "h5_heading_width2": "auto",
+            "heading_size2": "dev-xx-large",
             "button_text": "",
-            "button_link": "shopify://pages/sales",
+            "button_link": "shopify://products/merach-ultrawalk-w60-plus",
+            "button_text2": "",
+            "button_link2": "",
+            "button_radius": 4,
+            "button_size": "xl",
             "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
             "overlay_color": "#000000",
             "overlay_opacity": 0,
             "background": "",
-            "background_gradient": ""
-          }
-        },
-        "image_hYm8mt": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Merach_R28R1_Water_Rowing_Machine_update_banner_1.jpg",
-            "mobile_image": "shopify://shop_images/Merach_R28R1_Water_Rowing_Machine_update_banner_2.jpg",
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-start-center text-center",
-            "desktop_text_position": "sm:place-self-center-start sm:text-start",
-            "subheading": "180° Foldable Storage, Merach App",
-            "title": "Eco-Friendly FSC-Certified Wood",
-            "heading_tag": "h3",
-            "button_text": "R28R1 Rowing Machine",
-            "button_link": "shopify://products/merach-r28r1-water-rowing-machine",
-            "text_color": "#ffffff",
+            "background_gradient": "",
             "button_background": "#ffffff",
             "button_text_color": "#000000",
+            "button_background2": "#ffffff",
+            "button_text_color2": "#000000",
+            "button_background_hover": "#ffffff",
+            "button_text_color_hover": "#000000",
+            "button_background2_hover": "#ffffff",
+            "button_text_color2_hover": "#000000",
+            "track_item_name": ""
+          }
+        },
+        "image_JdmJdT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/PD_-_banner-2PC_4f0e0af2-d412-4555-a944-6560e8392768.jpg",
+            "mobile_image": "shopify://shop_images/PD___banner_2MOB.jpg",
+            "content_max_width": 780,
+            "content_max_width_mob": 260,
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "addition_offset_mob": "2rem  0 0 0",
+            "addition_offset": "0 0 6rem 0",
+            "subheading": "Prime Day Sale",
+            "subheading_tag": "h3",
+            "subheading_size": "dev-large",
+            "title": "UltraWalk W60 Plus. One Machine Built to Last.",
+            "heading_size": "dev-xx-small",
+            "description": "<p><br/></p>",
+            "title_seo1": "",
+            "heading_tag1": "h1",
+            "pc_heading_width1": "auto",
+            "h5_heading_width1": "auto",
+            "heading_size1": "dev-x-large",
+            "title_seo2": "",
+            "heading_tag2": "h4",
+            "pc_heading_width2": "auto",
+            "h5_heading_width2": "auto",
+            "heading_size2": "dev-xx-large",
+            "button_text": "Shop Now",
+            "button_link": "https://merachfit.com/pages/sale",
+            "button_text2": "",
+            "button_link2": "",
+            "button_radius": 20,
+            "button_size": "sm",
+            "text_color": "#000000",
             "overlay_color": "#000000",
             "overlay_opacity": 0,
             "background": "",
-            "background_gradient": ""
-          }
-        },
-        "image_hQM3ht": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/merachfit_uk_smart_home_fitness_8.jpg",
-            "mobile_image": "shopify://shop_images/merachfit_uk_smart_home_fitness_6.jpg",
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-start-center text-center",
-            "desktop_text_position": "sm:place-self-center-start sm:text-start",
-            "subheading": "Dual-Triangle Frame, Flexible Adjustment-Fit For All Levels",
-            "title": "Merach S26B2 Indoor Exercise Bike",
-            "heading_tag": "h3",
-            "button_text": "SHOP NOW",
-            "button_link": "shopify://products/merach-s26b2-indoor-exercise-bike-with-magnetic-resistance",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 9,
-            "background": "",
-            "background_gradient": ""
-          }
-        },
-        "image_KkRUyP": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Merach_NovaRow_R50_Air_Resistance_Rowing_Machine_banner_1.jpg",
-            "mobile_image": "shopify://shop_images/Merach_NovaRow_R50_Air_Resistance_Rowing_Machine_banner_2.jpg",
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-start-center text-center",
-            "desktop_text_position": "sm:place-self-center-start sm:text-start",
-            "subheading": "Best Solution for Low-impact Exercise, 10-level Air Resistance System",
-            "title": "Merach R50 Rowing Machine",
-            "heading_tag": "h3",
-            "button_text": "SHOP NOW",
-            "button_link": "shopify://products/merach-r50-rowing-machine-with-air-resistance",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 10,
-            "background": "",
-            "background_gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide-1",
-        "image_hYm8mt",
-        "image_hQM3ht",
-        "image_KkRUyP"
-      ],
-      "settings": {
-        "full_width": true,
-        "allow_transparent_header": true,
-        "show_initial_transition": false,
-        "image_size": "auto",
-        "controls_type": "numbers",
-        "transition_type": "fade_with_text",
-        "autoplay": true,
-        "cycle_speed": 6,
-        "background": "#f2f2f2",
-        "background_gradient": "linear-gradient(60deg, rgba(60, 65, 68, 1), rgba(23, 29, 33, 1) 98%)"
-      }
-    },
-    "image_with_text_overlay_mgdKEW": {
-      "type": "image-with-text-overlay",
-      "disabled": true,
-      "settings": {
-        "anchor_id": "image-with-text-overlay",
-        "full_width": true,
-        "allow_transparent_header": false,
-        "enable_parallax": false,
-        "image_size": "auto",
-        "image": "shopify://shop_images/prime_day_sale_banner_detail_2.jpg",
-        "mobile_image": "shopify://shop_images/prime_day_sale_banner_detail_1_b04933a8-d157-4b5d-a597-5d159ea771d0.jpg",
-        "mobile_text_position": "place-self-center text-center",
-        "desktop_text_position": "sm:place-self-center sm:text-center",
-        "text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "overlay_opacity": 0
-      }
-    },
-    "text_with_icons_FD6reH": {
-      "type": "text-with-icons",
-      "blocks": {
-        "item_RJqr7d": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/merachfit_uk_smart_home_fitness_trust_us_logo_3.png",
-            "mobile_icon_width": 72,
-            "icon_width": 92,
-            "icon_background_type": "circle",
-            "icon_background": "#ffffff",
-            "icon_color": "",
-            "title": "FREE SHIPPING",
-            "content": "<p>3-7 days fast delivery</p>"
-          }
-        },
-        "item_nYxixT": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/merachfit_uk_smart_home_fitness_trust_us_logo_2.png",
-            "mobile_icon_width": 72,
-            "icon_width": 92,
-            "icon_background_type": "circle",
-            "icon_background": "#ffffff",
-            "icon_color": "",
-            "title": "MERACH APP",
-            "content": "<p>Use for Free</p>"
-          }
-        },
-        "item_JgyKxi": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/merachfit_uk_smart_home_fitness_trust_us_logo_4.png",
-            "mobile_icon_width": 72,
-            "icon_width": 92,
-            "icon_background_type": "circle",
-            "icon_background": "#ffffff",
-            "icon_color": "",
-            "title": "780 K+ USERS",
-            "content": "<p>Top Brand</p>"
-          }
-        },
-        "item_BgqV7A": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/merachfit_uk_smart_home_fitness_trust_us_logo_5.png",
-            "mobile_icon_width": 72,
-            "icon_width": 92,
-            "icon_background_type": "circle",
-            "icon_background": "#ffffff",
-            "icon_color": "",
-            "title": "30 DAY RETURN",
-            "content": "<p>Worry-free Shopping</p>"
-          }
-        },
-        "item_bEqKeW": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/merachfit_uk_smart_home_fitness_trust_us_logo_1.png",
-            "mobile_icon_width": 72,
-            "icon_width": 92,
-            "icon_background_type": "circle",
-            "icon_background": "#ffffff",
-            "icon_color": "",
-            "title": "24 MONTHS WARRANTY",
-            "content": "<p>Quality Assurance</p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_RJqr7d",
-        "item_nYxixT",
-        "item_JgyKxi",
-        "item_BgqV7A",
-        "item_bEqKeW"
-      ],
-      "settings": {
-        "anchor_id": "text-with-icons",
-        "full_width": true,
-        "stack_on_mobile": false,
-        "title": "",
-        "heading_tag": "h5",
-        "text_alignment": "center",
-        "icon_spacing": "medium",
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
-      }
-    },
-    "rich_text_PFEd73": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_nyABpB": {
-          "type": "heading",
-          "settings": {
-            "text": "EXPLORE SMART FITNESS",
-            "heading_tag": "h1",
-            "text_color": "",
-            "gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_nyABpB"
-      ],
-      "settings": {
-        "anchor_id": "rich-text",
-        "full_width": true,
-        "content_width": "large",
-        "text_position": "center",
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
-      }
-    },
-    "featured-collection": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "smart-fitness",
-        "products": [],
-        "full_width": true,
-        "stack_products": false,
-        "show_progress_bar": false,
-        "products_count": 27,
-        "products_per_row_mobile": "1",
-        "products_per_row_desktop": 4,
-        "subheading": "",
-        "title": "",
-        "content": "",
-        "link_url": "",
-        "link_text": "",
-        "background": "#ffffff",
-        "background_gradient": "",
-        "text_color": "#f8f8f8",
-        "heading_color": "",
-        "heading_gradient": "",
-        "product_card_background": "",
-        "product_card_text_color": ""
-      }
-    },
-    "media_grid_qCDaji": {
-      "type": "media-grid",
-      "blocks": {
-        "image_GV9Gip": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/merachfit_uk_smart_home_fitness_rower-1.jpg",
-            "title": "Rower",
-            "heading_tag": "h4",
-            "link_url": "shopify://collections/rower",
-            "link_text": "",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 2,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
             "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
+            "button_background": "linear-gradient(180deg, rgba(63, 191, 240, 1), rgba(4, 124, 222, 1) 100%)",
             "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_HffLHM": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/merachfit_uk_smart_home_fitness_indoor_exercise_bike.jpg",
-            "title": "Bike",
-            "heading_tag": "h4",
-            "link_url": "shopify://collections/bike",
-            "link_text": "",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 2,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_GJKJXY": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/merachfit_uk_smart_home_fitness_elliptical_trianer-1.jpg",
-            "title": "Elliptical Trainer",
-            "heading_tag": "h4",
-            "link_url": "shopify://collections/elliptical-trainer",
-            "link_text": "",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 2,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_FFz6gX": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/merachfit_uk_smart_home_fitness_treadmill.jpg",
-            "title": "Treadmill",
-            "heading_tag": "h4",
-            "link_url": "shopify://collections/treadmill",
-            "link_text": "",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 2,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "button_background2": "#fff",
+            "button_text_color2": "#000000",
+            "button_background_hover": "#ffffff",
+            "button_text_color_hover": "#000000",
+            "button_background2_hover": "#298fd5",
+            "button_text_color2_hover": "#ffffff",
+            "track_item_name": ""
           }
         }
       },
       "block_order": [
-        "image_GV9Gip",
-        "image_HffLHM",
-        "image_GJKJXY",
-        "image_FFz6gX"
+        "image_8k7KaP",
+        "image_JdmJdT"
       ],
-      "settings": {
-        "anchor_id": "media-grid",
-        "full_width": true,
-        "reduce_width": false,
-        "desktop_row_height": 290,
-        "mobile_row_height": 150,
-        "background": "#ffffff",
-        "background_gradient": ""
-      }
-    },
-    "text_with_icons_9Q6Ptk": {
-      "type": "text-with-icons",
-      "blocks": {
-        "item_6Yt3RN": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/merachfit_uk_smart_home_fitness_essentials_1.png",
-            "mobile_icon_width": 72,
-            "icon_width": 96,
-            "icon_background_type": "circle",
-            "icon_background": "#ffffff",
-            "icon_color": "#1a1a1a",
-            "title": "Endurance Training",
-            "content": "<p><a href=\"/collections/endurance-training\" title=\"Endurance Training\"><strong>Explore&gt;&gt;&gt;</strong></a></p>"
-          }
-        },
-        "item_MjECXf": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/merachfit_uk_smart_home_fitness_essentials_2.png",
-            "mobile_icon_width": 72,
-            "icon_width": 96,
-            "icon_background_type": "circle",
-            "icon_background": "#ffffff",
-            "icon_color": "#1a1a1a",
-            "title": "Strength Training",
-            "content": "<p><a href=\"/collections/strength-training\" title=\"Strength Training\"><strong>Explore&gt;&gt;&gt;</strong></a></p>"
-          }
-        },
-        "item_BgbQmw": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/merachfit_uk_smart_home_fitness_essentials_3.png",
-            "mobile_icon_width": 72,
-            "icon_width": 96,
-            "icon_background_type": "circle",
-            "icon_background": "#ffffff",
-            "icon_color": "#1a1a1a",
-            "title": "Recovery",
-            "content": "<p><a href=\"/collections/recovery\" title=\"Recovery\"><strong>Explore&gt;&gt;&gt;</strong></a></p>"
-          }
-        },
-        "item_Tfqamp": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-coupon",
-            "custom_icon": "shopify://shop_images/merachfit_uk_smart_home_fitness_essentials_4.png",
-            "mobile_icon_width": 72,
-            "icon_width": 96,
-            "icon_background_type": "circle",
-            "icon_background": "#ffffff",
-            "icon_color": "#1a1a1a",
-            "title": "Full Body Training",
-            "content": "<p><a href=\"/collections/full-body-training\" title=\"Full Body Training\"><strong>Explore&gt;&gt;&gt;</strong></a></p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_6Yt3RN",
-        "item_MjECXf",
-        "item_BgbQmw",
-        "item_Tfqamp"
+      "custom_css": [
+        ".heading_title {color: #434343;}",
+        ".dev-x-large {font-size: 38px;}"
       ],
-      "settings": {
-        "anchor_id": "text-with-icons",
-        "full_width": true,
-        "stack_on_mobile": false,
-        "title": "",
-        "heading_tag": "h5",
-        "text_alignment": "center",
-        "icon_spacing": "medium",
-        "background": "#ffffff",
-        "background_gradient": "",
-        "text_color": "#1a1a1a"
-      }
-    },
-    "images_with_text_scrolling_6YQW8e": {
-      "type": "images-with-text-scrolling",
-      "blocks": {
-        "item_RVGxnE": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/merachfit_uk_smart_fitness-4_4.png",
-            "icon": "none",
-            "icon_width": 48,
-            "title": "Maximize your workout potential!",
-            "content": "<h6>Merach App</h6><p>The Merach App offers a wide range of rowing, riding, and other workouts, from 10 to 60 minutes. Track your progress in real-time, join free fitness classes, compete with others, and explore 3D map training for a more engaging experience.<br/><br/></p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_RVGxnE"
-      ],
+      "name": "Slideshow",
       "settings": {
         "full_width": true,
-        "stack_on_mobile": false,
-        "show_counter": false,
-        "desktop_image_effect": "reveal",
-        "image_position": "end",
-        "background": "#000000",
-        "background_gradient": "",
-        "text_color": "#f8f8f8",
-        "heading_color": "",
-        "heading_gradient": ""
-      }
-    },
-    "rich_text_drQC4W": {
-      "type": "rich-text",
-      "blocks": {
-        "button_FWwgC9": {
-          "type": "button",
-          "settings": {
-            "style": "fill",
-            "size": "xl",
-            "text": "App Store",
-            "url": "https://apps.apple.com/us/app/merach/id1603931285",
-            "background": "#f8f8f8",
-            "text_color": "#000000"
-          }
-        },
-        "button_Ykdfb6": {
-          "type": "button",
-          "settings": {
-            "style": "fill",
-            "size": "xl",
-            "text": "Google Play",
-            "url": "https://play.google.com/store/search?q=merach&c=apps",
-            "background": "#f8f8f8",
-            "text_color": "#000000"
-          }
-        }
-      },
-      "block_order": [
-        "button_FWwgC9",
-        "button_Ykdfb6"
-      ],
-      "settings": {
-        "anchor_id": "rich-text",
-        "full_width": true,
-        "content_width": "small",
-        "text_position": "center",
-        "background": "#000000",
-        "background_gradient": "",
-        "text_color": "#f8f8f8"
-      }
-    },
-    "slideshow_nVkXM8": {
-      "type": "slideshow",
-      "blocks": {
-        "image_HYxqC6": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Merach_R28R1_Water_Rowing_Machine_banner_upadate_social_1.jpg",
-            "mobile_image": "shopify://shop_images/Merach_R28R1_Water_Rowing_Machine_banner_upadate_social_2.jpg",
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-start text-start",
-            "desktop_text_position": "sm:place-self-start-center sm:text-center",
-            "subheading": "Most Merach rowers are crafted from 100% recycled materials and FSC-certified natural solid wood, ensuring responsible sourcing and environmental sustainability. By utilizing sustainable resources, we minimize waste and contribute to a healthier planet while delivering a durable, high-quality design.",
-            "title": "Eco-Friendly",
-            "heading_tag": "h0",
-            "button_text": "",
-            "button_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 15,
-            "background": "",
-            "background_gradient": ""
-          }
-        },
-        "image_c4qnJM": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Merach_Q3_Self-powered_Magnetic_Rowing_Machine_update_social_2.jpg",
-            "mobile_image": "shopify://shop_images/Merach_Q3_Self-powered_Magnetic_Rowing_Machine_update_social_4.jpg",
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-start text-start",
-            "desktop_text_position": "sm:place-self-start-center sm:text-center",
-            "subheading": "Some Merach Smart Fitness Machines feature a self-powered system, requiring no electricity. With the upgraded Electromagnetic Flywheel 2.0, enjoy smooth resistance anywhere—garden, garage, or balcony—while reducing your carbon footprint!",
-            "title": "Sustainability",
-            "heading_tag": "h0",
-            "button_text": "",
-            "button_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 10,
-            "background": "",
-            "background_gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_HYxqC6",
-        "image_c4qnJM"
-      ],
-      "settings": {
-        "full_width": true,
+        "use_seo_title": true,
         "allow_transparent_header": true,
         "show_initial_transition": false,
         "image_size": "auto",
         "controls_type": "dots",
+        "dot_position": 20,
+        "dot_position_mob": 15,
         "transition_type": "fade_with_text",
-        "autoplay": false,
-        "cycle_speed": 6,
+        "autoplay": true,
+        "cycle_speed": 20,
+        "text_gap": "12px",
         "background": "#f2f2f2",
-        "background_gradient": ""
+        "background_gradient": "",
+        "controls_color": "#ffffff",
+        "section_pdtop": 64,
+        "section_pdbot": 64,
+        "tracking_enabled": false,
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
       }
     },
-    "rich_text_bBgKFE": {
-      "type": "rich-text",
+    "collection_list_custom_MgaQjU": {
+      "type": "us-collection-list-custom",
       "blocks": {
-        "heading_BHWTNh": {
-          "type": "heading",
+        "collection_d8kakY": {
+          "type": "collection",
           "settings": {
-            "text": "TRUSTED BY EXPERTS",
-            "heading_tag": "h2",
-            "text_color": "",
-            "gradient": ""
+            "collection": "rowing-machines",
+            "img": "shopify://shop_images/Frame_1289.jpg",
+            "title": "Rowing Machine",
+            "link": "shopify://collections/rowing-machines",
+            "text-color": "#1a1a1a",
+            "block-bg": "#fff",
+            "track_item_name": ""
+          }
+        },
+        "collection_43rzDb": {
+          "type": "collection",
+          "settings": {
+            "collection": "exercise-bikes",
+            "img": "shopify://shop_images/Frame_1289_6.jpg",
+            "title": "Exercise Bike",
+            "link": "shopify://collections/exercise-bikes",
+            "text-color": "#1a1a1a",
+            "block-bg": "#fff",
+            "track_item_name": ""
+          }
+        },
+        "collection_zJjkcn": {
+          "type": "collection",
+          "settings": {
+            "collection": "treadmills",
+            "img": "shopify://shop_images/Frame_1289_3.jpg",
+            "title": "Treadmill",
+            "link": "shopify://collections/treadmills",
+            "text-color": "#1a1a1a",
+            "block-bg": "#fff",
+            "track_item_name": ""
+          }
+        },
+        "collection_MGwTG9": {
+          "type": "collection",
+          "settings": {
+            "collection": "walking-pad",
+            "img": "shopify://shop_images/w60-main-collextion_8d71b976-55b1-4ba7-86c2-8e13f22dd29b.jpg",
+            "title": "Walking Pad",
+            "link": "shopify://collections/walking-pad",
+            "text-color": "#1a1a1a",
+            "block-bg": "#fff",
+            "track_item_name": ""
+          }
+        },
+        "collection_GmhTED": {
+          "type": "collection",
+          "settings": {
+            "collection": "others",
+            "img": "shopify://shop_images/Frame_1289_4.jpg",
+            "title": "Essential",
+            "link": "shopify://collections/others",
+            "text-color": "#1a1a1a",
+            "block-bg": "#fff",
+            "track_item_name": ""
+          }
+        },
+        "collection_a9NKmV": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "img": "shopify://shop_images/Frame_1289_5.jpg",
+            "title": "App",
+            "link": "https://merachfit.com/pages/merach-app",
+            "text-color": "#1a1a1a",
+            "block-bg": "#fff",
+            "track_item_name": ""
           }
         }
       },
       "block_order": [
-        "heading_BHWTNh"
+        "collection_d8kakY",
+        "collection_43rzDb",
+        "collection_zJjkcn",
+        "collection_MGwTG9",
+        "collection_GmhTED",
+        "collection_a9NKmV"
       ],
+      "custom_css": [
+        ".collection-list-custom {margin-bottom: -5rem;}"
+      ],
+      "name": "collection-list-custom",
       "settings": {
-        "anchor_id": "rich-text",
-        "full_width": true,
-        "content_width": "small",
-        "text_position": "center",
-        "background": "rgba(0,0,0,0)",
-        "background_gradient": "",
-        "text_color": "#1a1a1a"
+        "padding-top": 20,
+        "padding-bottom": 0,
+        "padding-gap": 20,
+        "max-width": 1400,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 0,
+        "padding-gap-mob": 20,
+        "title": "Shop Collections",
+        "enable_offset": true,
+        "show-number": 5,
+        "radius": 15,
+        "card-space": 80,
+        "section-bg": "#101820",
+        "title-color": "#ffffff",
+        "pag_bg": "#53565a",
+        "pag_step_bg": "#ecece7",
+        "tracking_enabled": false,
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
       }
     },
-    "video_carousel_EGtc7B": {
-      "type": "Video-Carousel",
+    "link_tab_check_3MqV6Q": {
+      "type": "us-link-tab-check",
       "blocks": {
-        "video_gEmT6R": {
-          "type": "video",
+        "item_py9EqN": {
+          "type": "item",
           "settings": {
-            "video": "shopify://files/videos/r50 father and daughter.mp4",
-            "video_url": "",
-            "title": ""
-          }
-        },
-        "video_NCt7FJ": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/Sofia-UK-W50.mp4",
-            "video_url": "",
-            "title": ""
-          }
-        },
-        "video_QV9xDL": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/hannah-UK-W50-0210.mp4",
-            "video_url": "",
-            "title": ""
-          }
-        },
-        "video_kyYxrM": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/MERACH UK S19 (3).mp4",
-            "video_url": "",
-            "title": ""
-          }
-        },
-        "video_JkABdK": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/Kelly-UK-T31B1-0128.mp4",
-            "video_url": "",
-            "title": ""
+            "image-flex": "left",
+            "content-flex": "left",
+            "item-name": "",
+            "img": "shopify://shop_images/w60-main-page.jpg",
+            "product": "merach-ultrawalk-w60-plus",
+            "discount_mode": "percentage",
+            "badge_width": 75,
+            "badge_height": 75,
+            "badge_font_size": 15,
+            "badge_text_color": "#ffffff",
+            "badge_position": "right",
+            "tag": "New Release",
+            "product-title": "UltraWalk W60 Plus",
+            "subtitle": "Your First and Last Walking Pad One Machine Built to Last",
+            "description": "",
+            "tip_text": "Starting at $94 / month with",
+            "tip_svg": "<img src=\"https://cdn.shopify.com/s/files/1/0507/1611/5119/files/101520_Afterpay_Badge-faq-logo.webp?v=1749119866\" alt=\"Afterpay\" style=\"width:44px;height:20px;display:inline-block;vertical-align:middle;object-fit:contain;\" loading=\"lazy\">",
+            "show_add_to_cart": false,
+            "button-link": "shopify://products/merach-ultrawalk-w60-plus",
+            "button-text": "Shop Now",
+            "button-link2": "https://merachfit.com/pages/ultrawalk-w60-explore",
+            "button-text2": "Explore"
           }
         }
       },
       "block_order": [
-        "video_gEmT6R",
-        "video_NCt7FJ",
-        "video_QV9xDL",
-        "video_kyYxrM",
-        "video_JkABdK"
+        "item_py9EqN"
       ],
+      "custom_css": [
+        ".product-tip {color: #53565a;}"
+      ],
+      "name": "link-tab-check",
       "settings": {
-        "slider_gap": 10,
-        "card_radius": 10,
-        "autoplay": false,
-        "full_width": true,
-        "stack_collections": false,
-        "collections_per_row": 5,
-        "show_progress_bar": true,
-        "subheading": "",
-        "title": "",
-        "content": "",
-        "link_url": "",
-        "link_text": "",
-        "flex_direction": "row",
-        "flex_align": "center-center",
-        "section_bg": "",
-        "background": "rgba(0,0,0,0)",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": ""
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "badge_img": "shopify://shop_images/20260526-115520.png",
+        "max-width": 1140,
+        "padding-top-mob": 0,
+        "padding-bottom-mob": 20,
+        "padding-gap-mob": 20,
+        "title": "New Arrival",
+        "heading_tag": "h1",
+        "show_control": false,
+        "show_button_shadow": false,
+        "show_pag": false,
+        "section-bg": "#101820",
+        "title-color": "#ffffff",
+        "card-bg": "#fff",
+        "card-color": "#1a1a1a",
+        "tag-color": "",
+        "price-color": "#0096f9",
+        "price-color-sale": "#a9a9a9",
+        "pag_bg": "#53565a",
+        "pag_step_bg": "#ecece7",
+        "button-color-active": "#ffffff",
+        "button-bg-active": "linear-gradient(360deg, rgba(0, 150, 246, 1), rgba(164, 200, 255, 1) 100%)",
+        "button-color-active2": "#000000",
+        "button-bg-active2": "#ffffff",
+        "tracking_enabled": false,
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
       }
     },
-    "image-link-blocks": {
-      "type": "image-link-blocks",
+    "collection_tab_7wBh9N": {
+      "type": "us-collection-tab",
       "blocks": {
-        "item_XqbirC": {
-          "type": "item",
+        "collection_rBhNkH": {
+          "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/merach_awards_new_2_10e31d93-bef7-4b14-add0-2b27cf632946.png",
-            "stretch_image": true,
-            "link_text": "",
-            "link_url": "",
-            "background": "#000000",
-            "text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "tab_name": "Rowers",
+            "products": [
+              "novarow-rs3-magnetic-rowing-machine",
+              "novarow-r50-pro-air-rower-with-upgraded-backlit-monitor",
+              "novarow-950-dual-resistance-rowing-machine"
+            ],
+            "collection": ""
           }
         },
-        "1664424046b00c932c-3": {
-          "type": "item",
+        "collection_xdVRqX": {
+          "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/merach_awards_new_3_2201a0b1-7820-43cd-ac01-d499e46b07a1.png",
-            "stretch_image": true,
-            "link_text": "",
-            "link_url": "",
-            "background": "#000000",
-            "text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "tab_name": "Bikes",
+            "products": [
+              "s26-exercise-bike-with-hd-screen-4-way-seat",
+              "s19-pro-home-recumbent-bike",
+              "s29-aura-high-intensity-exercise-bike-with-21-hd-screen"
+            ],
+            "collection": ""
           }
         },
-        "item_XcL7Fw": {
-          "type": "item",
+        "collection_UnNqiE": {
+          "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/merach_awards_new_4_fb86217e-0144-4c2e-961f-94165be5661e.png",
-            "stretch_image": true,
-            "link_text": "",
-            "link_url": "",
-            "background": "#000000",
-            "text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "tab_name": "Treadmills",
+            "products": [
+              "novawalk-w50-trekpad",
+              "t12-foldable-incline-treadmill-with-15-auto-incline",
+              "merach-t31b1-treadmill-with-18-auto-incline"
+            ],
+            "collection": ""
           }
         },
-        "1664424046b00c932c-0": {
-          "type": "item",
+        "collection_bz7Xqb": {
+          "type": "collection",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/merach_awards_new_5_7ac0a603-bc0a-4278-b742-24a0fcd5a8bc.png",
-            "stretch_image": true,
-            "link_text": "",
-            "link_url": "",
-            "background": "#000000",
-            "text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "1664424046b00c932c-2": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/merach_awards_new_6_25ec14e5-b244-44d7-9605-0d9cd0b594e3.png",
-            "stretch_image": true,
-            "link_text": "",
-            "link_url": "",
-            "background": "#000000",
-            "text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "1664424046b00c932c-1": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/merach_awards_new_1_13e9e1ec-c82a-4d7f-ae14-782b20dec0df.png",
-            "stretch_image": true,
-            "link_text": "",
-            "link_url": "",
-            "background": "#000000",
-            "text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
+            "tab_name": "Ellipticals",
+            "products": [
+              "10-merach-ultratread-series-deposit-reservation",
+              "t70-aura-early-access-deposit",
+              "3d-mini-rock-stepper"
+            ],
+            "collection": ""
           }
         }
       },
       "block_order": [
-        "item_XqbirC",
-        "1664424046b00c932c-3",
-        "item_XcL7Fw",
-        "1664424046b00c932c-0",
-        "1664424046b00c932c-2",
-        "1664424046b00c932c-1"
+        "collection_rBhNkH",
+        "collection_xdVRqX",
+        "collection_UnNqiE",
+        "collection_bz7Xqb"
       ],
+      "name": "collection tab",
       "settings": {
-        "anchor_id": "image-link-blocks",
-        "full_width": true,
-        "block_size": "medium",
-        "subheading": "",
-        "title": "",
-        "content": "",
-        "link_url": "",
-        "link_text": "",
-        "background": "#000000",
-        "background_gradient": "",
-        "text_color": "#1a1a1a",
-        "heading_color": "",
-        "heading_gradient": ""
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 60,
+        "padding-bottom": 80,
+        "padding-gap": 20,
+        "max-width": 1140,
+        "padding-top-mob": 40,
+        "padding-bottom-mob": 80,
+        "padding-gap-mob": 20,
+        "aspect_ratio": "5/4",
+        "title": "Top Picks",
+        "heading_tag": "h1",
+        "show_button_shadow": false,
+        "section-bg": "#101820",
+        "title-color": "#ffffff",
+        "card-bg": "#fff",
+        "card-title-color": "#000000",
+        "card_description_color": "#6e6e6e",
+        "price-color": "#0096f9",
+        "price-color-sale": "#d9d9d6",
+        "tab_color": "#000000",
+        "tab_bg": "#53565a",
+        "tab_color_active": "#ffffff",
+        "tab_bg_active": "#0096f9",
+        "button_color": "#ffffff",
+        "button_bg": "linear-gradient(360deg, rgba(0, 150, 246, 1), rgba(164, 200, 255, 1) 100%)",
+        "button_text": "Shop Now",
+        "show_number": 3,
+        "radius": 15,
+        "card_space": 35,
+        "tracking_enabled": false,
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
       }
     },
-    "press": {
-      "type": "press",
+    "float_image_block_c8pEDk": {
+      "type": "us-float-image-block",
       "blocks": {
-        "16644243327ba53d2a-0": {
+        "block_637NDp": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Slice_2.png",
+            "url": "",
+            "title": "Verywell Fit",
+            "subtitle": "Merach’s NovaRow R50 Rower is an excellent value."
+          }
+        },
+        "block_H6mYHL": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Slice_3.png",
+            "url": "",
+            "title": "BarBend",
+            "subtitle": "Dual magnetic and water resistance gives each stroke a unique feel."
+          }
+        },
+        "block_XkHrjn": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Slice_4_2efe06d2-c9fa-4e49-866c-2f09ecd516a4.png",
+            "url": "",
+            "title": "Life Hacker",
+            "subtitle": "It's now almost two years since I started using it, and it has held together well."
+          }
+        },
+        "block_gCWngN": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Slice_5_ea4588cd-3a6a-4829-aba7-7fab2a51c720.png",
+            "url": "",
+            "title": "Women's Health",
+            "subtitle": "The sturdy frame feels stable at all times no matter what speed I’m going, which is impressive for its small size."
+          }
+        }
+      },
+      "block_order": [
+        "block_637NDp",
+        "block_H6mYHL",
+        "block_XkHrjn",
+        "block_gCWngN"
+      ],
+      "custom_css": [
+        "@media (max-width: 750px) {}"
+      ],
+      "name": "Float Image Block",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 100,
+        "padding-bottom": 100,
+        "padding-gap": 20,
+        "max-width": 1140,
+        "padding-top-mob": 60,
+        "padding-bottom-mob": 30,
+        "padding-gap-mob": 20,
+        "title": "WHY MERACH",
+        "heading_tag": "h1",
+        "subtitle": "<p>Validated by Experts. Designed for Your home.</p>",
+        "section-bg": "",
+        "title-color": "linear-gradient(271.68deg, rgba(23, 180, 228, 1) 0.84%, rgba(17, 51, 157, 1) 99.16%)",
+        "subtitle-color": "linear-gradient(90deg, rgba(17, 54, 158, 1), rgba(23, 175, 225, 1) 100%)",
+        "card-bg": "#101820",
+        "card-title-color": "#ffffff",
+        "card_description_color": "#ecece7",
+        "tracking_enabled": false,
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
+      }
+    },
+    "press_wXC8xp": {
+      "type": "us-press",
+      "blocks": {
+        "quote_dmpGmM": {
           "type": "quote",
           "settings": {
-            "logo": "shopify://shop_images/merach_pr_logo_5.png",
+            "logo": "shopify://shop_images/20260525-171055.jpg",
+            "logo_width": 350,
+            "author": "",
+            "content": "Overall, a fantastic product that delivers on both performance and convenience — highly recommended!",
+            "show_rating": false,
+            "rating": 4
+          }
+        },
+        "quote_gF4dzD": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/Forbes_logo_1822b417-ce94-4458-82f3-d22d37eed182.svg",
             "logo_width": 100,
             "author": "",
             "content": "Merach Rowing Machine is easy to assemble and makes virtually no noise when in use!",
@@ -825,10 +529,10 @@
             "rating": 4
           }
         },
-        "16644243327ba53d2a-1": {
+        "quote_hqDAVr": {
           "type": "quote",
           "settings": {
-            "logo": "shopify://shop_images/merach_pr_logo_1.png",
+            "logo": "shopify://shop_images/merach_press_logo_2.png",
             "logo_width": 100,
             "author": "",
             "content": "Merach helps you take advantage of your space with its convenient folding design, so you can store it under your bed, in your closet, behind your desk, and the list goes on.",
@@ -836,365 +540,727 @@
             "rating": 4
           }
         },
-        "quote_e6pdVV": {
+        "quote_mArF6C": {
           "type": "quote",
           "settings": {
-            "logo": "shopify://shop_images/merach_pr_logo_4.png",
+            "logo": "shopify://shop_images/merach_press_logo_4.png",
             "logo_width": 100,
             "author": "",
             "content": "As for the machine itself, you get 16 levels of resistance, non-slip pedals, and a whisper-quiet design that won't bother your family or your downstairs neighbors.",
             "show_rating": false,
             "rating": 4
           }
-        },
-        "quote_UmtGic": {
-          "type": "quote",
-          "settings": {
-            "logo": "shopify://shop_images/merach_pr_logo_2.png",
-            "logo_width": 100,
-            "author": "",
-            "content": "The Merach rowing machine for home challenges you on a whole new level.",
-            "show_rating": false,
-            "rating": 4
-          }
-        },
-        "quote_4RMkF4": {
-          "type": "quote",
-          "settings": {
-            "logo": "shopify://shop_images/merach_pr_logo_3.png",
-            "logo_width": 100,
-            "author": "",
-            "content": "All of these models are at least partially assembled and compatible with the Merach app, which offers classes that let you take advantage of your new fitness equipment.",
-            "show_rating": false,
-            "rating": 4
-          }
         }
       },
       "block_order": [
-        "16644243327ba53d2a-0",
-        "16644243327ba53d2a-1",
-        "quote_e6pdVV",
-        "quote_UmtGic",
-        "quote_4RMkF4"
+        "quote_dmpGmM",
+        "quote_gF4dzD",
+        "quote_hqDAVr",
+        "quote_mArF6C"
       ],
-      "settings": {
-        "full_width": true,
-        "content_size": "small",
-        "background": "#000000",
-        "background_gradient": "",
-        "text_color": "#f8f8f8",
-        "heading_color": "",
-        "heading_gradient": "",
-        "logo_item_background": "",
-        "logo_item_border": ""
-      }
-    },
-    "rich_text_KPkGtt": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_DATxaD": {
-          "type": "heading",
-          "settings": {
-            "text": "Eco-Friendly",
-            "heading_tag": "h2",
-            "text_color": "",
-            "gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_DATxaD"
+      "custom_css": [
+        ".blockquote {font-size: 18px; color: #53565a; font-weight: 500;}"
       ],
-      "disabled": true,
-      "settings": {
-        "anchor_id": "rich-text",
-        "full_width": true,
-        "content_width": "small",
-        "text_position": "center",
-        "background": "#000000",
-        "background_gradient": "",
-        "text_color": "#f8f8f8"
-      }
-    },
-    "media_grid_7mPtte": {
-      "type": "media-grid",
-      "blocks": {
-        "image_aAAxHq": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/why_merach_1.jpg",
-            "title": "Warum Merach",
-            "heading_tag": "h4",
-            "link_url": "",
-            "link_text": "",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 1,
-            "desktop_row_span": 2,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_Bec94B": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/why_merach_2.jpg",
-            "title": "780 K+ Benutzer auf der ganzen Welt",
-            "heading_tag": "h5",
-            "link_url": "",
-            "link_text": "",
-            "mobile_text_position": "place-self-end-center text-center",
-            "desktop_column_span": 1,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-end-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_wKmcmT": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/why_merach_3.jpg",
-            "title": "SSL-verschlüsselte Zahlungen",
-            "heading_tag": "h5",
-            "link_url": "",
-            "link_text": "",
-            "mobile_text_position": "place-self-end-center text-center",
-            "desktop_column_span": 1,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-end-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_cQDLqF": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/why_merach_4.jpg",
-            "title": "Kostenloser Versand",
-            "heading_tag": "h5",
-            "link_url": "",
-            "link_text": "",
-            "mobile_text_position": "place-self-end-center text-center",
-            "desktop_column_span": 1,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-end-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_ynVKBF": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/why_merach_7.jpg",
-            "title": "30-Tage-Rückgabe",
-            "heading_tag": "h5",
-            "link_url": "",
-            "link_text": "",
-            "mobile_text_position": "place-self-end-center text-center",
-            "desktop_column_span": 1,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-end-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_gnEUiN": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/why_merach_6.jpg",
-            "title": "1-Jahres-Garantie",
-            "heading_tag": "h5",
-            "link_url": "",
-            "link_text": "",
-            "mobile_text_position": "place-self-end-center text-center",
-            "desktop_column_span": 1,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-end-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_GhiGMM": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/why_merach_5.jpg",
-            "title": "Technischer Support auf Lebenszeit",
-            "heading_tag": "h5",
-            "link_url": "",
-            "link_text": "",
-            "mobile_text_position": "place-self-end-center text-center",
-            "desktop_column_span": 1,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-end-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "image_aAAxHq",
-        "image_Bec94B",
-        "image_wKmcmT",
-        "image_cQDLqF",
-        "image_ynVKBF",
-        "image_gnEUiN",
-        "image_GhiGMM"
-      ],
-      "disabled": true,
-      "settings": {
-        "anchor_id": "media-grid",
-        "full_width": true,
-        "reduce_width": false,
-        "desktop_row_height": 290,
-        "mobile_row_height": 150,
-        "background": "#000000",
-        "background_gradient": ""
-      }
-    },
-    "rich_text_fbaTmC": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_aBQMDh": {
-          "type": "heading",
-          "settings": {
-            "text": "Hear What Fitness Enthusiasts Have to Say",
-            "heading_tag": "h3",
-            "text_color": "",
-            "gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_aBQMDh"
-      ],
-      "disabled": true,
-      "settings": {
-        "anchor_id": "rich-text",
-        "full_width": true,
-        "content_width": "large",
-        "text_position": "center",
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
-      }
-    },
-    "before_after_image_rHbWdY": {
-      "type": "before-after-image",
+      "name": "Press",
       "settings": {
         "full_width": true,
-        "subheading": "",
-        "title": "Exercise With Merach",
-        "content": "<p>The Merach App and Game App FantomFit keep your workouts challenging and engaging by using real-time tracking, adaptive resistance, and interactive game-based training. Unlike traditional exercises, these smart apps analyze your performance, adjust difficulty levels, and provide immersive challenges to keep you motivated. With features like virtual competitions, goal-based progress tracking, they ensure that every workout pushes your limits and prevents stagnation, making fitness both effective and exciting.</p>",
-        "before_image": "shopify://shop_images/merachfit_uk_smart_home_fitness_vs_traditional_-1_3.jpg",
-        "before_image_mobile": "shopify://shop_images/merachfit_uk_smart_home_fitness_vs_traditional_-1_1.jpg",
-        "after_image": "shopify://shop_images/merachfit_uk_smart_home_fitness_vs_traditional_-1_5.jpg",
-        "after_image_mobile": "shopify://shop_images/merachfit_uk_smart_home_fitness_vs_traditional_-1_2.jpg",
-        "expand_image": false,
-        "text_position": "start",
-        "before_after_text_position": "top",
-        "before_text": "Traditional",
-        "after_text": "Merach",
-        "drag_initial_position": 57,
+        "content_size": "medium",
+        "show_control": false,
         "background": "",
         "background_gradient": "",
         "text_color": "",
-        "before_text_color": "#ffffff",
-        "after_text_color": "#ffffff",
-        "drag_cursor_background": "#ffffff",
-        "drag_cursor_color": "#000000"
+        "heading_color": "",
+        "heading_gradient": "",
+        "logo_item_background": "",
+        "logo_item_border": "",
+        "tracking_enabled": false,
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
       }
     },
-    "1735024554cb2099ec": {
-      "type": "apps",
+    "custom_grid_kmi4Ra": {
+      "type": "us-custom-grid",
+      "blocks": {
+        "grid_Dpi8iw": {
+          "type": "grid",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Frame_1474.jpg",
+            "url": "https://merachfit.com/pages/cardio",
+            "title": "Minute Workouts",
+            "subtitle": "Find the time. Make it count."
+          }
+        },
+        "grid_gfjt6t": {
+          "type": "grid",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Frame_1475.jpg",
+            "url": "https://merachfit.com/pages/weight-loss",
+            "title": "Reshape Your Body",
+            "subtitle": "Tone the muscle. Refine the frame."
+          }
+        },
+        "grid_NXLHg9": {
+          "type": "grid",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Frame_1476.jpg",
+            "url": "https://merachfit.com/pages/strength",
+            "title": "Advanced Training",
+            "subtitle": "Push the pace. Break the peak."
+          }
+        },
+        "grid_n9UrCb": {
+          "type": "grid",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Frame_1477.jpg",
+            "url": "https://merachfit.com/pages/relaxation",
+            "title": "The Legacy Series",
+            "subtitle": "Grace in motion. Power in longevity."
+          }
+        }
+      },
+      "block_order": [
+        "grid_Dpi8iw",
+        "grid_gfjt6t",
+        "grid_NXLHg9",
+        "grid_n9UrCb"
+      ],
+      "name": "Custom Grid",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 50,
+        "padding-bottom": 50,
+        "padding-gap": 20,
+        "max-width": 1140,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 70,
+        "padding-gap-mob": 20,
+        "float_card": true,
+        "aspect_ratio": "",
+        "full_width": false,
+        "title": "Stronger Starts at Home",
+        "heading_tag": "h1",
+        "subtitle": "Choose your goal. We’ll handle the rest",
+        "button_text": "",
+        "button_link": "",
+        "section-bg": "#FAFAFC",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "card-title-color": "#ffffff",
+        "card_description_color": "#ffffff",
+        "button_bg": "#ffffff",
+        "button_color": "#0096f9",
+        "link_bg": "#ffffff",
+        "link_color": "#0096f9",
+        "radius": 10,
+        "slide_grid": true,
+        "slide_per_view": 2,
+        "slide_per_splite": 0,
+        "slide_gap": 20,
+        "grid-rows": 2,
+        "show_pagination": false,
+        "slide_grid_mob": true,
+        "slide_per_view_mob": 1,
+        "slide_per_splite_mob": 2,
+        "grid-rows-mob": 4,
+        "slide_gap_mob": 10,
+        "show_pagination_mob": false,
+        "tracking_enabled": false,
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
+      }
+    },
+    "slide_banner_LALm4i": {
+      "type": "us-slide-banner",
+      "blocks": {
+        "banner_biqBQU": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/20260526-103635.jpg",
+            "image_mob": "shopify://shop_images/20260525-171050.jpg",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_biqBQU"
+      ],
+      "custom_css": [
+        "@media (max-width: 750px) {.tab-header {padding-left: 20px; padding-right: 20px; }}"
+      ],
+      "name": "Slide Banner",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 30,
+        "padding-bottom": 80,
+        "padding-gap-left": 20,
+        "padding-gap-right": 20,
+        "max-width": 1100,
+        "media-maxwidth": 1140,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 20,
+        "padding-gap-left-mob": 0,
+        "padding-gap-right-mob": 0,
+        "title": "Playful Path to Pro Results",
+        "heading_tag": "h1",
+        "subtitle": "Real Time Data Sync I Global Coach Network I Ever-Evolving Programs  I AI Fitness Trainer",
+        "button_text": "Download Free",
+        "button_link": "https://merachfit.com/pages/merach-app",
+        "show_button_shadow": false,
+        "section-bg": "",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "button_bg": "linear-gradient(360deg, rgba(0, 150, 246, 1), rgba(164, 200, 255, 1) 100%)",
+        "button_color": "#ffffff",
+        "article-card-bg": "#ffffff",
+        "article-color": "#000000",
+        "default-ratio": "355/200",
+        "default-card-bg": "#ffffff",
+        "default-title-color": "#000000",
+        "default-subtitle-color": "#101820",
+        "default-button-color": "#101820",
+        "section-bg-mob": "#000",
+        "title-color-mob": "#fff",
+        "subtitle-color-mob": "#fff",
+        "banner_radius": 0,
+        "slide_per_view": 1,
+        "slide_per_splite": 0,
+        "slide_gap": 20,
+        "slide_per_view_mob": 1,
+        "slide_per_splite_mob": 0,
+        "slide_gap_mob": 20,
+        "show_mob_pag": false,
+        "tracking_enabled": false,
+        "posthog_page_type_metaobject": "",
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
+      }
+    },
+    "slide_banner_NWXnWL": {
+      "type": "us-slide-banner",
+      "blocks": {
+        "article_B8wFiK": {
+          "type": "article",
+          "settings": {
+            "article": "",
+            "image": "shopify://shop_images/Frame_1380_1.jpg",
+            "image_mob": "shopify://shop_images/Frame_1380_1_144eb515-22d9-42f0-aa6e-8d83487ac90b.jpg",
+            "article_title": "",
+            "article_description": "My first rowing machine, purchased based on research that air rower of simlar construction provide full workout for all range of resisand effort. Arrived well packaged. Easy to assemble, complete within 30 minutes.",
+            "article_url": "",
+            "article_author": "-Wesley H."
+          }
+        },
+        "article_Yt3U4h": {
+          "type": "article",
+          "settings": {
+            "article": "",
+            "image": "shopify://shop_images/Frame_1380.jpg",
+            "image_mob": "shopify://shop_images/Frame_1380_bc8a8aff-c708-40c4-9d10-4256f8b67a81.jpg",
+            "article_title": "",
+            "article_description": "Got this rower a few days ago. Assembly was fairly easy. I am 5'9\" and the range is perfect. Shoe size 9.5, feet fit perfectly in the pedals. Used a funnel to add distilled water to the tank. Took around 3 gallons to fill to max line.",
+            "article_url": "",
+            "article_author": "-Quinton B."
+          }
+        },
+        "article_KXGPVW": {
+          "type": "article",
+          "settings": {
+            "article": "",
+            "image": "shopify://shop_images/Frame_1380_2.jpg",
+            "image_mob": "shopify://shop_images/Frame_1380_2_f6914b6d-dde7-470d-8552-085daeb6c7d2.jpg",
+            "article_title": "",
+            "article_description": "For under $400, this is a great little option. Comfortable walk. I’m 5’6”, 145 lbs, had no issues with stepping on the sides, even at a little higher speeds and with the incline.",
+            "article_url": "",
+            "article_author": "-Amber"
+          }
+        }
+      },
+      "block_order": [
+        "article_B8wFiK",
+        "article_Yt3U4h",
+        "article_KXGPVW"
+      ],
+      "custom_css": [
+        "@media (max-width: 750px) {.tab-header {padding-right: 20px; padding-bottom: 30px; }}"
+      ],
+      "name": "Slide Banner",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap-left": 20,
+        "padding-gap-right": 20,
+        "max-width": 1100,
+        "media-maxwidth": 1160,
+        "padding-top-mob": 0,
+        "padding-bottom-mob": 0,
+        "padding-gap-left-mob": 20,
+        "padding-gap-right-mob": 0,
+        "title": "Voice of Consumers",
+        "heading_tag": "h1",
+        "subtitle": "",
+        "button_text": "",
+        "button_link": "",
+        "show_button_shadow": true,
+        "section-bg": "linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(235, 243, 255, 1) 100%)",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "button_bg": "#fff",
+        "button_color": "#0096f9",
+        "article-card-bg": "#ffffff",
+        "article-color": "#000000",
+        "default-ratio": "/200",
+        "default-card-bg": "#ffffff",
+        "default-title-color": "#000000",
+        "default-subtitle-color": "#101820",
+        "default-button-color": "#101820",
+        "section-bg-mob": "#000",
+        "title-color-mob": "#fff",
+        "subtitle-color-mob": "#fff",
+        "banner_radius": 0,
+        "slide_per_view": 3,
+        "slide_per_splite": 0,
+        "slide_gap": 20,
+        "slide_per_view_mob": 1,
+        "slide_per_splite_mob": 2,
+        "slide_gap_mob": 20,
+        "show_mob_pag": false,
+        "tracking_enabled": false,
+        "posthog_page_type_metaobject": "",
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
+      }
+    },
+
+    "text_with_icons_Rwf4A3": {
+      "type": "us-text-with-icons",
+      "blocks": {
+        "item_Egd97Q": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Group_1288115672.png",
+            "mobile_icon_width": 72,
+            "icon_width": 60,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "30-Day Returns",
+            "content": "<p>Return within 30 days</p>"
+          }
+        },
+        "item_VYrzUD": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Group_1288115675.png",
+            "mobile_icon_width": 72,
+            "icon_width": 60,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "Warranty Protection",
+            "content": "<p>All products covered by warranty.</p>"
+          }
+        },
+        "item_pcb8by": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/20260522-1738051.png",
+            "mobile_icon_width": 72,
+            "icon_width": 48,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "HSA/FSA Eligible",
+            "content": "<p>Save up to 30-40% with HSA/FSA dollars.</p>"
+          }
+        },
+        "item_aUxiMp": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Group_1288115673.png",
+            "mobile_icon_width": 72,
+            "icon_width": 60,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "Lifetime Support",
+            "content": "<p>Contact us anytime for help.<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_Egd97Q",
+        "item_VYrzUD",
+        "item_pcb8by",
+        "item_aUxiMp"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "padding-top": 75,
+        "padding-bottom": 75,
+        "padding-gap": 20,
+        "max-width": 1140,
+        "padding-top-mob": 70,
+        "padding-bottom-mob": 50,
+        "padding-gap-mob": 20,
+        "full_width": true,
+        "stack_on_mobile": false,
+        "row_on_mobile": false,
+        "title": "",
+        "heading_tag": "h6",
+        "text_alignment": "center",
+        "icon_spacing": "small",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "#000000",
+        "sub_text_color": "#97999b",
+        "tracking_enabled": false,
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
+      }
+    },
+    "slide_banner_Ha4kn3": {
+      "type": "us-slide-banner",
+      "blocks": {
+        "default_PtyhKU": {
+          "type": "default",
+          "settings": {
+            "image": "shopify://shop_images/merach-magnetic-rower-reviews.webp",
+            "image_mob": "shopify://shop_images/merach-magnetic-rower-reviews.webp",
+            "title": "R15 vs. Q1S vs. R7 Which Rower Is Better?",
+            "subtitle": "Looking for the home magnetic rowing machine? Compare Merach R7, Q1S & R15 magnetic rowers for noise, resistance, storage & smart features. See which rower fits your home gym, budget, and fitness goals.",
+            "url": "https://merachfit.com/blogs/rowing-machines/merach-magnetic-rower-reviews",
+            "link_text": "Learn More"
+          }
+        },
+        "default_rLLJeU": {
+          "type": "default",
+          "settings": {
+            "image": "shopify://shop_images/rowing-machine-vs-treadmill-vs-bike_76abec7f-c262-475e-9661-a191fc86db54.webp",
+            "image_mob": "shopify://shop_images/rowing-machine-vs-treadmill-vs-bike_76abec7f-c262-475e-9661-a191fc86db54.webp",
+            "title": "Simple Routines to Build Cardio at Home",
+            "subtitle": "Discover the best stationary bike workout for beginners with simple routines designed specifically for effective cardio and improved fitness at home.",
+            "url": "https://merachfit.com/blogs/workout/stationary-bike-workouts-for-beginners",
+            "link_text": "Learn More"
+          }
+        },
+        "default_ccBCq8": {
+          "type": "default",
+          "settings": {
+            "image": "shopify://shop_images/stationary-bike-workouts-for-beginners.webp",
+            "image_mob": "shopify://shop_images/stationary-bike-workouts-for-beginners.webp",
+            "title": "Rowing vs. Treadmill vs. Bike: Which Is Best for Home Workouts?",
+            "subtitle": "Explore which cardio machine stands out as the best in the rowing machine vs. treadmill vs. bike debate. Learn the difference between all three machines and understand their individual benefits.",
+            "url": "https://merachfit.com/blogs/rowing-machines/rowing-machine-vs-treadmill-vs-bike",
+            "link_text": "Learn More"
+          }
+        }
+      },
+      "block_order": [
+        "default_PtyhKU",
+        "default_rLLJeU",
+        "default_ccBCq8"
+      ],
+      "name": "Slide Banner",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap-left": 20,
+        "padding-gap-right": 20,
+        "max-width": 1100,
+        "media-maxwidth": 1160,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 20,
+        "padding-gap-left-mob": 20,
+        "padding-gap-right-mob": 20,
+        "title": "The Training Breakdown",
+        "heading_tag": "h1",
+        "subtitle": "Your shortcut to peak performance",
+        "button_text": "Learn More",
+        "button_link": "https://merachfit.com/blogs/news",
+        "show_button_shadow": false,
+        "section-bg": "",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "button_bg": "linear-gradient(360deg, rgba(0, 150, 246, 1), rgba(164, 200, 255, 1) 100%)",
+        "button_color": "#ffffff",
+        "article-card-bg": "#ffffff",
+        "article-color": "#000000",
+        "default-ratio": "355/200",
+        "default-card-bg": "#fafafc",
+        "default-title-color": "#000000",
+        "default-subtitle-color": "#101820",
+        "default-button-color": "#101820",
+        "section-bg-mob": "#000",
+        "title-color-mob": "#fff",
+        "subtitle-color-mob": "#fff",
+        "banner_radius": 0,
+        "slide_per_view": 3,
+        "slide_per_splite": 0,
+        "slide_gap": 16,
+        "slide_per_view_mob": 1,
+        "slide_per_splite_mob": 0,
+        "slide_gap_mob": 20,
+        "show_mob_pag": true,
+        "tracking_enabled": false,
+        "posthog_page_type_metaobject": "",
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
+      }
+    },
+    "custom_grid_8RKaiy": {
+      "type": "us-custom-grid",
+      "blocks": {
+        "grid_FHVJ8E": {
+          "type": "grid",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Frame_1468_0df5b18d-d8ca-4a44-ad3a-9fc5afbebab7.jpg",
+            "url": "",
+            "title": "First Responders",
+            "subtitle": "Police, Fire and EMT"
+          }
+        },
+        "grid_K9bFt9": {
+          "type": "grid",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Frame_1470_60957d8d-10c7-48d0-9da1-a330d4dc9e9f.jpg",
+            "url": "",
+            "title": "Military and Veterans",
+            "subtitle": "Active Duty, Veterans & Retirees"
+          }
+        },
+        "grid_HRKpqL": {
+          "type": "grid",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Frame_1469_1.jpg",
+            "url": "",
+            "title": "Students",
+            "subtitle": "University Students"
+          }
+        },
+        "grid_R7dFkD": {
+          "type": "grid",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Frame_1474_d81d9ebf-9cf6-400a-bf59-f2ffdd2198b5.jpg",
+            "url": "",
+            "title": "Healthcare Workers",
+            "subtitle": "Doctors, Nurses & staff"
+          }
+        },
+        "grid_b4KkRV": {
+          "type": "grid",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Frame_1472_d234044e-2ab8-4064-9c66-a88d5f26f289.jpg",
+            "url": "",
+            "title": "Teachers",
+            "subtitle": "Pre-K, K-12 and Professors"
+          }
+        },
+        "grid_GUaJfJ": {
+          "type": "grid",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Frame_1476_ab134d4e-978b-4c40-934b-54a45b87d731.jpg",
+            "url": "",
+            "title": "Government Employees",
+            "subtitle": "Federal and Local"
+          }
+        },
+        "grid_zQYzaE": {
+          "type": "grid",
+          "settings": {
+            "product": "",
+            "image": "shopify://shop_images/Frame_1471_e6c7ae9d-3ef7-443a-bc93-5a1c733e8a6c.jpg",
+            "url": "",
+            "title": "Senior Citizens (60+)",
+            "subtitle": "Senior citizens (60+)"
+          }
+        }
+      },
+      "block_order": [
+        "grid_FHVJ8E",
+        "grid_K9bFt9",
+        "grid_HRKpqL",
+        "grid_R7dFkD",
+        "grid_b4KkRV",
+        "grid_GUaJfJ",
+        "grid_zQYzaE"
+      ],
+      "custom_css": [
+        "@media (min-width: 750px) {.full_style_container {padding-left: 10px; }}",
+        "@media (max-width: 750px) {.subtitle {max-width: 280px; }}"
+      ],
+      "name": "Custom Grid",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 50,
+        "padding-bottom": 100,
+        "padding-gap": 20,
+        "max-width": 1140,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 80,
+        "padding-gap-mob": 20,
+        "float_card": true,
+        "aspect_ratio": "797/417",
+        "full_width": true,
+        "title": "Group Discount",
+        "heading_tag": "h1",
+        "subtitle": "We make the best Home gym Fitness in the world.",
+        "button_text": "Learn More",
+        "button_link": "https://merachfit.com/pages/group-discount-page",
+        "section-bg": "",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "card-title-color": "#ffffff",
+        "card_description_color": "#ffffff",
+        "button_bg": "linear-gradient(360deg, rgba(0, 150, 246, 1), rgba(164, 200, 255, 1) 100%)",
+        "button_color": "#ffffff",
+        "link_bg": "#ffffff",
+        "link_color": "#3676ff",
+        "radius": 10,
+        "slide_grid": false,
+        "slide_per_view": 2,
+        "slide_per_splite": 4,
+        "slide_gap": 20,
+        "grid-rows": 2,
+        "show_pagination": true,
+        "slide_grid_mob": true,
+        "slide_per_view_mob": 1,
+        "slide_per_splite_mob": 2,
+        "grid-rows-mob": 4,
+        "slide_gap_mob": 10,
+        "show_pagination_mob": true,
+        "tracking_enabled": false,
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
+      }
+    },
+    "slideshow_Fdnz6t": {
+      "type": "us-slideshow",
+      "blocks": {
+        "image_BBrUYc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/c061c754d632a5c6f07290461ade41c3201d871f.png",
+            "mobile_image": "shopify://shop_images/12_f5ed3e64-e325-421d-bc60-e0b329cdc125.jpg",
+            "content_max_width": 780,
+            "content_max_width_mob": 310,
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "addition_offset_mob": "",
+            "addition_offset": "2rem 0 0 0",
+            "subheading": "Leading the Future of Smart Home Fitness",
+            "subheading_tag": "h2",
+            "subheading_size": "dev-medium",
+            "title": "Powered by AI, intelligent motion algorithms, and AR, MERACH delivers science-based fitness and health solutions for every home.",
+            "heading_size": "dev-xx-small",
+            "description": "",
+            "title_seo1": "",
+            "heading_tag1": "h1",
+            "pc_heading_width1": "auto",
+            "h5_heading_width1": "auto",
+            "heading_size1": "dev-xx-large",
+            "title_seo2": "",
+            "heading_tag2": "h1",
+            "pc_heading_width2": "auto",
+            "h5_heading_width2": "auto",
+            "heading_size2": "dev-xx-large",
+            "button_text": "Learn More",
+            "button_link": "https://merachfit.com/pages/about-us",
+            "button_text2": "",
+            "button_link2": "",
+            "button_radius": 20,
+            "button_size": "sm",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "background": "",
+            "background_gradient": "",
+            "button_background": "linear-gradient(360deg, rgba(0, 150, 246, 1), rgba(164, 200, 255, 1) 100%)",
+            "button_text_color": "#ffffff",
+            "button_background2": "#ffffff",
+            "button_text_color2": "#000000",
+            "button_background_hover": "#ffffff",
+            "button_text_color_hover": "#000000",
+            "button_background2_hover": "#ffffff",
+            "button_text_color2_hover": "#000000",
+            "track_item_name": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_BBrUYc"
+      ],
+      "custom_css": [
+        ".heading_title {word-break: break-word;}",
+        ".button_groups {margin-top: 20px;}"
+      ],
+      "name": "Slideshow",
       "settings": {
         "full_width": true,
-        "remove_vertical_spacing": false,
-        "remove_horizontal_spacing": false,
-        "background": "#000000",
+        "use_seo_title": false,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "dot_position": 20,
+        "dot_position_mob": 20,
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "text_gap": "",
+        "background": "#f2f2f2",
         "background_gradient": "",
-        "text_color": "#f8f8f8"
-      }
-    },
-    "newsletter_BkL6CA": {
-      "type": "newsletter",
-      "settings": {
-        "full_width": false,
-        "show_icon": false,
-        "title": "UNLOCK YOUR FIRST OFFER",
-        "content": "<p>Enjoy 5% off your first order! Sign up to receive the latest news, exclusive deals, and fitness tips.<br/>(The discount cannot be applied during the promotional period.)<br/></p>",
-        "button_text": "SIGN UP",
-        "subtext": "",
-        "background": "#f8f8f8",
-        "background_gradient": "",
-        "text_color": "#1a1a1a",
-        "button_background": "#f8f8f8",
-        "button_text_color": "#1a1a1a"
+        "controls_color": "#ffffff",
+        "section_pdtop": 64,
+        "section_pdbot": 64,
+        "tracking_enabled": false,
+        "tracking_module_type_metaobject": "",
+        "tracking_content_overrides": "",
+        "module_title": ""
       }
     }
   },
   "order": [
-    "slideshow",
-    "image_with_text_overlay_mgdKEW",
-    "text_with_icons_FD6reH",
-    "rich_text_PFEd73",
-    "featured-collection",
-    "media_grid_qCDaji",
-    "text_with_icons_9Q6Ptk",
-    "images_with_text_scrolling_6YQW8e",
-    "rich_text_drQC4W",
-    "slideshow_nVkXM8",
-    "rich_text_bBgKFE",
-    "video_carousel_EGtc7B",
-    "image-link-blocks",
-    "press",
-    "rich_text_KPkGtt",
-    "media_grid_7mPtte",
-    "rich_text_fbaTmC",
-    "before_after_image_rHbWdY",
-    "1735024554cb2099ec",
-    "newsletter_BkL6CA"
+    "slideshow_aURKfq",
+    "collection_list_custom_MgaQjU",
+    "link_tab_check_3MqV6Q",
+    "collection_tab_7wBh9N",
+    "float_image_block_c8pEDk",
+    "press_wXC8xp",
+    "custom_grid_kmi4Ra",
+    "slide_banner_LALm4i",
+    "slide_banner_NWXnWL",
+    "text_with_icons_Rwf4A3",
+    "slide_banner_Ha4kn3",
+    "custom_grid_8RKaiy",
+    "slideshow_Fdnz6t"
   ]
 }
