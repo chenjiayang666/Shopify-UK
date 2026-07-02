@@ -1,0 +1,438 @@
+{%- if section.blocks.size > 0 -%}
+  {%- render 'section-spacing-collapsing' -%}
+
+  {%- comment -%}
+  ------------------------------------------------------------------------------------------------------------------------
+  CSS
+  ------------------------------------------------------------------------------------------------------------------------
+  {%- endcomment -%}
+
+  <style>
+    #shopify-section-{{ section.id }} {
+      --press-items-border: {{ section.settings.logo_item_border.rgb }} / {{ section.settings.logo_item_border.alpha }};
+      --press-max-width: {% if section.settings.content_size == 'small' %}760{% elsif section.settings.content_size == 'medium' %}1000{% elsif section.settings.content_size == 'large' %}1260{% endif %}px;
+    }
+    #shopify-section-{{ section.id }} .press__list-item{
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  </style>
+
+  {%- comment -%}
+  ------------------------------------------------------------------------------------------------------------------------
+  LIQUID
+  ------------------------------------------------------------------------------------------------------------------------
+  {%- endcomment -%}
+{%- render 'posthog-context',
+  page_type: 'PDP',
+  page_type_label: 'Product Detail Page',
+  page_type_metaobject: section.settings.posthog_page_type_metaobject
+-%}
+{%- liquid
+  assign tracking_enabled = section.settings.tracking_enabled
+  assign tracking_page_type = 'PDP'
+  assign tracking_module_name = 'you_may_like'
+  assign tracking_module_label = section.settings.title | default: section.settings.module_title
+  assign tracking_module_source = 'fallback'
+  assign tracking_module_type_metaobject = section.settings.tracking_module_type_metaobject
+  assign tracking_template = template.name
+  assign tracking_page_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  assign tracking_page_handle = product.handle | default:page.handle
+
+  if tracking_module_type_metaobject != blank
+    assign tracking_module_name_from_metaobject = tracking_module_type_metaobject.key.value | default: tracking_module_type_metaobject.module_name.value | default: tracking_module_type_metaobject.module_type.value | default: tracking_module_type_metaobject.system.handle
+    assign tracking_module_label_from_metaobject = tracking_module_type_metaobject.label.value | default: tracking_module_type_metaobject.name.value | default: tracking_module_type_metaobject.title.value | default: tracking_module_type_metaobject.system.handle
+
+    if tracking_module_name_from_metaobject != blank
+      assign tracking_module_name = tracking_module_name_from_metaobject
+      assign tracking_module_label = tracking_module_label_from_metaobject
+      assign tracking_module_source = 'metaobject'
+    endif
+  endif
+
+  if template.suffix != blank
+    assign tracking_template = template.name | append: '.' | append: template.suffix
+  endif
+-%}
+
+{%- liquid
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_overrides = section.settings.tracking_content_overrides | newline_to_br | split: '<br />'
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  for override in tracking_content_overrides
+    assign override_parts = override | strip | split: '='
+    assign override_handle = override_parts[0] | strip
+    assign override_key = override_parts[1] | strip
+
+    if override_handle == page.handle or override_handle == product.handle and override_key != blank
+      assign tracking_content_key = override_key
+    endif
+  endfor
+  assign tracking_name = tracking_page_type | upcase | append: '_' | append: tracking_page_sku | append: '_' | append: tracking_module_name | append: '_' | append: tracking_content_key
+-%}
+  <div   {% if tracking_enabled %}
+    data-mrk-track-section
+    data-mrk-track-action="view"
+    data-mrk-track-page-type="{{ tracking_page_type | upcase | escape }}"
+    data-mrk-track-module-name="{{ tracking_module_name | escape }}"
+    data-mrk-track-module-label="{{ tracking_module_label | escape }}"
+    data-mrk-track-module-source="{{ tracking_module_source | escape }}"
+    data-mrk-track-module-title="{{ section.settings.module_title | escape }}"
+    data-mrk-track-content-key="{{ tracking_content_key }}"
+    data-mrk-track-content-type="module"
+    data-mrk-track-tracking-name="{{ tracking_page_type | upcase }}{% if tracking_page_sku != blank %}_{{ tracking_page_sku }}{% endif %} _{{ tracking_module_name }} _{{ tracking_content_key }}"
+    data-mrk-track-template="{{ tracking_template | escape }}"
+    data-mrk-track-section-id="{{ section.id | escape }}"
+    data-mrk-track-section-type="{{ section.type | escape }}"
+    data-mrk-track-page-handle="{{ tracking_page_handle | escape }}"
+  {% endif %}  {% render 'section-properties' %}>
+    <div class="section-stack">
+      <div class="press">
+        <press-carousel id="carousel-{{ section.id }}" class="press__list full-bleed text-center sm:unbleed" role="region">
+          {%- for block in section.blocks -%}
+            <div id="block-{{ section.id }}-{{ block.id }}" class="press__list-item snap-center {% if forloop.first %}is-selected{% endif %}" role="group" aria-label="{{ 'general.accessibility.item_nth_of_count' | t: index: forloop.index, count: section.blocks.size }}" {{ block.shopify_attributes }}>
+              {%- if block.settings.show_rating -%}
+                <div class="rating">
+                  <div class="rating__stars" role="img" aria-label="{{ 'general.rating.info' | t: rating_value: block.settings.rating, rating_max: 5 }}">
+                    {%- for i in (1..5) -%}
+                      {%- if i <= block.settings.rating -%}
+                        {%- render 'icon' with 'rating-star', class: 'rating__star' -%}
+                      {%- else -%}
+                        {%- render 'icon' with 'rating-star', class: 'rating__star rating__star--empty' -%}
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.content != blank -%}
+                <blockquote class="blockquote h3" reveal-on-scroll="true">
+                  {%- render 'styled-text', content: block.settings.content, text_color: section.settings.heading_color, gradient: section.settings.heading_gradient -%}
+                </blockquote>
+              {%- endif -%}
+
+              {%- if block.settings.logo != blank or block.settings.author != blank -%}
+                <div class="v-stack gap-2">
+                  {%- if block.settings.logo != blank -%}
+                    {%- liquid
+                      assign loading_strategy = nil
+            
+                      if section.index > 3 or forloop.first == false
+                        assign loading_strategy = 'lazy'
+                      endif
+                    -%}
+
+                    <div {% render 'surface', class: 'press__logo rounded', background: section.settings.logo_item_background %}>
+                      {%- capture sizes -%}{{ block.settings.logo_width }}px{%- endcapture -%}
+                      {%- capture widths -%}{{ block.settings.logo_width }}, {{ block.settings.logo_width | times: 2 | at_most: block.settings.logo.width }}{%- endcapture -%}
+                      {%- capture max_width -%}--press-image-max-width: {{ block.settings.logo_width }}px{%- endcapture -%}
+                      {{- block.settings.logo | image_url: width: block.settings.logo.width | image_tag: style: max_width, loading: loading_strategy, widths: widths, class: 'press__image', sizes: sizes -}}
+                    </div>
+                  {%- endif -%}
+
+                  {%- if block.settings.author != blank -%}
+                    <p class="press__author text-subdued">{{ block.settings.author }}</p>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </press-carousel>
+
+        {%- if section.blocks.size > 1 and section.settings.show_control -%}
+          <div class="press__controls">
+            <button class="circle-button ring group" is="prev-button" aria-controls="carousel-{{ section.id }}">
+              <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
+              <span class="animated-arrow animated-arrow--reverse"></span>
+            </button>
+
+            <page-dots aria-controls="carousel-{{ section.id }}" class="page-dots">
+              {%- for index in (1..section.blocks.size) -%}
+                <button type="button" class="tap-area" aria-current="{% if forloop.first %}true{% else %}false{% endif %}">
+                  <span class="sr-only">{{ 'general.accessibility.go_to_item' | t: index: index }}</span>
+                </button>
+              {%- endfor -%}
+            </page-dots>
+
+            <button class="circle-button ring group" is="next-button" aria-controls="carousel-{{ section.id }}">
+              <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
+              <span class="animated-arrow"></span>
+            </button>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+{% if tracking_enabled %}
+  <script>
+    (() => {
+      const section = document.getElementById('shopify-section-{{ section.id }}');
+      if (!section || !window.posthog) {
+        return;
+      }
+
+      const firstValue = (...values) => values.find((value) => (typeof value === 'string' ? value.trim() : value));
+      const buildTrackingName = (...values) => values.filter(Boolean).join('_');
+
+      const buildPayload = (element, action) => {
+        const pageContext = window.MerachTrackingContext || {};
+        const pageType = firstValue(pageContext.page_type, element.dataset.mrkTrackPageType);
+        const pageSku = firstValue(pageContext.page_sku);
+        const moduleName = firstValue(element.dataset.mrkTrackModuleName);
+        const contentKey = firstValue(element.dataset.mrkTrackContentKey);
+        const contentSku = firstValue(element.dataset.mrkTrackContentSku);
+        const actionSku = action === 'click' ? firstValue(element.dataset.mrkTrackActionSku, contentSku) : null;
+        const trackingName =
+          buildTrackingName(pageType, pageSku, moduleName, contentKey) || element.dataset.mrkTrackTrackingName;
+
+        const payload = {
+          ...pageContext,
+          schema_version: '1.0',
+          action,
+          tracking_name: trackingName,
+          page_type: pageType,
+          page_key: pageSku,
+          page_sku: pageSku,
+          page_handle: firstValue(pageContext.page_handle, element.dataset.mrkTrackPageHandle),
+          page_url: window.location.href,
+          module_name: moduleName,
+          module_label: element.dataset.mrkTrackModuleLabel,
+          module_source: element.dataset.mrkTrackModuleSource,
+          module_title: element.dataset.mrkTrackModuleTitle,
+          content_key: contentKey,
+          content_sku: contentSku,
+          content_type: element.dataset.mrkTrackContentType,
+          content_handle: element.dataset.mrkTrackContentHandle,
+          item_position: Number(element.dataset.mrkTrackItemPosition || 0) || null,
+          template: firstValue(pageContext.template, element.dataset.mrkTrackTemplate),
+          section_id: element.dataset.mrkTrackSectionId,
+          section_type: element.dataset.mrkTrackSectionType,
+          utm_source: sessionStorage.getItem('utm_source') || '',
+        };
+
+        if (actionSku) {
+          payload.action_sku = actionSku;
+        }
+
+        return payload;
+      };
+
+      const capture = (element, action) => {
+        const trackedActions = (element.dataset.mrkTrackedActions || '').split('|');
+
+        if (trackedActions.includes(action)) {
+          return;
+        }
+
+        window.posthog.capture('merach_module_interaction', buildPayload(element, action));
+        element.dataset.mrkTrackedActions = `${element.dataset.mrkTrackedActions || ''}|${action}`;
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              capture(entry.target, entry.target.dataset.mrkTrackAction || 'view');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+
+      section.querySelectorAll('[data-mrk-track-section],[data-mrk-track-item]').forEach((element) => observer.observe(element));
+
+      section.addEventListener('click', (event) => {
+        const item = event.target.closest('[data-mrk-track-item]');
+        if (item) {
+          capture(item, item.dataset.mrkTrackClickAction || 'click');
+        }
+      });
+    })();
+  </script>
+{% endif %}
+{% schema %}
+{
+  "name": "Press",
+  "class": "shopify-section--press",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "content_size",
+      "label": "Content size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        },
+        {
+          "value": "fill",
+          "label": "Fill page"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_control",
+      "label": "Enable press controls",
+      "default":true
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "logo_item_background",
+      "label": "Logo background"
+    },
+    {
+      "type": "color",
+      "id": "logo_item_border",
+      "label": "Logo border"
+    },
+    {
+      "type": "header",
+      "content": "埋点相关配置"
+    },
+    {
+      "type": "checkbox",
+      "id": "tracking_enabled",
+      "label": "Enable tracking demo",
+      "default": false
+    },
+    {
+      "type": "metaobject",
+      "id": "tracking_module_type_metaobject",
+      "label": "PostHog module type",
+      "metaobject_type": "test_posthog_module_type",
+      "info": "Select the module type entry maintained by business, for example you_may_like."
+    },
+    {
+      "type": "textarea",
+      "id": "tracking_content_overrides",
+      "label": "Tracking content overrides",
+      "info": "One per line: product-handle=content_key"
+    },
+    {
+      "type": "text",
+      "id": "module_title",
+      "label": "Module title on capture"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Quote",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo",
+          "info": "300 x 90px .jpg recommended"
+        },
+        {
+          "type": "range",
+          "id": "logo_width",
+          "min": 50,
+          "max": 350,
+          "unit": "px",
+          "step": 5,
+          "label": "Logo width",
+          "default": 100
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author"
+        },
+        {
+          "type": "text",
+          "id": "content",
+          "label": "Quote",
+          "default": "Write some content about what they says about your store."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_rating",
+          "label": "Show rating",
+          "default": true
+        },
+        {
+          "type": "range",
+          "min": 0,
+          "max": 5,
+          "id": "rating",
+          "label": "Rating",
+          "default": 4
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Press",
+      "blocks": [
+        {
+          "type": "quote"
+        },
+        {
+          "type": "quote"
+        },
+        {
+          "type": "quote"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
