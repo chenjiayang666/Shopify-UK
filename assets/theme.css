@@ -1675,6 +1675,10 @@ scroll-carousel {
   --banner-background: var(--warning-background);
   --banner-color: var(--warning-text);
 }
+.banner--sm {
+  padding: var(--spacing-2);
+  font-size: var(--text-sm);
+}
 
 .banner--with-icon > .button {
   grid-column-start: 2;
