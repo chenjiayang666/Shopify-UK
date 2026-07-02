@@ -36,6 +36,8 @@
     "heading_font_size": "large",
     "heading_letter_spacing": -2,
     "text_font": "din_next_n4",
+    "reduce_drawer_animation": true,
+    "reduce_menu_animation": true,
     "heading_apparition": "split_fade",
     "discount_mode": "saving",
     "product_color_display": "swatch",
