@@ -807,7 +807,7 @@
         "comment_GNNUGE": {
           "type": "comment",
           "settings": {
-            "alignment": "column",
+            "alignment": "column-reverse",
             "video": "shopify://files/videos/Merach R50 Pro Rowing Machine with with HD Screen-2 (3).mp4",
             "author": "mamirosetv",
             "content": "\"Para mí la parte más difícil de ir a gym es tener que salir de casa, pero ya resolví con esta caminadora de\""
@@ -825,7 +825,7 @@
         "comment_rjBhWA": {
           "type": "comment",
           "settings": {
-            "alignment": "column",
+            "alignment": "column-reverse",
             "video": "shopify://files/videos/Sofia-UK-W50.mp4",
             "author": "dr.zachcolls",
             "content": "\"💥 This is the Merach NovaRow R50—and it’s hands down one of the best budget air rowers I’ve used⚡️ The R50 uses air resistance, which means the harder you pull, the more resistance you get—just like rowing on water.\""
