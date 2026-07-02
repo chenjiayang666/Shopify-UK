@@ -54,20 +54,19 @@ Supported variables
     if stretch
       echo ' w-full'
     endif
-
-    if custom_class
-      echo custom_class
-    endif
   endcapture
 %}
 
 {%- capture style_attribute -%}
   {%- if background != blank and background != 'rgba(0,0,0,0)' -%}
-    --button-background: {{ background.rgb }} / var(--button-background-opacity, 1);
+    --button-background: {{ background}};
 
     {%- if style != 'outline' -%}
       --button-outline-color: {{ background.rgb }};
     {%- endif -%}
+
+    {% elsif background_linear !=blank%}
+    --button-background: {{ background_linear }};
   {%- endif -%}
 
   {%- if text_color != blank and text_color != 'rgba(0,0,0,0)' -%}
@@ -95,9 +94,7 @@ Supported variables
   {% if icon != blank %}
     <div class="text-with-icon justify-center">
       {%- render 'icon' with icon, width: 18, height: 18 -%}
-      {% unless only_icon %}
       {{- content -}}
-      {% endunless %}
     </div>
   {%- else -%}
     {{- content -}}
@@ -110,10 +107,6 @@ Supported variables
   </a>
 {%- else -%}
   <button type="{{ type | default: 'button' }}" {{ attributes }} {{ block.shopify_attributes }}>
-    {% if custom_button %}
-      {{ custom_button }}
-    {% else %}
-      {{- button_content -}}
-    {% endif %}
+    {{- button_content -}}
   </button>
 {%- endif -%}
