@@ -1,0 +1,1276 @@
+{% render 'section-settings' %}
+<style>
+  #shopify-section-{{ section.id }} .slide-banner{
+    background: {{ section.settings.section-bg }};
+  }
+    #shopify-section-{{ section.id }} .spl-axwidth{
+        max-width: {{ section.settings.media-maxwidth }}px;
+        margin: 0 auto;
+        padding-left:{{ section.settings.padding-gap-left }}px;
+        padding-right:{{ section.settings.padding-gap-right }}px;
+  }
+    #shopify-section-{{section.id }} .media{
+      width: 100%;
+      object-fit: cover;
+  }
+      #shopify-section-{{ section.id }} .link-button{
+        border-radius: 20px;
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        height: 100%;
+      {%if section.settings.show_button_shadow %}
+          box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      {% endif %}
+        transition: all 0.3s ease; /* 平滑过渡 */
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19.33px;
+        letter-spacing: 0;
+    }
+  {%if section.settings.show_button_shadow %}
+
+            #shopify-section-{{ section.id }} .link-button:hover{
+        transform: translateY(-3px); /* 稍微上浮 */
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25); /* 阴影更浓一些 */
+    }
+      {% endif %}
+
+    #shopify-section-{{ section.id }} .color-settings1{
+        color:{{ section.settings.button_color }};
+        background:{{ section.settings.button_bg }};
+        {%if section.settings.button_color =='#000000' and section.settings.button_bg == '#ffffff'%}
+          border:1px solid {{ section.settings.button_color }};
+        {% endif %}
+        margin-right:10px;
+    }
+        #shopify-section-{{ section.id }} .tab-header .title{
+      color: {{ section.settings.title-color }};
+
+    }
+    #shopify-section-{{ section.id }} .tab-header .subtitle{
+      color: {{ section.settings.subtitle-color }};
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 120%;
+    }
+           #shopify-section-{{ section.id }} .tab-header{
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          justify-content: space-between;
+            padding-top:50px;
+            padding-bottom:50px
+        }
+      #shopify-section-{{ section.id }} .tab-header-content{
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+      }
+
+      #shopify-section-{{ section.id }} .article-banner-item{
+        display: flex;
+        color:{{ section.settings.article-color }};
+        flex-direction: column;
+        border-radius: 15px;
+        overflow: hidden;
+        background:{{ section.settings.article-card-bg }};
+        {% comment %} box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        transition: all 0.5s ease; /* 平滑过渡 */ {% endcomment %}
+        height: auto;
+    }
+    {% comment %} #shopify-section-{{ section.id }} .article-banner-item:hover{
+        transform: translateY(-3px); /* 稍微上浮 */
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25); /* 阴影更浓一些 */
+    } {% endcomment %}
+    #shopify-section-{{ section.id }} .article-banner-media{
+        display: flex;
+        position: relative;
+        overflow:hidden;
+    }
+    #shopify-section-{{ section.id }} .article-banner-media img,.article-banner-media video{
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 342/259;
+            transition: transform 0.3s ease;
+
+    }
+            #shopify-section-{{ section.id }} .article-banner-item:hover img{
+    transform: scale(1.1);
+    }
+    #shopify-section-{{ section.id }} .article-banner-info{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding:30px 20px;
+    }
+    #shopify-section-{{ section.id }} .article-banner-author{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+        text-align:right;
+    }
+    #shopify-section-{{ section.id }} .article-banner-title{
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 120%;
+    }
+    #shopify-section-{{ section.id }} .article-banner-description{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    #shopify-section-{{ section.id }} .slide-banner-body .swiper-{{ section.id }}{
+        overflow:hidden
+    }
+    #shopify-section-{{ section.id }} .slide-banner-body .addtion-padding{
+            padding:4px;
+    }
+
+    #shopify-section-{{ section.id }} .default-banner-item{
+        display: flex;
+        flex-direction: column;
+        border-radius: 7px;
+        overflow: hidden;
+        background:{{ section.settings.default-card-bg }};
+        {% comment %} box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        transition: all 0.5s ease; /* 平滑过渡 */ {% endcomment %}
+
+        height: auto;
+      }
+    {% comment %} #shopify-section-{{ section.id }} .default-banner-item:hover{
+        transform: translateY(-3px); /* 稍微上浮 */
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25); /* 阴影更浓一些 */
+    } {% endcomment %}
+        #shopify-section-{{ section.id }} .default-banner-media{
+        display: flex;
+        position: relative;
+        overflow:hidden;
+    }
+    #shopify-section-{{ section.id }} .default-banner-media img,.default-banner-media video{
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: {{section.settings.default-ratio}};
+    transition: transform 0.3s ease;
+
+    }
+        #shopify-section-{{ section.id }} .default-banner-media:hover img{
+    transform: scale(1.1);
+    }
+    #shopify-section-{{ section.id }} .default-banner-info{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding:20px;
+        justify-content: space-between;
+    }
+    #shopify-section-{{ section.id }} .default-banner-title{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 120%;
+        color:{{ section.settings.default-title-color }};
+        margin-bottom:12px;
+    }
+    #shopify-section-{{ section.id }} .default-banner-subtitle{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color:{{ section.settings.default-subtitle-color }};
+    }
+    #shopify-section-{{ section.id }} .default-banner-button{
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        color:{{ section.settings.default-button-color }};
+        text-decoration: underline;
+    }
+    #shopify-section-{{ section.id }} .slide-banner-item{
+      border-radius:{{section.settings.banner_radius }}px;
+      overflow:hidden;
+    }
+    #shopify-section-{{ section.id }} .article_author{
+      font-weight:300;
+      text-align:right;
+    }
+
+    @media(max-width:750px){
+    #shopify-section-{{ section.id }} .spl-axwidth{
+        padding-left:{{ section.settings.padding-gap-left-mob }}px;
+        padding-right:{{ section.settings.padding-gap-right-mob }}px;
+    }
+      #shopify-section-{{ section.id }} .slide-banner{
+        background: {{ section.settings.section-bg }};
+      }
+      #shopify-section-{{ section.id }} .tab-header{
+        padding-top:30px;
+        padding-bottom:50px;
+        flex-direction: column;
+      }
+      #shopify-section-{{ section.id }} .tab-header .subtitle {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+      }
+      #shopify-section-{{ section.id }} .tab-header-content{
+        gap:10px;
+        align-items: center;
+        text-align: center;
+      }
+      #shopify-section-{{ section.id }} .swiper-pagination-bullet{
+            width:4px;
+            height:4px;
+            background:#D9D9D9;
+            border-radius:5px;
+            transition: all 0.5s ease;
+            opacity:1;
+        }
+        #shopify-section-{{ section.id }} .swiper-pagination-bullet-active{
+            background:#53565A;
+            width:14px;
+        }
+        #shopify-section-{{ section.id }} .slide-swiper-pagination{
+            display: flex;
+            position: unset;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        #shopify-section-{{ section.id }} .link-button{
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 17.33px;
+        }
+  }
+
+</style>
+{%- render 'posthog-context',
+  page_type: 'PDP',
+  page_type_label: 'Product Detail Page',
+  page_type_metaobject: section.settings.posthog_page_type_metaobject
+-%}
+{%- liquid
+  assign tracking_enabled = section.settings.tracking_enabled
+  assign tracking_page_type = 'PDP'
+  assign tracking_module_name = 'you_may_like'
+  assign tracking_module_label = section.settings.title | default: 'You may also like'
+  assign tracking_module_source = 'fallback'
+  assign tracking_module_type_metaobject = section.settings.tracking_module_type_metaobject
+  assign tracking_template = template.name
+  assign tracking_page_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  assign tracking_page_handle = product.handle | default:page.handle
+
+  if tracking_module_type_metaobject != blank
+    assign tracking_module_name_from_metaobject = tracking_module_type_metaobject.key.value | default: tracking_module_type_metaobject.module_name.value | default: tracking_module_type_metaobject.module_type.value | default: tracking_module_type_metaobject.system.handle
+    assign tracking_module_label_from_metaobject = tracking_module_type_metaobject.label.value | default: tracking_module_type_metaobject.name.value | default: tracking_module_type_metaobject.title.value | default: tracking_module_type_metaobject.system.handle
+
+    if tracking_module_name_from_metaobject != blank
+      assign tracking_module_name = tracking_module_name_from_metaobject
+      assign tracking_module_label = tracking_module_label_from_metaobject
+      assign tracking_module_source = 'metaobject'
+    endif
+  endif
+
+  if template.suffix != blank
+    assign tracking_template = template.name | append: '.' | append: template.suffix
+  endif
+-%}
+
+{%- liquid
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_overrides = section.settings.tracking_content_overrides | newline_to_br | split: '<br />'
+
+  for override in tracking_content_overrides
+    assign override_parts = override | strip | split: '='
+    assign override_handle = override_parts[0] | strip
+    assign override_key = override_parts[1] | strip
+
+    if override_handle == page.handle or override_handle == product.handle and override_key != blank
+      assign tracking_content_key = override_key
+    endif
+  endfor
+-%}
+
+
+<section class="slide-banner section-padding"   
+  {% if tracking_enabled %}
+    data-mrk-track-section
+    data-mrk-track-action="view"
+    data-mrk-track-page-type="{{ tracking_page_type | upcase | escape }}"
+    data-mrk-track-module-name="{{ tracking_module_name | escape }}"
+    data-mrk-track-module-label="{{ tracking_module_label | escape }}"
+    data-mrk-track-module-source="{{ tracking_module_source | escape }}"
+    data-mrk-track-module-title="{{ section.settings.module_title | escape }}"
+    data-mrk-track-content-key="{{ tracking_content_key }}"
+    data-mrk-track-content-type="module"
+    data-mrk-track-tracking-name="{{ tracking_page_type | upcase }}{% if tracking_page_sku != blank %}_{{ tracking_page_sku }}{% endif %} _{{ tracking_module_name }} _{{ tracking_content_key }}"
+    data-mrk-track-template="{{ tracking_template | escape }}"
+    data-mrk-track-section-id="{{ section.id | escape }}"
+    data-mrk-track-section-type="{{ section.type | escape }}"
+    data-mrk-track-page-handle="{{ tracking_page_handle | escape }}"
+  {% endif %}>
+  <div class="slide-banner-container {% if section.settings.animate %}fade-element{% endif %}">
+    {% if section.settings.title != blank or section.settings.subtitle != blank %}
+      <div class="tab-header  spl-axwidth">
+        <div class="tab-header-content">
+          {% if section.settings.title != blank %}
+            <div class="{{ section.settings.heading_tag }} title">{{ section.settings.title }}</div>
+          {% endif %}
+          {% if section.settings.subtitle != blank %}
+            <div class="subtitle">{{ section.settings.subtitle }}</div>
+          {% endif %}
+        </div>
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link }}" class="link-button color-settings1">
+            {{- section.settings.button_text -}}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="slide-banner-body spl-axwidth">
+      <div class="swiper-{{ section.id }} {% if section.blocks.size>2 %}addtion-padding{% endif %}">
+        <div class="swiper-wrapper" >
+          {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+              {% if block.type == 'banner' %}
+                <div class="slide-banner-item radius-{{ block.id }} swiper-slide">
+                  {% if block.settings.video != blank %}
+                    <div class="video-wrapper sm:block sm-max:hidden">
+                      {{-
+                        block.settings.video
+                        | video_tag:
+                          playsinline: true,
+                          preload: 'metadata',
+                          autoplay: true,
+                          muted: true,
+                          loop: true,
+                          controls: false,
+                          image_size: '800x',
+                          class: 'lazy-video  media pc-video pc-control'
+                      -}}
+                      <div class="video-control">
+                        <svg width="70" height="70">
+                          <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
+                          <circle class="progress-bar" cx="35" cy="35" r="30"></circle>
+                        </svg>
+                        <div class="icon play"></div>
+                      </div>
+                    </div>
+
+                  {% elsif block.settings.image != blank %}
+                    <img
+                      class="sm:block sm-max:hidden media pc-control"
+                      src="{{ block.settings.image | img_url:''}}"
+                      alt="{{ block.settings.image.alt }}"
+                      loading="lazy"
+                    >
+                  {% endif %}
+
+                  {% if block.settings.video_m != blank %}
+                    <div class="video-wrapper sm:hidden sm-max:block">
+                      {{-
+                        block.settings.video_m
+                        | video_tag:
+                          playsinline: true,
+                          preload: 'metadata',
+                          muted: true,
+                          loop: true,
+                          autoplay: true,
+                          controls: false,
+                          image_size: '800x',
+                          class: 'lazy-video  media'
+                      -}}
+                      <div class="video-control">
+                        <svg width="70" height="70">
+                          <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
+                          <circle class="progress-bar" cx="35" cy="35" r="30"></circle>
+                        </svg>
+                        <div class="icon play"></div>
+                      </div>
+                    </div>
+                  {% elsif block.settings.image_mob != blank %}
+                    <img
+                      class="sm:hidden sm-max:block media"
+                      src="{{ block.settings.image_mob | img_url:'' }}"
+                      alt="{{ block.settings.image_mob.alt }}"
+                      loading="lazy"
+                    >
+
+                  {% endif %}
+                </div>
+              {% endif %}
+
+              {% if block.type == 'article' %}
+                <div class="article-banner-item swiper-slide">
+                  <{%if block.settings.video == blank%}a{%else%}div{% endif %} {% if block.settings.url == blank and block.settings.article.url == blank %} style="pointer-events: none;" {% endif %}  href="{{ block.settings.url | default: block.settings.article.url }}" class="article-banner-media">
+                    {% if block.settings.video != blank %}
+                      <div class="video-wrapper sm:block sm-max:hidden">
+                        {{-
+                          block.settings.video
+                          | video_tag:
+                            playsinline: true,
+                            preload: 'metadata',
+                            autoplay: true,
+                            muted: true,
+                            loop: true,
+                            controls: false,
+                            image_size: '800x',
+                            class: 'lazy-video  media pc-video pc-control'
+                        -}}
+                        <div class="video-control">
+                          <svg width="70" height="70">
+                            <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
+                            <circle class="progress-bar" cx="35" cy="35" r="30"></circle>
+                          </svg>
+                          <div class="icon play"></div>
+                        </div>
+                      </div>
+
+                    {% elsif block.settings.image != blank %}
+                      <img
+                        class="sm:block sm-max:hidden media pc-control"
+                        src="{{ block.settings.image | img_url:'' }}"
+                        alt="{{ block.settings.image.alt }}"
+                        loading="lazy"
+                      >
+                    {% elsif block.settings.article != blank %}
+                      {% assign feature_image = block.settings.article.image %}
+                      <img
+                        class="sm:block sm-max:hidden media pc-control"
+                        src="{{ feature_image | img_url:'' }}"
+                        alt="{{ block.settings.article.title }}"
+                        loading="lazy"
+                      >
+                    {% endif %}
+
+                    {% if block.settings.video_m != blank %}
+                      <div class="video-wrapper sm:hidden sm-max:block">
+                        {{-
+                          block.settings.video_m
+                          | video_tag:
+                            playsinline: true,
+                            preload: 'metadata',
+                            muted: true,
+                            loop: true,
+                            autoplay: true,
+                            controls: false,
+                            image_size: '800x',
+                            class: 'lazy-video  media'
+                        -}}
+                        <div class="video-control">
+                          <svg width="70" height="70">
+                            <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
+                            <circle class="progress-bar" cx="35" cy="35" r="30"></circle>
+                          </svg>
+                          <div class="icon play"></div>
+                        </div>
+                      </div>
+                    {% elsif block.settings.image_mob != blank %}
+                      <img
+                        class="sm:hidden sm-max:block media"
+                        src="{{ block.settings.image_mob | img_url:'' }}"
+                        alt="{{ block.settings.image_mob.alt }}"
+                        loading="lazy"
+                      >
+                    {% elsif block.settings.article != blank %}
+                      {% assign feature_image = block.settings.article.image %}
+                      <img
+                        class="sm:hidden sm-max:block media"
+                        src="{{ feature_image | img_url:'' }}"
+                        alt="{{ block.settings.article.title }}"
+                        loading="lazy"
+                      >
+                    {% endif %}
+                  </{%if block.settings.video == blank%}a{%else%}div{%endif %}>
+                  <div class="article-banner-info">
+                    <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M-0.000221878 10.1279V7.2302C-0.000221878 6.39687 0.156028 5.53039 0.468528 4.63077C0.790498 3.72168 1.2261 2.86467 1.77535 2.05975C2.33406 1.24535 2.95906 0.558801 3.65035 8.72612e-05L6.03671 1.54838C5.478 2.39119 5.00925 3.27187 4.63046 4.19043C4.26114 5.09952 4.08122 6.10331 4.09069 7.20179V10.1279H-0.000221878ZM7.20148 10.1279V7.2302C7.20148 6.39687 7.35773 5.53039 7.67023 4.63077C7.9922 3.72168 8.42781 2.86467 8.97705 2.05975C9.53576 1.24535 10.1608 0.558801 10.8521 8.72612e-05L13.2384 1.54838C12.6797 2.39119 12.211 3.27187 11.8322 4.19043C11.4628 5.09952 11.2829 6.10331 11.2924 7.20179V10.1279H7.20148Z" fill="black"/>
+                    </svg>
+                    {% comment %} <div class="article-banner-title">{{ block.settings.article_title | default: block.settings.article.title }}</div> {% endcomment %}
+                    <div class="article-banner-description">{{ block.settings.article_description | default: block.settings.article.content  }}</div>
+                    {% if block.settings.article_author != blank %}
+                      <div class="article_author">-{{block.settings.article_author | default: block.settings.article.author }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if block.type == 'default' %}
+                <div class="default-banner-item swiper-slide">
+                  <{%if block.settings.video == blank%}a{%else%}div{% endif %} href="{{ block.settings.url }}" class="default-banner-media">
+                    {% if block.settings.video != blank %}
+                      <div class="video-wrapper sm:block sm-max:hidden">
+                        {{-
+                          block.settings.video
+                          | video_tag:
+                            playsinline: true,
+                            preload: 'metadata',
+                            autoplay: true,
+                            muted: true,
+                            loop: true,
+                            controls: false,
+                            image_size: '800x',
+                            class: 'lazy-video  media pc-video pc-control'
+                        -}}
+                        <div class="video-control">
+                          <svg width="70" height="70">
+                            <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
+                            <circle class="progress-bar" cx="35" cy="35" r="30"></circle>
+                          </svg>
+                          <div class="icon play"></div>
+                        </div>
+                      </div>
+
+                    {% elsif block.settings.image != blank %}
+                      <img
+                        class="sm:block sm-max:hidden media pc-control"
+                        src="{{ block.settings.image | img_url:'' }}"
+                        alt="{{ block.settings.image.alt }}"
+                        loading="lazy"
+                      >
+                    {% elsif block.settings.article != blank %}
+                      {% assign feature_image = block.settings.article.image %}
+                      <img
+                        class="sm:block sm-max:hidden media pc-control"
+                        src="{{ feature_image | img_url:'' }}"
+                        alt="{{ block.settings.article.title }}"
+                        loading="lazy"
+                      >
+                    {% endif %}
+
+                    {% if block.settings.video_m != blank %}
+                      <div class="video-wrapper sm:hidden sm-max:block">
+                        {{-
+                          block.settings.video_m
+                          | video_tag:
+                            playsinline: true,
+                            preload: 'metadata',
+                            muted: true,
+                            loop: true,
+                            autoplay: true,
+                            controls: false,
+                            image_size: '800x',
+                            class: 'lazy-video  media'
+                        -}}
+                        <div class="video-control">
+                          <svg width="70" height="70">
+                            <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
+                            <circle class="progress-bar" cx="35" cy="35" r="30"></circle>
+                          </svg>
+                          <div class="icon play"></div>
+                        </div>
+                      </div>
+                    {% elsif block.settings.image_mob != blank %}
+                      <img
+                        class="sm:hidden sm-max:block media"
+                        src="{{ block.settings.image_mob | img_url:'' }}"
+                        alt="{{ block.settings.image_mob.alt }}"
+                        loading="lazy"
+                      >
+                    {% elsif block.settings.article != blank %}
+                      {% assign feature_image = block.settings.article.image %}
+                      <img
+                        class="sm:hidden sm-max:block media"
+                        src="{{ feature_image | img_url:'' }}"
+                        alt="{{ block.settings.article.title }}"
+                        loading="lazy"
+                      >
+                    {% endif %}
+                  </{%if block.settings.video == blank%}a{%else%}div{%endif %}>
+                  <div class="default-banner-info">
+                    {% if block.settings.title != blank %}
+                      <h3 class="default-banner-title">{{block.settings.title}}</h3>
+                    {% endif %}
+                    <div>
+
+                    {% if block.settings.subtitle != blank %}
+                      <p class="default-banner-subtitle">{{block.settings.subtitle}}</p>
+                    {% endif %}
+
+                    {% if block.settings.link_text != blank %}
+                      <a href="{{ block.settings.url }}" class="default-banner-button ">
+                        {{- block.settings.link_text -}}
+                      </a>
+                    {% endif %}
+                    </div>
+
+                  </div>
+                </div>
+              {% endif %}
+
+            {% endfor %}
+          {% endif %}
+        </div>
+        <div class="slide-swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+    var swiperConfig = {
+
+    };
+
+    // 移动端配置
+    swiperConfig.breakpoints = {
+        0: {
+            {% if section.settings.slide_per_splite_mob > 0 %}
+            slidesPerView: {{ section.settings.slide_per_view_mob }}.{{ section.settings.slide_per_splite_mob }},
+            {% else %}
+            slidesPerView: {{ section.settings.slide_per_view_mob }},
+            {% endif %}
+            spaceBetween: {{ section.settings.slide_gap_mob }},
+            {% if section.settings.show_mob_pag%}
+            pagination: {
+              el: '.slide-swiper-pagination',
+            },
+            {% endif %}
+        },
+        750:{
+            {% if section.settings.slide_per_splite > 0 %}
+            slidesPerView: {{ section.settings.slide_per_view }}.{{ section.settings.slide_per_splite }},
+            {% else %}
+            slidesPerView: {{ section.settings.slide_per_view }},
+            {% endif %}
+            spaceBetween: {{ section.settings.slide_gap }}
+        }
+    };
+
+    var swiperSlide = new Swiper('.swiper-{{ section.id }}', swiperConfig);
+})();
+</script>
+{% if tracking_enabled %}
+  <script>
+    (() => {
+      const section = document.getElementById('shopify-section-{{ section.id }}');
+      if (!section || !window.posthog) {
+        return;
+      }
+
+      const firstValue = (...values) => values.find((value) => typeof value === 'string' ? value.trim() : value);
+      const buildTrackingName = (...values) => values.filter(Boolean).join('_');
+
+      const buildPayload = (element, action) => {
+        const pageContext = window.MerachTrackingContext || {};
+        const pageType = firstValue(pageContext.page_type, element.dataset.mrkTrackPageType);
+        const pageSku = firstValue(pageContext.page_sku);
+        const moduleName = firstValue(element.dataset.mrkTrackModuleName);
+        const contentKey = firstValue(element.dataset.mrkTrackContentKey);
+        const contentSku = firstValue(element.dataset.mrkTrackContentSku);
+        const actionSku = action === 'click' ? firstValue(element.dataset.mrkTrackActionSku, contentSku) : null;
+        const trackingName = buildTrackingName(pageType, pageSku, moduleName, contentKey) || element.dataset.mrkTrackTrackingName;
+
+        const payload = {
+          ...pageContext,
+          schema_version: '1.0',
+          action,
+          tracking_name: trackingName,
+          page_type: pageType,
+          page_key: pageSku,
+          page_sku: pageSku,
+          page_handle: firstValue(pageContext.page_handle, element.dataset.mrkTrackPageHandle),
+          page_url: window.location.href,
+          module_name: moduleName,
+          module_label: element.dataset.mrkTrackModuleLabel,
+          module_source: element.dataset.mrkTrackModuleSource,
+          module_title: element.dataset.mrkTrackModuleTitle,
+          content_key: contentKey,
+          content_sku: contentSku,
+          content_type: element.dataset.mrkTrackContentType,
+          content_handle: element.dataset.mrkTrackContentHandle,
+          item_position: Number(element.dataset.mrkTrackItemPosition || 0) || null,
+          template: firstValue(pageContext.template, element.dataset.mrkTrackTemplate),
+          section_id: element.dataset.mrkTrackSectionId,
+          section_type: element.dataset.mrkTrackSectionType,
+          utm_source: sessionStorage.getItem('utm_source') || '',
+        };
+
+        if (actionSku) {
+          payload.action_sku = actionSku;
+        }
+
+        return payload;
+      };
+
+      const capture = (element, action) => {
+        const trackedActions = (element.dataset.mrkTrackedActions || '').split('|');
+        if (trackedActions.includes(action)) {
+          return;
+        }
+
+        window.posthog.capture('merach_module_interaction', buildPayload(element, action));
+        element.dataset.mrkTrackedActions = `${element.dataset.mrkTrackedActions || ''}|${action}`;
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            capture(entry.target, entry.target.dataset.mrkTrackAction || 'view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.35 });
+
+      section.querySelectorAll('[data-mrk-track-section]').forEach((element) => observer.observe(element));
+      {% comment %}
+      section.addEventListener('click', (event) => {
+        const item = event.target.closest('[data-mrk-track-item]');
+        if (item) {
+          capture(item, item.dataset.mrkTrackClickAction || 'click');
+        }
+      }); {% endcomment %}
+    })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Slide Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Unique ID for anchor links",
+      "default": "multi-column-product-pro"
+    },
+                {
+      "type": "checkbox",
+      "id": "animate",
+      "label": "启用键入动画",
+      "default": true,
+      "info": "修改配置的时候关闭"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom"
+    },
+    {
+      "type": "range",
+      "id": "padding-gap-left",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap left"
+    },
+    {
+      "type": "range",
+      "id": "padding-gap-right",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap right"
+    },
+    {
+      "type": "header",
+      "content": "Width restriction",
+      "info": "Section maxWidth"
+    },
+    {
+      "type": "range",
+      "id": "max-width",
+      "max": 1920,
+      "min": 720,
+      "step": 20,
+      "default": 1600,
+      "label": "Section width"
+    },
+    {
+      "type": "range",
+      "id": "media-maxwidth",
+      "max": 1920,
+      "min": 720,
+      "step": 20,
+      "default": 1440,
+      "label": "Media width"
+    },
+    {
+      "type": "header",
+      "content": "Mob setting"
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-gap-left-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap left mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-gap-right-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap right mob"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Playful Path to Pro Results"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Style",
+      "options": [
+        {
+          "value": "h1",
+          "label": "X-Large"
+        },
+        {
+          "value": "h2",
+          "label": "Large"
+        },
+        {
+          "value": "h3",
+          "label": "Medium"
+        },
+        {
+          "value": "h4",
+          "label": "Small"
+        },
+        {
+          "value": "h5",
+          "label": "X-Small"
+        },
+        {
+          "value": "h6",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h1"
+    },
+
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Real Time Data Sync I Global Coach Network I Ever-Evolving Programs  I AI Fitness Trainer"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Show Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+            {
+          "type": "checkbox",
+          "id": "show_button_shadow",
+          "default": true,
+          "label": "开启按钮阴影"
+        },
+    {
+      "type": "header",
+      "content": "Color settings"
+    },
+    {
+      "type": "color_background",
+      "id": "section-bg",
+      "label": "Section background"
+    },
+    {
+      "type": "color_background",
+      "id": "title-color",
+      "label": "Title color",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "subtitle-color",
+      "label": "Subtitle color",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#0096F9"
+    },
+    {
+      "type":"header",
+      "content":"Article类型卡片设置"
+    },
+    {
+      "type": "color",
+      "id": "article-card-bg",
+      "label": "Article card background",
+      "default": "#fff"
+    },
+
+    {
+      "type": "color",
+      "id": "article-color",
+      "label": "Article color",
+      "default": "#000"
+    },
+    {
+        "type":"header",
+        "content":"Default类型卡片设置"
+    },
+    {
+        "type":"text",
+        "id":"default-ratio",
+        "label":"Default ratio",
+        "default":"355/200"
+    },
+    {
+        "type":"color",
+        "id":"default-card-bg",
+        "label":"Default card background",
+        "default":"#fff"
+    },
+    {
+        "type":"color",
+        "id":"default-title-color",
+        "label":"Default title color",
+        "default":"#000"
+    },
+    {
+        "type":"color",
+        "id":"default-subtitle-color",
+        "label":"Default subtitle color",
+        "default":"#101820"
+    },
+    {
+        "type":"color",
+        "id":"default-button-color",
+        "label":"Default button color",
+        "default":"#101820"
+    },
+    {
+      "type": "header",
+      "content": "Mobile color settings"
+    },
+    {
+      "type": "color_background",
+      "id": "section-bg-mob",
+      "label": "Section background mob",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "title-color-mob",
+      "label": "Title color mob",
+      "default": "#fff"
+    },
+    {
+      "type": "color_background",
+      "id": "subtitle-color-mob",
+      "label": "Subtitle color mob",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "滑块"
+    },
+        {
+      "type": "range",
+      "id": "banner_radius",
+      "max": 30,
+      "min": 0,
+      "step": 1,
+      "default": 0,
+      "label": "滑块圆角"
+    },
+    
+    {
+      "type": "range",
+      "id": "slide_per_view",
+      "max": 5,
+      "min": 1,
+      "step": 1,
+      "default": 1,
+      "label": "单页滑块数量"
+    },
+    {
+      "type": "range",
+      "id": "slide_per_splite",
+      "max": 9,
+      "min": 0,
+      "step": 1,
+      "default": 0,
+      "label": "单页滑块分割数(比如像实现单页2.5这样的数量)"
+    },
+    {
+      "type": "range",
+      "id": "slide_gap",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "label": "滑块之间间距",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "移动端滑块设置"
+    },
+        {
+      "type": "range",
+      "id": "slide_per_view_mob",
+      "max": 5,
+      "min": 1,
+      "step": 1,
+      "default": 1,
+      "label": "移动端单页滑块数量"
+    },
+    {
+      "type": "range",
+      "id": "slide_per_splite_mob",
+      "max": 9,
+      "min": 0,
+      "step": 1,
+      "default": 2,
+      "label": "移动端单页滑块分割数"
+    },
+    {
+      "type": "range",
+      "id": "slide_gap_mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "label": "移动端滑块之间间距",
+      "default": 20
+    },
+    {
+      "type":"checkbox",
+      "id":"show_mob_pag",
+      "label":"移动端显示分页器",
+      "default":false
+    },
+        {
+      "type": "header",
+      "content": "埋点相关配置"
+    },
+    {
+      "type": "checkbox",
+      "id": "tracking_enabled",
+      "label": "Enable tracking demo",
+      "default": false
+    },
+    {
+      "type": "metaobject",
+      "id": "posthog_page_type_metaobject",
+      "label": "PostHog page type",
+      "metaobject_type": "test_posthog_pagetype",
+      "info": "Select the page type entry maintained by business, for example PDP."
+    },
+    {
+      "type": "metaobject",
+      "id": "tracking_module_type_metaobject",
+      "label": "PostHog module type",
+      "metaobject_type": "test_posthog_module_type",
+      "info": "Select the module type entry maintained by business, for example you_may_like."
+    },
+    {
+      "type": "textarea",
+      "id": "tracking_content_overrides",
+      "label": "Tracking content overrides",
+      "info": "One per line: product-handle=content_key"
+    },
+    {
+      "type": "text",
+      "id": "module_title",
+      "label": "Module title on capture"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "settings": [
+        {
+          "type": "header",
+          "content": "数据源"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "video",
+          "id": "video_m",
+          "label": "Video m"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mob",
+          "label": "image Mob"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "article"
+        },
+        {
+          "type": "header",
+          "content": "数据源,如果不填写,则默认由article自动获取"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "video",
+          "id": "video_m",
+          "label": "Video m"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mob",
+          "label": "image Mob"
+        },
+        {
+          "type": "text",
+          "id": "article_title",
+          "label": "Article title",
+          "info": "Default by article"
+        },
+        {
+          "type": "text",
+          "id": "article_description",
+          "label": "Article description",
+          "info": "Default by article"
+        },
+        {
+          "type": "url",
+          "id": "article_url",
+          "label": "Article url"
+        },
+        {
+          "type": "text",
+          "id": "article_author",
+          "label": "article author"
+        }
+      ]
+    },
+        {
+      "type": "default",
+      "name": "default",
+      "settings": [
+
+        {
+          "type": "header",
+          "content": "数据源"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "video",
+          "id": "video_m",
+          "label": "Video m"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mob",
+          "label": "image Mob"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "4 Quick Ways to Step intoFall Fitness, by Experts"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "We make the best Home gym Fitness, We make the best Home gym Fitness"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link text",
+          "default": "Learn More"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Slide Banner" }]
+}
+{% endschema %}
