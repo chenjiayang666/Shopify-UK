@@ -479,6 +479,7 @@
         "quote_dmpGmM": {
           "type": "quote",
           "settings": {
+            "logo": "shopify://shop_images/20260525-171055.jpg",
             "logo_width": 350,
             "author": "",
             "content": "Overall, a fantastic product that delivers on both performance and convenience — highly recommended!",
@@ -489,6 +490,7 @@
         "quote_gF4dzD": {
           "type": "quote",
           "settings": {
+            "logo": "shopify://shop_images/Forbes_logo_1822b417-ce94-4458-82f3-d22d37eed182.svg",
             "logo_width": 100,
             "author": "",
             "content": "Merach Rowing Machine is easy to assemble and makes virtually no noise when in use!",
