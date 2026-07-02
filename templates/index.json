@@ -1117,6 +1117,7 @@
         "grid_GUaJfJ",
         "grid_zQYzaE"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (min-width: 750px) {.full_style_container {padding-left: 10px; }}",
         "@media (max-width: 750px) {.subtitle {max-width: 280px; }}"
