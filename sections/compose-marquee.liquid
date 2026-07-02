@@ -1,0 +1,323 @@
+<style>
+  @keyframes compose-marquee-slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  #shopify-section-{{ section.id }} .infinite-marquee-container {
+    display: inline-flex;
+    width: 100%;
+    overflow: hidden;
+  }
+  #shopify-section-{{ section.id }} .slide-wrap {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+    {% if section.settings.stop_marquee == false %}
+    animation: {{section.settings.animation_time}}s compose-marquee-slide infinite linear;
+    {% endif %}
+  }
+  {{ section.settings.title_font | font_face }}
+  {{ section.settings.item_title_font | font_face }}
+  #shopify-section-{{ section.id }} .block-item {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin:16px 16px 0 ;
+  }
+  #shopify-section-{{ section.id }} .block-item-img {
+    display:flex;
+    height:28px;
+  }
+  #shopify-section-{{ section.id }} .block-item-bg-img {
+    display:flex;
+    height:48px;
+  }
+  #shopify-section-{{ section.id }} .block-item-title {
+    display:flex;
+    line-height:28px;
+    font-size:20px;
+    color:#1D1D1F;
+    font-family:{{ section.settings.item_title_font.family }};
+    font-style:{{ section.settings.item_title_font.style }};
+    font-weight:{{ section.settings.item_title_font.weight }};
+  }
+  #shopify-section-{{ section.id }} .block-item-subtitle {
+    display:flex;
+    line-height:16px;
+    font-size:12px;
+    color:#777;
+    margin-top:4px;
+  }
+  #shopify-section-{{ section.id }} .section-title {
+    font-size:26px;
+    line-height:31px;
+    color:#1D1D1F;
+    font-family:{{ section.settings.title_font.family }};
+    font-style:{{ section.settings.title_font.style }};
+    font-weight:{{ section.settings.title_font.weight }};
+  }
+  #shopify-section-{{ section.id }} .section-title : {
+    display:inline-block;
+    height:18px;
+
+  }
+
+  #shopify-section-{{ section.id }} .section-title img {
+    display:inline-block;
+    height:18px;
+    margin-bottom:5px;
+    margin-right:5px;
+  }
+  @media (min-width:1000px) {
+    #shopify-section-{{ section.id }} .block-item {
+      margin:36px 36px 0;
+    }
+    #shopify-section-{{ section.id }} .block-item-img {
+      height:36px;
+    }
+    #shopify-section-{{ section.id }} .block-item-bg-img {
+      height:60px;
+    }
+    #shopify-section-{{ section.id }} .block-item-title {
+      line-height:36px;
+      font-size:26px;
+
+    }
+    #shopify-section-{{ section.id }} .block-item-subtitle {
+      line-height:20px;
+      font-size:14px;
+      margin-top:4px;
+    }
+    #shopify-section-{{ section.id }} .section-title {
+      font-size:32px;
+      line-height:38px;
+      width:50%;
+    }
+    #shopify-section-{{ section.id }} .section-title img {
+      display:inline-block;
+      height:26px;
+      margin-bottom:10px;
+      margin-right:10px;
+    }
+  }
+  @media (min-width:1400px) {
+    #shopify-section-{{ section.id }} .block-item {
+      margin:44px 44px 0;
+    }
+    #shopify-section-{{ section.id }} .block-item-img {
+      height:44px;
+    }
+    #shopify-section-{{ section.id }} .block-item-bg-img {
+      height:60px;
+    }
+    #shopify-section-{{ section.id }} .block-item-title {
+      line-height:44px;
+      font-size:32px;
+
+    }
+    #shopify-section-{{ section.id }} .block-item-subtitle {
+      line-height:22px;
+      font-size:16px;
+      margin-top:4px;
+    }
+    #shopify-section-{{ section.id }} .section-title {
+      font-size:40px;
+      line-height:48px;
+      width:50%;
+    }
+    #shopify-section-{{ section.id }} .section-title img {
+      display:inline-block;
+      height:26px;
+      margin-bottom:10px;
+      margin-right:10px;
+    }
+  }
+    #shopify-section-{{ section.id }} .section{
+    background-color: {{ section.settings.background_color }}
+  }
+   #shopify-section-{{ section.id }} .section .special-bg{
+      background-image: linear-gradient(90deg, {{section.settings.marquee_title_left_color}}, {{section.settings.marquee_title_right_color}})
+    }
+  #shopify-section-{{ section.id }} .section .infinite-marquee-container .block-item {
+    .block-item-title{
+      color:  {{ section.settings.font_title_color }}
+    }
+    .block-item-subtitle{
+      color: {{section.settings.font_container_color}}
+    }
+  }
+</style>
+
+{% assign times = section.settings.repeat_times %}
+<div {% render 'section-properties' %}>
+  {% if section.settings['html-title'] and section.settings['html-title'] != empty %}
+    <div class="section-title">{{ section.settings['html-title'] }}</div>
+  {% endif %}
+  <div class="infinite-marquee-container">
+    {% capture slide_wrap %}
+      <div class="slide-wrap">
+        {% for i in (1..times) %}
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'item' -%}
+                <div class="block-item {{block.id}}">
+                  {% comment %} 如果有image优先展示image {% endcomment %}
+                  {% if block.settings.image %}
+                    {% assign img_class = 'block-item-bg-img' %}
+                    {% if block.settings.subtitle != empty %} 
+                      {% assign img_class='block-item-img' %} 
+                    {% endif %}
+                    {{ block.settings.image | image_url: width: block.settings.image.width | image_tag: width:nil, class:img_class  }}
+                    <style>
+                      #shopify-section-{{ section.id }} .{{block.id}} .block-item-img {
+                        align-self: {{ block.settings.image_align }};
+                      }
+                    </style>
+                  {% else %}
+                    <span class="block-item-title">{{ block.settings.title }}</span>
+                  {% endif %}
+                  {% if block.settings.subtitle != empty %}
+                    <span class="block-item-subtitle">{{ block.settings.subtitle }}</span>
+                  {% endif %}
+                </div>
+            {% endcase %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+    {% endcapture %}
+    {{ slide_wrap }}
+    {{ slide_wrap }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "组合项跑马灯",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "stop_marquee",
+      "label": "暂停滚动"
+    },
+    {
+      "type": "number",
+      "id": "animation_time",
+      "label": "多少秒滚动完一次(等同于调节滚动速度)",
+      "default": 16
+    },
+    {
+      "type": "number",
+      "id": "repeat_times",
+      "label": "重复多少次，能够使得第一个外层盒子能占满PC端全屏",
+      "default": 1,
+      "info": "可以先暂停滚动再调节看看。默认会有两个外层盒子，盯着第一个外层盒子调节当前配置项，让第一个外层盒子占满PC端全屏。"
+    },
+    {
+      "type": "html",
+      "id": "html-title",
+      "label": "跑马灯标题"
+    },
+    {
+      "type": "font_picker",
+      "id": "title_font",
+      "label": "跑马灯标题字体",
+      "default": "din_next_n7"
+    },
+    {
+      "type": "header",
+      "content": "Block 通用配置"
+    },
+    {
+      "type": "font_picker",
+      "id": "item_title_font",
+      "label": "组合标题字体",
+      "default": "din_next_n5"
+    },
+        {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+      {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background"
+    },
+     {
+      "type": "color",
+      "id": "font_title_color",
+      "label": "font title color",
+      "info": "内容标题颜色"
+    },
+    {
+      "type": "color",
+      "id": "font_container_color",
+      "label": "font container color",
+      "info": "内容字体颜色"
+    },
+     {
+      "type": "color",
+      "id": "marquee_title_left_color",
+      "label": "跑马灯标题左侧颜色"
+    },
+     {
+      "type": "color",
+      "id": "marquee_title_right_color",
+      "label": "跑马灯标题右侧颜色"
+    },
+
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "组合",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "图片"
+        },
+        {
+          "type": "select",
+          "id": "image_align",
+          "label": "图片的对齐方式",
+          "options": [
+            {
+              "value": "center",
+              "label": "居中"
+            },
+            {
+              "value": "flex-start",
+              "label": "居左"
+            },
+            {
+              "value": "flex-end",
+              "label": "居右"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "标题"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "文案"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "组合项跑马灯"
+    }
+  ]
+}
+{% endschema %}

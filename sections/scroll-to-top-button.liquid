@@ -1,0 +1,78 @@
+{% schema %}
+{
+  "name": "返回顶部/跳转按钮",
+  "settings": [
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "按钮文字",
+      "default": "Go"
+    },
+    {
+      "type": "text",
+      "id": "target_id",
+      "label": "跳转目标区块 ID（不要加 #，例如：hero 或 shopify-section-123456）",
+      "default": "shopify-section-header"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "背景颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "文字颜色",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    { "name": "返回顶部/跳转按钮" }
+  ]
+}
+{% endschema %}
+
+<style>
+#jumpBtn-{{ section.id }} {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9999;
+  background: {{ section.settings.bg_color }};
+  color: {{ section.settings.text_color }};
+  font-size: 16px;
+  transition: opacity .3s ease;
+  opacity: 0.8;
+}
+#jumpBtn-{{ section.id }}:hover {
+  opacity: 1;
+}
+</style>
+<button id="jumpBtn-{{ section.id }}">
+  {{ section.settings.btn_text }}
+</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('#jumpBtn-{{ section.id }}');
+  const targetId = "{{ section.settings.target_id }}";
+  const target = document.getElementById(targetId);
+
+  btn.addEventListener('click', () => {
+    if (!target) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+});
+</script>
+

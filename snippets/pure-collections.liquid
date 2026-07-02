@@ -1,0 +1,246 @@
+{% comment %}
+  这里的代码取自featured-collection.liquid，将其改造位snippet。
+  list_content：当前tab下的产品列表内容
+  dev_class：当前这个product list的类名
+  list_section：原本的Related products分区的设置项们
+  type：当前tab的产品列表是什么。分为collection和products
+  block_id: 遍历的当前block的id
+  stage_count: 几期支付
+   discount_mode: 百分比还是金额
+{% endcomment %}
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  {%- assign section_background = list_section.settings.background | default: settings.background -%}
+  {%- assign card_background = list_section.settings.product_card_background | default: settings.product_card_background -%}
+  {%- assign card_blends = false -%}
+
+  {%- unless section_background != 'rgba(0,0,0,0)' and card_background != 'rgba(0,0,0,0)' and section_background != card_background -%}
+    {%- assign card_blends = true -%}
+  {%- endunless -%}
+  #shopify-section-{{ list_section.id }} .self-coupon {
+    position: absolute !important;
+    top: 8px;
+    left: 12px;
+    z-index: 1;
+    height: auto;
+    padding: 0 16px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    justify-content: center;
+    width: fit-content;      /* 根据需要调整宽度 */
+    height: auto;      /* 根据需要调整高度 */
+    background: #006cd9; /* 优惠券主色 */
+    color: #fff;
+    font-weight: bold;
+  }
+  #shopify-section-{{ list_section.id }} .self-coupon::before,
+  #shopify-section-{{ list_section.id }} .self-coupon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 8px;
+    height: 10px;
+    background: #fff;  /* 假设页面背景是白色，用来"挖空" */
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+  #shopify-section-{{ list_section.id }} .self-coupon::before { left: -4px; }
+  #shopify-section-{{ list_section.id }} .self-coupon::after  { right: -4px; }
+  {% if fit_black_background == true %}
+    #shopify-section-{{ section.id }} product-card {
+      background: unset;
+      color: #fff;
+    }
+    #shopify-section-{{ section.id }} .product-card__image {
+      border-radius: 0;
+    }
+    #shopify-section-{{ section.id }} .etrans-money {
+      color: #fff;
+    }
+    #shopify-section-{{ section.id }} .product-card__info > .general-price {
+      row-gap: 12px;
+    }
+    #shopify-section-{{ section.id }} .shop-button {
+      color: #fff;
+      font-weight: 500;
+      background-color: #006cd9;
+      width: fit-content;
+      padding: 5px 13px;
+      border-radius: 20px;
+    }
+    #shopify-section-{{ section.id }} .stage-pay-wrap {
+      color: #777777;
+    }
+    #shopify-section-{{ section.id }} .stage-count, #shopify-section-{{ section.id }} .stage-price {
+      color: #006cd9;
+    }
+  {% endif %}
+
+
+  #shopify-section-{{ list_section.id }} .product-list {
+    --product-list-gap: {% if stack_products and list_section.settings.products_per_row_mobile == '2' %}{% if card_blends %}var(--product-list-row-gap){% endif %} var(--spacing-2){% else %}var(--product-list-row-gap) var(--product-list-column-gap){% endif %};
+    --product-list-items-per-row: {{ list_section.settings.products_per_row_mobile | times: 1 }};
+    --product-list-carousel-item-width: 74vw;
+    --product-list-grid: {% if stack_products %}auto / repeat(var(--product-list-items-per-row), minmax(0, 1fr)){% else %}auto / auto-flow var(--product-list-carousel-item-width){% endif %};
+    {% if stack_products %}
+      display: grid;
+      grid-template-columns: repeat(var(--product-list-items-per-row), minmax(0, 1fr));
+      gap: var(--product-list-gap);
+    {% else %}
+      display: flex;
+      gap: var(--product-list-gap);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    {% endif %}
+  }
+   #shopify-section-{{ list_section.id }} .product-list > * {
+    {% unless stack_products %}
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: var(--product-list-carousel-item-width);
+      min-width: var(--product-list-carousel-item-width);
+    {% endunless %}
+  }
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ list_section.id }} .product-list {
+      --product-list-gap: var(--product-list-row-gap) var(--product-list-column-gap);
+      --product-list-items-per-row: 2;
+      --product-list-carousel-item-width: 36vw;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ list_section.id }} .product-list {
+      --product-list-items-per-row: {{ list_section.settings.products_per_row_desktop }};
+      --product-list-carousel-item-width: calc(var(--container-inner-width) / {{ list_section.settings.products_per_row_desktop }} - (var(--product-list-column-gap) / {{ list_section.settings.products_per_row_desktop }} * {{ list_section.settings.products_per_row_desktop | minus: 1 }}));
+    }
+  }
+   /* 确保在非堆叠模式下，产品卡片有固定宽度 */
+  {% unless stack_products %}
+    #shopify-section-{{ list_section.id }} product-card {
+      min-width: var(--product-list-carousel-item-width);
+      width: var(--product-list-carousel-item-width);
+    }
+  {% endunless %}
+  #shopify-section-{{ section.id }} .dev-product-list {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .dev-product-list.active {
+    display: block;
+  }
+    /* 确保 scroll-carousel 可以正常滚动 */
+  #shopify-section-{{ list_section.id }} .scroll-area {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+     scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+   #shopify-section-{{ list_section.id }} .scroll-area::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+  #shopify-section-{{ list_section.id }} .scroll-area.is-scrollable {
+    cursor: grab;
+  }
+
+  #shopify-section-{{ list_section.id }} .scroll-area.is-scrollable:active {
+    cursor: grabbing;
+  }
+</style>
+<div class="{{dev_class}}">
+  <div
+    id="collection-{{ list_section.id }}"
+    class="section-stack featured-collection featured-collection-{{ list_section.id }}"
+  >
+    <div class="{% if list_section.settings.show_progress_bar %}scrollable-with-controls{% else %}floating-controls-container{% endif %}">
+      {%- assign scroll_area_id = 'scroll-area-' | append: block_id -%}
+      {% assign stack_products = stack_products | default: list_section.settings.stack_products %}
+
+      <scroll-carousel
+        selector="product-card"
+        id="{{ scroll_area_id }}"
+        class="scroll-area bleed{% unless stack_products %} is-scrollable{% endunless %}"
+      >
+        <reveal-items selector=".product-list > *">
+          <product-list class="product-list">
+            {% assign want_tags = want_tags | split: ',' %}
+            {% assign discount_texts_arr = discount_texts | split: ',' %}
+            {% assign rewrite_titles_arr = rewrite_titles | split: ',' %}
+            {% assign target_products = null %}
+            {% if type == 'products' %}
+              {% assign target_products = list_content %}
+            {% elsif type == 'collection' %}
+              {% assign target_products = list_content.products %}
+            {% endif %}
+            {%- for product in target_products limit: list_section.settings.products_count -%}
+              {{ discount_mode }}
+              {%- render 'customized-product-card',
+                discount_texts_arr: discount_texts_arr,
+                rewrite_titles_arr: rewrite_titles_arr,
+                want_tags: want_tags,
+                lead_to_click_text: lead_to_click_text,
+                stage_count: stage_count,
+                provider_logo: provider_logo,
+                product: product,
+                stacked: list_section.settings.stack_products,
+                position: forloop.index,
+                position0: forloop.index0,
+                background: list_section.settings.product_card_background,
+                text_color: list_section.settings.product_card_text_color,
+                show_badges: true,
+                title_font_size: section.settings.title_font_size,
+                title_color: section.settings.title_color,
+                sale_price_font_size: section.settings.sale_price_font_size,
+                sale_price_color: section.settings.sale_price_color,
+                compare_at_price_font_size: section.settings.compare_at_price_font_size,
+                compare_at_price_color: section.settings.compare_at_price_color,
+                stage_count_font_size: section.settings.stage_count_font_size,
+                stage_count_color: section.settings.stage_count_color,
+                stage_price_font_size: section.settings.stage_price_font_size,
+                stage_price_color: section.settings.stage_price_color,
+                buy_button_background: section.settings.buy_button_background,
+                buy_button_text: section.settings.buy_button_text,
+                buy_button_text_color: section.settings.buy_button_text_color,
+                discount_mode: discount_mode
+              -%}
+            {%- endfor -%}
+          </product-list>
+        </reveal-items>
+      </scroll-carousel>
+
+      {%- if list_section.settings.stack_products == false -%}
+        {%- if list_section.settings.show_progress_bar -%}
+          {%- assign default_progress = list_section.settings.products_per_row_desktop
+            | times: 1.0
+            | divided_by: list_section.settings.products_count
+          -%}
+          {%- render 'scrollbar', observes: scroll_area_id, default_progress: default_progress, show_buttons: true -%}
+        {%- else -%}
+          <button
+            is="prev-button"
+            class="circle-button circle-button--lg circle-button--fill border group"
+            aria-controls="{{ scroll_area_id }}"
+            disabled
+          >
+            <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
+            <span class="animated-arrow animated-arrow--reverse"></span>
+          </button>
+
+          <button
+            is="next-button"
+            class="circle-button circle-button--lg circle-button--fill border group"
+            aria-controls="{{ scroll_area_id }}"
+          >
+            <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
+            <span class="animated-arrow"></span>
+          </button>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </div>
+</div>

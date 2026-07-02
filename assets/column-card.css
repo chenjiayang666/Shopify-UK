@@ -1,0 +1,407 @@
+.product-mega-container{
+    position: absolute;
+    width: 100%;
+    background: white;
+    top: 100%;
+    left: 50%;
+    max-width: 80%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all .5s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        font-family: Inter, sans-serif;;
+
+}
+.product-mega-item{
+    position:relative;
+}
+.product-mega-item.active::after{
+    content: "";
+    width: 80%;
+    height:3px;
+    background: #44A5FF;
+    position: absolute;
+    bottom: 0px;
+}
+.product-mega-box_layout{
+    display: flex;
+    padding:30px 100px 20px;
+}
+.product-mega-box{
+    gap: 2rem;
+        justify-content: space-between;
+}
+.product-column-box{
+    width:65%;
+}
+.activity-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 27px 16px;
+    flex-direction: column;
+    gap:20px;
+    border-radius:6.17px;
+    max-height:411px;
+}
+.columns{
+    display:flex;
+    justify-content:center;
+}
+.columns.columns-2{
+    gap:110px;
+}
+.columns.columns-3{
+    gap:80px;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    max-width: 240px;
+
+}
+.mob-accordion-box{
+        display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.col-title{
+    font-weight: 700;
+    font-size: 14.28px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-align: center;
+
+}
+.col-card-des{
+    font-weight: 500;
+    font-size: 12.41px;
+    line-height: 120%;
+    letter-spacing: 0;
+    max-width: 85%;
+    text-align: center;
+        display: flex;
+        margin-top:7px;
+}
+.col-text-box{
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+        width: 100%;
+}
+.col-card-title{
+    font-weight: 500;
+    font-size: 15.27px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-align:center;
+}
+.column-product-card{
+    border-radius:5px;
+    overflow:hidden;
+        display: flex
+;
+    align-items: center;
+    justify-content: center;
+}
+.column-product-card a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 188px;
+        width: 100%;
+        padding: 20px 0;
+}
+.column-product-card a img{
+    max-height: 107px;
+}
+.column-product-box{
+        display: flex;
+        flex-direction: column;
+        gap:36px;
+}
+.activity-box img{
+        max-height: 269px;
+    object-fit: cover;
+    aspect-ratio: 25 / 26;
+    border-radius:8px;
+}
+.column-buttons{
+        display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+.column-buttons a{
+    font-weight: 500;
+    font-size: 14.28px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: black;
+    background: white;
+    width: 100%;
+    padding: 11px 0;
+    text-align: center;
+    border-radius: 20px;    
+    transition: all 0.3s ease; /* 平滑过渡 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+.column-buttons a:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* 加强阴影 */
+}
+.col-more{
+    text-align: center;
+    text-decoration: underline;
+}
+.mega-title{
+    font-weight: 500;
+    font-size: 15.25px;
+    line-height: 18px;
+    letter-spacing: 0;
+    padding-bottom:32px;
+    color:rgba(0,0,0,.7);
+}
+.mega-text{
+    font-weight: 500;
+    font-size: 15.25px;
+    line-height: 18px;
+    letter-spacing: 0;
+    padding-bottom:16px;
+    color:rgba(0,0,0);
+    transition:all .5s ease;
+}
+
+.media-title{
+    font-weight: 500;
+    font-size: 15.25px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color:rgba(0,0,0);
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+.media-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+}
+.media-text{
+    font-weight: 500;
+    font-size: 15.25px;
+    line-height: 18px;
+    letter-spacing: 0;
+    color:rgba(0,0,0,.7);
+    transition:all .5s ease;
+}
+
+.mega-text:hover{
+    color:rgba(0,0,0,0.7);
+}
+.text-mega-box{
+    display:flex;
+    gap:2rem;
+        padding-bottom: 12rem;
+}
+.text-mega-item{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    align-items:center;    
+}
+    .mega-text-list{
+                display: flex;
+        flex-direction: column;
+        align-items:center;
+    }
+    .media-mega-box{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 四列 */
+        grid-auto-rows: auto;                  /* 行高由内容撑开 */
+        gap: 16px;
+    }
+    .media-item img{
+        border-radius:8px;
+    }
+@media(max-width:1600px){
+.columns.columns-3{
+    gap:30px;
+}
+.product-mega-container{
+    width:90%;
+            max-width: 90%;
+
+}
+}
+@media(max-width:1400px){
+.product-mega-box{
+    padding: 30px 40px 20px;
+}
+}
+
+@media(max-width:750px){
+.media-title,.media-text{
+    font-size:12px;
+    line-height:15px;
+}
+    .media-mega-box{
+        display: flex;
+        gap: 0;
+        flex-direction: column;
+    }
+    .media-item-box{
+    background: rgb(245, 245, 247);
+    }
+    .media-item{
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 8px 18px 15px;
+    }
+    .text-mega-box{
+        gap:0;
+    }
+    .mega-text-list{
+        padding: 6px 20px 15px;
+        background: #f5f5f7;
+        width: 100%;
+        align-items: flex-start;
+    }
+    .mega-title{
+        padding-bottom:15px;
+    }
+    .mega-text{
+        padding-bottom:15px;
+    }
+    .text-mega-item{
+        align-items:flex-start;
+    }
+    .text-mega-box{
+        flex-direction:column;
+    }
+    .product-mega-container{
+        width: 100%;
+        max-width: 100%;
+        max-height: none !important;
+        position: unset;
+        transform: none;
+                padding: 20px 0;
+                box-shadow: none;
+    }
+    .product-mega-box_layout{
+        padding: 0;
+    }
+    .product-mega-box{
+        gap:0;
+        flex-direction: column;
+    }
+    .product-column-box{
+            width: 100%;
+    }
+    .column{
+        gap:0;
+        max-width:100%;
+    }
+    .columns{
+            flex-direction: column;
+    }
+    .column-product-card a{
+        margin: 0 auto;
+        flex-direction: row;
+        min-height: 98px;
+        max-width: 100%;
+        justify-content: flex-start;
+        padding: 10px 20px;
+        gap: 15px;
+    }
+    .column-product-card a img{
+        max-height: 80px;
+        object-fit: cover;
+    }
+    .column-product-box{
+                padding: 6px 20px 15px;
+        gap: 6px;
+        background:#F5F5F7    
+    }
+    .col-title{
+        width:100%;
+        padding:15px 20px;
+        background:white;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        font-weight: 600;
+        font-size: 14.28px;
+        line-height: 100%;
+        letter-spacing: 0;
+        color:rgba(0,0,0,.6);
+    }
+    .column-product-card{
+        background:white;
+    }
+    .column-product-card a{
+
+    }
+
+    .col-text-box{
+
+    }
+    .col-more{
+        background: #f5f5f7;
+    padding: 0 20px 15px;
+    text-align: left;
+    }
+    .mob-accordion-box{
+        width:100%;
+        gap: 0;
+        overflow: hidden;
+        transition: all .5s ease;
+    }
+    .columns{
+        gap:0 !important;
+    }
+    .col-title svg{
+        transition: all .5s ease;
+        transform:rotate(180deg)
+    }
+    .col-title.active svg{
+        transform:rotate(0deg)
+    }
+    .activity-box{
+        background: #f5f5f7;
+        border-radius: 0;
+        padding: 35px 20px;
+        position: relative;
+    }
+    .column-buttons{
+        position: absolute;
+        max-width: 200px;
+        top: 50px;
+        gap: 6px;
+    }
+    .column-buttons a{
+        font-size: 12.28px;
+        padding:9px 0;
+    }
+    .activity-box img{
+                width: 100%;
+            aspect-ratio: 34 / 33;
+            max-height: none;
+    }
+    .col-text-box{
+            flex: auto;
+        align-items: flex-start;
+    }
+    .col-card-des{
+        text-align:left;
+                max-width: 100%;
+    }
+}

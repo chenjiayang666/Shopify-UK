@@ -1,0 +1,580 @@
+{% schema %}
+{
+  "name": "Grid Product",
+  "settings": [
+    {
+  "type": "text",
+  "id": "anchor_id",
+  "label": "Anchor ID",
+  "info": "Unique ID for anchor links",
+  "default": "grid-product"
+},
+    {
+      "type": "image_picker",
+      "id": "badge_img",
+      "label": "Badge image"
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Section Background Color",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "block_background_color",
+      "label": "Block Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Price Color",
+      "default": "#ff5722"
+    },
+    {
+      "type": "color",
+      "id": "buy_button_color",
+      "label": "Buy Button Color",
+      "default": "#ff5722"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background",
+    },    {
+      "type": "range",
+      "id": "section_pdtop",
+      "label": "Section top spacing",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "section_pdbot",
+      "label": "Section bottom spacing",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 50
+    },
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product Block",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "text",
+          "id": "product_note",
+          "label": "Product Note",
+          "default": "Add a note for this product"
+        },
+         {
+  "type": "select",
+  "id": "discount_mode",
+  "label": "折扣显示方式",
+  "options": [
+    {
+      "value": "percentage",
+      "label": "百分比"
+    },
+    {
+      "value": "amount",
+      "label": "金额"
+    }
+  ],
+  "default": "percentage"
+},
+        {
+  "type": "range",
+  "id": "badge_width",
+  "label": "Badge width",
+  "min": 40,
+  "max": 200,
+  "step": 5,
+  "unit": "px",
+  "default": 120
+},
+{
+  "type": "range",
+  "id": "badge_height",
+  "label": "Badge height",
+  "min": 40,
+  "max": 200,
+  "step": 5,
+  "unit": "px",
+  "default": 120
+},
+{
+  "type": "range",
+  "id": "badge_font_size",
+  "label": "Badge font size",
+  "min": 12,
+  "max": 48,
+  "step": 1,
+  "unit": "px",
+  "default": 32
+},
+{
+  "type": "color",
+  "id": "badge_text_color",
+  "label": "Badge text color",
+  "default": "#ffffff"
+},
+        {
+  "type": "select",
+  "id": "badge_position",
+  "label": "Badge position",
+  "options": [
+    {
+      "value": "right",
+      "label": "Right"
+    },
+    {
+      "value": "left",
+      "label": "Left"
+    }
+  ],
+  "default": "right"
+},
+           {
+  "type": "select",
+  "id": "badge_show",
+  "label": "Badge show",
+  "options": [
+    {
+      "value": "true",
+      "label": "显示"
+    },
+    {
+      "value": "false",
+      "label": "隐藏"
+    }
+  ],
+  "default": "false"
+},
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Showcase",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div
+  id="feature-list-{{ section.settings.anchor_id | default: section.id }}"
+  class="product-showcase-{{ section.id  }} section"
+  {% render 'section-properties' %}
+>
+  <div class="section-stack">
+    <div class="product-showcase " style="background-color: {{ section.settings.section_background_color }};">
+      <div class="grid-container">
+        {% for block in section.blocks %}
+          {% assign product = block.settings.product %}
+          <div
+            id="grid-product-block-{{ section.id }}-{{ block.id }}"
+            class="product-card"
+            style="background-color: {{ section.settings.block_background_color }};"
+          >
+            {% if forloop.index == 1 %}
+              <div class="left-product">
+                <div class="product-image">
+                  <img
+                    src="{{ product.featured_image | image_url:width:1000, height:1000 }}"
+                    alt="{{ product.title }}"
+                    width="700"
+                    height="700"
+                  >
+                </div>
+                <div class="product-details">
+                  <h2 class="product-title">{{ product.title }}</h2>
+                  <!-- 新增：显示产品备注 -->
+                  {% if block.settings.product_note != blank %}
+                    <p class="product-note">{{ block.settings.product_note }}</p>
+                  {% endif %}
+                  <div class="product-price">
+                    <div>
+                      <span class="current-price" style="color: {{ section.settings.price_color  }};">
+                        {{- product.price | money -}}
+                      </span>
+                      {% if product.compare_at_price > product.price %}
+                        <span class="original-price">{{ product.compare_at_price | money }}</span>
+                        <!--
+                          <span class="discount">Save {{ product.compare_at_price | minus: product.price | money }}</span>
+                        -->
+                      {% endif %}
+                    </div>
+                    <a
+                      href="{{ product.url }}"
+                      class="buy-button button"
+                      style="background-color: {{ section.settings.buy_button_color }};"
+                      >Shop Now</a
+                    >
+                  </div>
+                </div>
+                {% if section.settings.badge_img != blank
+                  and block.settings.product
+                  and block.settings.product.compare_at_price > 0
+                %}
+                  <div class="badge-image">
+                    <img src="{{ section.settings.badge_img | img_url: 'medium' }}" alt="badge image">
+                    {% liquid
+                      if has_metafield_price
+                        assign price = current_product_price | minus: lowest_price
+                        assign price_old = block.settings.product.compare_at_price | divided_by: 100.00
+                      else
+                        assign price = block.settings.product.compare_at_price | minus: block.settings.product.price | divided_by: 100.00
+                        assign price_old = block.settings.product.compare_at_price | divided_by: 100.00
+                      endif
+
+                      if block.settings.discount_mode == 'percentage' or section.settings.badge_display_mode == 'percentage'
+                        assign off = price | divided_by: price_old
+                        assign badge_text = off | times: 100 | round | append: '%<br>OFF'
+                      else
+                        assign badge_text = price | round | append: '€<br>OFF'
+                      endif
+                    %}
+                    <span>{{ badge_text }}</span>
+                  </div>
+                {% endif %}
+              </div>
+            {% else %}
+              <div class="right-product">
+                <div class="product-details">
+                  <h2 class="product-title">{{ product.title }}</h2>
+                  <!-- 新增：显示产品备注 -->
+                  {% if block.settings.product_note != blank %}
+                    <p class="product-note">{{ block.settings.product_note }}</p>
+                  {% endif %}
+                  <div class="product-price">
+                    <span class="current-price" style="color: {{ section.settings.price_color }};">
+                      {{- product.price | money -}}
+                    </span>
+                    {% if product.compare_at_price > product.price %}
+                      <span class="original-price">{{ product.compare_at_price | money }}</span>
+                      <!--
+                        <span class="discount">Save {{ product.compare_at_price | minus: product.price | money }}</span>
+                      -->
+                    {% endif %}
+                  </div>
+                  <a
+                    href="{{ product.url }}"
+                    class="buy-button button"
+                    style="background-color: {{ section.settings.buy_button_color }};"
+                    >Shop Now</a
+                  >
+                </div>
+                <div class="product-image">
+                  <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+                </div>
+                {% if section.settings.badge_img != blank
+                  and block.settings.product
+                  and block.settings.product.compare_at_price > 0
+                %}
+                  <div class="badge-image">
+                    <img src="{{ section.settings.badge_img | img_url: 'medium' }}" alt="badge image">
+                    {% liquid
+                      if has_metafield_price
+                        assign price = current_product_price | minus: lowest_price
+                        assign price_old = block.settings.product.compare_at_price | divided_by: 100.00
+                      else
+                        assign price = block.settings.product.compare_at_price | minus: block.settings.product.price | divided_by: 100.00
+                        assign price_old = block.settings.product.compare_at_price | divided_by: 100.00
+                      endif
+
+                      if block.settings.discount_mode == 'percentage' or section.settings.badge_display_mode == 'percentage'
+                        assign off = price | divided_by: price_old
+                        assign badge_text = off | times: 100 | round | append: '%<br>OFF'
+                      else
+                        assign badge_text = price | times: 100 | money | append: '<br>OFF'
+                      endif
+                    %}
+                    <span>{{ badge_text }}</span>
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+        .product-showcase-{{ section.id  }} {
+        background:{{section.settings.section_background_color}};
+        padding-top:{{section.settings.section_pdtop}}px;
+        padding-bottom:{{section.settings.section_pdbot}}px;
+      }
+    .product-showcase {
+
+     .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows:1fr 1fr;
+       column-gap: 50px;
+    }
+
+    & .product-card {
+        display: flex;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+      align-items: center;
+    }
+    & .product-card:nth-child(1) {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 2;
+    }
+    & .product-card:nth-child(2) {
+      grid-column: 2 / span 2;
+      grid-row: 1 / span 1;
+      margin-bottom:30px;
+    }
+    & .product-card:nth-child(3) {
+      grid-column: 2 / span 2;
+      grid-row: 2 / span 2;
+    }
+
+    & .left-product {
+        flex: 1; /* 左侧产品占据 1 列 */
+    }
+
+    & .right-product {
+        flex: 1; /* 右侧产品占据 1 列 */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    & .product-image {
+        flex: 1;
+    }
+    & .left-product .product-image {
+        width:80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    & .right-product .product-image {
+        min-width: 250px;
+    }
+
+    & .product-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    & .product-details {
+        flex: 2;
+        text-align: left;
+        padding: 40px;
+    }
+    & .right-product .product-details {
+        padding-right:0;
+    }
+    & .product-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+     & .product-title:not(:first-child) {
+        font-size: 22px;
+    }
+    & .product-price {
+        margin-bottom: 15px;
+    }
+    & .left-product .product-price {
+       display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    & .current-price {
+        font-weight: 700;
+        font-size: 24px;
+    }
+
+    & .original-price {
+        text-decoration: line-through;
+        color: #999;
+        margin-left: 10px;
+    }
+
+    & .discount {
+        color: #ff5722;
+        margin-left: 10px;
+    }
+
+    & .buy-button {
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+         {%- for block in section.blocks -%}
+
+       #grid-product-block-{{ section.id }}-{{ block.id }}  .badge-image {
+            position: absolute;
+            top: 0;
+             {% if block.settings.badge_position == 'right' %}
+          right: 20px;
+          left: auto;
+        {% else %}
+          left: 20px;
+          right: auto;
+        {% endif %}
+         width: {{ block.settings.badge_width }}px;
+          height: {{ block.settings.badge_height }}px;
+
+            font-weight:700;
+            font-size: {{ block.settings.badge_font_size }}px;
+          color: {{ block.settings.badge_text_color }};
+          {% if block.settings.badge_show == 'true' %}
+         display: block;
+         {% else %}
+             display: none;
+          {% endif %}
+          }
+      {%- endfor -%}
+    /* & .badge-image {
+      position: absolute;
+      top: 0;
+      left: 20px;
+      width: 120px;
+      height: 120px;
+      color:#fff;
+      font-weight:700;
+      font-size:32px;
+    } */
+    & .badge-image>span {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        line-height: 1;
+    }
+    }
+
+    @media screen and (max-width:1200px){
+      .product-showcase .badge-image {
+        width: 100px;
+        height: 100px;
+        font-size:28px;
+      }
+      .product-showcase .product-title {
+         font-size:22px;
+       }
+     .product-showcase .current-price {
+        font-size: 22px;
+      }
+    }
+    @media screen and (max-width:1000px){
+      .product-showcase .badge-image {
+        width: 80px;
+        height: 80px;
+        font-size:24px;
+      }
+        .product-showcase .pt-image  {
+        display:none;
+      }
+       .product-showcase .right-product .product-image {
+          min-width: 200px;
+      }
+    }
+    @media screen and (max-width: 880px) {
+      .product-showcase .grid-container {
+          grid-template-columns: 1fr; /* 移动端单列布局 */
+          grid-template-rows: 1fr;
+          row-gap: 20px;
+      }
+      .product-showcase .product-card:nth-child(2) {
+        margin-bottom:0;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+       .product-showcase .product-title {
+         font-size:19px;
+       }
+      .product-showcase .current-price {
+        font-size: 18px;
+      }
+      .product-showcase .right-product .product-image {
+          min-width: 150px;
+      }
+      & .product-title {
+        font-size: 20px;
+    }
+      .product-showcase .badge-image {
+        width: 60px;
+        height: 60px;
+        font-size:20px;
+      }
+
+       .product-showcase .product-card:nth-child(n) {
+            flex-direction: column; /* 垂直排列 */
+            grid-column: auto ;
+            grid-row: auto;
+        }
+
+      .product-showcase  .product-details {
+          padding:20px;
+      }
+      .product-showcase-{{ section.id  }} {
+        padding-top:calc({{section.settings.section_pdtop}}px / 2);
+        padding-bottom:calc({{section.settings.section_pdbot}}px / 2);
+      }
+    }
+    /* 补充手机端徽章适配样式 */
+  @media screen and (max-width: 767px) {
+    .product-showcase-{{ section.id  }} .badge-image {
+      /* 进一步缩小徽章尺寸以适应手机屏幕 */
+      width: 50px !important;
+      height: 50px !important;
+      font-size: 16px !important;
+      /* 调整徽章位置，避免边缘溢出 */
+      top: 10px;
+      left: 10px !important;
+      right: auto !important;
+    }
+
+    /* 修复徽章文字换行显示问题 */
+    .product-showcase-{{ section.id  }} .badge-image>span {
+      white-space: nowrap; /* 防止文字换行导致错乱 */
+      line-height: 1.2; /* 微调行高，确保文字居中 */
+    }
+
+    /* 当徽章图片存在时，给媒体容器添加内边距，避免徽章遮挡产品图关键内容 */
+    .product-showcase-{{ section.id  }} .media-with-text__media {
+      padding-top: 20px;
+      padding-left: 20px;
+    }
+  }
+
+  /* 针对超小屏手机（如320px宽度）的额外适配 */
+  @media screen and (max-width: 374px) {
+    .product-showcase-{{ section.id  }} .badge-image {
+      width: 40px !important;
+      height: 40px !important;
+      font-size: 14px !important;
+    }
+  }
+</style>

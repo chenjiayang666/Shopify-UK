@@ -1,0 +1,203 @@
+<!-- custom-navbar.liquid -->
+{% schema %}
+{
+  "name": "Custom Navbar",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ff7f50"
+    },
+    {
+      "type": "text",
+      "id": "font_size",
+      "label": "Font Size (e.g., 16px)",
+      "default": "16px"
+    },
+    {
+      "type": "color",
+      "id": "font_color",
+      "label": "Font Color",
+      "default": "#ffffff"
+    },
+     {
+      "type": "color",
+      "id": "active_color",
+      "label": "Active Item Color",
+      "default": "#ffd700"
+    },
+    {
+      "type": "text",
+      "id": "font_weight",
+      "label": "Font Weight (e.g., 400, 500, 600)",
+      "default": "400",
+      "info": "Enter a number between 100-900 (100=thin, 400=normal, 700=bold)"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "nav_item",
+      "name": "Navigation Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "nav_item_title",
+          "label": "Navigation Item Title",
+          "default": "Item Title"
+        },
+
+         {
+          "type": "text",
+          "id": "anchor_id",
+          "label": "Anchor ID",
+          "info": "Enter the ID of the rich-text section to link to (without #)",
+          "default": "product-tabs"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Navbar",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+<div>
+  <div class="custom-navbar" style="background-color: {{ section.settings.background_color }};">
+    <nav>
+      <ul>
+        {% for block in section.blocks %}
+          <li>
+            {%- assign anchor_id = block.settings.anchor_id -%}
+            <a
+              href="#feature-list-{{ anchor_id | handle }}"
+              style="font-size: {{ section.settings.font_size }}; color: {{ section.settings.font_color }}; font-weight: {{ section.settings.font_weight }}"
+            >
+              {{ block.settings.nav_item_title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</div>
+<!-- 添加JS处理动态定位 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 获取header高度
+  const header = document.querySelector('header');
+  const placeholder = document.querySelector('.feature-list-placeholder');
+  const featureList = document.querySelector('.feature-list');
+  const promotionBanner = document.querySelector('.promotion-banner')
+  
+  if (header && placeholder && featureList) {
+    // 设置初始位置
+    const updatePosition = () => {
+      const headerHeight = header.offsetHeight;
+      const featureListHeight = featureList.offsetHeight;
+      const promotionBannerHeight = promotionBanner?.offsetHeight || 0;
+      const height = promotionBannerHeight + headerHeight
+      // 设置CSS变量
+      document.documentElement.style.setProperty('--header-height', `${height}px`);
+      
+      // 设置占位元素高度（防止页面跳动）
+      placeholder.style.height = `${featureListHeight}px`;
+      placeholder.style.display = 'block';
+      
+      // 设置feature-list的top位置
+      featureList.style.top = `${height}px`;
+    };
+    
+    // 初始设置
+    updatePosition();
+    
+    // 监听窗口变化
+    window.addEventListener('resize', updatePosition);
+    
+    // 添加锚点跳转偏移
+    document.querySelectorAll('.feature-item a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const headerHeight = header.offsetHeight;
+          const featureListHeight = featureList.offsetHeight;
+          const offset = headerHeight + featureListHeight + 20; // 额外20px间距
+          
+          window.scrollTo({
+            top: targetElement.offsetTop - offset,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+});
+</script>
+
+<style>
+  .custom-navbar {
+      position: sticky;
+      padding: 20px 0;
+  }
+  .custom-navbar.fixed {
+        /* position: fixed; */
+        top: 49px;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        transition: position 0.2s;
+  }
+
+  .custom-navbar nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+        width: 60%;
+      margin: 0 auto;
+  }
+  .custom-navbar nav ul li {
+      margin: 0 15px;
+  }
+  .custom-navbar nav ul li a {
+      text-decoration: none;
+      position: relative;
+  }
+  .custom-navbar nav ul li a.active {
+      color: {{ section.settings.active_color }};
+      font-weight: bold; /* 可选：加粗字体 */
+  }
+  .custom-navbar nav ul li a.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -5px; /* 调整底部横线的位置 */
+      height: 2px; /* 横线的高度 */
+      background-color: {{ section.settings.active_color }};
+  }
+    @media screen and (min-width: 700px) {
+        .custom-navbar.fixed {
+          top: 115.19px;
+        }
+    }
+    @media screen and (max-width: 900px) {
+        .custom-navbar nav ul {
+          width: 100%;
+      }
+      .custom-navbar nav ul li a {
+        text-align: center;
+        display: flex;
+      }
+    }
+    @media  (min-width: 716px) and (max-width: 1166px) {
+        .custom-navbar.fixed {
+          top: 78px;
+        }
+    }
+</style>

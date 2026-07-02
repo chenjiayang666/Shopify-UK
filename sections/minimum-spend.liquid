@@ -1,0 +1,854 @@
+{% render 'section-settings' %}
+
+<style>
+
+    #shopify-section-{{ section.id }} .item-card{
+        display:none;
+    }
+    #shopify-section-{{ section.id }} .item-card.active{
+        display:flex;
+    }
+    #shopify-section-{{ section.id }} .product-list-container{
+        display:flex;
+        gap:2.5rem;
+        width:{{ section.settings.product-width }}%;
+    }
+    #shopify-section-{{ section.id }} .plus{
+        display: flex;
+        align-items: center;     
+    }
+    #shopify-section-{{ section.id }} .minimum{
+        background:{{ section.settings.section-bg }};
+            padding-left: 20px;
+    padding-right: 20px;
+    }
+    #shopify-section-{{ section.id }} .minimum-container{
+        display:flex;
+        flex-direction:column;
+        background:{{ section.settings.container-bg }};
+        border-radius: 16px;
+        overflow: hidden;
+        padding-bottom: 20px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    #shopify-section-{{ section.id }} .min-bottom{
+        display:flex;
+        gap:2rem; 
+        background:{{ section.settings.bottom-bg }};
+        padding:24px 20px;
+            justify-content: space-between;
+    }
+    #shopify-section-{{ section.id }} .checkout-container{
+        width:{{ section.settings.checkout-width }}%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #shopify-section-{{ section.id }} .column-check-list{
+        display: flex;
+        align-items: center;
+        border: 2px solid {{ section.settings.tab-color | color_modify: 'alpha', 0.2 }};
+        border-radius: 50px;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 5px 15px;
+        background:{{section.settings.tab-bg }};
+        color:{{section.settings.tab-color }};
+    }
+    #shopify-section-{{ section.id }} .column-check-list svg{
+        width: 15px;
+        height: 15px;
+    }
+    #shopify-section-{{ section.id }} .product-tab{
+        font-size: 16px;
+        padding: 5px;
+    }
+    #shopify-section-{{ section.id }} .product-check-list{
+        display: flex;
+        position: absolute;
+        left: 0;
+        flex-direction: column;
+        transform: translateY(100%);
+        z-index: 1;
+        background: white;
+        width: 100%;
+        bottom: -5px;
+        padding: 5px 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        pointer-events:none;
+        transition: all .5s ease;
+    }
+        #shopify-section-{{ section.id }} .product-check-list .product-tab{
+        color:black;
+                background:rgba(255,255,255,1);
+    }
+    #shopify-section-{{ section.id }} .product-check-list .product-tab.active{
+        background:rgba(0,0,0,.3);
+        color:white;
+    }
+        #shopify-section-{{ section.id }} .product-tab:hover{
+        background:rgba(0,0,0,.3);
+        color:white;
+    }
+    #shopify-section-{{ section.id }} .product-check-list.active{
+        display:flex;
+        opacity: 1;
+        pointer-events:auto;
+    }
+    #shopify-section-{{ section.id }} .check-content{
+        position:relative;
+        margin-bottom:2rem;
+        max-width:70%;
+        cursor:pointer;
+    }
+    #shopify-section-{{ section.id }} .check-column{
+        display: flex;
+        flex-direction: column;
+        flex:1;
+    }
+    #shopify-section-{{ section.id }} .product-content{
+        flex:auto;
+    }
+    #shopify-section-{{ section.id }} .item-card{
+        height:100%;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+    #shopify-section-{{ section.id }} .text-over{
+        white-space: nowrap;     
+        overflow: hidden;        
+        text-overflow: ellipsis;
+    }
+    #shopify-section-{{ section.id }} .min-top{
+            padding: 3rem 7rem;
+            color:{{section.settings.header-color }};
+    }
+    #shopify-section-{{ section.id }} .min-top .title{
+        margin-bottom:12px;
+        text-align: center;
+    }
+    #shopify-section-{{ section.id }} .min-top .subtitle{
+        font-weight: 400;
+        font-size: 26.91px;
+        line-height: 140%;
+        letter-spacing: -0.4px;
+        text-align: center;
+    }
+    #shopify-section-{{ section.id }} .min-top .subtitle strong{
+        color:{{ section.settings.point-color }};
+    }
+    #shopify-section-{{ section.id }} .check-heading{
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 28px;
+        letter-spacing: -0.36px;
+        text-align: center;
+        margin-bottom:6px;
+    }
+    #shopify-section-{{ section.id }} .total-price{
+        font-weight: 600;
+        font-size: 32.88px;
+        line-height: 48px;
+        letter-spacing: -0.8px;
+        margin-bottom:17px;
+    }
+    #shopify-section-{{ section.id }} .discount-box{
+        background:{{section.settings.sale-bg}};
+        color:{{section.settings.sale-color}};
+        font-weight: 500;
+        font-size: 23.94px;
+        line-height: 28px;
+        letter-spacing: -0.36px;
+        text-align: center;
+            padding: 7px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom:26px;
+    }
+    #shopify-section-{{ section.id }} .discount-tip{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.24px;
+        text-align: center;
+        color:#404040;
+        margin-bottom:18px;
+    }
+    #shopify-section-{{ section.id }} .checkout-button{
+                font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: -0.24px;
+        text-align: center;
+        color:{{section.settings.check-color}};
+        background:{{section.settings.check-bg}};
+        padding: 10px 18px;
+        border-radius: 20px;
+        transition:all .3s ease;
+        position: relative;
+    }
+    #shopify-section-{{ section.id }} .checkout-button.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+#shopify-section-{{ section.id }} .check-heade{
+    color:{{section.settings.price-color }};
+}
+#shopify-section-{{ section.id }} .discount-tip{
+    color:{{section.settings.tip-color }};
+}
+
+#shopify-section-{{ section.id }} .checkout-button.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+#shopify-section-{{ section.id }} .product-card__title{
+        white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#shopify-section-{{ section.id }} .product-card__info{
+    padding: 15px 20px
+}
+#shopify-section-{{ section.id }} .badge--on-sale{
+    border-radius:5px;
+    color:{{section.settings.badge-color }};
+    background:{{section.settings.badge-bg }}
+}
+@keyframes spin {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+    #shopify-section-{{ section.id }} .checkout-button:hover {
+  transform: translateY(-3px); /* 稍微上浮 */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25); /* 阴影更浓一些 */
+}
+
+#shopify-section-{{ section.id }} .check-heade{
+    display: flex;
+    flex-direction: column;
+}
+@media(max-width:1400px){
+    #shopify-section-{{ section.id }} .product-list-container{
+        flex:3;
+    }
+}
+
+@media(max-width:750px){
+    #shopify-section-{{ section.id }} .check-heade{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    gap:4px;
+    margin-bottom:8px;
+}
+    #shopify-section-{{ section.id }} .min-bottom{
+        flex-direction:column;
+    }
+    #shopify-section-{{ section.id }} .product-list-container{
+        gap:8px;
+        overflow: scroll;
+        padding: 0 15px;
+        width: 100%;
+        scrollbar-width: none;
+    }
+    #shopify-section-{{ section.id }} .checkout-container{
+        width: 100%;
+    }
+    #shopify-section-{{ section.id }} .title{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0;
+        margin-bottom:16px;
+        text-align: center;
+    }
+    #shopify-section-{{ section.id }} .min-top .subtitle{
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 150%;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+    #shopify-section-{{ section.id }} .check-content{
+        max-width:80%;
+    }
+    #shopify-section-{{ section.id }} .column-check-list{
+        background: white;
+        border: 1px solid rgba(0, 0, 0, .2);
+    }
+    #shopify-section-{{ section.id }} .min-bottom{
+        padding: 20px 0px 20px 0px;
+        gap: 1.2rem;
+    }
+    #shopify-section-{{ section.id }} .check-column{
+        min-width: 280px;
+    }
+    .product-list-container{
+        
+    }
+    #shopify-section-{{ section.id }} .plus svg{
+        width:12px;
+    }
+    #shopify-section-{{ section.id }} .min-top{
+        padding: 1.5rem 3rem .8rem;
+    }
+    #shopify-section-{{ section.id }} .check-content{
+        margin-bottom:1rem;
+    }
+     #shopify-section-{{ section.id }} .check-heading{
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 120%;
+        letter-spacing: 0;
+        text-align: center;
+        margin:0;
+    }
+    #shopify-section-{{ section.id }} .total-price{
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 120%;
+        letter-spacing: 0;
+        text-align: center;
+        margin:0;
+    }
+    #shopify-section-{{ section.id }} .discount-box{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0;
+    }
+     #shopify-section-{{ section.id }} .discount-tip{
+        margin-bottom:12px;
+    }
+    #shopify-section-{{ section.id }} .checkout-button{
+        padding: 8px 14px;
+    }
+}
+</style>
+
+<section id="feature-list-{{ section.settings.anchor_id | default: section.id }}" class="minimum section-padding {% if section.settings.animate %}fade-element{% endif %}">
+    <div class="minimum-container section-maxwidth section-gap">
+        <div class="min-top">
+            {% if section.settings.title != blank %}
+              <h2 class="title {{ section.settings.heading_tag }}">{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.subtitle != blank %}
+              <div class="subtitle">{{ section.settings.subtitle }}</div>
+            {% endif %}
+        </div>
+        <div class="min-bottom">
+            <div class="product-list-container">
+                {% for block in section.blocks %}
+                    <div class="check-column" >
+                        <div class="check-content">
+                            <div class="column-check-list">
+                                {% comment %} 当前展示项 {% endcomment %}
+
+                                    {% assign first_product ='' %}               
+                                    {%- for product in block.settings.product_list -%}
+                                        {% assign first_product = product %}               
+                                        {% break %}               
+                                    {% endfor %}
+
+                                <div class="selectd text-over">
+                                    {{ first_product.metafields.custom.custom_title | default:first_product.title | truncate:20 }}
+                                </div>
+                                <svg t="1758797573891" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4672" width="200" height="200"><path d="M483.072 714.496l30.165333 30.208 415.957334-415.829333a42.837333 42.837333 0 0 0 0-60.288 42.538667 42.538667 0 0 0-60.330667-0.042667l-355.541333 355.413333-355.242667-355.413333a42.496 42.496 0 0 0-60.288 0 42.837333 42.837333 0 0 0-0.085333 60.330667l383.701333 383.872 1.706667 1.749333z" fill="#3D3D3D" p-id="4673"></path></svg>
+                            </div>
+                            <div class="product-check-list">
+                            {%- for product in block.settings.product_list -%}
+                            {% assign in_cart = false %}
+                                {% if product.metafields.custom.sale_on_second %}
+                                {% assign in_cart = true %}
+                                {% endif %}
+                                <div class="product-tab text-over {% if product.id == first_product.id %}active{% endif %}" {% if in_cart %} data-extrasave={{ product.price | times:0.5 }} data-price={{ product.price| times:0.5 }} {%else %}data-extrasave=0 data-price={{ product.price }}  {% endif %}  data-oldprice="{{ product.compare_at_price }}" data-productId={{ product.id }} data-checkId="{{ block.id }}{{ product.id }}">
+                                    {{ product.metafields.custom.custom_title | default:product.title | truncate:20 }}
+                                </div>
+                            {%- endfor -%}
+                            </div>
+                        </div>
+
+                        <div class="product-content" >
+                            {% for product in block.settings.product_list %}
+
+                            {% assign in_cart = false %}
+                                {% if product.metafields.custom.sale_on_second %}
+                                {% assign in_cart = true %}
+                                {% endif %}
+
+                            <div class="item-card {% if product.id == first_product.id %}active{% endif %}" data-in-cart="{{ in_cart }}" data-checkId="{{ block.id }}{{ product.id }}" data-variantId={{ product.selected_or_first_available_variant.id }}>
+                                {%- render 'product-card',
+                                    product: product,
+                                    stacked: section.settings.stack_products,
+                                    position: forloop.index,
+                                    background: section.settings.product_card_background,
+                                    text_color: section.settings.product_card_text_color,
+                                    show_badges: section.settings.show_badges,
+                                    enable_discount:in_cart,
+                                    discount_level:0.5
+                                -%}
+                            </div>
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+                    {% if forloop.first %}
+                      <div class="plus">
+                        <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.3059 7.95633H18.7805V11.6946H11.3059V19.1692H7.5686V11.6946H0.0930176V7.95633H7.5686V0.48172H11.3059V7.95633Z" fill="black"/>
+                        </svg>
+                      </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="checkout-container">
+                <div class="check-heade">
+
+                <span class="check-heading">Total</span>
+                <h3 class="total-price">
+                        {% assign init_totalprice = 0 %}    
+                        {% assign init_oldprice = 0 %}               
+                {% for block in section.blocks %}
+                    {%- for product in block.settings.product_list -%}
+                        {% assign init_totalprice = init_totalprice | plus:product.price %}               
+                        {% assign init_oldprice = init_oldprice | plus:product.compare_at_price %}               
+                            {% break %}               
+                        {% endfor %}
+                {% endfor %}
+                {{ init_totalprice | money }}
+                </h3>
+                </div>
+                {% assign init_discount = init_oldprice | minus:init_totalprice %}
+                <div class="discount-box">You Save {{ init_discount | money }}</div>
+                {% comment %} <span class="discount-tip">( {{ init_totalprice | money }}  + EXTRA ${{ init_discount | money }})</span> {% endcomment %}
+                <button class="checkout-button">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const columns = document.querySelectorAll('.check-column');
+    const checkoutButton = document.querySelector('.checkout-button');
+
+    // ===============================
+    // 下拉选择逻辑
+    // ===============================
+    columns.forEach(column => {
+        const columnCheckList = column.querySelector('.column-check-list');
+        const productCheckList = column.querySelector('.product-check-list');
+        const selectd = column.querySelector('.selectd');
+        const productContent = column.querySelector('.product-content');
+
+        // 点击展开/收起选项
+        columnCheckList.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.querySelectorAll('.product-check-list.active').forEach(el => {
+            if (el !== productCheckList) el.classList.remove('active');
+        });
+        productCheckList.classList.toggle('active');
+        });
+
+        // 点击选项切换内容
+        productCheckList.querySelectorAll('.product-tab').forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            const checkid = tab.dataset.checkid;
+            const text = tab.textContent.trim();
+
+            // 激活当前tab
+            productCheckList.querySelectorAll('.product-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            // 更新选中显示文字
+            selectd.textContent = text;
+
+            // 切换对应卡片
+            if (checkid) {
+            productContent.querySelectorAll('.item-card').forEach(card => {
+                card.classList.toggle('active', card.dataset.checkid === checkid);
+            });
+            }
+
+            // 收起
+            productCheckList.classList.remove('active');
+
+            // 更新价格显示
+            handleSelectedChange();
+        });
+        });
+    });
+
+    // 点击空白关闭所有下拉
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.product-check-list.active').forEach(el => el.classList.remove('active'));
+    });
+
+    // ===============================
+    // 价格汇总
+    // ===============================
+    function handleSelectedChange() {
+        console.log('ddddddddddddddd')
+        const activeCards = document.querySelectorAll('.product-content .item-card.active');
+        let totalPrice = 0;
+        let totalCompare = 0;
+        let extrasave = 0;
+
+        const products = [];
+        let extra=0
+        activeCards.forEach(card => {
+        const tab = document.querySelector(`.product-tab.active[data-checkid="${card.dataset.checkid}"]`);
+        if (!tab) return;
+
+        const price = parseFloat(tab.dataset.price) / 100 || 0;
+        extrasave = parseFloat(tab.dataset.extrasave) / 100 || 0;
+
+        const compare = parseFloat(tab.dataset.oldprice) / 100 || 0;
+        const title = tab.textContent.trim();
+
+        totalPrice += price;
+        totalCompare += compare;
+        products.push({ title, price, compare });
+        });
+
+        const totalPriceEl = document.querySelector('.total-price');
+        const discountBox = document.querySelector('.discount-box');
+        {% comment %} const tipBox = document.querySelector('.discount-tip'); {% endcomment %}
+
+        if (discountBox && totalCompare > totalPrice) {
+           extra=totalPrice * 0
+
+        const discount_text = `{{ cart.currency.symbol }}${(totalPrice-extra).toLocaleString('en-GB', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+        })}`;
+        if (totalPriceEl){
+             totalPriceEl.textContent = discount_text;
+        }
+        const save = totalCompare - totalPrice+extra;
+
+        discountBox.textContent = `You Save {{ cart.currency.symbol }}${save.toLocaleString('en-GB', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+        })}`;
+        {% comment %} tipBox.textContent = `( {{ cart.currency.symbol }}${(save-extra-extrasave).toLocaleString('en-GB', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+        })} OFF + EXTRA {{ cart.currency.symbol }}${(extra+extrasave).toLocaleString('en-GB', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+        })})`; {% endcomment %}
+        } else if (discountBox) {
+        discountBox.textContent = 'ss';
+        }
+
+        return { totalPrice, totalCompare, products };
+    }
+
+    // ===============================
+    // 结账按钮事件
+    // ===============================
+    let items
+    checkoutButton.addEventListener('click', async () => {
+    const activeCards = document.querySelectorAll('.item-card.active');
+    if (activeCards.length === 0) {
+        alert('请至少选择一个产品');
+        return;
+    }
+
+    items = Array.from(activeCards).map(card => ({
+        id: card.dataset.variantid,
+        quantity: 1
+    }));
+
+
+    // 加载状态开始
+    checkoutButton.classList.add('loading');
+    checkoutButton.textContent = 'Processing...';
+
+    try {
+
+        // 添加商品
+        await fetch('/cart/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items })
+        });
+
+        setTimeout(() => {
+        window.location.href = '/checkout';
+        }, 500);
+    } catch (err) {
+        alert('加入购物车失败，请稍后再试');
+        checkoutButton.classList.remove('loading');
+        checkoutButton.textContent = 'Proceed to Checkout';
+    }
+    });
+  // 初始化价格显示
+  handleSelectedChange();
+});
+</script>
+
+
+
+{% schema %}
+{
+    "name":"minimum-spend",
+    "settings": [
+            {
+  "type": "text",
+  "id": "anchor_id",
+  "label": "Anchor ID",
+  "info": "Unique ID for anchor links",
+  "default": "multi-column-product-pro"
+},
+            {
+            "type": "checkbox",
+            "id": "animate",
+            "label": "启用键入动画",
+            "default":true,
+            "info": "修改配置的时候关闭"
+            },
+            {
+                "type": "range",
+                "id": "padding-top",
+                "max": 100,
+                "min": 0,
+                "step": 1,
+                "default": 20,
+                "label": "Section top"
+            },
+            {
+                "type": "range",
+                "id": "padding-bottom",
+                "max": 100,
+                "min": 0,
+                "step": 1,
+                "default": 20,
+                "label": "Section bottom"
+            },
+
+            {
+                "type": "range",
+                "id": "padding-gap",
+                "max": 100,
+                "min": 0,
+                "step": 1,
+                "default": 20,
+                "label": "Section gap"
+            },
+                        {
+                "type": "header",
+                "content": "Width restriction",
+                "info": "Section maxWidth"
+            },
+            {
+                "type": "range",
+                "id": "max-width",
+                "max": 1600,
+                "min": 900,
+                "step": 20,
+                "default": 1200,
+                "label": "Section width"
+            },
+            {
+                "type": "header",
+                "content": "Mob setting"
+            },
+            {
+                "type": "range",
+                "id": "padding-top-mob",
+                "max": 100,
+                "min": 0,
+                "step": 1,
+                "default": 20,
+                "label": "Section top mob"
+            },
+            {
+                "type": "range",
+                "id": "padding-bottom-mob",
+                "max": 100,
+                "min": 0,
+                "step": 1,
+                "default": 20,
+                "label": "Section bottom mob"
+            },
+            {
+                "type": "range",
+                "id": "padding-gap-mob",
+                "max": 100,
+                "min": 0,
+                "step": 1,
+                "default": 20,
+                "label": "Section gap mob"
+            }, 
+            {
+                "type":"text",
+                "id": "title",
+                "label":"Title"
+            },
+            
+        {
+            "type":"richtext",
+            "id": "subtitle",
+            "label":"Subtitle"
+        },
+
+        {
+            "type": "header",
+            "content": "Color settings"
+        },
+        {
+            "type": "color_background",
+            "id": "section-bg",
+            "label": "整个分区背景",
+            "default":"#000"
+        },
+        {
+            "type": "color_background",
+            "id": "container-bg",
+            "label": "内容区域的背景",
+            "default":"#fff"
+        },
+        {
+            "type": "color_background",
+            "id": "bottom-bg",
+            "label": "包含产品卡片部分背景",
+            "default":"#F3F3F3"
+        },
+        {
+            "type": "color",
+            "id": "header-color",
+            "label": "header文本颜色",
+            "default":"#000"
+        },
+        {
+            "type": "color",
+            "id": "point-color",
+            "label": "标题重点颜色",
+            "default":"#666666"
+        },
+        {
+            "type": "color_background",
+            "id": "badge-bg",
+            "label": "产品卡片折扣背景",
+        },
+        {
+            "type": "color",
+            "id": "badge-color",
+            "label": "产品卡片折扣颜色",
+        },
+        {
+            "type": "color",
+            "id": "price-color",
+            "label": "价格文本颜色",
+            "default":"#000"
+        },
+        {
+            "type": "color",
+            "id": "tip-color",
+            "label": "优惠文本颜色",
+            "default":"#404040"
+        },
+        {
+            "type": "color_background",
+            "id": "sale-bg",
+            "label": "折扣按钮背景",
+            "default":"linear-gradient(90deg, #F28900 0%, #FFBD68 100%)"
+        },
+        {
+            "type": "color",
+            "id": "sale-color",
+            "label": "折扣按钮文本色",
+            "default":"#fff"
+        },
+        {
+            "type": "color_background",
+            "id": "check-bg",
+            "label": "结账按钮背景",
+            "default":"#1A1A1A"
+        },
+        {
+            "type": "color",
+            "id": "check-color",
+            "label": "结账按钮文本色",
+            "default":"#fff"
+        },
+        {
+            "type": "color_background",
+            "id": "tab-bg",
+            "label": "切换项背景颜色",
+            "default":"white"
+        },
+        {
+            "type": "color",
+            "id": "tab-color",
+            "label": "切换项文本颜色",
+            "default":"#000"
+        },
+
+        {
+            "type": "header",
+            "content": "布局设置"
+        },
+        {
+            "type": "range",
+            "id": "product-width",
+            "max": 80,
+            "min": 50,
+            "step": 1,
+            "default":65,
+            "label": "产品区域占比"
+        },
+        {
+            "type": "range",
+            "id": "checkout-width",
+            "max": 60,
+            "min": 30,
+            "step": 1,
+            "default":30,
+            "label": "产品区域占比"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_badges",
+            "label": "展示产品折扣",
+            "default":false
+        }
+    ],
+    
+    "blocks": [
+        {
+            "type": "produt_list",
+            "name":"product_list",
+            "limit":2,
+            "settings": [
+                {
+                    "type": "product_list",
+                    "id": "product_list",
+                    "label": "Product list"
+                }
+            ]
+        }
+    ],
+    "presets": [{"name": "minimum-spend"}]
+}
+{% endschema %}

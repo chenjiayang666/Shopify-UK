@@ -1,0 +1,2047 @@
+{%- comment -%}
+  IMPLEMENTATION NOTE: Impact header with all the menu is an extremely complex piece of code. Due to requirements from design
+  team, we had to cover over hundred of potential combinations. As a consequence, this part (and all the menu snippets) are
+  extremely sensitive code that should (if possible) not be touched unless you have spend enough time to study and understand
+  the underlying logic of the menu.
+{%- endcomment -%}
+
+{%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
+  {%- assign will_show_country_selector = true -%}
+{%- endif -%}
+
+{%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
+  {%- assign will_show_locale_selector = true -%}
+{%- endif -%}
+
+<style>
+  :root {
+    --sticky-header-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
+  }
+
+  #shopify-section-{{ section.id }} {
+    --header-grid-template: "main-nav logo secondary-nav" / minmax(0, 1fr) auto minmax(0, 1fr);
+    --header-padding-block: {% if section.settings.reduce_padding %}var(--spacing-3){% else %}var(--spacing-4-5){% endif %};
+    --header-background-opacity: {{ section.settings.background_opacity | divided_by: 100.0 }};
+    --header-background-blur-radius: {{ section.settings.background_blur_radius }}px;
+    --header-transparent-text-color: {{ section.settings.transparent_header_text_color.rgb }};
+
+    {%- if section.settings.logo != blank -%}
+      --header-logo-width: {{ section.settings.logo_mobile_max_width }}px;
+      --header-logo-height: {{ section.settings.logo_mobile_max_width | divided_by: section.settings.logo.aspect_ratio | round }}px;
+    {%- endif -%}
+
+    position: {% if section.settings.enable_sticky %}sticky{% else %}relative{% endif %};
+    top: 0;
+    z-index: 10;
+  }
+
+  {%- if section.settings.enable_sticky -%}
+    .shopify-section--announcement-bar ~ #shopify-section-{{ section.id }} {
+      top: calc(var(--sticky-announcement-bar-enabled, 0) * var(--announcement-bar-height, 0px));
+    }
+  {%- endif -%}
+
+  {%- if section.settings.opening_from == 'left' -%}
+    @media screen and (max-width: 699px) {
+      .navigation-drawer {
+        --drawer-content-max-height: calc(100vh - (var(--spacing-2) * 2));
+      }
+    }
+  {%- endif -%}
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ section.id }} {
+      {%- if section.settings.logo != blank -%}
+        --header-logo-width: {{ section.settings.logo_max_width }}px;
+        --header-logo-height: {{ section.settings.logo_max_width | divided_by: section.settings.logo.aspect_ratio | round }}px;
+      {%- endif -%}
+
+      --header-padding-block: {% if section.settings.reduce_padding %}var(--spacing-6){% else %}var(--spacing-8-5){% endif %};
+    }
+  }
+
+  {%- if section.settings.layout contains 'logo_left' -%}
+    @media screen and (min-width: 1150px) {
+      {%- if section.settings.secondary_menu != blank or will_show_country_selector or will_show_locale_selector -%}
+        {%- assign max_percent = '55%' -%}
+      {%- else -%}
+        {%- assign max_percent = '70%' -%}
+      {%- endif -%}
+
+      #shopify-section-{{ section.id }} {
+        --header-grid-template: "logo main-nav secondary-nav" / {% if section.settings.layout == 'logo_left_navigation_inline' %}auto minmax(0, 1fr) minmax(0, max-content){% else %}minmax(0, 1fr) fit-content({{ max_percent }}) minmax(0, 1fr){% endif %};
+      }
+    }
+  {%- endif -%}
+    #shopify-section-{{ section.id }} height-observer{
+        background: {{settings.header_background}};
+  }
+</style>
+{% for block in section.blocks %}
+  {% if block.type == 'product_mega' %}
+    {{- 'column-card.css' | asset_url | stylesheet_tag -}}
+    {% break %}
+  {% endif %}
+{% endfor %}
+<style>
+      {% for block in section.blocks %}
+        {% if block.type == 'product_mega' %}
+          .product-mega-{{ block.id }} .product-mega-container{
+            color:{{ block.settings.text-color }};
+            background:{{ block.settings.mega-bg }};
+          }
+          .product-mega-{{ block.id }} .column-product-card{
+            background:{{ block.settings.card-bg }}
+          }
+          .product-mega-{{ block.id }}{
+          }
+          .product-mega-{{ block.id }} .col-card-title{
+            color:{{ block.settings.text-color }}
+          }
+
+          .product-mega-{{ block.id }} .col-card-des{
+            color:{{ block.settings.des-color }}
+          }
+          .product-mega-{{ block.id }} .col-title{
+            color:{{ block.settings.collection-color }}
+          }
+          .product-mega-{{ block.id }} .activity-box{
+            background:{{ block.settings.card-bg }}
+          }
+
+        {% endif %}
+  {% endfor %}
+</style>
+
+<style>
+  @media(max-width:750px){
+
+  .mega-content-title{
+      position: absolute;
+      top: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #1C1D22CC;
+              font-family: Inter, sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 100%;
+      letter-spacing: 0;
+      text-align: center;
+    }
+    .navigation-control{
+      padding:0;
+      top:108px !important;
+      background:white;
+    }
+    .panel__wrapper{
+      padding:0px 0 0 0 !important;
+      justify-content: flex-start;
+      max-height: 700px;
+    }
+    .navigation-drawer .panel__scroller{
+      height:auto;
+    }
+    .panel__wrapper ul.v-stack{
+      padding:0 20px;
+    }
+    .panel-footer{
+      padding:0 20px;
+    }
+    .panel__wrapper ul.v-stack.mega-container{
+      padding:0px;
+    }
+    .mega-li{
+      padding: 0px 20px 5px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: -1px;
+      z-index: 1;
+      background: white;
+    }
+    .panel-list__wrapper{
+      height:90vh;
+    }
+    .panel__wrapper ul.v-stack .h3{
+      font-family: Inter, sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: 0;
+    }
+  }
+</style>
+<style>
+  .tag-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+</style>
+
+<height-observer variable="header">
+  <store-header
+    class="header"
+    {% if section.settings.hide_on_scroll %}
+      hide-on-scroll="100"
+    {% endif %}
+    {% if section.settings.enable_sticky %}
+      sticky
+    {% endif %}
+  >
+    <div class="header__wrapper">
+      {%- comment -%}
+        --------------------------------------------------------------------------------------------------------------------
+        MAIN NAV AREA
+        --------------------------------------------------------------------------------------------------------------------
+      {%- endcomment -%}
+
+      <div class="header__main-nav">
+        <div class="header__icon-list">
+          <button
+            type="button"
+            class="tap-area {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}"
+            aria-controls="header-sidebar-menu"
+          >
+            <span class="sr-only">{{ 'header.general.menu' | t }}</span>
+            {%- render 'icon' with 'hamburger' -%}
+          </button>
+
+          <a href="{{ routes.search_url }}" class="tap-area sm:hidden" aria-controls="search-drawer">
+            <span class="sr-only">{{ 'header.general.search' | t }}</span>
+            {%- render 'icon' with 'search' -%}
+          </a>
+
+          {%- if section.settings.layout != 'drawer' and section.settings.menu.links.size > 0 -%}
+            <nav
+              class="header__link-list {% if section.settings.layout == 'logo_left_navigation_center' %}justify-center{% endif %} wrap"
+              role="navigation"
+            >
+              <ul class="contents" role="list">
+                {%- for link in section.settings.menu.links -%}
+                  {% liquid
+                    assign link_title_downcase = link.title | strip | downcase
+                    assign mega_menu_block = ''
+
+                    for block in section.blocks
+                      assign menu_item_downcase = block.settings.menu_item | strip | downcase
+
+                      if menu_item_downcase == link_title_downcase and block.type != 'image_tag'
+                        assign mega_menu_block = block
+                        break
+                      endif
+                    endfor
+
+                    assign tag_block = ''
+
+                    for block in section.blocks
+                      assign menu_item_downcase = block.settings.menu_item | strip | downcase
+
+                      if menu_item_downcase == link_title_downcase and block.type == 'image_tag'
+                        assign tag_block = block
+                        break
+                      endif
+                    endfor
+
+                  %}
+
+                  <li style="display: flex;align-items: center;">
+                    {%- if link.levels == 0 and mega_menu_block == '' -%}
+
+                      <div class="tag-box">
+
+                          <a
+                            href="{{ link.url }}"
+                            class="bold link-faded-reverse"
+                            {% if link.current %}
+                              aria-current="page"
+                            {% endif %}
+                          >
+                            {{- link.title -}}
+                          </a>
+                        {% if tag_block.type == 'image_tag' %}
+                          {% render 'image',block:tag_block %}
+                        {% endif %}
+                      </div>
+                    {%- else -%}
+                      {%- if mega_menu_block != '' -%}
+                        {%- comment -%}
+                           超级菜单
+                          Implementation note: the designers had the desire to show a lot of different kind of menus in Impact: one standard
+                          mega menu but also a kind of "sidebar" mode when the mega-menu appears in a drawer. Unfortunately, this comes with
+                          a lot of extra complexity as we have to go through two different code path: a "details" element for the standard
+                          menu, and a full drawer for the other one.
+                        {%- endcomment -%}
+                        {%- unless mega_menu_block.settings.layout == 'drawer' -%}
+                          {% comment %} 普通超级菜单 {% endcomment %}
+
+                          {% if mega_menu_block.type == 'product_mega'
+                            or mega_menu_block.type == 'text_mega'
+                            or mega_menu_block.type == 'media_mega'
+                          %}
+
+                        <div class="tag-box">
+
+
+
+                            <div
+                              class="accordion-item  product-mega-{{ mega_menu_block.id }}"
+                              is="mega-menu-disclosure"
+                              trigger="{{ section.settings.menu_open_trigger | escape }}"
+                              {{ mega_menu_block.shopify_attributes }}
+                            >
+                              <div
+                                data-megaTitle="{{ mega_menu_block.settings.menu_item }}"
+                                class="product-mega-item accordion-header text-with-icon gap-2.5 bold link-faded-reverse"
+                                {% if link.url != '#' %}
+                                  data-url="{{ link.url | escape }}"
+                                {% endif %}
+                              >
+                                <a href="{{ link.url }}">
+                                  {{- link.title -}}
+                                </a>
+                                {%- render 'icon' with 'chevron-bottom' -%}
+                              </div>
+                              {%- render 'product-mega-menu', link: link, mega_menu_block: mega_menu_block -%}
+                            </div>
+
+                                                      {% if tag_block.type == 'image_tag' %}
+                            {% render 'image',block:tag_block %}
+                          {% endif %}
+
+                          </div>
+
+                          {% else %}
+                            <details
+                              is="mega-menu-disclosure"
+                              trigger="{{ section.settings.menu_open_trigger | escape }}"
+                              {{ mega_menu_block.shopify_attributes }}
+                            >
+                              <summary
+                                class="text-with-icon gap-2.5 bold link-faded-reverse"
+                                {% if link.url != '#' %}
+                                  data-url="{{ link.url | escape }}"
+                                {% endif %}
+                              >
+                                {{- link.title -}}
+                                {%- render 'icon' with 'chevron-bottom' -%}
+                              </summary>
+
+                              {%- render 'mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
+                            </details>
+                          {% endif %}
+                        {%- else -%}
+                          {% comment %} 按钮超级菜单(侧面展开){% endcomment %}
+                          <button
+                            aria-controls="navigation-drawer-{{ forloop.index }}"
+                            aria-expanded="false"
+                            class="text-with-icon gap-2.5 bold link-faded-reverse"
+                          >
+                            {{- link.title -}}
+                            {%- render 'icon' with 'chevron-bottom' -%}
+                          </button>
+
+                          <navigation-drawer
+                            class="navigation-drawer drawer lg-max:hidden ss"
+                            id="navigation-drawer-{{ forloop.index }}"
+                            open-from="left"
+                            mega-menu
+                          >
+                            {%- render 'navigation-panel',
+                              navigation_layout: section.settings.layout,
+                              main_menu: link,
+                              is_mega_menu: true,
+                              mega_menu_block: mega_menu_block
+                            -%}
+                          </navigation-drawer>
+                        {%- endunless -%}
+                      {%- else -%}
+                        {% comment %} 下拉菜单 {% endcomment %}
+                      <div class="tag-box">
+
+
+                        <details
+                          class="relative"
+                          is="dropdown-disclosure"
+                          trigger="{{ section.settings.menu_open_trigger | escape }}"
+                        >
+                          <summary
+                            class="text-with-icon gap-2.5 bold link-faded-reverse"
+                            {% if link.url != '#' %}
+                              data-url="{{ link.url | escape }}"
+                            {% endif %}
+                          >
+                            {{- link.title -}}
+                            {%- render 'icon' with 'chevron-bottom' -%}
+                          </summary>
+
+                          <div class="dropdown-menu {% if link.levels <= 1 %}dropdown-menu--restrictable{% endif %}">
+                            <ul class="contents" role="list">
+                              {%- for sub_link in link.links -%}
+                                <li>
+                                  {%- if sub_link.levels == 0 -%}
+                                    <a
+                                      href="{{ sub_link.url }}"
+                                      class="dropdown-menu__item group"
+                                      {% if sub_link.current %}
+                                        aria-current="page"
+                                      {% endif %}
+                                    >
+                                      <span
+                                        ><span class="reversed-link">{{ sub_link.title }}</span></span
+                                      >
+                                    </a>
+                                  {%- else -%}
+                                    <details
+                                      class="relative"
+                                      is="dropdown-disclosure"
+                                      trigger="{{ section.settings.menu_open_trigger | escape }}"
+                                    >
+                                      <summary
+                                        class="dropdown-menu__item group"
+                                        {% if sub_link.url != '#' %}
+                                          data-url="{{ sub_link.url | escape }}"
+                                        {% endif %}
+                                      >
+                                        <span
+                                          ><span class="reversed-link">{{- sub_link.title -}}</span></span
+                                        >
+                                        {%- render 'icon' with 'chevron-right' -%}
+                                      </summary>
+
+                                      <div class="dropdown-menu">
+                                        <ul class="contents" role="list">
+                                          {%- for sub_sub_link in sub_link.links -%}
+                                            <li>
+                                              <a
+                                                href="{{ sub_sub_link.url }}"
+                                                class="dropdown-menu__item group"
+                                                {% if sub_sub_link.current %}
+                                                  aria-current="page"
+                                                {% endif %}
+                                              >
+                                                <span
+                                                  ><span class="reversed-link">{{ sub_sub_link.title }}</span></span
+                                                >
+                                              </a>
+                                            </li>
+                                          {%- endfor -%}
+                                        </ul>
+                                      </div>
+                                    </details>
+                                  {%- endif -%}
+                                </li>
+                              {%- endfor -%}
+                            </ul>
+                          </div>
+                        </details>
+                                                {% if tag_block.type == 'image_tag' %}
+                          {% render 'image',block:tag_block %}
+                        {% endif %}
+                      </div>
+                      {%- endif -%}
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </nav>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- comment -%}
+        --------------------------------------------------------------------------------------------------------------------
+        LOGO AREA
+        --------------------------------------------------------------------------------------------------------------------
+      {%- endcomment -%}
+
+      {%- capture logo_content -%}
+        {%- if section.settings.logo -%}
+          {%- capture sizes -%}{{ section.settings.logo_max_width }}px{%- endcapture -%}
+          {%- capture widths -%}{{ section.settings.logo_max_width | times: 2 | at_most: section.settings.logo.width }}, {{ section.settings.logo_max_width | times: 3 | at_most: section.settings.logo.width }}{%- endcapture -%}
+          <span class="sr-only">{{ shop.name }}</span>
+          {{- section.settings.logo | image_url: width: section.settings.logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image' -}}
+
+          {%- if section.settings.transparent_logo -%}
+            {{- section.settings.transparent_logo | image_url: width: section.settings.transparent_logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image header__logo-image--transparent' -}}
+          {%- endif -%}
+        {%- else -%}
+          <span class="header__logo-text h4">{{ shop.name }}</span>
+        {%- endif -%}
+      {%- endcapture -%}
+
+      {%- if request.page_type == 'index' -%}
+        <h1 class="header__logo">
+          <a href="{{ routes.root_url }}">{{ logo_content }}</a>
+        </h1>
+      {% else %}
+        <a href="{{ routes.root_url }}" class="header__logo">{{ logo_content }}</a>
+      {% endif %}
+
+      {%- comment -%}
+        --------------------------------------------------------------------------------------------------------------------
+        SECONDARY NAV AREA
+        --------------------------------------------------------------------------------------------------------------------
+      {%- endcomment -%}
+
+      <div class="header__secondary-nav">
+        {%- if section.settings.header != 'drawer' and section.settings.secondary_menu.links.size > 0 -%}
+          <nav class="header__link-list" role="navigation">
+            <ul class="contents">
+              {%- for link in section.settings.secondary_menu.links -%}
+                <li>
+                  <a href="{{ link.url }}" class="bold link-faded-reverse">{{ link.title }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </nav>
+        {%- endif -%}
+
+        <ul class="header__icon-list">
+          {%- assign has_enabled_countries = false -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'country_item' and block.settings.enable -%}
+              {%- assign has_enabled_countries = true -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if has_enabled_countries -%}
+            <div class="header-image-container">
+              {% comment %}
+                <img src="https://cdn.shopify.com/s/files/1/0627/7457/5183/files/EU-icon.png?v=1744009918" width="30" height="30" />
+                <ul class="header-image-dropdown-content">
+                  <li class="country-item">
+                    <img src="https://cdn.shopify.com/s/files/1/0946/3234/5909/files/c2eda79560d9d0b31607699845abf77f_430x.png?v=1747620445" class="country-flag" width="28px" height="28px" alt="德国国旗" />
+                    <span class="country-name"><a href="https://merachfit.de/" target="_blank">Germany</a></span>
+                  </li>
+                  <li class="country-item">
+                    <img src="https://cdn.shopify.com/s/files/1/0946/3234/5909/files/c07d2406fd8c110061f629dd3ffe5fdf_430x.png?v=1747621056" class="country-flag" width="28px" height="28px" alt="英国国旗" />
+                    <span class="country-name"><a href="https://uk.merachfit.com/" target="_blank">U.K</a></span>
+                  </li>
+                  <li class="country-item">
+                    <img src="https://cdn.shopify.com/s/files/1/0946/3234/5909/files/Japan_430x.png?v=1747623769" class="country-flag" width="28px" height="28px" alt="日本国旗" />
+                    <span class="country-name"><a href="https://merach.jp/" target="_blank">Japan</a></span>
+                  </li>
+                </ul>
+              {% endcomment %}
+              {%- if section.settings.default_flag_image -%}
+                {{
+                  section.settings.default_flag_image
+                  | image_url: width: 30
+                  | image_tag: width: 30, height: 30, alt: 'Default country flag'
+                }}
+              {%- else -%}
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0570/8280/6344/files/German.png?v=1744022895"
+                  width="30"
+                  height="30"
+                  alt="Default country flag"
+                >
+              {%- endif -%}
+
+              <ul class="header-image-dropdown-content">
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'country_item' and block.settings.enable -%}
+                    <li class="country-item">
+                      {%- if block.settings.flag_image -%}
+                        {{
+                          block.settings.flag_image
+                          | image_url: width: 28
+                          | image_tag: class: 'country-flag', width: 28, height: 28, alt: block.settings.name
+                        }}
+                      {%- endif -%}
+                      <span class="country-name">
+                        <a href="{{ block.settings.link }}" target="_blank">{{ block.settings.name }}</a>
+                      </span>
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+          {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
+            <li class="hidden md:block shrink-0">
+              {%- render 'localization-selector',
+                type: 'country',
+                show_country_name: section.settings.show_country_name,
+                show_country_flag: section.settings.show_country_flag,
+                popover_vertical_position: 'end'
+              -%}
+            </li>
+          {%- endif -%}
+
+          {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
+            <li class="hidden md:block shrink-0">
+              {%- render 'localization-selector', type: 'locale', popover_vertical_position: 'end' -%}
+            </li>
+          {%- endif -%}
+
+          <li>
+            <a href="{{ routes.search_url }}" class="hidden tap-area sm:block" aria-controls="search-drawer">
+              <span class="sr-only">{{ 'header.general.search' | t }}</span>
+              {%- render 'icon' with 'search' -%}
+            </a>
+          </li>
+
+          {%- if shop.customer_accounts_enabled -%}
+            <li>
+              <a
+                href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
+                class="hidden tap-area sm:block"
+              >
+                <span class="sr-only">
+                  {%- if customer -%}
+                    {{- 'header.general.account' | t -}}
+                  {%- else -%}
+                    {{- 'header.general.login' | t -}}
+                  {%- endif -%}
+                </span>
+                {%- render 'icon' with 'account' -%}
+              </a>
+            </li>
+          {%- endif -%}
+
+          <li>
+            <a
+              href="{{ routes.cart_url }}"
+              data-no-instant
+              class="relative block tap-area"
+              {% if settings.cart_type != 'page' and request.page_type != 'cart' %}
+                aria-controls="cart-drawer"
+              {% endif %}
+            >
+              <span class="sr-only">{{ 'header.general.cart' | t }}</span>
+              {%- render 'icon' with 'cart' -%}
+
+              <div class="header__cart-count">
+                <cart-count class="count-bubble {% if cart.item_count == 0 %}opacity-0{% endif %}">
+                  <span class="sr-only">{{ 'cart.general.item_count' | t: count: cart.item_count }}</span>
+                  <span aria-hidden="true">{{ cart.item_count }}</span>
+                </cart-count>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </store-header>
+</height-observer>
+
+{%- comment -%}
+  --------------------------------------------------------------------------------------------------------------------
+  NAVIGATION MENU DRAWER
+  --------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- assign main_menu = section.settings.sidebar_menu | default: section.settings.menu -%}
+{%- assign secondary_menu = section.settings.secondary_menu -%}
+
+{%- if main_menu.links.size > 0 or secondary_menu.links.size > 0 -%}
+  <navigation-drawer
+    mobile-opening="{{ section.settings.opening_from }}"
+    open-from="left"
+    id="header-sidebar-menu"
+    class="navigation-drawer drawer {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %} navigation-control"
+    {% if request.design_mode %}
+      handle-section-events
+    {% endif %}
+  >
+    {% comment %}
+      <button is="close-button" aria-label="{{ 'general.accessibility.close' | t | escape }}" {%- if section.settings.opening_from == 'bottom' -%}class="sm-max:hidden"{%- endif -%}>
+        {%- render 'icon' with 'close', width: 19, height: 19 -%}
+      </button>
+    {% endcomment %}
+
+    {%- render 'navigation-panel',
+      is_mega_menu: false,
+      main_menu: main_menu,
+      secondary_menu: secondary_menu,
+      mobile_opening: section.settings.opening_from,
+      layout: section.settings.layout,
+      show_social_media: section.settings.show_social_media,
+      show_country_selector: section.settings.show_country_selector,
+      show_country_name: section.settings.show_country_name,
+      show_country_flag: section.settings.show_country_flag,
+      show_locale_selector: section.settings.show_locale_selector
+    -%}
+  </navigation-drawer>
+{%- endif -%}
+
+<script>
+  document.documentElement.style.setProperty(
+    '--header-height',
+    Math.round(document.getElementById('shopify-section-{{ section.id }}').clientHeight) + 'px'
+  );
+</script>
+
+<script>
+// 获取所有手风琴项和header wrapper
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+const accordionContents = document.querySelectorAll('.accordion-content');
+const headerWrapper = document.querySelector('.header__wrapper');
+
+
+accordionHeaders.forEach(header => {
+    header.addEventListener('mouseenter', function(e) {
+        const megaTitle = this.getAttribute('data-megaTitle');
+        const content = document.querySelector(`.accordion-content[data-megaTitle="${megaTitle}"]`);
+        
+        // 关闭所有内容
+        accordionContents.forEach(content => {
+            content.classList.remove('active');
+            content.style.maxHeight = null;
+        });
+        
+        accordionHeaders.forEach(header => {
+            header.classList.remove('active');
+        });
+        
+        // 展开当前内容
+        this.classList.add('active');
+        content.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + "px";
+        
+        // 添加header wrapper类
+        headerWrapper.classList.add('is-radius');
+    });
+});
+
+accordionHeaders.forEach(header => {
+    header.addEventListener('mouseleave', function(e) {
+        // 只有当鼠标没有移动到内容区域时才关闭
+        const megaTitle = this.getAttribute('data-megaTitle');
+        const content = document.querySelector(`.accordion-content[data-megaTitle="${megaTitle}"]`);
+        
+        setTimeout(() => {
+            if (!content.matches(':hover') && !this.matches(':hover')) {
+                content.classList.remove('active');
+                content.style.maxHeight = null;
+                this.classList.remove('active');
+                
+                const anyActive = document.querySelector('.accordion-header.active');
+                if (!anyActive) {
+                    headerWrapper.classList.remove('is-radius');
+                }
+            }
+        }, 100);
+    });
+});
+
+accordionContents.forEach(content => {
+    content.addEventListener('mouseenter', function() {
+        // 确保内容保持打开状态
+        this.classList.add('active');
+        this.style.maxHeight = this.scrollHeight + "px";
+        
+        const megaTitle = this.getAttribute('data-megaTitle');
+        const header = document.querySelector(`.accordion-header[data-megaTitle="${megaTitle}"]`);
+        header.classList.add('active');
+        
+        headerWrapper.classList.add('is-radius');
+    });
+});
+
+// 为内容区域添加鼠标移出事件
+accordionContents.forEach(content => {
+    content.addEventListener('mouseleave', function() {
+        this.classList.remove('active');
+        this.style.maxHeight = null;
+        
+        const megaTitle = this.getAttribute('data-megaTitle');
+        const header = document.querySelector(`.accordion-header[data-megaTitle="${megaTitle}"]`);
+        header.classList.remove('active');
+        
+        // 检查是否还有其他活动项
+        const anyActive = document.querySelector('.accordion-header.active');
+        if (!anyActive) {
+            headerWrapper.classList.remove('is-radius');
+        }
+    });
+});
+
+
+
+{% comment %} 移动端 {% endcomment %}
+
+
+document.querySelectorAll('.mega-content .product-mega-box_layout').forEach(box => {
+  const headers = box.querySelectorAll('.mob-accordion-header');
+  const contents = box.querySelectorAll('.mob-accordion-box');
+
+  if (headers.length > 0 && contents.length > 0) {
+    // 默认展开第一个
+    headers[0].classList.add('active');
+    contents[0].classList.add('active');
+    contents[0].style.maxHeight = '360px'; 
+
+    // 其他都收起
+    contents.forEach((c, i) => {
+      if (i !== 0) {
+        c.style.maxHeight = '0';
+      }
+    }); 
+  }
+
+  headers.forEach(header => {
+    header.addEventListener('click', function () {
+      const content = this.nextElementSibling;
+      const isActive = this.classList.contains('active');
+
+      // 关闭当前 box 里的所有
+      contents.forEach(c => {
+        c.style.maxHeight = '0';
+        c.classList.remove('active');
+      });
+      headers.forEach(h => h.classList.remove('active'));
+
+      // 如果不是当前已经展开的，才打开
+      if (!isActive) {
+        this.classList.add('active');
+        content.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "shopify-section--header",
+  "tag": "header",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Enable sticky header",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_scroll",
+      "label": "Hide on scroll",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Image",
+      "info": "280 x 80px .png recommended"
+    },
+    {
+      "type": "range",
+      "id": "logo_max_width",
+      "min": 40,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "label": "Image width",
+      "default": 140
+    },
+    {
+      "type": "range",
+      "id": "logo_mobile_max_width",
+      "min": 25,
+      "max": 170,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile image width",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Country Selector"
+    },
+    {
+      "type": "image_picker",
+      "id": "default_flag_image",
+      "label": "Default Flag Image",
+      "info": "Default flag shown (30x30px recommended)"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "sidebar_menu",
+      "label": "Drawer menu"
+    },
+    {
+      "type": "link_list",
+      "id": "secondary_menu",
+      "label": "Secondary menu",
+      "info": "This menu won't show dropdown items. For best results, limit the number of links to 1 or 2."
+    },
+    {
+      "type": "select",
+      "id": "menu_open_trigger",
+      "label": "Open dropdown items on...",
+      "info": "Click mode is forced on touch devices.",
+      "options": [
+        {
+          "value": "hover",
+          "label": "Hover"
+        },
+        {
+          "value": "click",
+          "label": "Click"
+        }
+      ],
+      "default": "click"
+    },
+    {
+      "type": "header",
+      "content": "Mobile navigation"
+    },
+    {
+      "type": "select",
+      "id": "opening_from",
+      "label": "Opening from",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "header",
+      "content": "Desktop"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "info": "When centering navigation, you should limit your links to 5.",
+      "options": [
+        {
+          "value": "logo_left_navigation_inline",
+          "label": "Logo left, navigation inline"
+        },
+        {
+          "value": "logo_left_navigation_center",
+          "label": "Logo left, navigation center"
+        },
+        {
+          "value": "logo_center_navigation_inline",
+          "label": "Logo center, navigation inline"
+        },
+        {
+          "value": "drawer",
+          "label": "Drawer"
+        }
+      ],
+      "default": "logo_left_navigation_inline"
+    },
+    {
+      "type": "header",
+      "content": "Social media",
+      "info": "This will only show in the drawer navigation."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_media",
+      "label": "Show social media",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Language selector",
+      "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_locale_selector",
+      "label": "Show language selector",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Country/region selector",
+      "info": "To add a country/region, go to your [markets settings.](/admin/settings/markets). For best user experience, we recommend to keep this setting off and to use the free [Shopify Geolocation app](https://apps.shopify.com/geolocation)."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_country_selector",
+      "label": "Show country/region selector",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_country_flag",
+      "label": "Show country flag",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_country_name",
+      "label": "Show country name",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Transparent header",
+      "info": "Add a section on first position which allows transparent header such as slideshow or image with text overlay."
+    },
+    {
+      "type": "color",
+      "id": "transparent_header_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "transparent_logo",
+      "label": "Logo image",
+      "info": "Use the same dimensions as main logo."
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "checkbox",
+      "id": "reduce_padding",
+      "label": "Reduce padding",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "background_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Background opacity",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "background_blur_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Background blur radius",
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "country_item",
+      "name": "Country/Region Item",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enable",
+          "label": "Enable this item",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Country/Region Name",
+          "default": "Europe"
+        },
+        {
+          "type": "image_picker",
+          "id": "flag_image",
+          "label": "Flag Image",
+          "info": "28x28px recommended"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Destination Link"
+        }
+      ]
+    },
+    {
+      "type": "mega_menu",
+      "name": "Mega menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item",
+          "label": "Menu item",
+          "info": "Enter menu item to apply a mega menu dropdown. [Learn more](https://support.maestrooo.com/article/180-navigation-enabling-and-configuring-mega-navigation)."
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "horizontal",
+              "label": "Horizontal"
+            },
+            {
+              "value": "horizontal_center",
+              "label": "Horizontal (centered)"
+            },
+            {
+              "value": "drawer",
+              "label": "Drawer"
+            }
+          ],
+          "default": "horizontal"
+        },
+        {
+          "type": "select",
+          "id": "submenu_style",
+          "label": "Submenu",
+          "options": [
+            {
+              "value": "bold_text",
+              "label": "Bold - text only"
+            },
+            {
+              "value": "bold_heading",
+              "label": "Bold - headings only"
+            }
+          ],
+          "default": "bold_heading"
+        },
+        {
+          "type": "header",
+          "content": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image",
+          "info": "1200 x 1200px .jpg recommended"
+        },
+        {
+          "type": "text",
+          "id": "image_heading_1",
+          "label": "Heading"
+        },
+        {
+          "type": "url",
+          "id": "image_link_1",
+          "label": "Link"
+        },
+        {
+          "type": "color",
+          "id": "image_text_color_1",
+          "label": "Heading",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image",
+          "info": "1200 x 1200px .jpg recommended"
+        },
+        {
+          "type": "text",
+          "id": "image_heading_2",
+          "label": "Heading"
+        },
+        {
+          "type": "url",
+          "id": "image_link_2",
+          "label": "Link"
+        },
+        {
+          "type": "color",
+          "id": "image_text_color_2",
+          "label": "Heading",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image",
+          "info": "1200 x 1200px .jpg recommended"
+        },
+        {
+          "type": "text",
+          "id": "image_heading_3",
+          "label": "Heading"
+        },
+        {
+          "type": "url",
+          "id": "image_link_3",
+          "label": "Link"
+        },
+        {
+          "type": "color",
+          "id": "image_text_color_3",
+          "label": "Heading",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Featured product"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "color",
+          "id": "product_card_background",
+          "label": "Card background"
+        },
+        {
+          "type": "color",
+          "id": "product_card_text_color",
+          "label": "Card text"
+        },
+        {
+          "type": "header",
+          "content": "Appearance"
+        },
+        {
+          "type": "select",
+          "id": "promo_content_layout",
+          "label": "Promotional content layout",
+          "info": "To improve readability, layout can be changed automatically depending on the screen size, menu column count and promotional content. [Learn more](https://support.maestrooo.com/article/296-navigation-understanding-impact-mega-menu-strategy)",
+          "options": [
+            {
+              "value": "grid",
+              "label": "Grid"
+            },
+            {
+              "value": "collage",
+              "label": "Collage"
+            },
+            {
+              "value": "carousel",
+              "label": "Carousel"
+            }
+          ],
+          "default": "grid"
+        },
+        {
+          "type": "checkbox",
+          "id": "stretch_promo",
+          "label": "Stretch to fill",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "drawer_link_image",
+          "label": "Drawer link image",
+          "options": [
+            {
+              "value": "hide",
+              "label": "Hide"
+            },
+            {
+              "value": "show",
+              "label": "Show product image"
+            }
+          ],
+          "default": "hide"
+        }
+      ]
+    },
+    {
+      "type": "product_mega",
+      "name": "Product mega",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item",
+          "label": "Menu item",
+          "info": "Enter menu item to apply a mega menu dropdown. [Learn more](https://support.maestrooo.com/article/180-navigation-enabling-and-configuring-mega-navigation)."
+        },
+        {
+          "type": "header",
+          "content": "活动栏信息"
+        },
+        {
+          "type": "image_picker",
+          "id": "activity-img",
+          "label": "Activity image"
+        },
+        {
+          "type": "text",
+          "id": "activity-btn-text1",
+          "label": "Activity button text"
+        },
+        {
+          "type": "url",
+          "id": "activity-btn-url1",
+          "label": "Activity button link"
+        },
+        {
+          "type": "text",
+          "id": "activity-btn-text2",
+          "label": "Activity button text"
+        },
+        {
+          "type": "url",
+          "id": "activity-btn-url2",
+          "label": "Activity button link"
+        },
+        {
+          "type": "header",
+          "content": "产品列信息"
+        },
+        {
+          "type": "text",
+          "id": "collection-title1",
+          "label": "Collection title",
+          "default": "Collection title"
+        },
+        {
+          "type": "text",
+          "id": "more-text1",
+          "label": "Shop All",
+          "default": "Shop All"
+        },
+        {
+          "type": "url",
+          "id": "more-link1",
+          "label": "More link"
+        },
+        {
+          "type": "header",
+          "content": "Product info"
+        },
+        {
+          "type": "product",
+          "id": "column1-product1",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "column1-product1-image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "column1-product1-title",
+          "label": "Produt title"
+        },
+        {
+          "type": "text",
+          "id": "column1-product1-des",
+          "label": "Product description"
+        },
+        {
+          "type": "header",
+          "content": "Product info"
+        },
+        {
+          "type": "product",
+          "id": "column1-product2",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "column1-product2-image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "column1-product2-title",
+          "label": "Produt title"
+        },
+        {
+          "type": "text",
+          "id": "column1-product2-des",
+          "label": "Product description"
+        },
+        {
+          "type": "header",
+          "content": "产品列信息"
+        },
+        {
+          "type": "text",
+          "id": "collection-title2",
+          "label": "Collection title",
+          "default": "Collection title"
+        },
+        {
+          "type": "text",
+          "id": "more-text2",
+          "label": "Shop All",
+          "default": "Shop All"
+        },
+        {
+          "type": "url",
+          "id": "more-link2",
+          "label": "More link"
+        },
+        {
+          "type": "header",
+          "content": "Product info"
+        },
+        {
+          "type": "product",
+          "id": "column2-product1",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "column2-product1-image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "column2-product1-title",
+          "label": "Produt title"
+        },
+        {
+          "type": "text",
+          "id": "column2-product1-des",
+          "label": "Product description"
+        },
+        {
+          "type": "header",
+          "content": "Product info"
+        },
+        {
+          "type": "product",
+          "id": "column2-product2",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "column2-product2-image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "column2-product2-title",
+          "label": "Produt title"
+        },
+        {
+          "type": "text",
+          "id": "column2-product2-des",
+          "label": "Product description"
+        },
+        {
+          "type": "header",
+          "content": "产品列信息"
+        },
+        {
+          "type": "text",
+          "id": "collection-title3",
+          "label": "Collection title",
+          "default": "Collection title"
+        },
+        {
+          "type": "text",
+          "id": "more-text3",
+          "label": "Shop All",
+          "default": "Shop All"
+        },
+        {
+          "type": "url",
+          "id": "more-link3",
+          "label": "More link"
+        },
+        {
+          "type": "header",
+          "content": "Product info"
+        },
+        {
+          "type": "product",
+          "id": "column3-product1",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "column3-product1-image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "column3-product1-title",
+          "label": "Produt title"
+        },
+        {
+          "type": "text",
+          "id": "column3-product1-des",
+          "label": "Product description"
+        },
+        {
+          "type": "header",
+          "content": "Product info"
+        },
+        {
+          "type": "product",
+          "id": "column3-product2",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "column3-product2-image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "column3-product2-title",
+          "label": "Produt title"
+        },
+        {
+          "type": "text",
+          "id": "column3-product2-des",
+          "label": "Product description"
+        },
+        {
+          "type": "header",
+          "content": "Color settings"
+        },
+        {
+          "type": "color_background",
+          "id": "collection-color",
+          "label": "Collection title color"
+        },
+        {
+          "type": "color_background",
+          "id": "text-color",
+          "label": "Text color"
+        },
+        {
+          "type": "color_background",
+          "id": "des-color",
+          "label": "Description color"
+        },
+        {
+          "type": "color_background",
+          "id": "card-bg",
+          "label": "Card background"
+        },
+        {
+          "type": "color_background",
+          "id": "mega-bg",
+          "label": "Mega background"
+        }
+      ]
+    },
+    {
+      "type": "text_mega",
+      "name": "Text Mega",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item",
+          "label": "Menu item",
+          "info": "Enter menu item to apply a mega menu dropdown. [Learn more](https://support.maestrooo.com/article/180-navigation-enabling-and-configuring-mega-navigation)."
+        },
+        {
+          "type": "header",
+          "content": "Text1"
+        },
+        {
+          "type": "text",
+          "id": "title1",
+          "label": "Title1"
+        },
+        {
+          "type": "text",
+          "id": "title1-text1",
+          "label": "text1"
+        },
+        {
+          "type": "url",
+          "id": "title1-link1",
+          "label": "link1"
+        },
+        {
+          "type": "text",
+          "id": "title1-text2",
+          "label": "text2"
+        },
+        {
+          "type": "url",
+          "id": "title1-link2",
+          "label": "link2"
+        },
+        {
+          "type": "text",
+          "id": "title1-text3",
+          "label": "text3"
+        },
+        {
+          "type": "url",
+          "id": "title1-link3",
+          "label": "link3"
+        },
+        {
+          "type": "text",
+          "id": "title1-text4",
+          "label": "text4"
+        },
+        {
+          "type": "url",
+          "id": "title1-link4",
+          "label": "link4"
+        },
+        {
+          "type": "header",
+          "content": "Text2"
+        },
+        {
+          "type": "text",
+          "id": "title2",
+          "label": "Title2"
+        },
+        {
+          "type": "text",
+          "id": "title2-text1",
+          "label": "text1"
+        },
+        {
+          "type": "url",
+          "id": "title2-link1",
+          "label": "link1"
+        },
+        {
+          "type": "text",
+          "id": "title2-text2",
+          "label": "text2"
+        },
+        {
+          "type": "url",
+          "id": "title2-link2",
+          "label": "link2"
+        },
+        {
+          "type": "text",
+          "id": "title2-text3",
+          "label": "text3"
+        },
+        {
+          "type": "url",
+          "id": "title2-link3",
+          "label": "link3"
+        },
+        {
+          "type": "text",
+          "id": "title2-text4",
+          "label": "text4"
+        },
+        {
+          "type": "url",
+          "id": "title2-link4",
+          "label": "link4"
+        },
+        {
+          "type": "header",
+          "content": "Text3"
+        },
+        {
+          "type": "text",
+          "id": "title3",
+          "label": "Title3"
+        },
+        {
+          "type": "text",
+          "id": "title3-text1",
+          "label": "text1"
+        },
+        {
+          "type": "url",
+          "id": "title3-link1",
+          "label": "link1"
+        },
+        {
+          "type": "text",
+          "id": "title3-text2",
+          "label": "text2"
+        },
+        {
+          "type": "url",
+          "id": "title3-link2",
+          "label": "link2"
+        },
+        {
+          "type": "text",
+          "id": "title3-text3",
+          "label": "text3"
+        },
+        {
+          "type": "url",
+          "id": "title3-link3",
+          "label": "link3"
+        },
+        {
+          "type": "text",
+          "id": "title3-text4",
+          "label": "text4"
+        },
+        {
+          "type": "url",
+          "id": "title3-link4",
+          "label": "link4"
+        },
+        {
+          "type": "header",
+          "content": "Text4"
+        },
+        {
+          "type": "text",
+          "id": "title4",
+          "label": "Title4"
+        },
+        {
+          "type": "text",
+          "id": "title4-text1",
+          "label": "text1"
+        },
+        {
+          "type": "url",
+          "id": "title4-link1",
+          "label": "link1"
+        },
+        {
+          "type": "text",
+          "id": "title4-text2",
+          "label": "text2"
+        },
+        {
+          "type": "url",
+          "id": "title4-link2",
+          "label": "link2"
+        },
+        {
+          "type": "text",
+          "id": "title4-text3",
+          "label": "text3"
+        },
+        {
+          "type": "url",
+          "id": "title4-link3",
+          "label": "link3"
+        },
+        {
+          "type": "text",
+          "id": "title4-text4",
+          "label": "text4"
+        },
+        {
+          "type": "url",
+          "id": "title4-link4",
+          "label": "link4"
+        }
+      ]
+    },
+    {
+      "type": "media_mega",
+      "name": "Media Mega",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item",
+          "label": "Menu item",
+          "info": "Enter menu item to apply a mega menu dropdown. [Learn more](https://support.maestrooo.com/article/180-navigation-enabling-and-configuring-mega-navigation)."
+        },
+        {
+          "type": "header",
+          "content": "Text1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "tab1",
+          "label": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "title1",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text1",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "url1",
+          "label": "link"
+        },
+
+        {
+          "type": "header",
+          "content": "Text2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Image"
+        },
+                {
+          "type": "text",
+          "id": "tab2",
+          "label": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "title2",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text2",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "url2",
+          "label": "link"
+        },
+
+        {
+          "type": "header",
+          "content": "Text3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image3",
+          "label": "Image"
+        },
+                {
+          "type": "text",
+          "id": "tab3",
+          "label": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "title3",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text3",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "url3",
+          "label": "link"
+        },
+
+        {
+          "type": "header",
+          "content": "Text4"
+        },
+        {
+          "type": "image_picker",
+          "id": "image4",
+          "label": "Image"
+        },
+                {
+          "type": "text",
+          "id": "tab4",
+          "label": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "title4",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text4",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "url4",
+          "label": "link"
+        },
+
+        {
+          "type": "header",
+          "content": "Text5"
+        },
+        {
+          "type": "image_picker",
+          "id": "image5",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "tab5",
+          "label": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "title5",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text5",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "url5",
+          "label": "link"
+        },
+
+        {
+          "type": "header",
+          "content": "Text6"
+        },
+        {
+          "type": "image_picker",
+          "id": "image6",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "tab6",
+          "label": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "title6",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text6",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "url6",
+          "label": "link"
+        },
+
+        {
+          "type": "header",
+          "content": "Text7"
+        },
+        {
+          "type": "image_picker",
+          "id": "image7",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "tab7",
+          "label": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "title7",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text7",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "url7",
+          "label": "link"
+        },
+
+        {
+          "type": "header",
+          "content": "Text8"
+        },
+        {
+          "type": "image_picker",
+          "id": "image8",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "tab8",
+          "label": "Tab"
+        },
+        {
+          "type": "text",
+          "id": "title8",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text8",
+          "label": "text"
+        },
+        {
+          "type": "url",
+          "id": "url8",
+          "label": "link"
+        }
+      ]
+    },
+    {
+      "type": "image_tag",
+      "name":"Image Tag",
+      "settings": [
+          {
+          "type": "text",
+          "id": "menu_item",
+          "label": "Menu item",
+          "info": "Enter menu item to apply a mega menu dropdown. [Learn more](https://support.maestrooo.com/article/180-navigation-enabling-and-configuring-mega-navigation)."
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "number",
+            "id": "width",
+            "label": "Width (px)",
+            "default": 30
+          },
+          {
+            "type": "number",
+            "id": "height",
+            "label": "Height (px)",
+            "default": 20
+          },
+          {
+            "type": "number",
+            "id": "width_m",
+            "label": "Mobile Width (px)",
+            "default": 30
+          },
+          {
+            "type": "number",
+            "id": "height_m",
+            "label": "Mobile Height (px)",
+            "default": 20
+          }
+      ]
+    }
+  ]
+}
+{% endschema %}

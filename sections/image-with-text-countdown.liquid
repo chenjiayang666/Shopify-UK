@@ -1,0 +1,987 @@
+{%- unless section.settings.full_width -%}
+  {%- render 'section-spacing-collapsing' -%}
+{%- endunless -%}
+
+<div
+  id="feature-list-{{ section.settings.anchor_id | default: section.id }}"
+  {% render 'section-properties' %}
+  {% if section.settings.allow_transparent_header %}
+    allow-transparent-header
+  {% endif %}
+>
+  {%- capture class -%}content-over-media content-over-media--{{ section.settings.image_size }} {% if section.settings.full_width %}full-bleed{% else %}shadow-block rounded-lg{% endif %}{%- endcapture -%}
+
+  <image-banner
+    reveal-on-scroll="true"
+    class="countdown-image-banner"
+    style="
+      {% if section.settings.image != blank %}
+        background-image: url('{{ section.settings.image | image_url }}');
+        background-size: cover;
+        background-position: center;
+        {% assign img_ratio = section.settings.image.height | times: 100.0 | divided_by: section.settings.image.width %}
+        padding-top: {{ img_ratio }}%;
+      {% else %}
+        background-color: {{ section.settings.countdown_bg_color }};
+        padding-top: 0;
+      {% endif %}
+      position: relative;
+      width: 100%;
+      display: block;
+        height: 100%;
+      {% if section.settings.image != blank %}
+        overflow: hidden;
+      {% endif %}
+    "
+    {% if section.settings.image != blank %}
+      data-original-width="{{ section.settings.image.width }}"
+      data-original-height="{{ section.settings.image.height }}"
+    {% endif %}
+  >
+    {%- if section.settings.image != blank -%}
+      {%- capture sizes -%}{% if section.settings.full_width %}100vw{% else %}(max-width: 740px) calc(100vw - 40px), (max-width: 999px) calc(100vw - 64px), min({{ settings.page_width }}px, 100vw - 96px){% endif %}{%- endcapture -%}
+      {%- capture fetch_priority -%}{% if section.index == 1 %}high{% else %}low{% endif %}{%- endcapture -%}
+
+      <!-- 背景图容器：添加原始宽高数据属性 -->
+      <div
+        class="countdown-image-background"
+        style="background-image: url('{{ section.settings.image | image_url }}'); {% if section.settings.mobile_image != blank %}@media (max-width: 699px) {background-image: url('{{ section.settings.mobile_image | image_url }}'); }{% endif %}"
+        data-original-width="{{ section.settings.image.width }}"
+        data-original-height="{{ section.settings.image.height }}"
+        {% if section.settings.mobile_image != blank %}
+          data-mobile-width="{{ section.settings.mobile_image.width }}"
+          data-mobile-height="{{ section.settings.mobile_image.height }}"
+        {% endif %}
+      ></div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="{{ section.settings.mobile_text_position }} {{ section.settings.desktop_text_position }} countdown-place">
+        <div class="prose">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'subheading' -%}
+                {%- if block.settings.text != blank -%}
+                  <p class="bold" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+                {%- endif -%}
+
+              {%- when 'heading' -%}
+                {%- if block.settings.text != blank -%}
+                  <p
+                    class="{{ block.settings.heading_tag }}"
+                    {% if settings.heading_apparition != 'none' %}
+                      reveal-on-scroll="true"
+                    {% endif %}
+                    {{ block.shopify_attributes }}
+                  >
+                    {%- render 'styled-text', content: block.settings.text, apparition_effect: true -%}
+                  </p>
+                {%- endif -%}
+
+              {%- when 'richtext' -%}
+                {%- if block.settings.content != blank -%}
+                  <div {{ block.shopify_attributes }}>
+                    {{- block.settings.content -}}
+                  </div>
+                {%- endif -%}
+
+              {%- when 'liquid' -%}
+                {%- if block.settings.liquid != blank -%}
+                  <div {{ block.shopify_attributes }}>
+                    {{- block.settings.liquid -}}
+                  </div>
+                {%- endif -%}
+
+              {%- when 'button' -%}
+                {%- if block.settings.text != blank -%}
+                  {% render 'button',
+                    content: block.settings.text,
+                    href: block.settings.url,
+                    size: block.settings.size,
+                    style: block.settings.style,
+                    background: block.settings.background,
+                    text_color: block.settings.text_color,
+                    block: block
+                  %}
+                {%- endif -%}
+            {%- endcase -%}
+          {%- endfor -%}
+          <div
+            class="countdown-content"
+            style="
+              display: flex; align-items: center; justify-content: center;
+              width: 100%; height: 100%;
+            "
+          >
+            <div id="countdown-{{ section.id }}" class="countdown-wrapper">
+              <!-- 天数 -->
+              <div class="countdown-block">
+                <div class="countdown-number-container">
+                  <div class="countdown-digit days-tens">
+                    <div class="countdown-flip">
+                      <div class="countdown-flip-part countdown-flip-top current-top flipping"></div>
+                      <div class="countdown-flip-part countdown-flip-bottom">0</div>
+                      <div class="countdown-flip-part countdown-flip-top next-top flipping"></div>
+                    </div>
+                  </div>
+                  <div class="countdown-digit days-units">
+                    <div class="countdown-flip">
+                      <div class="countdown-flip-part countdown-flip-top current-top flipping"></div>
+                      <div class="countdown-flip-part countdown-flip-bottom">0</div>
+                      <div class="countdown-flip-part countdown-flip-top next-top flipping"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="countdown-label">Days</div>
+              </div>
+
+              <!-- 小时 -->
+              <div class="countdown-block">
+                <div class="countdown-number-container">
+                  <div class="countdown-digit hours-tens">
+                    <div class="countdown-flip">
+                      <div class="countdown-flip-part countdown-flip-top current-top flipping"></div>
+                      <div class="countdown-flip-part countdown-flip-bottom">0</div>
+                      <div class="countdown-flip-part countdown-flip-top next-top flipping"></div>
+                    </div>
+                  </div>
+                  <div class="countdown-digit hours-units">
+                    <div class="countdown-flip">
+                      <div class="countdown-flip-part countdown-flip-top current-top flipping"></div>
+                      <div class="countdown-flip-part countdown-flip-bottom">0</div>
+                      <div class="countdown-flip-part countdown-flip-top next-top flipping"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="countdown-label">Hours</div>
+              </div>
+
+              <!-- 分钟 -->
+              <div class="countdown-block">
+                <div class="countdown-number-container">
+                  <div class="countdown-digit minutes-tens">
+                    <div class="countdown-flip">
+                      <div class="countdown-flip-part countdown-flip-top current-top flipping"></div>
+                      <div class="countdown-flip-part countdown-flip-bottom">0</div>
+                      <div class="countdown-flip-part countdown-flip-top next-top flipping"></div>
+                    </div>
+                  </div>
+                  <div class="countdown-digit minutes-units">
+                    <div class="countdown-flip">
+                      <div class="countdown-flip-part countdown-flip-top current-top flipping"></div>
+                      <div class="countdown-flip-part countdown-flip-bottom">0</div>
+                      <div class="countdown-flip-part countdown-flip-top next-top flipping"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="countdown-label">Minutes</div>
+              </div>
+
+              <!-- 秒钟 -->
+              <div class="countdown-block">
+                <div class="countdown-number-container">
+                  <div class="countdown-digit seconds-tens">
+                    <div class="countdown-flip">
+                      <div class="countdown-flip-part countdown-flip-top current-top flipping"></div>
+                      <div class="countdown-flip-part countdown-flip-bottom">0</div>
+                      <div class="countdown-flip-part countdown-flip-top next-top flipping"></div>
+                    </div>
+                  </div>
+                  <div class="countdown-digit seconds-units">
+                    <div class="countdown-flip">
+                      <div class="countdown-flip-part countdown-flip-top current-top flipping"></div>
+                      <div class="countdown-flip-part countdown-flip-bottom">0</div>
+                      <div class="countdown-flip-part countdown-flip-top next-top flipping"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="countdown-label">Seconds</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+  </image-banner>
+</div>
+
+{% schema %}
+{
+  "name": "Image with Countdown",
+  "class": "shopify-section--image-with-text-countdown",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+     {
+  "type": "text",
+  "id": "anchor_id",
+  "label": "Anchor ID",
+  "info": "Unique ID for anchor links",
+  "default": "image-with-text-countdown"
+},
+    {
+      "type": "checkbox",
+      "id": "allow_transparent_header",
+      "label": "Allow transparent header",
+      "info": "This setting only applies when this section is the first one.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_parallax",
+      "label": "Enable parallax effect",
+      "info": "Parallax crops images.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_countdown",
+      "label": "Enable flip countdown timer",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "countdown_start_time",
+      "label": "Countdown start time (Liquid input)",
+      "info": "Example: {{ '2025-07-10 00:00:00' | date_to_utc }}",
+      "default": "2025-07-10 00:00:00"
+    },
+    {
+      "type": "text",
+      "id": "countdown_end_time",
+      "label": "Countdown end time (Liquid input)",
+      "info": "Example: {{ '2025-07-15 23:59:59' | date_to_utc }}",
+      "default": "2025-07-15 23:59:59"
+    },
+   {
+  "type": "color",
+  "id": "countdown_top_bg_color",
+  "label": "Countdown top background color",
+  "default": "#000000"
+},
+
+{
+  "type": "color",
+  "id": "countdown_bottom_bg_color",
+  "label": "Countdown bottom background color",
+  "default": "#000000"
+},
+    {
+  "type": "color",
+  "id": "countdown_bg_color",
+  "label": "Countdown background color",
+  "default": "#000000"
+},
+    {
+      "type": "range",
+      "id": "countdown_bg_opacity",
+      "label": "Countdown background opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 70
+    },
+    {
+      "type": "select",
+      "id": "image_size",
+      "label": "Image size",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Original image ratio"
+        },
+        {
+          "value": "sm",
+          "label": "Small"
+        },
+        {
+          "value": "md",
+          "label": "Medium"
+        },
+        {
+          "value": "lg",
+          "label": "Large"
+        },
+        {
+          "value": "fill",
+          "label": "Fill screen"
+        }
+      ],
+      "info": "Choose \"Original image ratio\" to avoid image cropping. [Learn more](https://help.shopify.com/en/manual/online-store/images/theme-images#best-practices-for-slideshows-and-full-widtw-images)",
+      "default": "auto"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "3200 x 1600px .jpg recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image",
+      "info": "1300 x 1500px .jpg recommended. Default to desktop image."
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_position",
+      "label": "Mobile content position",
+      "options": [
+        {
+          "value": "place-self-start text-start",
+          "label": "Top left"
+        },
+        {
+          "value": "place-self-start-center text-center",
+          "label": "Top center"
+        },
+        {
+          "value": "place-self-start-end text-end",
+          "label": "Top right"
+        },
+        {
+          "value": "place-self-center-start text-start",
+          "label": "Middle left"
+        },
+        {
+          "value": "place-self-center text-center",
+          "label": "Middle center"
+        },
+        {
+          "value": "place-self-center-end text-end",
+          "label": "Middle right"
+        },
+        {
+          "value": "place-self-end-start text-start",
+          "label": "Bottom left"
+        },
+        {
+          "value": "place-self-end-center text-center",
+          "label": "Bottom center"
+        },
+        {
+          "value": "place-self-end text-end",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "place-self-center text-center"
+    },
+    {
+      "type": "select",
+      "id": "desktop_text_position",
+      "label": "Desktop content position",
+      "options": [
+        {
+          "value": "sm:place-self-start sm:text-start",
+          "label": "Top left"
+        },
+        {
+          "value": "sm:place-self-start-center sm:text-center",
+          "label": "Top center"
+        },
+        {
+          "value": "sm:place-self-start-end sm:text-end",
+          "label": "Top right"
+        },
+        {
+          "value": "sm:place-self-center-start sm:text-start",
+          "label": "Middle left"
+        },
+        {
+          "value": "sm:place-self-center sm:text-center",
+          "label": "Middle center"
+        },
+        {
+          "value": "sm:place-self-center-end sm:text-end",
+          "label": "Middle right"
+        },
+        {
+          "value": "sm:place-self-end-start sm:text-start",
+          "label": "Bottom left"
+        },
+        {
+          "value": "sm:place-self-end-center sm:text-center",
+          "label": "Bottom center"
+        },
+        {
+          "value": "sm:place-self-end sm:text-end",
+          "label": "Bottom right"
+        }
+      ],
+      "default": "sm:place-self-center sm:text-center"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "subheading",
+      "name": "Subheading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Subheading"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "label": "Style",
+          "options": [
+            {
+              "value": "h0",
+              "label": "XX-Large"
+            },
+            {
+              "value": "h1",
+              "label": "X-Large"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h3",
+              "label": "Medium"
+            },
+            {
+              "value": "h4",
+              "label": "Small"
+            },
+            {
+              "value": "h5",
+              "label": "X-Small"
+            },
+            {
+              "value": "h6",
+              "label": "XX-Small"
+            }
+          ],
+          "default": "h1"
+        }
+      ]
+    },
+    {
+      "name": "Paragraph",
+      "type": "richtext",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        }
+      ]
+    },
+    {
+      "name": "Liquid",
+      "type": "liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "liquid",
+          "label": "Liquid",
+          "default": "<p>Use this text to output some custom Liquid code to include widget or dynamic code.</p>"
+        }
+      ]
+    },
+    {
+      "name": "Button",
+      "type": "button",
+      "settings": [
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "Outline"
+            },
+            {
+              "value": "fill",
+              "label": "Fill"
+            }
+          ],
+          "default": "fill"
+        },
+        {
+          "type": "select",
+          "id": "size",
+          "label": "Size",
+          "options": [
+            {
+              "value": "sm",
+              "label": "Small"
+            },
+            {
+              "value": "base",
+              "label": "Medium"
+            },
+            {
+              "value": "lg",
+              "label": "Large"
+            },
+            {
+              "value": "xl",
+              "label": "X-Large"
+            }
+          ],
+          "default": "lg"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Countdown",
+      "blocks": [
+        {
+          "type": "subheading",
+          "settings": {
+            "text": "Limited Time Offer"
+          }
+        },
+        {
+          "type": "heading",
+          "settings": {
+            "text": "Sale Ends In",
+            "heading_tag": "h1"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sectionId = "{{ section.id }}";
+  const countdownElement = document.getElementById(`countdown-${sectionId}`);
+  
+  if (!countdownElement) return;
+  
+  // 获取结束时间设置
+  const endTimeStr = "{{ section.settings.countdown_end_time }}";
+  
+  if (!endTimeStr) {
+    console.error('Countdown end time is not set');
+    return;
+  }
+  
+  // 解析时间
+  const endTime = new Date(endTimeStr);
+  
+  // 存储当前显示的值
+  let currentValues = {
+    days: '00',
+    hours: '00',
+    minutes: '00',
+    seconds: '00'
+  };
+  
+  // 更新倒计时
+  function updateCountdown() {
+    const now = new Date();
+    let timeDifference = endTime - now;
+    // 如果时间已过，设置为0
+    if (timeDifference < 0) {
+      timeDifference = 0;
+      clearInterval(timer);
+      // 可以在这里添加活动结束后的处理逻辑
+    }
+    
+    // 计算时间单位
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+    
+    // 格式化时间
+    const formattedDays = days.toString().padStart(2, '0');
+    const formattedHours = hours.toString().padStart(2, '0');
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+    const formattedSeconds = seconds.toString().padStart(2, '0');
+    
+    // 更新数字并执行翻转动画
+    updateDigit('days-tens', formattedDays.charAt(0), currentValues.days.charAt(0));
+    updateDigit('days-units', formattedDays.charAt(1), currentValues.days.charAt(1));
+    updateDigit('hours-tens', formattedHours.charAt(0), currentValues.hours.charAt(0));
+    updateDigit('hours-units', formattedHours.charAt(1), currentValues.hours.charAt(1));
+    updateDigit('minutes-tens', formattedMinutes.charAt(0), currentValues.minutes.charAt(0));
+    updateDigit('minutes-units', formattedMinutes.charAt(1), currentValues.minutes.charAt(1));
+    updateDigit('seconds-tens', formattedSeconds.charAt(0), currentValues.seconds.charAt(0));
+    updateDigit('seconds-units', formattedSeconds.charAt(1), currentValues.seconds.charAt(1));
+    
+    // 更新当前值
+    currentValues = {
+      days: formattedDays,
+      hours: formattedHours,
+      minutes: formattedMinutes,
+      seconds: formattedSeconds
+    };
+  }
+  
+  // 更新单个数字的显示并执行动画
+  function updateDigit(digitClass, newValue, oldValue) {
+   const digitElements = document.querySelectorAll(`.${digitClass}`);
+  
+  digitElements.forEach(digitElement => {
+    const flipElement = digitElement.querySelector('.countdown-flip');
+    if (!flipElement) return;
+    
+    const currentTop = flipElement.querySelector('.current-top');
+    const nextTop = flipElement.querySelector('.next-top');
+    const bottom = flipElement.querySelector('.countdown-flip-bottom');
+    
+    if (!currentTop || !nextTop || !bottom) return;
+
+    // 如果数字没有变化，不执行动画
+    if (oldValue === newValue) return;
+    
+    // 创建数字内容容器（如果不存在）
+    let currentTopContent = currentTop.querySelector('.digit-content');
+    if (!currentTopContent) {
+      currentTopContent = document.createElement('div');
+      currentTopContent.className = 'digit-content';
+      currentTop.appendChild(currentTopContent);
+    }
+    
+    // 设置数字内容
+    // currentTopContent.textContent = newValue;
+    bottom.textContent = newValue;
+    // 添加动画类
+    // currentTop.classList.add('flipping');
+    
+    // 执行翻转动画
+    // currentTop.style.transform = 'rotateX(-180deg)';
+    // // 动画结束后重置状态
+    // setTimeout(() => {
+    //   // bottom.textContent = newValue;
+    //   currentTop.style.transform = 'rotateX(0deg)';
+      
+    //   currentTop.classList.remove('flipping');
+    // }, 600);
+  });
+  }
+  
+  // 初始更新
+  updateCountdown();
+  
+  // 设置定时器，每秒更新一次
+  const timer = setInterval(updateCountdown, 1000);
+});
+</script>
+<style>
+     .countdown-flip-part {
+     position: relative;
+     /* 其他样式保持不变 */
+   }
+
+   .digit-content {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     /* align-items: center; */
+     justify-content: center;
+     transform: rotateX(0deg); /* 抵消父元素的旋转 */
+     backface-visibility: hidden; /* 防止翻转时出现闪烁 */
+     color: {{ section.settings.text_color }};
+     /* font-size: 36px; */
+     /* line-height: 50px; */
+     overflow: hidden;
+     font-weight: bold;
+   }
+        #shopify-section-{{ section.id }} .section{
+           padding: 0px !important;
+        }
+       #shopify-section-{{ section.id }} .countdown-image-banner {
+         position:relative;
+       }
+       #shopify-section-{{ section.id }} {
+           background-color: {{ section.settings.countdown_bg_color | default: '#000000' }};
+           opacity: {{ section.settings.countdown_bg_opacity | divided_by: 100.0 }};
+       }
+       #shopify-section-{{ section.id }} .countdown-image-background {
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background - size: {% if section.settings.image_size == 'auto' %}contain{% else %}{{ section.settings.image_size }}{% endif %};
+       background - repeat: no - repeat;
+       background - position: center;
+       z - index: 0;
+       /* 混合背景色 */
+       background - color: {{ section.settings.countdown_bg_color | default: '#000000' }};
+       opacity: {{ section.settings.countdown_bg_opacity | divided_by: 100.0 }};
+     }
+
+        /* #shopify-section-{{ section.id }} .countdown-image-picture {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+        } */
+       #shopify-section-{{ section.id }} .countdown-image-picture img {
+          /* position: absolute;
+          z-index: 0;
+         left: 0;
+         right: 0;
+         width: 100%;
+          height: 100%; */
+        }
+       /* #shopify-section-{{section.id}} .countdown-place{
+        position: relative;
+         width: 100%;
+         height: 100%;
+       }
+        #shopify-section-{{section.id}} .countdown-place .prose{
+        position: absolute;
+         top: 50%;
+         left: 50%;
+         z-index: 1;
+         transform: translate(-50%, -50%);
+       } */
+  #shopify-section-{{section.id}} .countdown-place .prose{
+    padding: 20px;
+  }
+         /* 倒计时基础样式 */
+         .countdown-wrapper {
+           display: flex;
+           justify-content: center;
+           margin: 20px 0;
+           flex-wrap: wrap;
+           gap: 15px;
+         }
+
+         .countdown-block {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           margin-top: 0px !important;
+         }
+
+         .countdown-number-container {
+           display: flex;
+           gap: 5px;
+           position: relative;
+         }
+
+         .countdown-digit {
+           position: relative;
+           width: 50px;
+           height: 56px;
+           perspective: 800px;
+           margin-top: 0px !important;
+         }
+
+         /* 数字样式 */
+         .countdown-number {
+           position: absolute;
+           width: 100%;
+           height: 100%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           font-size: 36px;
+           font-weight: bold;
+           color: {{ section.settings.text_color }};
+           z-index: 1;
+         }
+
+         /* 翻页效果容器 */
+         .countdown-flip {
+           position: relative;
+           width: 100%;
+           height: 100%;
+           z-index: 5;
+           transform-style: preserve-3d;
+         }
+
+         /* 上半部分和下半部分共用样式 */
+         .countdown-flip-part {
+           position: absolute;
+           width: 100%;
+           height: 50%;
+           /* background-color: {{ section.settings.countdown_bg_color | default: '#000000' }}; */
+           /* opacity: {{ section.settings.countdown_bg_opacity | divided_by: 100.0 }}; */
+           border-radius: 4px;
+         }
+
+         /* 上半部分 */
+         .countdown-flip-top {
+           top: 0;
+           transform-origin: bottom center;
+           line-height: 56px;
+           margin-top: 0px !important;
+
+           border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+         }
+
+         /* 下半部分 */
+         .countdown-flip-bottom {
+           top: 0;
+           line-height: 56px;
+           height: 100%;
+           margin-top:0 !important;
+           /* background */
+           /* background-color: {{ section.settings.countdown_bg_color | default: '#000000' }}; */
+           transform-origin: top center;
+            background: linear-gradient(
+         to bottom,
+         {{ section.settings.countdown_top_bg_color | default: '#000000' }} 0%,
+         {{ section.settings.countdown_top_bg_color | default: '#000000' }} 50%,
+         {{ section.settings.countdown_bottom_bg_color | default: '#000000' }} 50%,
+         {{ section.settings.countdown_bottom_bg_color | default: '#000000' }} 100%
+       );
+           /* transform: rotateX(180deg); */
+           z-index: 100;
+         }
+
+
+         /* 当前数字的上半部分 */
+         .current-top {
+           z-index: 2;
+           transform: rotateX(0deg);
+            background-color: {{ section.settings.countdown_top_bg_color | default: '#000000' }};
+         }
+
+         /* 下一个数字的上半部分 */
+         .next-top {
+           z-index: 1;
+           transform: rotateX(180deg);
+            background-color: {{ section.settings.countdown_bottom_bg_color | default: '#000000' }};
+         }
+
+         /* 动画效果 */
+         .flipping {
+           transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+         }
+
+         .countdown-label {
+           color: {{ section.settings.text_color }};
+           font-size: 14px;
+           text-align: center;
+           margin-top: 8px;
+           white-space: nowrap;
+         }
+
+         /* 响应式调整 */
+         @media (max-width: 768px) {
+           .countdown-digit {
+             width: 40px;
+             height: 50px;
+           }
+             /* 下半部分 */
+         .countdown-flip-bottom {
+           line-height: 50px;
+
+       );
+
+           .countdown-number {
+             font-size: 24px;
+           }
+
+           .countdown-label {
+             font-size: 12px;
+           }
+
+           .countdown-flip-top {
+             line-height: 50px;
+           }
+         }
+
+         @media (max-width: 480px) {
+           .countdown-digit {
+             width: 30px;
+             height: 40px;
+           }
+           .countdown-flip-bottom {
+           line-height: 40px;
+
+       );
+
+           .countdown-number {
+             font-size: 18px;
+           }
+
+           .countdown-label {
+             font-size: 10px;
+           }
+
+           .countdown-flip-top {
+             line-height: 40px;
+           }
+         }
+</style>

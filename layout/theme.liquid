@@ -1,0 +1,195 @@
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing this theme as much as we did for
+  developing it. We have put a lot of work to make this theme as developer friendly as possible by offering you
+  hooks to integrate into critical parts of the theme. You will find the complete technical documentation (including
+  all events, dependencies...) in the "documentation.txt" file, located in the Assets folder.
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<!doctype html>
+
+<html lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
+  <head>
+   <!-- Pandectes GDPR cookie -->
+    <script src="{{ 'pandectes-rules.js' | file_url }}"></script>
+    
+    <meta name="google-site-verification" content="pY9SHlsDldMEFFm-x505pr1WHcljdrCSc8Jycp4IZvI" />
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KHZ6WL3N');</script>
+<!-- End Google Tag Manager -->
+   
+<script
+  async type="text/javascript"
+  src="//static.klaviyo.com/onsite/js/PUBLIC_API_KEY/klaviyo.js"
+></script>
+
+<script>
+  klaviyo.push(['identify', {
+    // Change the line below to dynamically print the user's email.
+    'email' : '{{ email }}'
+  }]);
+</script>
+
+    <meta name="google-site-verification" content="A8lm9cTeuFUJhjXAsT7yCwfQx7wNFuRXId87vdg-iKI" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="theme-color" content="{{ settings.header_background }}">
+
+    <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{ 'general.page' | t: page: current_page }}{% endif %}{% endif %}</title>
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+    {% comment %} swiper引入 {% endcomment %}
+    {{- 'swiper-bundle.min.css' | asset_url | stylesheet_tag: preload: true -}}
+    {%- if settings.favicon -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
+    {%- endif -%}
+
+    {%- comment -%}Few prefetch to increase performance on commonly used third-parties{%- endcomment -%}
+    <link rel="preconnect" href="https://cdn.shopify.com">
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
+
+    {%- unless settings.heading_font.system? -%}
+      <link rel="preload" href="{{ settings.heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    {%- unless settings.text_font.system? -%}
+      <link rel="preload" href="{{ settings.text_font | font_url }}" as="font" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    {%- render 'social-meta-tags' -%}
+    {%- render 'microdata-schema' -%}
+    {%- render 'css-variables' -%}
+    {%- render 'js-variables' -%}
+
+    <script>
+      if (!(HTMLScriptElement.supports && HTMLScriptElement.supports('importmap'))) {
+        const importMapPolyfill = document.createElement('script');
+        importMapPolyfill.async = true;
+        importMapPolyfill.src = "{{ 'es-module-shims.min.js' | asset_url }}";
+
+        document.head.appendChild(importMapPolyfill);
+      }
+    </script>
+
+    <script type="importmap">
+      {%- comment -%}On Safari 16.3 and lower, a polyfill is used to load importmap{%- endcomment -%}
+      {
+        "imports": {
+          "vendor": "{{ 'vendor.min.js' | asset_url }}",
+          "theme": "{{ 'theme.js' | asset_url }}",
+          "photoswipe": "{{ 'photoswipe.min.js' | asset_url }}"
+        }
+      }
+    </script>
+
+    <script type="module" src="{{ 'vendor.min.js' | asset_url }}"></script>
+    <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
+
+    {{ content_for_header }}
+        {% comment %} swiper引入 {% endcomment %}
+    <script src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
+    {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
+
+
+     <!-- Meta Domian Verify -->
+    <meta name="facebook-domain-verification" content="fy7abh3rfdoylzlabo2km5tdahtw8u" />
+<!-- Clarity Code -->
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rqkxuocqxy");
+</script>
+
+<!-- Bing Enhanced Conversion Purchase Code -->
+    <script>
+   // Add this script right after your base UET tag code
+   window.uetq = window.uetq || [];
+   window.uetq.push('set', { 'pid': { 
+      'em': 'contoso@example.com', // Replace with the variable that holds the user's email address. 
+      'ph': '+14250000000', // Replace with the variable that holds the user's phone number. 
+   } });
+</script>
+  </head>
+
+  <body class="{% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
+    {%- render 'shadow-dom-templates' -%}
+
+    <a href="#main" class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+    {%- if request.page_type != 'password' -%}
+      {%- sections 'header-group' -%}
+      {%- sections 'overlay-group' -%}
+
+      {%- if settings.cart_type == 'popover' -%}
+        <cart-notification-drawer open-from="bottom" class="quick-buy-drawer drawer"></cart-notification-drawer>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if request.page_type == 'customers/account' or request.page_type == 'customers/order' or request.page_type == 'customers/addresses' -%}
+      {%- section 'account-banner' -%}
+    {%- endif -%}
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KHZ6WL3N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    <main role="main" id="main" class="anchor">
+      {{ content_for_layout }}
+
+      {%- comment -%}
+      IMPLEMENTATION NOTE: due to the very complex logic of margin/padding collapsing in Impact, the footer group is
+      added into the main element to ensure that dynamic sections added into the footer group are properly laid out.
+      {%- endcomment -%}
+      {%- if request.page_type != 'password' -%}
+        {%- sections 'footer-group' -%}
+      {%- endif -%}
+    </main>
+    
+    <!-- mkq pixel code -->
+  {% include 'mkq_script' %}
+    <!-- end mkq pixel code -->
+    
+  </body>
+
+    <script>
+    const elements = document.querySelectorAll('.fade-element');
+const visibilityMap = new WeakMap();
+
+function checkVisibility() {
+  const windowHeight = window.innerHeight;
+  const enterThreshold = windowHeight - 50; 
+  const exitThreshold = windowHeight - 50;  
+
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    const prevState = visibilityMap.get(el) || 'hidden';
+
+    if (rect.top < enterThreshold && prevState === 'hidden') {
+      el.classList.add('visible');
+      visibilityMap.set(el, 'visible');
+    } else if (rect.top > exitThreshold && prevState === 'visible') {
+      el.classList.remove('visible');
+      visibilityMap.set(el, 'hidden');
+    }
+  });
+}
+elements.forEach(el => visibilityMap.set(el, 'hidden'));
+checkVisibility();
+window.addEventListener('scroll', checkVisibility);
+window.addEventListener('resize', checkVisibility);
+  </script>
+</html>

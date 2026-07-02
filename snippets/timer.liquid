@@ -1,0 +1,118 @@
+<!-- countdown-timer.liquid -->
+<div
+  class="countdown-timer"
+  data-time="{{ time | escape }}"
+>
+    {% if show_day %}
+    <div class="time-box">
+        <span class="days down">00</span>
+        <span class="unit">
+            Days
+        </span>
+    </div>
+    <div class="split">:</div>  
+
+    {% endif %}
+
+    <div class="time-box">
+      <span class="hours down">00</span>
+      <span class="unit">Hours</span>
+    </div>
+    <div class="split">:</div>  
+    <div class="time-box">
+      <span class="minutes down">00</span>
+      <span class="unit">Minutes</span>    
+    </div>
+    <div class="split">:</div>  
+    <div class="time-box">
+      <span class="seconds down">00</span>
+      <span class="unit">
+        Seconds
+      </span>
+    </div>
+</div>
+
+<script>
+    (function(){
+        document.addEventListener('DOMContentLoaded', () => {
+            const timer = document.querySelector('.countdown-timer');
+            if (!timer) return;
+
+            const targetTime = new Date(timer.dataset.time).getTime();
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const diff = targetTime - now;
+
+                if (diff <= 0) {
+                timer.textContent = '倒计时结束';
+                clearInterval(interval);
+                return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                const seconds = Math.floor((diff / 1000) % 60);
+                if(timer.querySelector('.days')){
+                    timer.querySelector('.days').textContent = String(days).padStart(2, '0');
+                }
+                timer.querySelector('.hours').textContent = String(hours).padStart(2, '0');
+                timer.querySelector('.minutes').textContent = String(minutes).padStart(2, '0');
+                timer.querySelector('.seconds').textContent = String(seconds).padStart(2, '0');
+            }
+                updateCountdown();
+                const interval = setInterval(updateCountdown, 1000);
+            });
+    })()
+
+</script>
+
+<style>
+.countdown-timer {
+  display: flex;
+  gap: 8px;
+  font-weight: bold;
+  color: #333;
+  justify-content: center;
+  font-size: 16px;
+}
+.time-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+}
+.time-box .unit{
+    font-size:12px;
+    font-weight:500;
+    color:{{ time-tag-color }}
+}
+.time-box .down{
+    background:{{ time-bg }};
+    color:{{ time-color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:52px;
+    height:52px;
+    border-radius: 15px;
+        font-size: 25px;
+    font-weight: 500;
+}
+.split{
+    padding-top: 8px;
+    font-size: 22px;
+    color:{{ time-tag-color }}
+
+}
+
+@media(max-width:750px){
+.time-box .unit,.split{
+    color:{{ time-tag-color-m }};
+}
+}
+
+
+</style>

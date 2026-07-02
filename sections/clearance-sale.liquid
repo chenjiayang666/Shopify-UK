@@ -1,0 +1,623 @@
+{% render 'section-settings' %}
+<style>
+      #shopify-section-{{ section.id }} .clearance-sale{
+          background:{{ section.settings.section-bg }};
+                      padding-left: 20px;
+      padding-right: 20px;
+      }
+      #shopify-section-{{ section.id }} .title h1{
+          font-weight: 600;
+          font-size: 39.66px;
+          line-height: 140%;
+          letter-spacing: 0;
+      }
+      #shopify-section-{{ section.id }} .title h2{
+          font-weight: 700;
+          font-size: 29.74px;
+          line-height: 140%;
+          letter-spacing: 0;
+      }
+      #shopify-section-{{ section.id }} .title h3{
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 140%;
+          letter-spacing: 0;
+      }
+      #shopify-section-{{ section.id }} .title h4{
+                  font-weight: 500;
+          font-size: 20;
+          line-height: 140%;
+          letter-spacing: 0;
+      }
+      #shopify-section-{{ section.id }} .title h5{
+                  font-weight: 500;
+          font-size: 18px;
+          line-height: 140%;
+          letter-spacing: 0;
+      }
+      #shopify-section-{{ section.id }} .title h6{
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 140%;
+          letter-spacing: 0;
+      }
+      #shopify-section-{{ section.id }} .title{
+          margin-bottom: 17px;
+      }
+      #shopify-section-{{ section.id }} .text{
+          font-weight: 400;
+          font-size: 17.03px;
+          line-height: 140%;
+          letter-spacing: 0;
+          text-align: center;
+      }
+      #shopify-section-{{ section.id }} .subtitle{
+          font-weight: 600;
+          font-size: 34.05px;
+          line-height: 140%;
+          letter-spacing: 0;
+          text-align: center;
+          margin-bottom: 17px;
+      }
+      .timer{
+          margin-bottom: 32px;
+      }
+      #shopify-section-{{ section.id }} .sale-container{
+        padding-top:{{ section.settings.content-pt }}px;
+        padding-bottom:{{ section.settings.content-pb }}px;
+          display:flex;
+          gap:20px;
+          justify-content:space-between;
+          background:{{ section.settings.container-bg }};
+              {% comment %} padding-top: 50px;
+      padding-bottom: 50px; {% endcomment %}
+          border-radius:16px;
+      }
+      #shopify-section-{{ section.id }} .text-container{
+          width:{{ section.settings.text-width }}%;;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color:{{ section.settings.text-color }};
+      }
+      #shopify-section-{{ section.id }} .slide-container{
+                          display:flex;
+          gap:20px;
+          justify-content:space-between;
+          width:{{ section.settings.slide-width }}%;
+      }
+      #shopify-section-{{ section.id }} .slide-box{
+          overflow:hidden;
+      }
+      #shopify-section-{{ section.id }} .swiper-slide{
+          box-shadow: 0px 2.13px 6.26px 2px #00000026;
+          border-radius: 12px;
+          overflow: hidden;
+               background: white;
+      }
+      #shopify-section-{{ section.id }} .small-slide .swiper-slide{
+          {% comment %} max-height:160px; {% endcomment %}
+           height:auto;
+      }
+      #shopify-section-{{ section.id }} .small-slide .product-card__info{
+          font-size:12px;
+              padding: 10px 12px
+      }
+      #shopify-section-{{ section.id }} .small-slide .scm-reviews-rate svg {
+          width: 10.128px;
+          height: 10.431px;
+      }
+      #shopify-section-{{ section.id }} .small-slide .lai-wrap-block-star{
+          font-size: 12px;
+          line-height: 10px;
+      }
+      #shopify-section-{{ section.id }} .small-slide .lai-group-star{
+          height: 10px
+      }
+      #shopify-section-{{ section.id }} .product-card__title{
+          {% comment %} white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; {% endcomment %}
+      }
+      #shopify-section-{{ section.id }} .product-card__aside{
+          display:none;
+      }
+      {% for block in section.blocks %}
+          {% if block.type=='grid' %}
+              .width-{{ block.id }}{
+                  width:{{ block.settings.slide-width }}%;
+              }
+          {% endif %}
+      {% endfor %}
+      #shopify-section-{{ section.id }} .swipers {
+          visibility: hidden;
+          padding: 5px;
+          padding-bottom:50px;
+          position: relative;
+      }
+      #shopify-section-{{ section.id }} .small-slide .product-card__title{
+          line-height:1.2;
+      }
+  #shopify-section-{{ section.id }} .swipers.swiper-initialized {
+    visibility: visible;
+  }
+  #shopify-section-{{ section.id }} .swiper-button{
+      background: {{section.settings.button-bg}};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50px;
+  }
+  #shopify-section-{{ section.id }} .swiper-button path{
+      stroke:{{ section.settings.button-color }};
+  }
+  #shopify-section-{{ section.id }} .buttons{
+      display: flex;
+      gap: 20px;
+      justify-content: flex-end;
+      margin-top: 17px;
+      position: absolute;
+      right: 0;
+          width: 100%;
+  }
+  #shopify-section-{{ section.id }} .swiper-button-disabled{
+      opacity:0.6;
+  }
+  #shopify-section-{{ section.id }} product-card{
+      background:white;
+  }
+  #shopify-section-{{ section.id }} .badge--on-sale{
+      border-radius:5px;
+      color:{{section.settings.badge-color }};
+      background:{{section.settings.badge-bg }}
+  }
+  @media(max-width:1400px){
+      #shopify-section-{{ section.id }} .small-slide .product-card__info{
+              padding: 10px 5px;
+      }
+  }
+  #shopify-section-{{ section.id }} .scm-reviews-rate{
+      display:none;
+  }
+
+  @media(max-width:750px){
+      #shopify-section-{{ section.id }} .clearance-sale{
+          background:{{ section.settings.section-bg-m }};
+              padding-left: 10px;
+      padding-right: 10px;
+      }
+      #shopify-section-{{ section.id }} .sale-container{
+          flex-direction: column;
+          padding: 0;
+          background:{{ section.settings.container-bg-m }};
+      }
+      #shopify-section-{{ section.id }} .slide-container{
+          width:100%;
+          flex-direction: column;
+      }
+      #shopify-section-{{ section.id }} .text-container{
+          width:100%;
+          color:{{ section.settings.text-color-m }};
+      }
+      #shopify-section-{{ section.id }} .swipers{
+          width:100%;
+          padding:0;
+      }
+      #shopify-section-{{ section.id }} .timer{
+          margin-bottom:16px;
+      }
+      #shopify-section-{{ section.id }} product-card{
+          height:100%;
+      }
+      #shopify-section-{{ section.id }} .small-slide .product-card__info{
+          font-size:14px;
+      }
+      #shopify-section-{{ section.id }} .swiper-button{
+
+      }
+      #shopify-section-{{ section.id }} .buttons{
+          justify-content: center;
+          position:relative;
+      }
+      #shopify-section-{{ section.id }} .swiper-slide{
+          height: auto;
+      }
+  }
+</style>
+<section id="feature-list-{{ section.settings.anchor_id | default: section.id }}" class="clearance-sale section-padding {% if section.settings.animate %}fade-element{% endif %}">
+  <div class="sale-container section-maxwidth section-gap">
+    <div class="text-container">
+      <div class="title">{{ section.settings.title }}</div>
+
+      <div class="timer" data-time="{{ section.settings.time }}">
+        {% render 'timer',
+          time: section.settings.time,
+          time-bg: section.settings['time-bg'],
+          time-color: section.settings['time-color'],
+          time-tag-color: section.settings['time-tag-color'],
+          time-tag-color-m: section.settings['time-tag-color-m'],
+          show_day: section.settings.show_day
+        %}
+      </div>
+
+      <h4 class="subtitle">{{ section.settings.subtitle }}</h4>
+
+      <h6 class="text">{{ section.settings.text }}</h6>
+    </div>
+    <div class="slide-container">
+      {% for block in section.blocks %}
+        {% if block.type == 'grid' %}
+          <div class="width-{{ block.id }} swipers {% if block.settings.show-rows==2 %}small-slide{% endif %} grid-swiper-{{ block.id }} slide-box">
+            <div class="swiper-wrapper">
+              {% for product in block.settings.product_list %}
+                <div class="swiper-slide">
+                  {%- render 'product-card',
+                    product: product,
+                    stacked: false,
+                    position: forloop.index,
+                    background: section.settings.product_card_background,
+                    text_color: section.settings.product_card_text_color,
+                    show_badges: section.settings.show_badges,
+                    disabled_blends:true
+                  -%}
+                </div>
+              {% endfor %}
+            </div>
+            <div class="buttons">
+              <div class="swiper-button swiper-prev-{{ block.id }}">
+                <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.0301 10.2679L1.61604 5.85382L6.0301 1.43976" stroke="black" stroke-width="2.12834" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="swiper-button swiper-next-{{ block.id }}">
+                <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.39831 10.2679L5.81237 5.85382L1.39831 1.43976" stroke="black"  stroke-width="2.12834" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  {% for block in section.blocks %}
+    {% if block.type=='grid' %}
+      console.log({{ block.settings.show-rows}}{{ block.settings.show-columns  }})
+      var grid_swiper{{ forloop.index }} = new Swiper(".grid-swiper-{{ block.id }}", {
+        slidesPerView: {{ block.settings.show-columns }},
+        grid: {
+          rows: {{block.settings.show-rows}},
+          fill: 'row',
+        },
+        spaceBetween: {{block.settings.slide-gap }},
+        navigation: {
+          nextEl: ".swiper-next-{{ block.id }}",
+          prevEl: ".swiper-prev-{{ block.id }}",
+        },
+        breakpoints:{
+          750:{
+              spaceBetween: {{block.settings.slide-gap }},
+          },
+          360:{
+            spaceBetween: 6,
+          }
+      }
+      });
+    {% endif %}
+  {% endfor %}
+</script>
+
+{% schema %}
+{
+  "name": "clearance-sale",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Unique ID for anchor links",
+      "default": "multi-column-product-pro"
+    },
+    {
+      "type": "checkbox",
+      "id": "animate",
+      "label": "启用键入动画",
+      "default": true,
+      "info": "修改配置的时候关闭"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom"
+    },
+
+    {
+      "type": "range",
+      "id": "padding-gap",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap"
+    },
+    {
+      "type": "range",
+      "id": "content-pt",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "整个卡片上边距(内边距)"
+    },
+    {
+      "type": "range",
+      "id": "content-pb",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "整个卡片下边距(内边距)"
+    },
+    {
+      "type": "header",
+      "content": "Width restriction",
+      "info": "Section maxWidth"
+    },
+    {
+      "type": "range",
+      "id": "max-width",
+      "max": 1600,
+      "min": 900,
+      "step": 20,
+      "default": 1200,
+      "label": "Section width"
+    },
+    {
+      "type": "header",
+      "content": "Mob setting"
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-gap-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap mob"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "time",
+      "label": "Time",
+      "default": "2025-12-31T23:59:59",
+      "info": "时间格式:2025-12-31T23:59:59"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sale info"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Color settings"
+    },
+    {
+      "type": "color_background",
+      "id": "section-bg",
+      "label": "整个分区背景",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "container-bg",
+      "label": "内容区域的背景",
+      "default": "#fff"
+    },
+    {
+      "type": "color_background",
+      "id": "badge-bg",
+      "label": "产品卡片折扣背景"
+    },
+    {
+      "type": "color",
+      "id": "badge-color",
+      "label": "产品卡片折扣颜色"
+    },
+    {
+      "type": "color_background",
+      "id": "button-bg",
+      "label": "切换按钮背景",
+      "default": "#00000026"
+    },
+    {
+      "type": "color",
+      "id": "button-color",
+      "label": "切换按钮文本色"
+    },
+    {
+      "type": "color_background",
+      "id": "time-bg",
+      "label": "倒计时背景",
+      "default": "linear-gradient(90deg, #F28900 0%, #FFBD68 100%)"
+    },
+    {
+      "type": "color",
+      "id": "time-color",
+      "label": "倒计时文本色",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "time-tag-color",
+      "label": "倒计时单位文本色",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "text-color",
+      "label": "文本文本色",
+      "default": "#000"
+    },
+    {
+      "type": "header",
+      "content": "移动端颜色设置"
+    },
+    {
+      "type": "color_background",
+      "id": "section-bg-m",
+      "label": "移动端整个分区背景",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "container-bg-m",
+      "label": "移动端内容区域的背景",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "text-color-m",
+      "label": "移动端文本文本色",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "time-tag-color-m",
+      "label": "移动端倒计时单位文本色",
+      "default": "#fff"
+    },
+    {
+      "type": "range",
+      "id": "text-width",
+      "max": 70,
+      "min": 20,
+      "step": 1,
+      "default": 30,
+      "label": "文本模块的宽度"
+    },
+    {
+      "type": "range",
+      "id": "slide-width",
+      "max": 70,
+      "min": 20,
+      "step": 1,
+      "default": 60,
+      "label": "轮播模块的宽度"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_day",
+      "default": true,
+      "label": "是否启用天数"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badges",
+      "label": "展示产品折扣",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "grid",
+      "name": "grid",
+      "settings": [
+        {
+          "type": "range",
+          "id": "slide-width",
+          "max": 50,
+          "min": 20,
+          "step": 1,
+          "default": 50,
+          "label": "单模块的宽度"
+        },
+        {
+          "type": "range",
+          "id": "slide-gap",
+          "max": 100,
+          "min": 10,
+          "step": 1,
+          "default": 20,
+          "label": "轮播滑块之间的的间距"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "Product list",
+          "info": "产品列表"
+        },
+        {
+          "type": "header",
+          "content": "Slide settings"
+        },
+        {
+          "type": "range",
+          "id": "show-rows",
+          "label": "展示行数",
+          "max": 3,
+          "min": 1,
+          "step": 1,
+          "default": 2
+        },
+        {
+          "type": "range",
+          "id": "show-columns",
+          "label": "展示列数",
+          "max": 3,
+          "min": 1,
+          "step": 1,
+          "default": 2
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "clearance-sale" }]
+}
+{% endschema %}

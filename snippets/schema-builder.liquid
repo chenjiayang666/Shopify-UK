@@ -1,0 +1,62 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+      {% case schema_type %}
+        {% when 'WebPage' %}
+        {
+          "@type": "WebPage",
+          "name": {{ title | json }},
+          "description": {{ description | json }},
+          "url": {{ url | json }}
+        }
+        {% when 'Article' %}
+        {
+          "@type": "Article",
+          "headline": {{ title | json }},
+          "author": { "@type": "Person", "name": {{ author | json }} },
+          "datePublished": "{{ date }}",
+          "image": {{ image | json }}
+        }
+        {% when 'Product' %}
+        {
+          "@type": "Product",
+          "name": {{ title | json }},
+          "description": {{ description | json }},
+          "sku": {{ sku | json }},
+          "image": {{ image | json }},
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "{{ currency }}",
+            "price": "{{ price }}",
+            "availability": "https://schema.org/{{ availability }}"
+          }
+        }
+        {% when 'FAQPage' %}
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": {{ question | json }},
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": {{ answer | json }}
+              }
+            }
+          ]
+        }
+        {% when 'VideoObject' %}
+        {
+          "@type": "VideoObject",
+          "name": {{ name | json }},
+          "description": {{ description | json }},
+          "thumbnailUrl": {{ thumbnail | json }},
+          "uploadDate": "{{ upload_date }}",
+          "contentUrl": {{ content_url | json }},
+          "embedUrl": {{ embed_url | json }}
+        }
+        {%endcase %}
+  ]
+}
+</script>

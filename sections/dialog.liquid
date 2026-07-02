@@ -1,0 +1,460 @@
+{% render 'section-settings' %}
+<style>
+  #shopify-section-{{ section.id }} .dialog-section{
+        background:{{ section.settings.setion_bg }}
+    }
+  #shopify-section-{{ section.id }} .custom-container .subheading.p{
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0;
+  }
+      #shopify-section-{{ section.id }} .dialog-button{
+        font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+        letter-spacing: 0;
+        gap:10px;
+        cursor:pointer;
+      text-align: center;
+      width: fit-content;
+      margin: 0 auto;
+      text-decoration: underline;
+    }
+    #shopify-section-{{ section.id }} .dialog-content{
+        position:fixed;
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        opacity:0;
+        transition:all .5s;
+        background: rgba(0,0,0,0.6);
+        z-index:-100;
+            pointer-events: none;
+    }
+    #shopify-section-{{ section.id }} .dialog-content.active{
+        opacity:1;
+        z-index:100;
+            pointer-events: auto;
+    }
+    #shopify-section-{{ section.id }} .dialog-box{
+    padding: 50px 40px 50px;
+    max-height: 750px;
+        z-index:2;
+        display:flex;
+        width: 100%;
+            align-items: center;
+            position:relative;
+    }
+    #shopify-section-{{ section.id }} .dialog-container{
+        margin-bottom:20px;
+    }
+    #shopify-section-{{ section.id }} .log-close{
+        position:absolute;
+        top:15px;
+        right:20px;
+        z-index:1;
+    }
+    #shopify-section-{{ section.id }} .log-close svg{
+        width:60px;
+        height:60px;
+    }
+  {% for block in section.blocks %}
+    .log-{{ block.id }}{
+        color:{{ block.settings.text_color }};
+                    background:{{ block.settings.background }};
+    max-width: {{block.settings.max_width}}%;
+              border-radius:{{ block.settings.radius }}px;
+
+
+    }
+              .inner-padding-{{ block.id }}{
+              padding:{{ block.settings.inner_padding }};
+          }
+
+          
+  {% endfor %}
+  @media(max-width:750px){
+    #shopify-section-{{ section.id }} .dialog-box{
+      max-width:90%;
+    }
+  }
+</style>
+
+<section class="dialog-section section-padding {% if section.settings.animate %}fade-element{% endif %}">
+  <div class="container section-gap section-maxwidth">
+    {% for block in section.blocks %}
+      {% if block.settings.title != blank %}
+        <div class="dialog-container  ">
+          <div class="dialog-button color:{{ block.settings.button_color }}">
+            {{ block.settings['dialog-title'] }}
+          </div>
+          <div class="dialog-content ">
+            <div class="dialog-box log-{{ block.id }} inner-padding-{{ block.id }}">
+              <button class="log-close">
+                <svg width="112" height="112" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="55.5703" cy="55.5703" r="36.7959" transform="rotate(45 55.5703 55.5703)" fill="#322826" stroke="#322826" stroke-width="4.99655"/>
+                  <path d="M40.4626 41.2661L70.6994 71.5029" stroke="white" stroke-width="4.99655" stroke-linecap="round"/>
+                  <path d="M40.4425 71.5011L70.6793 41.2643" stroke="white" stroke-width="4.99655" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <div class="log-lcontent">
+                {%- render 'section-header',
+                  subheading_size: block.settings.subheading_size,
+                  heading_size: block.settings.heading_size,
+                  flex_direction: block.settings.flex_direction,
+                  flex_align: block.settings.flex_align,
+                  subheading: block.settings.subheading,
+                  heading: block.settings.title,
+                  heading_color: block.settings.heading_color,
+                  heading_gradient: block.settings.heading_gradient,
+                  content: block.settings.content
+                -%}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+  (function () {
+    document.addEventListener('DOMContentLoaded', () => {
+      const sectionEl = document.querySelector('#shopify-section-{{ section.id }}');
+
+      // 找到当前 section 下的所有弹窗容器
+      const dialogContainers = sectionEl.querySelectorAll('.dialog-container');
+
+      dialogContainers.forEach((container) => {
+        const dialogButton = container.querySelector('.dialog-button');
+        const dialogOverlay = container.querySelector('.dialog-content');
+        const closeButton = container.querySelector('.log-close');
+
+        if (!dialogButton || !dialogOverlay || !closeButton) return;
+
+        // 打开
+        dialogButton.addEventListener('click', () => {
+          dialogOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+
+        // 关闭
+        closeButton.addEventListener('click', () => {
+          dialogOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+
+        // 点击遮罩关闭
+        dialogOverlay.addEventListener('click', (e) => {
+          if (e.target === dialogOverlay) {
+            dialogOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "dialog",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Layout"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom"
+    },
+
+    {
+      "type": "range",
+      "id": "padding-gap",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap"
+    },
+
+    {
+      "type": "header",
+      "content": "Width restriction",
+      "info": "Section maxWidth"
+    },
+
+    {
+      "type": "range",
+      "id": "max-width",
+      "max": 1920,
+      "min": 900,
+      "step": 20,
+      "default": 900,
+      "label": "Section width"
+    },
+    {
+      "type": "header",
+      "content": "Mob setting"
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom mob"
+    },
+
+    {
+      "type": "range",
+      "id": "padding-gap-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap mob"
+    },
+    {
+      "type": "header",
+      "content": "Color setting"
+    },
+    {
+      "type": "color_background",
+      "id": "setion_bg",
+      "label": "Section Background"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "dialog",
+      "name": "dialog",
+      "settings": [
+        {
+          "type": "text",
+          "id": "dialog-title",
+          "label": "弹窗触发标题",
+          "default": "VIEW FEATURES"
+        },
+        {
+          "type": "text",
+          "id": "block_inner_padding",
+          "label": "Block Inner Padding",
+          "default": "23px 30px 23px 30px"
+        },
+            {
+      "type": "range",
+      "id": "max_width",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 60,
+      "label": "Dialog Width"
+    },
+        {
+          "type": "header",
+          "content": "Text"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading"
+        },
+        {
+          "type": "select",
+          "id": "subheading_size",
+          "label": "Subheading size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "p",
+              "label": "P"
+            }
+          ],
+          "default": "p"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Title size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            }
+          ],
+          "default": "h3"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        },
+           {
+      "type": "header",
+      "content": "Radius"
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "max": 40,
+      "min": 0,
+      "step": 1,
+      "default": 16,
+      "label": "Text radius"
+    },
+        {
+          "type": "header",
+          "content": "Color settings"
+        },
+        {
+            "type": "color",
+            "id": "button_color",
+            "label": "Log color",
+            "default":"#000"
+        },
+        {
+          "type": "color_background",
+          "id": "background",
+          "label": "Background",
+          "default":"white"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default":"#000"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading color"
+        },
+        {
+          "type": "color_background",
+          "id": "heading_gradient",
+          "label": "Heading gradient"
+        },
+        {
+            "type": "header",
+            "content": "Header flex"
+        },
+        {
+          "type": "select",
+          "id": "flex_direction",
+          "label": "Flex 方向",
+          "default": "column",
+          "options": [
+            { "value": "row", "label": "水平 (row)" },
+            { "value": "row-reverse", "label": "水平反向 (row-reverse)" },
+            { "value": "column", "label": "垂直 (column)" },
+            { "value": "column-reverse", "label": "垂直反向 (column-reverse)" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "flex_align",
+          "label": "对齐方式",
+          "default": "center-center",
+          "options": [
+            { "value": "center-center", "label": "居中对齐" },
+            { "value": "start-start", "label": "顶部左对齐" },
+            { "value": "end-end", "label": "底部右对齐" },
+            { "value": "center-start", "label": "垂直居中靠左" },
+            { "value": "center-end", "label": "垂直居中靠右" },
+            { "value": "start-center", "label": "顶部居中" },
+            { "value": "end-center", "label": "底部居中" },
+            { "value": "space-between-center", "label": "两端对齐 (space-between)" },
+            { "value": "space-around-center", "label": "等间距对齐 (space-around)" }
+          ]
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dialog"
+    }
+  ]
+}
+{% endschema %}

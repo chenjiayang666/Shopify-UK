@@ -1,0 +1,44 @@
+<style>
+  .sale_cutdown_container{
+    display:flex;
+    align-items:center;
+         font-size: 14px;
+     line-height: 18px;
+     font-weight: 500;
+     gap:3px;
+  }
+   .badge_cutdown{
+
+     text-align: center;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+   @media(max-width:1300px){
+    .sale_badge{
+        padding: 18px 15px 5px 15px;
+    }
+    }
+    @media(max-width:750px){
+      .sale_cutdown_container{
+                    font-size: 14px;
+            line-height: 16px;
+      }
+        .badge_cutdown{
+
+     padding-top: 0px;
+
+        }
+
+    }
+</style>
+  <div
+    class="sale_cutdown_container"style="color:{{ cutdown_color }};"
+  >
+    {{ cutdown_text }}
+      <div
+        class="badge_cutdown"
+        data-end="{{ sale_cutdown }}"
+      ></div>
+
+  </div>

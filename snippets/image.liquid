@@ -1,0 +1,45 @@
+<style>
+    .image-component {
+        display: block;
+        overflow: hidden;
+    }
+    .width-{{ block.id }}{
+        width:{{ block.settings.width }}px;
+        height:{{ block.settings.height }}px;
+    }
+
+    .image-component img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        display: block;
+    }
+
+
+@media(max-width:750px){
+
+    .width-{{ block.id }}{
+        width:{{ block.settings.width_m }}px;
+        height:{{ block.settings.height_m }}px;
+    }
+}
+</style>
+{%- liquid
+  assign image_obj = block.settings.image
+  assign width = block.settings.width
+  assign height = block.settings.height
+  assign alt = block.settings.alt | default: image_obj.alt | default: ''
+-%}
+
+{% if image_obj != blank %}
+  <div
+    class="image-component width-{{ block.id }}"
+
+  >
+    <img
+      src="{{ image_obj | image_url: width: width }}"
+      alt="{{ alt | escape }}"
+      loading="lazy"
+    >
+  </div>
+{% endif %}

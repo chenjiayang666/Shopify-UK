@@ -1,0 +1,681 @@
+
+<style>
+  @media (max-width:767px) {
+    #shopify-section-{{ section.id }} .custom-tabs{
+      justify-content: flex-start !important;/* 我觉得h5端就应该这样放置 */
+    }
+    #shopify-section-{{ section.id }} > .section {
+      background-image: url({{ section.settings.h5_background_image | image_url }});
+      background-position: center center;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+    }
+
+  }
+  @media (min-width:768px) {
+    #shopify-section-{{ section.id }} .tab-link:hover {
+      background-color: #ddd;
+    }
+    #shopify-section-{{ section.id }} > .section {
+      background-image: url({{ section.settings.pc_background_image | image_url }});
+      background-position: center center;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+    }
+  }
+   #shopify-section-{{ section.id }}  {
+    background-color: {{section.settings.background_tab}}
+  }
+
+  #shopify-section-{{ section.id }} > .section {
+    padding-top: 20px;
+  }
+  #shopify-section-{{ section.id }} .custom-tabs{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: auto;
+    width: fit-content;
+    height: fit-content;
+    background-color: {{ section.settings.whole_tabs_bg_color }};
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+  }
+  #shopify-section-{{ section.id }} .custom-tabs-wrap {
+    overflow: hidden;
+  }
+  #shopify-section-{{ section.id }} .tab-link {
+    white-space: nowrap;
+    color: {{section.settings.tab_font_color}};
+    padding:0 20px;
+    height:40px;
+    cursor:default;
+    border-radius: 40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    font-size: 17px;
+    border: 2px solid transparent;
+  }
+
+  #shopify-section-{{ section.id }} .tab-link.active {
+    color: {{section.settings.active_tab_font_color}};
+    border: 2px solid #000;
+    background-color: #fff;
+  }
+
+  #shopify-section-{{ section.id }} .tab-content {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+  {% if section.settings.fit_black_background == true %}
+    #shopify-section-{{ section.id }} .custom-tabs {
+      border: 2px solid #fff;
+      background: #000;
+      color: #fff;
+    }
+    #shopify-section-{{ section.id }} .tab-link {
+      color: #fff;
+    }
+    #shopify-section-{{ section.id }} .tab-link.active {
+      color: #000000;
+      border: 2px solid #000;
+      background-color: #fff;
+    }
+  {% endif %}
+  {% if section.settings.heading_fix_height != 0 %}
+    #shopify-section-{{ section.id }} .product-card__title {
+      height: {{ section.settings.heading_fix_height }}px;
+      overflow: hidden;
+    }
+  {% endif %}
+  #shopify-section-{{ section.id }} .product-card .badge{
+     /* 渐变背景 - 从左到右 */
+          background-image: linear-gradient(
+            90deg,
+            {{ section.settings.badge_Spare_bg_color_left }},
+            {{ section.settings.badge_Spare_bg_color_right }}
+          );
+    color: {{section.settings.badge_Spare_color}};
+    padding: 5px 12px;
+     border-radius: 8px;
+
+  }
+    /* top: 1rem;
+    background-image: linear-gradient(90deg, #7d9bc1, #e1e9f0);
+    width: max-content;
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 8px;
+    color: #1a1a1a;
+    font-weight: bold;
+    font-size: 14px;
+    overflow: hidden;
+    right: 1rem; */
+   #shopify-section-{{ section.id }} .product-card .product-card__badge-list{
+     width: max-content;
+    {% if section.settings.badge_Spare_bg_color_position == 'left'  %}
+      left: var(--product-card-badge-spacing);
+    {% elsif section.settings.badge_Spare_bg_color_position == 'center' %}
+      left: 50%;
+          transform: translateX(-50%);
+    {% else %}
+      right: var(--product-card-badge-spacing);
+      left: auto;
+      {% endif %}
+  }
+  #shopify-section-{{ section.id }} .section-header{
+    {% if section.settings.products_title_position == 'left'  %}
+      justify-content: space-between;
+    {% elsif section.settings.products_title_position == 'center' %}
+      justify-content: center;
+    grid-template-columns: auto;
+    {% else %}
+      justify-content: end;
+    grid-template-columns: auto;
+      {% endif %}
+  }
+   #shopify-section-{{ section.id }} .custom-tabs-wrap{
+     display: flex;
+    {% if section.settings.products_title_position == 'right'  %}
+      justify-content: right;
+    {% elsif section.settings.products_title_position == 'center' %}
+      justify-content: center;
+      {% endif %}
+  }
+  #shopify-section-{{ section.id }} .section{
+    padding-bottom: {{section.settings.padding-bottom}}px;
+    padding-top: {{section.settings.padding-top}}px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  @media (max-width:767px) {
+        #shopify-section-{{ section.id }} .section {
+          padding-bottom: {{section.settings.padding-bottom-mob}}px;
+      padding-top: {{section.settings.padding-top-mob}}px;
+    }
+  }
+  /* badge_Spare_bg_color_position */
+</style>
+
+    <div {% render 'section-properties' %}>
+      {%- render 'section-header', heading: section.settings.title, heading_color: section.settings.heading_color -%}
+      <div class="custom-tabs-wrap" id="feature-list-{{ section.settings.anchor_id | default: section.id }}">
+        <div class="custom-tabs">
+          {% assign tab_block_index = 0 %}
+          {% for block in section.blocks %}
+            {%- case block.type -%}
+              {%- when 'tab' -%}
+                {% assign tab_block_index = tab_block_index | plus: 1 %}
+                {%- if tab_block_index == 1 -%}
+                  <div class="tab-link active" data-block-id="{{block.id}}">
+                    {% comment %} onclick="openTab(event, '{{ block.id }}',{{forloop.index}})" {% endcomment %}
+                    {{ block.settings.title }}
+                  </div>
+                {% else %}
+                  <div class="tab-link" data-block-id="{{block.id}}">
+                    {{ block.settings.title }}
+                  </div>
+                {% endif %}
+            {%- endcase -%}
+          {% endfor %}
+        </div>
+      </div>
+      {% assign products_collection_block_index = 0 %}
+      {% for block in section.blocks %}
+        {%- case block.type -%}
+          {%- when 'products_collection' -%}
+            {% assign products_collection_block_index = products_collection_block_index | plus: 1 %}
+            {%- if products_collection_block_index == 1 -%}
+              {%- assign dev_class = 'dev-product-list' | append: ' active' -%}
+            {%- else -%}
+              {%- assign dev_class = 'dev-product-list' -%}
+            {%- endif -%}
+            {%- if block.settings.collection.products -%}
+              {%- render 'pure-collections',
+                type: 'collection',
+                fit_black_background: section.settings.fit_black_background,
+                discount_texts: block.settings.discount_texts,
+                rewrite_titles: block.settings.rewrite_titles,
+                stage_count: section.settings.stage_count,
+                lead_to_click_text: section.settings.lead_to_click_text,
+                want_tags: section.settings.want_tags,
+                provider_logo: section.settings.provider_logo,
+                list_content: block.settings.collection,
+                custom_descriptions: block.settings.custom_descriptions,
+                list_section: section,
+                dev_class: dev_class,
+                block_id: block.id,
+                collections_layout_mode: section.settings.collections_layout_mode,
+                stack_products: section.settings.stack_products,
+                discount_mode: block.settings.discount_mode
+              -%}
+            {%- elsif block.settings.products -%}
+              {%- render 'pure-collections',
+                type: 'products',
+                fit_black_background: section.settings.fit_black_background,
+                discount_texts: block.settings.discount_texts,
+                rewrite_titles: block.settings.rewrite_titles,
+                stage_count: section.settings.stage_count,
+                lead_to_click_text: section.settings.lead_to_click_text,
+                want_tags: section.settings.want_tags,
+                provider_logo: section.settings.provider_logo,
+                list_content: block.settings.products,
+                custom_descriptions: block.settings.custom_descriptions,
+                list_section: section,
+                dev_class: dev_class,
+                block_id: block.id,
+                collections_layout_mode: section.settings.collections_layout_mode,
+                stack_products: section.settings.stack_products,
+                discount_mode: block.settings.discount_mode
+              -%}
+            {% endif %}
+        {%- endcase -%}
+      {% endfor %}
+    </div>
+
+<script type="module">
+  const customTabs = document.querySelector('#shopify-section-{{ section.id }} .custom-tabs');
+  const tabContents = document.querySelectorAll('#shopify-section-{{ section.id }} .dev-product-list');
+  const tablinks = customTabs.querySelectorAll('#shopify-section-{{ section.id }} .tab-link');
+  Array.from(tablinks).forEach((item, index) => {
+    item.addEventListener('click', (evt) => {
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(' active', '');
+        tabContents[i].className = tabContents[i].className.replace(' active', '');
+      }
+      item.style.display = 'flex';
+      tabContents[index].classList.add('active');
+      evt.currentTarget.className += ' active';
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Featured collection Tab盒子",
+  "class": "shopify-section--featured-collection",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Unique ID for anchor links",
+      "default": "feature-collection-tab"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom"
+    },
+
+    {
+      "type": "header",
+      "content": "Mob setting"
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom mob"
+    },
+    {
+      "type": "header",
+      "content": "字体和颜色配置"
+    },
+    {
+      "type": "text",
+      "id": "title_font_size",
+      "label": "标题字体大小",
+      "default": "inherit"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "标题颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "sale_price_font_size",
+      "label": "促销价字体大小",
+      "default": "24px"
+    },
+    {
+      "type": "color",
+      "id": "sale_price_color",
+      "label": "促销价颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "compare_at_price_font_size",
+      "label": "原价字体大小",
+      "default": "inherit"
+    },
+    {
+      "type": "color",
+      "id": "compare_at_price_color",
+      "label": "原价颜色",
+      "default": "#999999"
+    },
+    {
+      "type": "text",
+      "id": "stage_count_font_size",
+      "label": "分期期数字体大小",
+      "default": "inherit"
+    },
+    {
+      "type": "color",
+      "id": "stage_count_color",
+      "label": "分期期数颜色",
+      "default": "#006cd9"
+    },
+    {
+      "type": "text",
+      "id": "stage_price_font_size",
+      "label": "分期价格字体大小",
+      "default": "inherit"
+    },
+    {
+      "type": "color",
+      "id": "stage_price_color",
+      "label": "分期价格颜色",
+      "default": "#006cd9"
+    },
+    {
+      "type": "color",
+      "id": "buy_button_background",
+      "label": "购买按钮背景色",
+      "default": "#876947"
+    },
+    {
+      "type": "text",
+      "id": "buy_button_text",
+      "label": "购买按钮文案",
+      "default": "Buy Now &rarr;"
+    },
+    {
+      "type": "color",
+      "id": "buy_button_text_color",
+      "label": "购买按钮文字颜色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "注意事项",
+      "info": "逻辑很简单：第一个\"Tab\"块的内容，对应第一个\"Tab下的内容\"。第二个\"Tab\"块的内容，对应第二个\"Tab下的内容\"..."
+    },
+
+    {
+      "type": "checkbox",
+      "id": "fit_black_background",
+      "label": "让文字等适应黑背景",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "标题相关设置"
+    },
+    {
+      "type": "number",
+      "id": "heading_fix_height",
+      "label": "各product卡片的标题的固定高度",
+      "info": "已写死单位px，0则不限制行数"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Blog posts"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color"
+    },
+    {
+      "type": "header",
+      "content": "新增功能设置"
+    },
+    {
+      "type": "text",
+      "id": "stage_count",
+      "label": "几期支付"
+    },
+    {
+      "type": "image_picker",
+      "id": "provider_logo",
+      "label": "分期支付提供商的logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "pc_background_image",
+      "label": "PC端背景图片"
+    },
+    {
+      "type": "image_picker",
+      "id": "h5_background_image",
+      "label": "H5端背景图片"
+    },
+    {
+      "type": "text",
+      "id": "want_tags",
+      "label": "想要展示的一些tag，使用英文,分隔"
+    },
+    {
+      "type": "text",
+      "id": "lead_to_click_text",
+      "label": "引导点击按钮的文本"
+    },
+    {
+      "type": "color",
+      "id": "whole_tabs_bg_color",
+      "label": "整条tabs的背景颜色",
+      "default": "#f6f7f9"
+    },
+    {
+      "type": "color",
+      "id": "tab_font_color",
+      "label": "tabs的字体颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "active_tab_font_color",
+      "label": "激活的tab的字体颜色",
+      "default": "#000"
+    },
+    {
+      "type": "select",
+      "id": "products_title_position",
+      "label": "标题以及tab位置",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "center",
+          "label": "center"
+        },
+        {
+          "value": "right",
+          "label": "right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "badge_Spare_bg_color_position",
+      "label": "标签位置",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "center",
+          "label": "center"
+        },
+        {
+          "value": "right",
+          "label": "right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "原有功能设置"
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_products",
+      "label": "Stack products",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_progress_bar",
+      "label": "Show carousel progress bar",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "min": 2,
+      "max": 50,
+      "label": "Products to show",
+      "default": 50
+    },
+    {
+      "type": "select",
+      "id": "products_per_row_mobile",
+      "label": "Products per row (mobile)",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_desktop",
+      "min": 2,
+      "max": 5,
+      "label": "Products per row (desktop)",
+      "default": 3
+    },
+
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background_tab",
+      "label": "Background tab",
+      "info": "整个tab的背景色"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "info": "tab内的背景色"
+    },
+    {
+      "type": "color",
+      "id": "badge_Spare_bg_color_left",
+      "label": "Badge spare bg color left",
+      "default": "#ff5722",
+      "info": "左上角节省标签背景色左颜色"
+    },
+    {
+      "type": "color",
+      "id": "badge_Spare_bg_color_right",
+      "label": "Badge spare bg color right",
+      "default": "#ff5722",
+      "info": "左上角节省标签背景色右颜色"
+    },
+    {
+      "type": "color",
+      "id": "badge_Spare_color",
+      "label": "Badge spare  color ",
+      "default": "#fff",
+      "info": "左上角节省标签字体颜色"
+    },
+
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "product_card_background",
+      "label": "Product card background"
+    },
+    {
+      "type": "color",
+      "id": "product_card_text_color",
+      "label": "Product card text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Tab"
+        }
+      ]
+    },
+    {
+      "type": "products_collection",
+      "name": "Tab下的内容",
+      "settings": [
+        {
+          "type": "product_list",
+          "id": "products",
+          "limit": 10,
+          "label": "Product list"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "textarea",
+          "id": "discount_texts",
+          "label": "各个折扣的值",
+          "info": "使用英文,分隔，按顺序对应于各个产品卡的左上角的折扣"
+        },
+        {
+          "type": "textarea",
+          "id": "rewrite_titles",
+          "label": "各个标题",
+          "info": "使用英文,分隔，按顺序对应去代替各个产品的标题"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection Tab盒子"
+    }
+  ]
+}
+{% endschema %}

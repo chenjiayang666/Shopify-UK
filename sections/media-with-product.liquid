@@ -1,0 +1,1591 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- comment -%}
+  ------------------------------------------------------------------------------------------------------------------------
+  CSS
+  ------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+          #shopify-section-{{ section.id }} {
+            --media-with-text-gap: {% if section.settings.spacing == 'none' %}0{% else %}var(--grid-gutter){% endif %};
+            --media-with-text-item-grid-template: "media" "content" / auto;
+          }
+
+          @media screen and (min-width: 1000px) {
+            #shopify-section-{{ section.id }} {
+              --media-with-text-gap: {% if section.settings.spacing == 'none' %}0{% elsif section.settings.spacing == 'small' %}var(--spacing-6){% elsif section.settings.spacing == 'medium' %}var(--spacing-12){% else %}var(--spacing-18){% endif %};
+            }
+          }
+
+          {%- for block in section.blocks -%}
+            {%- assign media_ratio = block.settings.media_width | divided_by: 50.0 -%}
+            {%- assign content_ratio = 2.0 | minus: media_ratio -%}
+
+            #block-{{ section.id }}-{{ block.id }} {
+              --media-with-text-item-icon-width: {{ block.settings.icon_width }}px;
+            }
+
+            @media screen and (min-width: 1000px) {
+              #block-{{ section.id }}-{{ block.id }} {
+                --media-with-text-item-grid-template: {% if block.settings.media_position == 'start' %}"media content" / minmax(0, {{ media_ratio }}fr) minmax(0, {{ content_ratio }}fr){% else %}"content media" / minmax(0, {{ content_ratio }}fr) minmax(0, {{ media_ratio }}fr){% endif %};
+              }
+            }
+          {%- endfor -%}
+
+          .media-with-product-{{ section.id  }} {
+            background:{{section.settings.section_bg}};
+            padding-top:{{section.settings.section_pdtop}}px;
+            padding-bottom:{{section.settings.section_pdbot}}px;
+          }
+          .media-with-product-{{ section.id  }} .pt-card {
+            background-color: #ffffff;
+            text-align: left;
+        }
+
+         .media-with-product-{{ section.id  }} .pt-title {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+         .media-with-product-{{ section.id  }} .pt-price {
+            margin-bottom: 15px;
+        }
+        .media-with-product-{{ section.id  }} .pt-price .text-on-sale {
+            font-weight:700;
+            font-size: 28px;
+            color: {{ section.settings.price_color }};
+        }
+
+         .media-with-product-{{ section.id  }} .pt-price .pt-price-flex {
+           gap: var(--spacing-0-5) var(--spacing-2);
+            display: flex;
+           align-items: center;
+        }
+          .media-with-product-{{ section.id  }} .pt-price .pt-price-flex .product-info__badge-list {
+           margin-top: 0px;
+            max-height: fit-content;
+        }
+
+         .media-with-product-{{ section.id  }} .current-price {
+          font-weight:700;
+            font-size: 28px;
+            color: {{ section.settings.price_color }};
+        }
+
+         .media-with-product-{{ section.id  }} .original-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-left: 10px;
+        }
+
+         .media-with-product-{{ section.id  }} .discount {
+            color: {{section.settings.badge_text_color}};
+            margin-left: 10px;
+          background:{{section.settings.badge_color}};
+          padding: 7px;
+          font-size: 14px;
+        }
+
+         .media-with-product-{{ section.id  }} .pt-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+           margin-top: 0;
+        }
+
+         .media-with-product-{{ section.id  }} .buy-button {
+            background-color: {{section.settings.buy_button_color}};
+            color: {{section.settings.buy_button_text_color}};
+            padding: 10px 20px;
+            border: none;
+            text-decoration: none;
+            font-weight: bold;
+        }
+      {%- for block in section.blocks -%}
+      #block-{{ section.id }}-{{ block.id }} .prose .subheading {
+        color: {{ block.settings.subheading_color }} !important;
+        font-weight: normal;
+      }
+     #block-{{ section.id }}-{{ block.id }}  .badge-image {
+          position: absolute;
+          top: 0;
+           {% if block.settings.badge_position == 'right' %}
+        right: 20px;
+        left: auto;
+      {% else %}
+        left: 20px;
+        right: auto;
+      {% endif %}
+       width: {{ block.settings.badge_width }}px;
+        height: {{ block.settings.badge_height }}px;
+
+          font-weight:700;
+          font-size: {{ block.settings.badge_font_size }}px;
+        color: {{ block.settings.badge_text_color }};
+        }
+    {%- endfor -%}
+
+
+        .media-with-product-{{ section.id  }} .badge-image>span {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1;
+        }
+        @media screen and (max-width:1200px){
+          .media-with-product-{{ section.id  }} .badge-image {
+            width: 100px;
+            height: 100px;
+            font-size:28px;
+          }
+        }
+        @media screen and (max-width:1000px){
+          .media-with-product-{{ section.id  }} .badge-image {
+            width: 80px;
+            height: 80px;
+            font-size:24px;
+          }
+
+        }
+
+        @media screen and (max-width:768px){
+          .media-with-product-{{ section.id  }}  .badge-image {
+            width: 60px;
+            height: 60px;
+            font-size:20px;
+          }
+           .media-with-product-{{ section.id  }} .pt-title {
+              font-size: 25px;
+          }
+           .media-with-product-{{ section.id  }} .current-price {
+              font-size: 23px;
+          }
+           .media-with-product-{{ section.id  }} .pt-description {
+              font-size: 14px;
+          }
+          .media-with-product-{{ section.id  }} {
+            padding-top:calc({{section.settings.section_pdtop}}px / 2);
+            padding-bottom:calc({{section.settings.section_pdbot}}px / 2);
+          }
+        }
+    /* 补充手机端徽章适配样式 */
+  @media screen and (max-width: 767px) {
+    .media-with-product-{{ section.id  }} .badge-image {
+      /* 进一步缩小徽章尺寸以适应手机屏幕 */
+      width: 50px !important;
+      height: 50px !important;
+      font-size: 16px !important;
+      /* 调整徽章位置，避免边缘溢出 */
+      top: 10px;
+      left: 10px !important;
+      right: auto !important;
+    }
+
+    /* 修复徽章文字换行显示问题 */
+    .media-with-product-{{ section.id  }} .badge-image>span {
+      white-space: nowrap; /* 防止文字换行导致错乱 */
+      line-height: 1.2; /* 微调行高，确保文字居中 */
+    }
+
+
+  }
+
+  /* 针对超小屏手机（如320px宽度）的额外适配 */
+  @media screen and (max-width: 374px) {
+    .media-with-product-{{ section.id  }} .badge-image {
+      width: 40px !important;
+      height: 40px !important;
+      font-size: 14px !important;
+    }
+  }
+</style>
+
+{%- comment -%}
+  ------------------------------------------------------------------------------------------------------------------------
+  LIQUID
+  ------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<div
+  id="feature-list-{{ section.settings.anchor_id | default: section.id }}"
+  class="media-with-product-{{ section.id  }} section"
+  {% render 'section-properties' %}
+>
+  <media-with-text class="media-with-text {% if section.settings.spacing == 'none' %}{% if section.settings.full_width %}full-bleed{% else %}rounded{% endif %}{% endif %}">
+    {%- for block in section.blocks -%}
+      {% if block.settings.product != blank %}
+        {% assign product = block.settings.product %}
+        {% assign lowest_price = product.price | divided_by: 100.0 %}
+        {% assign current_product_price = product.compare_at_price | divided_by: 100.0 %}
+        {% assign has_metafield_price = false %}
+
+        {% for variant in product.variants %}
+          {% if variant.metafields.flexify.price != blank %}
+            {% assign current_price = variant.metafields.flexify.price | times: 1.0 %}
+            {% assign has_metafield_price = true %}
+            {% if forloop.first %}
+              {% assign lowest_price = current_price %}
+            {% else %}
+              {% if current_price < lowest_price %}
+                {% assign lowest_price = current_price %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      <div id="block-{{ section.id }}-{{ block.id }}" class="media-with-text__item" {{ block.shopify_attributes }}>
+        <div
+          class="media-with-text__media {% unless section.settings.spacing == 'none' %}rounded{% endunless %}"
+          reveal-on-scroll="true"
+        >
+          {%- liquid
+            assign loading_strategy = null
+
+            if section.index > 3 or forloop.index > 3
+              assign loading_strategy = 'lazy'
+            endif
+          -%}
+
+          {%- if block.type == 'image' -%}
+            {%- if block.settings.image != blank -%}
+              {%- assign width_ratio = 100.0 | divided_by: block.settings.media_width -%}
+              {%- assign maximum_image_width = settings.page_width | divided_by: width_ratio -%}
+
+              {%- capture sizes -%}(max-width: 999px) 100vw, min({{ maximum_image_width | ceil }}px, {{ block.settings.media_width }}vw){% endcapture %}
+
+              {{-
+                block.settings.image
+                | image_url: width: block.settings.image.width
+                | image_tag:
+                  loading: loading_strategy,
+                  sizes: sizes,
+                  widths: '300,400,500,600,700,800,1000,1200,1400,1600,1800,2000,2200,2400,2600'
+              -}}
+            {%- else -%}
+              {{- 'image' | placeholder_svg_tag: 'aspect-short placeholder' -}}
+            {%- endif -%}
+          {%- else -%}
+            {%- capture poster -%}
+              {%- assign poster_image = block.settings.poster_image | default: block.settings.video.preview_image -%}
+
+              {%- if poster_image -%}
+                {{- poster_image | image_url: width: poster_image.width | image_tag: loading: loading_strategy, sizes: '(max-width: 699px) 400px, 800px', widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200', class: 'rounded' -}}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'rounded' }}
+              {%- endif -%}
+            {%- endcapture -%}
+
+            {%- if block.settings.video -%}
+              <video-media
+                {% if block.settings.autoplay %}
+                  autoplay
+                {% else %}
+                  show-play-button
+                {% endif %}
+                style="--aspect-ratio: {{ block.settings.video.aspect_ratio }}"
+              >
+                {%- unless block.settings.autoplay -%}
+                  {{- poster -}}
+                {%- endunless -%}
+
+                {%- if block.settings.autoplay -%}
+                  {{-
+                    block.settings.video
+                    | video_tag: playslinline: true, muted: true, loop: true, preload: 'metadata'
+                  -}}
+                {%- else -%}
+                  {{-
+                    block.settings.video
+                    | video_tag: playslinline: true, controls: true, muted: false, loop: false, preload: 'metadata'
+                  -}}
+                {%- endif -%}
+              </video-media>
+            {%- else -%}
+              <video-media
+                host="{{ block.settings.external_video_url.type }}"
+                {% if block.settings.autoplay %}
+                  autoplay
+                {% else %}
+                  show-play-button
+                {% endif %}
+              >
+                {%- unless block.settings.autoplay -%}
+                  {{- poster -}}
+                {%- endunless -%}
+
+                <template>
+                  {%- if block.settings.external_video_url.type == 'youtube' -%}
+                    <iframe
+                      src="https://www.youtube.com/embed/{{ block.settings.external_video_url.id }}?playsinline=1&autoplay=1&controls=0&mute={% if block.settings.autoplay %}1{% else %}0{% endif %}&loop=1&playlist={{ block.settings.external_video_url.id }}&enablejsapi=1&rel=0&modestbranding=1&origin={{ 'https://' | append: request.host | url_encode }}"
+                      allow="autoplay; encrypted-media"
+                      allowfullscreen="allowfullscreen"
+                    ></iframe>
+                  {%- elsif block.settings.external_video_url.type == 'vimeo' -%}
+                    <iframe
+                      src="https://player.vimeo.com/video/{{ block.settings.external_video_url.id }}?autoplay=1&autopause=1&background={% if block.settings.autoplay %}1{% else %}0{% endif %}&loop=1&muted={% if block.settings.autoplay %}1{% else %}0{% endif %}&transparent=0&responsive=1&portrait=0&title=0&byline=0&color={{ settings.text_color | remove_first: '#' }}"
+                      allow="autoplay; encrypted-media;"
+                      allowfullscreen="allowfullscreen"
+                    ></iframe>
+                  {%- endif -%}
+                </template>
+              </video-media>
+            {%- endif -%}
+          {%- endif -%}
+
+          {% if has_metafield_price %}
+            {% if section.settings.badge_img != blank
+              and block.settings.product
+              and block.settings.product.compare_at_price > 0
+            %}
+              <div class="badge-image">
+                <img src="{{ section.settings.badge_img | img_url: 'medium' }}" alt="badge image">
+
+                {% liquid
+                  if has_metafield_price
+                    assign price = current_product_price | minus: lowest_price
+                    assign price_old = block.settings.product.compare_at_price | divided_by: 100.00
+                  else
+                    assign price = block.settings.product.compare_at_price | minus: block.settings.product.price | divided_by: 100.00
+                    assign price_old = block.settings.product.compare_at_price | divided_by: 100.00
+                  endif
+
+                  if block.settings.discount_mode == 'percentage' or section.settings.badge_display_mode == 'percentage'
+                    assign off = price | divided_by: price_old
+                    assign badge_text = off | times: 100 | round | append: '%<br>OFF'
+                  else
+                    assign badge_text = price | times: 100 | money | append: '<br>OFF'
+                  endif
+                %}
+                <span>{{ badge_text }}</span>
+              </div>
+            {% endif %}
+          {% else %}
+            {% if section.settings.badge_img != blank
+              and block.settings.product
+              and block.settings.product.compare_at_price > 0
+            %}
+              <div class="badge-image">
+                <img src="{{ section.settings.badge_img | img_url: 'medium' }}" alt="badge image">
+                {% liquid
+                  if has_metafield_price
+                    assign price = current_product_price | minus: lowest_price
+                    assign price_old = block.settings.product.compare_at_price | divided_by: 100.00
+                  else
+                    assign price = block.settings.product.compare_at_price | minus: block.settings.product.price | divided_by: 100.00
+                    assign price_old = block.settings.product.compare_at_price | divided_by: 100.00
+                  endif
+
+                  if block.settings.discount_mode == 'percentage' or section.settings.badge_display_mode == 'percentage'
+                    assign off = price | divided_by: price_old
+                    assign badge_text = off | times: 100 | round | append: '%<br>OFF'
+                  else
+                    assign badge_text = price | times: 100 | money | append: '<br>OFF'
+                  endif
+                %}
+                <span>{{ badge_text }}</span>
+              </div>
+            {% endif %}
+          {% endif %}
+        </div>
+
+        {%- capture content_class -%}media-with-text__content {% unless section.settings.spacing == 'none' %}rounded{% endunless %}{%- endcapture -%}
+        <div
+          {% render 'surface',
+            class: content_class,
+            background: block.settings.background,
+            background_gradient: block.settings.background_gradient,
+            text_color: block.settings.text_color
+          %}
+        >
+          <div class="prose break-all {{ block.settings.text_position }}" reveal-on-scroll="true">
+            {%- if block.settings.custom_icon != blank -%}
+              {%- capture sizes -%}{{ block.settings.icon_width }}px{%- endcapture -%}
+              {%- capture widths -%}{{ block.settings.icon_width }}, {{ block.settings.icon_width | times: 2 | at_most: block.settings.custom_icon.width }}{%- endcapture -%}
+              {{-
+                block.settings.custom_icon
+                | image_url: width: block.settings.custom_icon.width
+                | image_tag: loading: loading_strategy, sizes: sizes, widths: widths, class: 'media-with-text__icon'
+              -}}
+            {%- elsif block.settings.icon != 'none' -%}
+              {%- render 'icon' with block.settings.icon,
+                width: block.settings.icon_width,
+                height: block.settings.icon_width,
+                class: 'media-with-text__icon'
+              -%}
+            {%- endif -%}
+
+            {%- if block.settings.subheading != blank -%}
+              <p class="subheading">{{ block.settings.subheading | escape }}</p>
+            {%- endif -%}
+
+            {%- if block.settings.title != blank -%}
+              <p class="h2">
+                {%- render 'styled-text', content: block.settings.title, gradient: block.settings.text_gradient -%}
+              </p>
+            {%- endif -%}
+
+            {%- if block.settings.link_text != blank -%}
+              {%- render 'button',
+                href: block.settings.link_url,
+                content: block.settings.link_text,
+                size: 'xl',
+                background: block.settings.button_background,
+                text_color: block.settings.button_text_color
+              -%}
+            {%- endif -%}
+
+            {% if block.settings.product != blank %}
+              {% assign product = block.settings.product %}
+              {% assign lowest_price = product.price | divided_by: 100.0 %}
+              {% assign current_product_price = product.compare_at_price | divided_by: 100.0 %}
+              {% assign has_metafield_price = false %}
+
+              {% for variant in product.variants %}
+                {% if variant.metafields.flexify.price != blank %}
+                  {% assign current_price = variant.metafields.flexify.price | times: 1.0 %}
+                  {% assign has_metafield_price = true %}
+                  {% if forloop.first %}
+                    {% assign lowest_price = current_price %}
+                  {% else %}
+                    {% if current_price < lowest_price %}
+                      {% assign lowest_price = current_price %}
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+              <div class="pt-card">
+                <h2 class="pt-title">{{ product.title }}</h2>
+                {{- block.settings.content -}}
+                <div class="pt-price">
+                  <div class="pt-price-flex">
+                    {%- render 'price-list',
+                      product: product,
+                      variant: product.selected_or_first_available_variant,
+                      form_id: product_form_id
+                    -%}
+                  </div>
+                </div>
+                <p class="pt-description">{{ product.metafields.custom.description }}</p>
+                <a href="{{ product.url }}" class="buy-button button">Shop Now</a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </media-with-text>
+</div>
+
+{% schema %}
+{
+  "name": "Media with Product",
+  "class": "shopify-section--media-with-text",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+     {
+  "type": "text",
+  "id": "anchor_id",
+  "label": "Anchor ID",
+  "info": "Unique ID for anchor links",
+  "default": "media-with-product"
+},
+
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "info": "Only has effect when spacing is set to none.",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "spacing",
+      "label": "Spacing",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "small"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_img",
+      "label": "Badge image"
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background",
+    },
+            {
+          "type": "color",
+          "id": "price_color",
+          "label": "Price color",
+            "default":"#ff5722"
+        },
+     {
+      "type": "color",
+      "id": "off_color",
+      "label": "Off text color",
+        "default":"#000"
+    },
+        {
+          "type": "color",
+          "id": "badge_color",
+          "label": "Badge color",
+
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Badge text color",
+          "default":"#ff5722"
+        },
+        {
+          "type": "color",
+          "id": "buy_button_color",
+          "label": "Buy button color",
+          "default":"#e76319"
+        },
+
+
+        {
+          "type": "color",
+          "id": "buy_button_text_color",
+          "label": "Buy button text  color",
+          "default":"#fff"
+        },
+    {
+      "type": "range",
+      "id": "section_pdtop",
+      "label": "Section top spacing",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "section_pdbot",
+      "label": "Section bottom spacing",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 50
+    },
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+
+        {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1500 x 1500px .jpg recommended"
+        },
+        {
+          "type": "range",
+          "id": "media_width",
+          "label": "Image width",
+          "min": 30,
+          "max": 60,
+          "step": 5,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "select",
+          "id": "media_position",
+          "label": "Image position",
+          "options": [
+            {
+              "value": "start",
+              "label": "Left"
+            },
+            {
+              "value": "end",
+              "label": "Right"
+            }
+          ],
+          "default": "start"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Content position",
+          "options": [
+            {
+              "value": "place-self-start text-start",
+              "label": "Top left"
+            },
+            {
+              "value": "place-self-start-center text-center",
+              "label": "Top center"
+            },
+            {
+              "value": "place-self-start-end text-end",
+              "label": "Top right"
+            },
+            {
+              "value": "place-self-center-start text-start",
+              "label": "Middle left"
+            },
+            {
+              "value": "place-self-center text-center",
+              "label": "Middle center"
+            },
+            {
+              "value": "place-self-center-end text-end",
+              "label": "Middle right"
+            },
+            {
+              "value": "place-self-end-start text-start",
+              "label": "Bottom left"
+            },
+            {
+              "value": "place-self-end-center text-center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "place-self-end text-end",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "place-self-center text-center"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "picto-coupon",
+              "label": "Coupon",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-percent",
+              "label": "Percent",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-gift",
+              "label": "Gift",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-star",
+              "label": "Star",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-like",
+              "label": "Like",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-building",
+              "label": "Building",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-love",
+              "label": "Love",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-award-gift",
+              "label": "Award gift",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-happy",
+              "label": "Happy",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-box",
+              "label": "Box",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-pin",
+              "label": "Pin",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-timer",
+              "label": "Timer",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-validation",
+              "label": "Validation",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-truck",
+              "label": "Truck",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-return",
+              "label": "Return",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-earth",
+              "label": "Earth",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-plane",
+              "label": "Plane",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-credit-card",
+              "label": "Credit card",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "picto-lock",
+              "label": "Lock",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "picto-shield",
+              "label": "Shield",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "picto-secure-profile",
+              "label": "Secure profile",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "picto-money",
+              "label": "Money",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "picto-recycle",
+              "label": "Recycle",
+              "group": "Ecology"
+            },
+            {
+              "value": "picto-leaf",
+              "label": "Leaf",
+              "group": "Ecology"
+            },
+            {
+              "value": "picto-tree",
+              "label": "Tree",
+              "group": "Ecology"
+            },
+            {
+              "value": "picto-mobile-phone",
+              "label": "Mobile phone",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-phone",
+              "label": "Phone",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-chat",
+              "label": "Chat",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-customer-support",
+              "label": "Customer support",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-operator",
+              "label": "Operator",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-mailbox",
+              "label": "Mailbox",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-envelope",
+              "label": "Envelope",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-comment",
+              "label": "Comment",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-question",
+              "label": "Question",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-send",
+              "label": "Send",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-at-sign",
+              "label": "At sign",
+              "group": "Tech"
+            },
+            {
+              "value": "picto-camera",
+              "label": "Camera",
+              "group": "Tech"
+            },
+            {
+              "value": "picto-wifi",
+              "label": "WiFi",
+              "group": "Tech"
+            },
+            {
+              "value": "picto-bluetooth",
+              "label": "Bluetooth",
+              "group": "Tech"
+            },
+            {
+              "value": "picto-printer",
+              "label": "Printer",
+              "group": "Tech"
+            },
+            {
+              "value": "picto-smart-watch",
+              "label": "Smart watch",
+              "group": "Tech"
+            },
+            {
+              "value": "picto-coffee",
+              "label": "Coffee",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "picto-burger",
+              "label": "Burger",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "picto-beer",
+              "label": "Beer",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "picto-target",
+              "label": "Target",
+              "group": "Other"
+            },
+            {
+              "value": "picto-document",
+              "label": "Document",
+              "group": "Other"
+            },
+            {
+              "value": "picto-jewelry",
+              "label": "Jewelry",
+              "group": "Other"
+            },
+            {
+              "value": "picto-music",
+              "label": "Music",
+              "group": "Other"
+            },
+            {
+              "value": "picto-file",
+              "label": "File",
+              "group": "Other"
+            },
+            {
+              "value": "picto-mask",
+              "label": "Mask",
+              "group": "Other"
+            },
+            {
+              "value": "picto-stop",
+              "label": "Stop",
+              "group": "Other"
+            }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom icon",
+          "info": "240 x 240px .png recommended"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "min": 24,
+          "max": 120,
+          "step": 4,
+          "unit": "px",
+          "label": "Icon width",
+          "default": 48
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading"
+        },
+        {
+  "type": "select",
+  "id": "discount_mode",
+  "label": "折扣显示方式",
+  "options": [
+    {
+      "value": "percentage",
+      "label": "百分比"
+    },
+    {
+      "value": "amount",
+      "label": "金额"
+    }
+  ],
+  "default": "percentage"
+},
+        {
+  "type": "range",
+  "id": "badge_width",
+  "label": "Badge width",
+  "min": 40,
+  "max": 200,
+  "step": 5,
+  "unit": "px",
+  "default": 120
+},
+{
+  "type": "range",
+  "id": "badge_height",
+  "label": "Badge height",
+  "min": 40,
+  "max": 200,
+  "step": 5,
+  "unit": "px",
+  "default": 120
+},
+{
+  "type": "range",
+  "id": "badge_font_size",
+  "label": "Badge font size",
+  "min": 12,
+  "max": 48,
+  "step": 1,
+  "unit": "px",
+  "default": 32
+},
+{
+  "type": "color",
+  "id": "badge_text_color",
+  "label": "Badge text color",
+  "default": "#ffffff"
+},
+        {
+  "type": "select",
+  "id": "badge_position",
+  "label": "Badge position",
+  "options": [
+    {
+      "value": "right",
+      "label": "Right"
+    },
+    {
+      "value": "left",
+      "label": "Left"
+    }
+  ],
+  "default": "right"
+},
+
+{
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading color",
+      "default": "#666666"
+    },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "header",
+          "content": "Colors",
+          "info": "Gradient replaces solid colors when set. Background is ignored when image is used."
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background",
+          "default": "#000000"
+        },
+        {
+          "type": "color_background",
+          "id": "background_gradient",
+          "label": "Background gradient"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color_background",
+          "id": "text_gradient",
+          "label": "Text gradient"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
+        },
+
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Replaces external video if both are set. For best visual results and avoid platform branding, we recommend uploading a MP4 file."
+        },
+        {
+          "type": "video_url",
+          "id": "external_video_url",
+          "accept": ["vimeo", "youtube"],
+          "label": "Video URL",
+          "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+        },
+        {
+          "type": "image_picker",
+          "id": "poster_image",
+          "label": "Poster image",
+          "info": "Only used when autoplay is disabled."
+        },
+        {
+          "type": "checkbox",
+          "id": "autoplay",
+          "label": "Autoplay",
+          "info": "Video are muted to allow autoplay.",
+          "default": true
+        },
+        {
+          "type": "range",
+          "id": "media_width",
+          "label": "Video width",
+          "min": 30,
+          "max": 70,
+          "step": 5,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "select",
+          "id": "media_position",
+          "label": "Video position",
+          "options": [
+            {
+              "value": "start",
+              "label": "Left"
+            },
+            {
+              "value": "end",
+              "label": "Right"
+            }
+          ],
+          "default": "start"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Content position",
+          "options": [
+            {
+              "value": "place-self-start text-start",
+              "label": "Top left"
+            },
+            {
+              "value": "place-self-start-center text-center",
+              "label": "Top center"
+            },
+            {
+              "value": "place-self-start-end text-end",
+              "label": "Top right"
+            },
+            {
+              "value": "place-self-center-start text-start",
+              "label": "Middle left"
+            },
+            {
+              "value": "place-self-center text-center",
+              "label": "Middle center"
+            },
+            {
+              "value": "place-self-center-end text-end",
+              "label": "Middle right"
+            },
+            {
+              "value": "place-self-end-start text-start",
+              "label": "Bottom left"
+            },
+            {
+              "value": "place-self-end-center text-center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "place-self-end text-end",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "place-self-center text-center"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "picto-coupon",
+              "label": "Coupon",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-percent",
+              "label": "Percent",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-gift",
+              "label": "Gift",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-star",
+              "label": "Star",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-like",
+              "label": "Like",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-building",
+              "label": "Building",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-love",
+              "label": "Love",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-award-gift",
+              "label": "Award gift",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-happy",
+              "label": "Happy",
+              "group": "Shop"
+            },
+            {
+              "value": "picto-box",
+              "label": "Box",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-pin",
+              "label": "Pin",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-timer",
+              "label": "Timer",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-validation",
+              "label": "Validation",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-truck",
+              "label": "Truck",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-return",
+              "label": "Return",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-earth",
+              "label": "Earth",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-plane",
+              "label": "Plane",
+              "group": "Shipping"
+            },
+            {
+              "value": "picto-credit-card",
+              "label": "Credit card",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "picto-lock",
+              "label": "Lock",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "picto-shield",
+              "label": "Shield",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "picto-secure-profile",
+              "label": "Secure profile",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "picto-money",
+              "label": "Money",
+              "group": "Payment & Security"
+            },
+            {
+              "value": "picto-recycle",
+              "label": "Recycle",
+              "group": "Ecology"
+            },
+            {
+              "value": "picto-leaf",
+              "label": "Leaf",
+              "group": "Ecology"
+            },
+            {
+              "value": "picto-tree",
+              "label": "Tree",
+              "group": "Ecology"
+            },
+            {
+              "value": "picto-mobile-phone",
+              "label": "Mobile phone",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-phone",
+              "label": "Phone",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-chat",
+              "label": "Chat",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-customer-support",
+              "label": "Customer support",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-operator",
+              "label": "Operator",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-mailbox",
+              "label": "Mailbox",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-envelope",
+              "label": "Envelope",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-comment",
+              "label": "Comment",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-question",
+              "label": "Question",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-send",
+              "label": "Send",
+              "group": "Communication"
+            },
+            {
+              "value": "picto-at-sign",
+              "label": "At sign",
+              "group": "Tech"
+            },
+            {
+              "value": "picto-camera",
+              "label": "Camera",
+              "group": "Tech"
+            },
+            {
+              "value": "picto-wifi",
+              "label": "WiFi",
+              "group": "Tech"
+            },
+            {
+              "value": "picto-bluetooth",
+              "label": "Bluetooth",
+              "group": "Tech"
+            },
+            {
+              "value": "picto-printer",
+              "label": "Printer",
+              "group": "Tech"
+            },
+            {
+              "value": "picto-smart-watch",
+              "label": "Smart watch",
+              "group": "Tech"
+            },
+            {
+              "value": "picto-coffee",
+              "label": "Coffee",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "picto-burger",
+              "label": "Burger",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "picto-beer",
+              "label": "Beer",
+              "group": "Food & Drink"
+            },
+            {
+              "value": "picto-target",
+              "label": "Target",
+              "group": "Other"
+            },
+            {
+              "value": "picto-document",
+              "label": "Document",
+              "group": "Other"
+            },
+            {
+              "value": "picto-jewelry",
+              "label": "Jewelry",
+              "group": "Other"
+            },
+            {
+              "value": "picto-music",
+              "label": "Music",
+              "group": "Other"
+            },
+            {
+              "value": "picto-file",
+              "label": "File",
+              "group": "Other"
+            },
+            {
+              "value": "picto-mask",
+              "label": "Mask",
+              "group": "Other"
+            },
+            {
+              "value": "picto-stop",
+              "label": "Stop",
+              "group": "Other"
+            }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom icon",
+          "info": "240 x 240px .png recommended"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "min": 24,
+          "max": 120,
+          "step": 4,
+          "unit": "px",
+          "label": "Icon width",
+          "default": 48
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading"
+        },
+{
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading color",
+      "default": "#666666"
+    },
+
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "header",
+          "content": "Colors",
+          "info": "Gradient replaces solid colors when set. Background is ignored when image is used."
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background",
+          "default": "#000000"
+        },
+        {
+          "type": "color_background",
+          "id": "background_gradient",
+          "label": "Background gradient"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color_background",
+          "id": "text_gradient",
+          "label": "Text gradient"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
+        }
+      ]
+    },
+
+  ],
+  "presets": [
+    {
+      "name": "Media with Product",
+      "blocks": [
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
