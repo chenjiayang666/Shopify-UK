@@ -1,0 +1,188 @@
+{%- if template.name == 'product' -%}
+  <style>
+    #shopify-section-{{ section.id }} {
+      position: sticky;
+      top: calc(var(--header-height, 0px));
+      background: white;
+      z-index: 9;
+      width: 100%;
+      border-bottom: 1px solid #e5e5e5;
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .fixed-buy-now__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 17px;
+      max-width: 1400px;
+      column-gap: 8px;
+      margin: 0 auto;
+    }
+
+    #shopify-section-{{ section.id }} .fixed-buy-now__product-info {
+      display: flex;
+      flex-direction: column;
+      max-width: calc(100% - 100px);
+      min-width: 0;
+    }
+
+    #shopify-section-{{ section.id }} .fixed-buy-now__title {
+      font-size: 15px;
+      font-weight: bold;
+      color: #333;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .fixed-buy-now__price-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #shopify-section-{{ section.id }} .fixed-part-current-price {
+      color: #333;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .fixed-part-current-price-hidden {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      display: none; /* transition会失效，看后续是否需要优化 */
+    }
+    #shopify-section-{{ section.id }} .fixed-part-current-price-hidden.show {
+      opacity: 1;
+      visibility: visible;
+      display: block;
+    }
+
+    #shopify-section-{{ section.id }} .fixed-part-current-price.transition-style {
+      transition: 
+      font-size 0.3s ease,
+      font-weight 0.3s ease,
+      color 0.3s ease,
+      text-decoration 0.3s ease;
+    }
+
+    /* 划线价的样式放在下方，覆盖性 */
+    #shopify-section-{{ section.id }} .fixed-part-compare-price {
+      color: #999;
+      text-decoration: line-through;
+      font-size: 12px;
+      font-weight: normal;
+    }
+
+    #shopify-section-{{ section.id }} .fixed-buy-now__shop-now {
+      background: #336fff;
+      white-space: nowrap;
+      width: 92px !important;{% comment %} 写死，有助于其他元素的固定宽度 {% endcomment %}
+      padding: 6px 0px;
+      text-align: center;
+      color: white;
+      font-size: 12px;
+      border-radius: 10px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.2s;
+    }
+
+    /* 当页面滚动超过一定距离时显示 */
+    .show-fixed-buy-now .fixed-buy-now {
+      display: block;
+    }
+    .fixed-buy-loading {
+      width: 14px;
+      height: 14px;
+
+      border-radius: 50%;
+
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+
+      animation: fixedBuySpin .6s linear infinite;
+    }
+
+    @keyframes fixedBuySpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    @media screen and (max-width: 767px) {
+      #shopify-section-{{ section.id }} {
+        display: block;
+      }
+    }
+  </style>
+
+  <div class="fixed-buy-now">
+    <div class="fixed-buy-now__inner">
+      <div class="fixed-buy-now__product-info">
+        <div class="fixed-buy-now__title">{{ product.title }}</div>
+        <div class="fixed-buy-now__price-wrapper">
+          {%- assign default_select_variant = product.selected_or_first_available_variant -%}
+          {%- if default_select_variant.compare_at_price > default_select_variant.price -%}
+            <div class="fixed-part-current-price">
+              <decrease-num-with-condition class="fixed-part" data-original-price="{{ default_select_variant.price | money_without_currency }}" data-final-price="{{ default_select_variant.price | money_without_currency }}">${{ default_select_variant.price | money_without_currency }}</decrease-num-with-condition>
+            </div>
+            <span class="fixed-part-compare-price">{{ default_select_variant.compare_at_price | money }}</span>
+          {%- else -%}
+            <div class="fixed-part-current-price fixed-part-current-price-hidden">
+              <decrease-num-with-condition class="fixed-part" fixed-buy-now-on-handle-price-switch handle-show-dom-class=".fixed-part-current-price-hidden" data-original-price="{{- default_select_variant.price | money_without_currency -}}" data-final-price="{{- default_select_variant.price | money_without_currency -}}">${{- default_select_variant.price | money_without_currency -}}</decrease-num-with-condition>
+            </div>
+            <div class="fixed-part-current-price transition-style">
+              ${{- default_select_variant.price | money_without_currency -}}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+      <fixed-buy-now-button class="fixed-buy-now__shop-now">Shop Now</fixed-buy-now-button>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "固定购买栏",
+  "tag": "header",
+  "class": "shopify-section--fixed-buy-now",
+  "settings": [
+    {
+      "type": "header",
+      "content": "显示设置"
+    },
+    {
+      "type": "range",
+      "id": "scroll_trigger",
+      "min": 100,
+      "max": 500,
+      "step": 50,
+      "unit": "px",
+      "label": "滚动触发距离",
+      "default": 200
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "按钮背景色",
+      "default": "#4A90E2"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "按钮文字颜色",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "固定购买栏"
+    }
+  ]
+}
+{% endschema %} 
