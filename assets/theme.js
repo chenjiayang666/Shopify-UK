@@ -1,3 +1,4 @@
+//原有的代码：
 var __typeError = (msg) => {
   throw TypeError(msg);
 };
@@ -1565,10 +1566,10 @@ var Popover = class extends DialogElement {
     let animationControls, content = this.shadowRoot.querySelector('[part="content"]'), closeButton = this.shadowRoot.querySelector('[part="outside-close-button"]');
     this.style.display = "block";
     if (window.matchMedia("screen and (max-width: 999px)").matches) {
-      this.style.insetInlineStart = "0px";
-      this.style.insetInlineEnd = null;
-      this.style.insetBlockEnd = "0px";
-      this.style.insetBlockStart = null;
+      this.style.left = "0px";
+      this.style.right = null;
+      this.style.bottom = "0px";
+      this.style.top = null;
       animationControls = motionTimeline2([
         [this, { opacity: [0, 1], visibility: ["hidden", "visible"] }, { duration: 0.15 }],
         [content, { clipPath: ["inset(100% 0 0 0 round 8px)", "inset(0 0 0 0 round 8px"] }, { duration: 0.4, easing: [0.86, 0, 0.07, 1] }],
@@ -1577,14 +1578,14 @@ var Popover = class extends DialogElement {
       ]);
     } else {
       let spacingBlockValue = "var(--popover-anchor-block-spacing)", spacingInlineValue = "var(--popover-anchor-inline-spacing)";
-      this.style.insetInlineStart = this.anchor.horizontal === "start" ? spacingInlineValue : null;
-      this.style.insetInlineEnd = this.anchor.horizontal === "end" ? spacingInlineValue : null;
+      this.style.left = this.anchor.horizontal === "start" ? spacingInlineValue : null;
+      this.style.right = this.anchor.horizontal === "end" ? spacingInlineValue : null;
       if (this.anchor.vertical === "center") {
-        this.style.insetBlockStart = `calc(50% - ${parseInt(this.clientHeight / 2)}px)`;
-        this.style.insetBlockEnd = null;
+        this.style.top = `calc(50% - ${parseInt(this.clientHeight / 2)}px)`;
+        this.style.bottom = null;
       } else {
-        this.style.insetBlockStart = this.anchor.vertical === "end" ? `calc(100% + ${spacingBlockValue})` : null;
-        this.style.insetBlockEnd = this.anchor.vertical === "start" ? `calc(100% + ${spacingBlockValue})` : null;
+        this.style.top = this.anchor.vertical === "end" ? `calc(100% + ${spacingBlockValue})` : null;
+        this.style.bottom = this.anchor.vertical === "start" ? `calc(100% + ${spacingBlockValue})` : null;
       }
       animationControls = motionTimeline2([
         [this, { opacity: [0, 1], visibility: ["hidden", "visible"] }, { duration: 0.15 }],
@@ -1779,14 +1780,10 @@ var LineItem = class extends HTMLElement {
   connectedCallback() {
     this.pillLoaderElement = this.querySelector("pill-loader");
     this.addEventListener("line-item:will-change", this._onWillChange.bind(this));
-    this.addEventListener("line-item:error", this._onErrored.bind(this));
     this.addEventListener("line-item:change", this._onChanged.bind(this));
   }
   _onWillChange() {
     this.pillLoaderElement.setAttribute("aria-busy", "true");
-  }
-  _onErrored() {
-    this.pillLoaderElement.removeAttribute("aria-busy");
   }
   async _onChanged(event) {
     this.pillLoaderElement.removeAttribute("aria-busy");
@@ -3103,7 +3100,7 @@ onRerender_fn = function(event) {
   if (!this.hasAttribute("allow-partial-rerender") || event.detail.productChange) {
     this.replaceWith(matchingElement);
   } else {
-    const blockTypes = ["sku", "badges", "price", "payment-terms", "variant-picker", "quantity-selector", "volume-pricing", "inventory", "buy-buttons", "pickup-availability", "liquid"];
+    const blockTypes = ["sku", "badges", "price", "new-price", "payment-terms", "variant-picker", "quantity-selector", "volume-pricing", "inventory", "buy-buttons", "pickup-availability", "liquid"];
     blockTypes.forEach((blockType) => {
       this.querySelectorAll(`[data-block-type="${blockType}"]`).forEach((element) => {
         const matchingBlock = matchingElement.querySelector(`[data-block-type="${blockType}"][data-block-id="${element.getAttribute("data-block-id")}"]`);
@@ -3120,6 +3117,20 @@ onRerender_fn = function(event) {
             if (newSelector) {
               newSelector.quantity = existingQuantity;
             }
+          } else if(blockType === "new-price") {
+            const payNowTextContainer = element.querySelector("pay-now-text-container");
+            if(!payNowTextContainer) return;
+            const rect = payNowTextContainer.getBoundingClientRect();
+            const preciseWidth = rect.width; 
+            const newPriceContainer = matchingBlock.querySelector("pay-now-text-container");
+            if (newPriceContainer) {
+              newPriceContainer.style.width = preciseWidth + 'px';
+            }
+            const decreaseNumElement = matchingBlock.querySelector(".current-price decrease-num-with-condition");
+            if (decreaseNumElement && typeof decreaseNumElement.syncToFixedBuyNow === 'function') {
+              decreaseNumElement.syncToFixedBuyNow();
+            }
+            element.replaceWith(matchingBlock);
           } else {
             element.replaceWith(matchingBlock);
           }
@@ -4024,9 +4035,7 @@ var StoreHeader = class extends HTMLElement {
       this._isVisible = false;
       document.documentElement.style.setProperty("--header-is-visible", "0");
       await animate11(this, { transform: ["translateY(0)", "translateY(-100%)"] }, { duration: 0.2, easing: "ease" }).finished;
-      if (this._isVisible === false) {
-        this.closest(".shopify-section").style.visibility = "hidden";
-      }
+      this.closest(".shopify-section").style.visibility = "hidden";
     }
   }
   show() {
@@ -4238,19 +4247,108 @@ var NavigationDrawer = class extends Drawer {
   constructor() {
     super();
     const delegate = new Delegate6(this);
-    delegate.on("click", "button[data-panel]", this._onPanelButtonClick.bind(this));
+    delegate.on("click", "button[data-panel]:not([content-class])", this._onPanelButtonClick.bind(this));
+    delegate.on("click", ".expand-below", (event, target) => {
+      this._onPanelButtonClick2(event, target);
+    });
     this._isTransitioning = false;
     this.addEventListener("dialog:after-hide", () => {
       this.reinitializeDrawer();
     });
+    // 原始逻辑出现bug：弹窗出现后，再次点击按钮总是关闭掉，所以就不用代理了，改为普通事件监听。。
+    const controlsStr = this.getAttribute("tigger-button");
+    if (controlsStr) {
+      this.triggerButton = document.querySelector(`[aria-controls='${controlsStr}']`);
+      if (this.triggerButton) {
+        this.triggerButton.addEventListener("click", this._onToggleClicked.bind(this));
+      }
+    }
   }
   get openFrom() {
     return window.matchMedia("(max-width: 699px)").matches ? this.getAttribute("mobile-opening") : super.openFrom;
   }
+  get shouldAppendToBody() {
+    return false;
+  }
+  _onToggleClicked(event) {
+    if(this.open) {
+      this.hide()
+      this.triggerButton?.classList?.remove("opened")
+    } else {
+      this.show()
+      this.triggerButton?.classList?.add("opened")
+    }
+  }
+  hide() {
+    if (!this.open) {
+      return;
+    }
+    this.removeAttribute("open");
+    this.triggerButton?.classList?.remove("opened")
+    return Promise.resolve()
+  }
+  show(animate19 = true) {
+    if (this.open) {
+      return;
+    }
+    this.setAttribute("open", animate19 ? "" : "immediate");
+    return Promise.resolve()
+  }
+  _allowOutsideClickTouch(event) {
+    event.target.addEventListener("touchend", (subEvent) => {
+      const endTarget = document.elementFromPoint(subEvent.changedTouches.item(0).clientX, subEvent.changedTouches.item(0).clientY);
+      if (!this.contains(endTarget) && !event.target.classList.contains("menu-switch-button") && !event.target.classList.contains("menu-switch-button-inner")) {
+        this.hide();
+      }
+    }, { once: true });
+    return true;
+  }
+  _allowOutsideClickMouse(event) {
+    if (event.type !== "click") {
+      return false;
+    }
+    if (!this.contains(event.target) && !event.target.classList.contains("menu-switch-button") && !event.target.classList.contains("menu-switch-button-inner")) {
+      this.hide();
+    }
+    let target = event.target, closestControl = event.target.closest("[aria-controls]");
+    if (closestControl && closestControl.getAttribute("aria-controls") === this.id) {
+      target = closestControl;
+    }
+    return this.id !== target.getAttribute("aria-controls");
+  }
+  _updateDefaultExpandedItemsHeight(linkLists, linkListIndex) {
+    if(!linkLists || linkListIndex === null) return;
+    let panelWrapperToShow = linkLists[linkListIndex]
+    // 查找所有默认展开的项（即第一个具有height: auto的项）
+    const defaultExpandedContent = panelWrapperToShow.querySelector('.expand-below-item-content[style*="height: auto"]');
+    if(!defaultExpandedContent) return;
+    // 获取当前auto高度的实际像素值
+    const realHeight = defaultExpandedContent.offsetHeight;
+      
+    // 设置具体的高度值
+    if (realHeight > 0) {
+      defaultExpandedContent.style.height = `${realHeight}px`;
+    }
+  }
   // Used for navigation mobile and navigation desktop set to drawer
-  switchToPanel(panelIndex, linkListIndex = null) {
+  switchToPanel(panelIndex, linkListIndex = null, specificPanelHideIndex = null) {
     const panels = this.querySelectorAll(".panel");
-    let panelToHideTransform, panelToShowTransform, panelToHide = linkListIndex !== null ? panels[parseInt(panelIndex) - 1] : panels[parseInt(panelIndex) + 1], panelToShow = panels[panelIndex], linkLists = panelToShow.querySelectorAll(".panel__wrapper"), timelineSequence = [];
+    let panelToHideTransform, panelToShowTransform;
+    
+    // 确定需要隐藏的面板
+    let panelToHide;
+    if (specificPanelHideIndex !== null) {
+      // 使用传入的specificPanelHideIndex值
+      panelToHide = panels[specificPanelHideIndex];
+    } else {
+      // 使用原来的逻辑
+      panelToHide = linkListIndex !== null ? panels[parseInt(panelIndex) - 1] : panels[parseInt(panelIndex) + 1];
+    }
+    
+    const panelToShow = panels[panelIndex];
+    const linkLists = panelToShow.querySelectorAll(".panel__wrapper");
+    const timelineSequence = [];
+    
     if (document.dir === "rtl") {
       panelToHideTransform = linkListIndex !== null ? ["translateX(0%)", "translateX(100%)"] : ["translateX(0%)", "translateX(-100%)"];
       panelToShowTransform = linkListIndex !== null ? ["translateX(-100%)", "translateX(0%)"] : ["translateX(100%)", "translateX(0%)"];
@@ -4258,15 +4356,19 @@ var NavigationDrawer = class extends Drawer {
       panelToHideTransform = linkListIndex !== null ? ["translateX(0%)", "translateX(-100%)"] : ["translateX(0%)", "translateX(100%)"];
       panelToShowTransform = linkListIndex !== null ? ["translateX(100%)", "translateX(0%)"] : ["translateX(-100%)", "translateX(0%)"];
     }
+    
     timelineSequence.push(
       [panelToHide, { transform: panelToHideTransform, opacity: [1, 0], visibility: ["visible", "hidden"] }, { duration: 0.3, opacity: { at: "+0.3" }, transform: { at: "+0.3" } }],
       "panelHidden",
       [panelToShow, { opacity: [0, 1], visibility: ["hidden", "visible"], transform: panelToShowTransform }, { at: "<", transform: { duration: 0.3 } }]
     );
+    
     if (linkListIndex !== null) {
       timelineSequence.push(this.switchLinkList(linkLists, linkListIndex));
     }
+    
     timeline9(timelineSequence);
+    this._updateDefaultExpandedItemsHeight(linkLists, linkListIndex);
   }
   // Used when mega menu is set to drawer
   showPanel(panelIndex, linkListIndex = null) {
@@ -4331,11 +4433,65 @@ var NavigationDrawer = class extends Drawer {
     }
   }
   _onPanelButtonClick(event, target) {
+    // 获取按钮上的panel-hide-index属性
+    let specificPanelHideIndex = null;
+    if (target && target.hasAttribute('panel-hide-index')) {
+      specificPanelHideIndex = parseInt(target.getAttribute('panel-hide-index'));
+    }
+    
     if (this.hasAttribute("mega-menu") && window.matchMedia("(min-width:1150px)").matches) {
       this.setExpanded(target);
       this.showPanel(...target.getAttribute("data-panel").split("-"));
     } else {
-      this.switchToPanel(...target.getAttribute("data-panel").split("-"));
+      // 将面板隐藏索引作为第三个参数传递给switchToPanel方法
+      const panelParams = target.getAttribute("data-panel").split("-");
+      this.switchToPanel(panelParams[0], panelParams.length > 1 ? panelParams[1] : null, specificPanelHideIndex);
+    }
+  }
+  _onPanelButtonClick2(event, target) {//主要使用target 和 this
+    if (!(this.hasAttribute("mega-menu") && window.matchMedia("(min-width:1150px)").matches)) {
+      const expandBelowOuter = target.closest("li");
+      const contentTarget = target.getAttribute("content-class");
+      if(!contentTarget || !expandBelowOuter) return;
+      const contentTargetElement = expandBelowOuter.querySelector(contentTarget);
+      if(!contentTargetElement) return;
+      
+      // 奇怪bug，应该和这里的仅打开一个 没关系
+      // 检查是否具有single-open-and-wrap-selector属性
+      const singleOpenSelector = target.getAttribute("single-open-and-wrap-selector");
+      
+      if (!expandBelowOuter.classList.contains("active")) { //如果没有激活，就激活(添加active类)
+        // 如果有single-open-and-wrap-selector属性，关闭其他展开项
+        if (singleOpenSelector) {
+          // 获取外层容器
+          const outerContainer = document.querySelector(`.h5-menu-outer ${singleOpenSelector}`);
+          if (outerContainer) {
+            // 获取所有已展开的项（除了当前点击的项）
+            const expandedItems = outerContainer.querySelectorAll(".has-expand-below-item.active .expand-below");
+            expandedItems.forEach(item => {
+              // 确保不是当前点击的项
+              const itemOuter = item.closest("li");
+              if (itemOuter && itemOuter !== expandBelowOuter) {
+                // 关闭这个项
+                itemOuter.classList.remove("active");
+                const itemContent = itemOuter.querySelector(item.getAttribute("content-class"));
+                if (itemContent) {
+                  itemContent.style.height = "0px";
+                }
+              }
+            });
+          }
+        }
+        expandBelowOuter.classList.add("active");
+        contentTargetElement.style.height = "auto";
+        const realHeight = contentTargetElement.offsetHeight;
+        contentTargetElement.style.height = "0";
+        contentTargetElement.offsetHeight
+        contentTargetElement.style.height = `${realHeight}px`;
+      } else {
+        expandBelowOuter.classList.remove("active");
+        contentTargetElement.style.height = "0px";
+      }
     }
   }
 };
@@ -4359,6 +4515,7 @@ if (!window.customElements.get("navigation-drawer")) {
 import { animate as motionAnimate3, scroll } from "vendor";
 var FeatureChart = class extends HTMLElement {
   connectedCallback() {
+    this.ifDraggable = !!this.getAttribute("draggable");// comparison-table中有一种模式：pc端可以横向滚动
     this.viewButtonElement = this.querySelector('[data-action="toggle-rows"]');
     this.featureChartTable = this.querySelector(".feature-chart__table");
     this.featureChartRows = Array.from(this.featureChartTable.childNodes);
@@ -4387,6 +4544,41 @@ var FeatureChart = class extends HTMLElement {
         offset: [`${offset} start`, `end ${offset}`]
       });
     }
+    if(this.ifDraggable){
+      this._dragTable();
+    }
+  }
+  _dragTable() {
+    const draggableTable = document.querySelector(".feature-chart__table");
+    if(!draggableTable) return;
+    draggableTable.style.cursor = "grab";
+    let isMouseDown = false;
+    let startX, scrollLeft;
+
+    draggableTable.addEventListener("mousedown", function (event) {
+      if (event.button !== 0) return; // 仅允许左键拖动
+      isMouseDown = true;
+      draggableTable.style.cursor = "grabbing";
+      startX = event.clientX;
+      scrollLeft = draggableTable.scrollLeft;
+      event.preventDefault(); // 防止选中文字
+
+      function onMouseMove(e) {
+        if (!isMouseDown) return;
+        let x = e.clientX - startX;
+        draggableTable.scrollLeft = scrollLeft - x;
+      }
+
+      function onMouseUp() {
+        isMouseDown = false;
+        draggableTable.style.cursor = "grab";
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+      }
+
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
+    });
   }
   _toggleRows() {
     if (this.classList.contains("is-expanded")) {
@@ -5122,6 +5314,535 @@ if (!window.customElements.get("slideshow-carousel")) {
   window.customElements.define("slideshow-carousel", SlideshowCarousel);
 }
 
+/**
+ * Mega Menu 全功能管理器 (单例控制器)
+ *
+ * @class MegaMenuManager
+ * @description 这是一个非UI的纯逻辑控制器，采用单例模式。
+ * 它作为整个 Mega Menu 系统的唯一“大脑”，集中管理状态、DOM操作和所有交互逻辑，
+ * 同时支持 "hover" 和 "click" 两种交互模式。
+ */
+class MegaMenuManager {
+  // --- 单例模式实现 ---
+  static #instance;
+  // --- 状态管理 ---
+  #closeTimer = null; // 实现hover交互的核心
+
+  constructor() {
+    // 防止重复实例化
+    if (MegaMenuManager.#instance) {
+      return MegaMenuManager.#instance;
+    }
+    MegaMenuManager.#instance = this;
+
+    // --- DOM 引用---
+    this.storeHeader = document.querySelector('store-header.header');
+    this.barMenuWrapper = document.querySelector(".header__dropdown-bar");
+    this.megaMenuWrapper = document.querySelector(".header__dropdown-box");
+    this.firstLevelMenuWrapper = document.querySelector(".header__main-nav");
+
+    // --- [CLICK] 全局监听器，用于处理“点击外部关闭” ---
+    this.#initClickAwayListener();
+
+    // --- 定时器引用 ---
+    this.openTimer = null;
+    this.barCloseTimer = null;
+    this.barCloseTransitionTimer = null;
+    this.megaCloseTimer = null;
+    this.megaCloseTransitionTimer = null;
+
+    // --- [RESIZE] 用 ResizeObserver 监听当前激活栏目高度变化并驱动过渡动画 ---
+    this.currentObservedBarPanel = null;
+    this.barMenuResizeObserver = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const height = entry.target.scrollHeight;
+        if (this.barMenuWrapper) {
+          const activeList = this.barMenuWrapper.querySelector(".dropdown-bar__list.active");
+          if (activeList === entry.target) {
+            this.barMenuWrapper.style.height = `${height}px`;
+          }
+        }
+      }
+    });
+  }
+
+  // 获取唯一的实例
+  static getInstance() {
+    if (!this.#instance) {
+      this.#instance = new MegaMenuManager();
+    }
+    return this.#instance;
+  }
+
+  // --- 配置 ---
+  get mouseHoverDelayTolerance() { // 实现hover交互的核心。
+    return 150;
+  }
+
+  // --- 核心交互 API ---
+  // [HOVER] 安排一个延迟关闭所有菜单的计划。实现hover交互的核心。
+  scheduleClose(functionName = "closeAllActiveMenus") {
+    if (this.#closeTimer) {
+      clearTimeout(this.#closeTimer);
+    }
+    this.#closeTimer = setTimeout(() => {
+      if (typeof this[functionName] === 'function') {
+        this[functionName]();
+      }
+    }, this.mouseHoverDelayTolerance);
+  }
+
+  // [HOVER] 取消任何待处理的关闭菜单的计划。实现hover交互的核心。
+  cancelScheduledClose() {
+    clearTimeout(this.#closeTimer);
+  }
+
+  // [HOVER] 统一的菜单打开方法。
+  handleHoverMenu(targetIndex, triggerBtnLevel) {
+    this.cancelScheduledClose();
+
+    const isBarMenu = targetIndex.includes("bar-menu");
+    const targetPanel = this.#getTargetPanel(targetIndex);
+    if (!targetPanel) return;
+    
+    // 智能关闭已打开的菜单
+    if (triggerBtnLevel === "first") {
+      const activeBarMenus = this.barMenuWrapper?.querySelectorAll(".dropdown-bar__list.active");
+      if (activeBarMenus && activeBarMenus.length > 0) {
+        // 已经有一级菜单展开，直接切换，高度平滑过渡
+        activeBarMenus.forEach(item => item.classList.remove("active"));
+        if (this.barCloseTimer) {
+          clearTimeout(this.barCloseTimer);
+          this.barCloseTimer = null;
+        }
+        if (this.barCloseTransitionTimer) {
+          clearTimeout(this.barCloseTransitionTimer);
+          this.barCloseTransitionTimer = null;
+        }
+        this.closeActiveMegaMenus(true);
+      } else {
+        this.closeAllActiveMenus(true);
+      }
+    } else if (triggerBtnLevel === "second") {
+      const activeMegaMenus = this.megaMenuWrapper?.querySelectorAll(".mega-menu-item.active");
+      if (activeMegaMenus && activeMegaMenus.length > 0) {
+        // 已经有二级菜单展开，直接切换，高度平滑过渡
+        activeMegaMenus.forEach(item => item.classList.remove("active"));
+        if (this.megaCloseTimer) {
+          clearTimeout(this.megaCloseTimer);
+          this.megaCloseTimer = null;
+        }
+        if (this.megaCloseTransitionTimer) {
+          clearTimeout(this.megaCloseTransitionTimer);
+          this.megaCloseTransitionTimer = null;
+        }
+      } else {
+        this.closeActiveMegaMenus(true);
+      }
+    }
+
+    this.#performOpen(targetPanel, isBarMenu);
+  }
+
+  // [CLICK] 处理点击事件，实现菜单的切换 (toggle) 逻辑。
+  handleClickMenu(targetIndex, triggerBtnLevel) {
+    const targetPanel = this.#getTargetPanel(targetIndex);
+    if (!targetPanel) return;
+
+    const isCurrentlyActive = targetPanel.classList.contains("active");
+    const isBarMenu = targetIndex.includes("bar-menu");
+
+    // 总是先关闭/切换现有菜单，这是 toggle/switch 逻辑的一部分
+    if (triggerBtnLevel === "first") {
+      const activeBarMenus = this.barMenuWrapper?.querySelectorAll(".dropdown-bar__list.active");
+      if (!isCurrentlyActive && activeBarMenus && activeBarMenus.length > 0) {
+        // 直接切换一级菜单，高度平滑过渡
+        activeBarMenus.forEach(item => item.classList.remove("active"));
+        if (this.barCloseTimer) {
+          clearTimeout(this.barCloseTimer);
+          this.barCloseTimer = null;
+        }
+        if (this.barCloseTransitionTimer) {
+          clearTimeout(this.barCloseTransitionTimer);
+          this.barCloseTransitionTimer = null;
+        }
+        this.closeActiveMegaMenus(true);
+      } else {
+        this.closeAllActiveMenus(true);
+      }
+    } else {
+      const activeMegaMenus = this.megaMenuWrapper?.querySelectorAll(".mega-menu-item.active");
+      if (!isCurrentlyActive && activeMegaMenus && activeMegaMenus.length > 0) {
+        // 直接切换二级菜单，高度平滑过渡
+        activeMegaMenus.forEach(item => item.classList.remove("active"));
+        if (this.megaCloseTimer) {
+          clearTimeout(this.megaCloseTimer);
+          this.megaCloseTimer = null;
+        }
+        if (this.megaCloseTransitionTimer) {
+          clearTimeout(this.megaCloseTransitionTimer);
+          this.megaCloseTransitionTimer = null;
+        }
+      } else {
+        this.closeActiveMegaMenus(true);
+      }
+    }
+    
+    // 如果刚才点击的目标不是一个已经激活的菜单，那么现在打开它。
+    if (!isCurrentlyActive) {
+      this.#performOpen(targetPanel, isBarMenu);
+    }
+    // 如果点击的是已激活的菜单，上面的 close... 方法已经把它关了，这里什么都不用做。
+  }
+
+
+  // --- 内部辅助方法 ---
+  /**
+   * 内部方法：根据索引获取目标面板元素。
+   * @private
+   */
+  #getTargetPanel(targetIndex) {
+    const isBarMenu = targetIndex.includes("bar-menu");
+    return isBarMenu
+      ? document.querySelector(`[bar-menu-index="${targetIndex}"]`)
+      : document.querySelector(`[mega-menu-index="${targetIndex}"]`);
+  }
+
+  /**
+   * 内部方法：执行打开面板的具体操作，供 handleHoverMenu 和 handleClickMenu 调用。
+   * @private
+   */
+  #performOpen(targetPanel, isBarMenu) {
+    if (this.openTimer) {
+      clearTimeout(this.openTimer);
+      this.openTimer = null;
+    }
+    if (this.barCloseTimer) {
+      clearTimeout(this.barCloseTimer);
+      this.barCloseTimer = null;
+    }
+    if (this.barCloseTransitionTimer) {
+      clearTimeout(this.barCloseTransitionTimer);
+      this.barCloseTransitionTimer = null;
+    }
+    if (this.megaCloseTimer) {
+      clearTimeout(this.megaCloseTimer);
+      this.megaCloseTimer = null;
+    }
+    if (this.megaCloseTransitionTimer) {
+      clearTimeout(this.megaCloseTransitionTimer);
+      this.megaCloseTransitionTimer = null;
+    }
+
+    targetPanel.classList.add("active");
+    this.updateFirstLevelActiveState();
+
+    const runOpenAction = () => {
+      this.openTimer = null;
+      // 确保在延迟期间用户没有移开鼠标
+      if (!targetPanel.classList.contains("active")) return;
+
+      if (isBarMenu) {
+        if (this.currentObservedBarPanel) {
+          this.barMenuResizeObserver.unobserve(this.currentObservedBarPanel);
+        }
+        this.currentObservedBarPanel = targetPanel;
+        this.barMenuResizeObserver.observe(targetPanel);
+
+        const height = targetPanel.scrollHeight;
+        this.barMenuWrapper.style.height = `${height}px`;
+      } else {
+        const megaMenuHeight = targetPanel.clientHeight;
+        this.megaMenuWrapper.style.height = `${megaMenuHeight}px`;
+      }
+    };
+
+    // 检查是否是需要渐变到实体背景的透明头
+    const isTransparent = this.storeHeader?.hasAttribute('allow-transparency') && !this.storeHeader?.classList.contains('is-filled');
+    const isAlreadyOpen = this.storeHeader?.hasAttribute('has-modal-content');
+
+    this.openOverlay();
+
+    if (isTransparent && !isAlreadyOpen) {
+      // 延迟 250ms (对应 allow-transparency 的 background 0.25s 过渡动画)
+      this.openTimer = setTimeout(runOpenAction, 250);
+    } else {
+      runOpenAction();
+    }
+  }
+
+  /**
+   * [CLICK] 内部方法：初始化全局点击监听器。
+   * 这个的目的是：在click模式下，点击非菜单位置时，关闭所有菜单
+   * @private
+   */
+  #initClickAwayListener() {
+    document.addEventListener('click', (event) => {
+      // 如果点击的目标在 storeHeader 内部，则不执行任何操作
+      if (!this.storeHeader || !this.storeHeader.hasAttribute('has-modal-content') || this.firstLevelMenuWrapper.contains(event.target)) {
+        return;
+      }
+      // 否则，立即关闭所有菜单
+      this.closeAllActiveMenus(true);
+    });
+  }
+
+  updateFirstLevelActiveState() {
+    const activeBarList = this.barMenuWrapper?.querySelector(".dropdown-bar__list.active");
+    const activeIndex = activeBarList ? activeBarList.getAttribute("bar-menu-index") : null;
+
+    const buttons = document.querySelectorAll("mega-menu-button.first-level-item");
+    buttons.forEach(btn => {
+      if (activeIndex && btn.getAttribute("target-index") === activeIndex) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+  }
+
+  // --- 关闭 Menu 与 Overlay 管理 ---
+  closeAllActiveMenus(immediate = false) {
+    this.closeActiveBarMenus(immediate);
+    this.closeActiveMegaMenus(immediate);
+  }
+
+  closeActiveBarMenus(immediate = false) {
+    if (this.openTimer) {
+      clearTimeout(this.openTimer);
+      this.openTimer = null;
+    }
+    if (this.barCloseTimer) {
+      clearTimeout(this.barCloseTimer);
+      this.barCloseTimer = null;
+    }
+    if (this.barCloseTransitionTimer) {
+      clearTimeout(this.barCloseTransitionTimer);
+      this.barCloseTransitionTimer = null;
+    }
+
+    const activeBarMenus = this.barMenuWrapper?.querySelectorAll(".dropdown-bar__list.active");
+    if (!activeBarMenus || activeBarMenus.length === 0) return;
+
+    const closeAction = () => {
+      this.barCloseTimer = null;
+      if (this.currentObservedBarPanel) {
+        this.barMenuResizeObserver.unobserve(this.currentObservedBarPanel);
+        this.currentObservedBarPanel = null;
+      }
+      this.barMenuWrapper.style.height = "0";
+
+      if (immediate) {
+        activeBarMenus.forEach(item => item.classList.remove("active"));
+        this.updateFirstLevelActiveState();
+        this.checkAndCloseOverlay();
+      } else {
+        // 延迟 350ms（等菜单完全收起）再隐藏内容、恢复透明头和移去遮罩
+        this.barCloseTransitionTimer = setTimeout(() => {
+          this.barCloseTransitionTimer = null;
+          activeBarMenus.forEach(item => item.classList.remove("active"));
+          this.updateFirstLevelActiveState();
+          this.checkAndCloseOverlay();
+        }, 350);
+      }
+    };
+
+    if (immediate) {
+      closeAction();
+    } else {
+      this.barCloseTimer = setTimeout(closeAction, 50);
+    }
+  }
+
+  updateActiveBarHeight() {
+    const activeList = this.barMenuWrapper?.querySelector(".dropdown-bar__list.active");
+    if (activeList && this.barMenuWrapper) {
+      const height = activeList.scrollHeight;
+      this.barMenuWrapper.style.height = `${height}px`;
+    }
+  }
+
+  closeActiveMegaMenus(immediate = false) {
+    if (this.openTimer) {
+      clearTimeout(this.openTimer);
+      this.openTimer = null;
+    }
+    if (this.megaCloseTimer) {
+      clearTimeout(this.megaCloseTimer);
+      this.megaCloseTimer = null;
+    }
+    if (this.megaCloseTransitionTimer) {
+      clearTimeout(this.megaCloseTransitionTimer);
+      this.megaCloseTransitionTimer = null;
+    }
+
+    const activeMegaMenus = this.megaMenuWrapper?.querySelectorAll(".mega-menu-item.active");
+    if (!activeMegaMenus || activeMegaMenus.length === 0) return;
+
+    const closeAction = () => {
+      this.megaCloseTimer = null;
+      this.megaMenuWrapper.style.height = "0";
+
+      if (immediate) {
+        activeMegaMenus.forEach(item => item.classList.remove("active"));
+        this.checkAndCloseOverlay();
+      } else {
+        // 延迟 150ms（等菜单完全收起）再隐藏内容、恢复透明头和移去遮罩
+        this.megaCloseTransitionTimer = setTimeout(() => {
+          this.megaCloseTransitionTimer = null;
+          activeMegaMenus.forEach(item => item.classList.remove("active"));
+          this.checkAndCloseOverlay();
+        }, 150);
+      }
+    };
+
+    if (immediate) {
+      closeAction();
+    } else {
+      this.megaCloseTimer = setTimeout(closeAction, 50);
+    }
+  }
+
+  openOverlay() {
+    this.storeHeader?.setAttribute('has-modal-content', '');
+  }
+
+  checkAndCloseOverlay() {
+    // 使用 setTimeout 确保检查发生在 DOM 更新之后
+    const hasActiveMenus = this.megaMenuWrapper?.querySelector(".mega-menu-item.active") || this.barMenuWrapper?.querySelector(".dropdown-bar__list.active");
+    if (!hasActiveMenus && this.storeHeader) {
+      this.storeHeader.removeAttribute('has-modal-content');
+    }
+  }
+}
+const megaMenuManager = MegaMenuManager.getInstance();
+window.megaMenuManager = megaMenuManager;
+
+
+// --- UI子组件的逻辑定义 ---
+
+// 作用于hover模式 和 click模式
+class DropdownOverlay extends HTMLElement {
+  connectedCallback() {
+    this.abortController = new AbortController();
+    if(this.trigger === "hover") {
+      // 进入到overlay的时候，去掉关闭计划，并关闭所有菜单(因为是overlay比较特殊，所以直接关闭，无需计划)
+      this.addEventListener("mouseenter", this.handleHover, { signal: this.abortController.signal });
+    } else {
+      // 点击overlay的时候，关闭所有菜单
+      this.addEventListener("click", this.handleClick, { signal: this.abortController.signal });
+    }
+  }
+  disconnectedCallback() { this.abortController?.abort(); }
+
+  handleHover() {
+    megaMenuManager.cancelScheduledClose();
+    megaMenuManager.closeAllActiveMenus(true);
+  }
+  handleClick() {
+    megaMenuManager.closeAllActiveMenus(true);
+  }
+}
+if (!window.customElements.get("dropdown-overlay")) {
+  window.customElements.define("dropdown-overlay", DropdownOverlay);
+}
+
+// 仅作用于hover模式
+class MegaMenu extends HTMLElement {
+  connectedCallback() {
+    this.trigger = this.getAttribute("trigger");
+    if(this.trigger !== "hover") return;
+    this.abortController = new AbortController();
+    const options = { signal: this.abortController.signal };
+    // 进入到mega-menu的时候，说明用户仍在操作菜单，所以去掉关闭计划
+    this.addEventListener("mouseenter", () => megaMenuManager.cancelScheduledClose(), options);
+    // 离开mega-menu的时候，说明用户已经离开菜单，所以计划关闭所有菜单
+    this.addEventListener("mouseleave", () => megaMenuManager.scheduleClose("closeAllActiveMenus"), options);
+  }
+  disconnectedCallback() { this.abortController?.abort(); }
+}
+if (!window.customElements.get("mega-menu")) {
+  window.customElements.define("mega-menu", MegaMenu);
+}
+
+// 仅作用于hover模式
+class HeaderDropdownBar extends HTMLElement {
+  connectedCallback() {
+    this.trigger = this.getAttribute("trigger");
+    if(this.trigger !== "hover") return;
+    this.abortController = new AbortController();
+    const options = { signal: this.abortController.signal };
+    // 进入Bar时，说明用户仍在操作菜单，所以去掉关闭计划
+    this.addEventListener("mouseenter", () => megaMenuManager.scheduleClose("closeActiveMegaMenus"), options); 
+    // 离开Bar时，说明用户已经离开菜单，所以计划关闭所有菜单
+    this.addEventListener("mouseleave", () => megaMenuManager.scheduleClose("closeAllActiveMenus"), options);
+  }
+  disconnectedCallback() { this.abortController?.abort(); }
+}
+if (!window.customElements.get("header-dropdown-bar")) {
+  window.customElements.define("header-dropdown-bar", HeaderDropdownBar);
+}
+
+/**
+ * 菜单触发按钮组件
+ * @description 职责：根据 trigger 属性，决定是响应 hover 还是 click，并通知管理器。
+ */
+class MegaMenuButton extends HTMLElement {
+  connectedCallback() {
+    this.abortController = new AbortController();
+    const options = { signal: this.abortController.signal };
+
+    if (this.trigger === "hover") {
+      this.addEventListener("mouseenter", this.handleHover, options);
+      this.addEventListener("mouseleave", this.handleHover, options);
+      this.handleUrlClick();
+    } else {
+      this.addEventListener("click", this.handleClick, options);
+    }
+  }
+
+  disconnectedCallback() {
+    this.abortController.abort();
+  }
+
+  get trigger() {
+    return !window.matchMedia("(pointer: fine)").matches ? "click" : this.getAttribute("trigger") || "hover";
+  }
+  get triggerBtnLevel() { return this.getAttribute("trigger-btn-level") || "first"; }
+  get targetIndex() { return this.getAttribute("target-index"); }
+
+  // --- 事件处理器 ---
+  handleHover = (event) => {
+    if (event.type === "mouseenter") {
+      megaMenuManager.handleHoverMenu(this.targetIndex, this.triggerBtnLevel);
+    } else if (event.type === "mouseleave") {
+      const closeMethod = this.triggerBtnLevel === "first" ? "closeAllActiveMenus" : "closeActiveMegaMenus";
+      megaMenuManager.scheduleClose(closeMethod);
+    }
+  }
+
+  handleClick = (event) => {
+    event.preventDefault(); // 在click模式下，我们会阻止 <a> 标签跳转
+    // 关键！阻止事件冒泡到 document，否则我们刚打开的菜单会被“点击外部关闭”的监听器立即关闭。
+    event.stopPropagation(); 
+    
+    megaMenuManager.handleClickMenu(this.targetIndex, this.triggerBtnLevel);
+  }
+
+  handleUrlClick() {
+    if (this.hasAttribute("data-url")) {
+      this.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.location.href = this.getAttribute("data-url");
+      });
+    }
+  }
+}
+
+if (!window.customElements.get("mega-menu-button")) {
+  window.customElements.define("mega-menu-button", MegaMenuButton);
+}
+
 // js/theme.js
 import { Delegate as Delegate7 } from "vendor";
 (() => {
@@ -5152,6 +5873,65 @@ import { Delegate as Delegate7 } from "vendor";
   window.addEventListener("resize", throttle(setScrollbarWidth));
 })();
 
+document.addEventListener("DOMContentLoaded", () => {
+  const wrappers = document.querySelectorAll(".video-wrapper");
+
+  wrappers.forEach(wrapper => {
+    const video = wrapper.querySelector("video");
+    const control = wrapper.querySelector(".video-control");
+    const icon = control.querySelector(".icon");
+    const progressBar = control.querySelector(".progress-bar");
+
+    const radius = 30;
+    const circumference = 2 * Math.PI * radius;
+    progressBar.style.strokeDasharray = `${circumference}`;
+    progressBar.style.strokeDashoffset = `${circumference}`;
+
+    // 更新进度条
+    function updateProgress() {
+      if (video.duration > 0) {
+        const progress = video.currentTime / video.duration;
+        progressBar.style.strokeDashoffset = circumference * (1 - progress);
+      }
+    }
+
+    video.addEventListener("timeupdate", updateProgress);
+
+    control.addEventListener("click", () => {
+      if (video.paused) {
+        // 播放前先暂停其他视频
+        // document.querySelectorAll(".video-wrapper video").forEach(v => {
+        //   if (v !== video) v.pause();
+        // });
+        // document.querySelectorAll(".video-wrapper .icon").forEach(i => {
+        //   i.classList.remove("pause");
+        //   i.classList.add("play");
+        // });
+
+        // 播放当前视频
+        video.play();
+        icon.classList.remove("play");
+        icon.classList.add("pause");
+      } else {
+        video.pause();
+        icon.classList.remove("pause");
+        icon.classList.add("play");
+      }
+    });
+
+    // 暂停时还原图标
+    video.addEventListener("pause", () => {
+      icon.classList.remove("pause");
+      icon.classList.add("play");
+    });
+
+    video.addEventListener("play", () => {
+      icon.classList.remove("play");
+      icon.classList.add("pause");
+    });
+  });
+
+
 document.querySelectorAll('.badge_cutdown').forEach(el => {
   const end = new Date(el.dataset.end.replace(/-/g, '/')).getTime();
 
@@ -5178,6 +5958,8 @@ document.querySelectorAll('.badge_cutdown').forEach(el => {
   setInterval(update, 1000);
 });
 
+
+});
 export {
   AccordionDisclosure,
   AccountLogin,
