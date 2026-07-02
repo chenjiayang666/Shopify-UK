@@ -1,0 +1,1312 @@
+{% render 'section-settings' %}
+
+<style>
+  #shopify-section-{{ section.id }} .link-tab-check{
+      background:{{ section.settings.section-bg }};
+  }
+  #shopify-section-{{ section.id }} .title{
+      color:{{ section.settings.title-color }};
+      text-align: center;
+          margin-bottom: var(--spacing-8);
+  }
+  {% comment %} #shopify-section-{{ section.id }} .title h3{
+      font-weight: 600;
+      font-size: 48px;
+      line-height: 120%;
+      letter-spacing: -1.5px;
+  } {% endcomment %}
+  #shopify-section-{{ section.id }} .create-draft-order-wrapper{
+      display:none !important;
+  }
+  #shopify-section-{{ section.id }} .tab-header{
+      margin-bottom:30px;
+      justify-content: space-between;
+      gap:20px;
+      display: flex;
+  }
+  #shopify-section-{{ section.id }} .link-tab-button{
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      width:42px;
+      height:42px;
+      border:2px solid white;
+      border-radius:50%;
+  }
+  #shopify-section-{{ section.id }} .link-tab-button.swiper-button-disabled{
+      opacity:0.6;
+  }
+  #shopify-section-{{ section.id }} .swiper-control{
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+  }
+  #shopify-section-{{ section.id }} .tab-item{
+      padding: 10px 15px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor:pointer;
+      font-weight:600;
+          min-width: 90px;
+  }
+  #shopify-section-{{ section.id }} .tab-item.active{
+      color:{{ section.settings.button-color-active }};
+      background:{{ section.settings.button-bg-active }};
+  }
+  #shopify-section-{{ section.id }} .content-item{
+      display:flex;
+      border-radius:16px;
+      gap:40px;
+      overflow:hidden;
+      background:{{ section.settings.card-bg }};
+      color:{{ section.settings.card-color }};
+          padding: 32px 40px;
+  }
+
+  #shopify-section-{{ section.id }} .check-box{
+
+  }
+  #shopify-section-{{ section.id }} .check-box.active{
+
+  }
+  #shopify-section-{{ section.id }} .content-item.active{
+  }
+  #shopify-section-{{ section.id }} .content-right{
+      flex:1;
+      position:relative;
+  }
+  #shopify-section-{{ section.id }} .content-right img{
+      width:100%;
+      object-fit:cover;
+      display:flex;
+      aspect-ratio: 463 / 333;
+      border-radius: 16px
+  }
+  #shopify-section-{{ section.id }} .content-left{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+          justify-content: space-evenly;
+  }
+  #shopify-section-{{ section.id }} .product-buttons{
+      display: flex;
+      align-items: center;
+      gap:40px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 120%;
+      letter-spacing: -0.48px;
+  }
+  #shopify-section-{{ section.id }} .product-button{
+      display: flex;
+      padding: 3px;
+      align-items: center;
+      border-radius: 20px;
+      color:{{ section.settings.button-color-active }};
+      background:{{ section.settings.button-bg-active }};
+
+  }
+  #shopify-section-{{ section.id }} .product-link{
+          padding: 0 10px 0 20px
+  }
+  #shopify-section-{{ section.id }} .product-buttons .price{
+      color:{{section.settings.price-color}};
+      background:white;
+      border-radius: 20px;
+      padding: 8px 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  #shopify-section-{{ section.id }} .content-tag{
+      color:{{ section.settings.tag-color }};
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 120%;
+      margin-bottom: 28px;
+  }
+  #shopify-section-{{ section.id }} .product-title{
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.6px;
+      line-height: 120%;
+      margin-bottom: 6px;
+  }
+  #shopify-section-{{ section.id }} .price-list sale-price{
+      font-weight: 700;
+      font-size: 26.11px;
+      line-height: 30.2px;
+      letter-spacing: 0;
+      color:{{section.settings.price-color}};
+  }
+  #shopify-section-{{ section.id }} .price-list compare-at-price{
+      font-weight: 400;
+      font-size: 21.21px;
+      line-height: 30.2px;
+      letter-spacing: 0;
+      text-decoration: line-through;
+      color:{{section.settings.price-color-sale}};
+  }
+  #shopify-section-{{ section.id }} .product-subtitle{
+      margin-bottom:28px;
+  }
+  #shopify-section-{{ section.id }} .product-description{
+      margin-bottom: 20px;
+  }
+  #shopify-section-{{ section.id }} .product-description ul{
+      list-style: disc;
+      padding-left: 20px;
+  }
+  #shopify-section-{{ section.id }} .product-tip{
+      font-weight: 400;
+      font-size: 12.23px;
+      line-height: 100%;
+      letter-spacing: -0.36px;
+      color:#D9D9D9;
+  }
+  #shopify-section-{{ section.id }} .button-groups{
+          display: flex;
+      align-items: center;
+      justify-content:center;
+  }
+  #shopify-section-{{ section.id }} .link-button{
+      border-radius: 20px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content:center;
+      height: 100%;
+      {%if section.settings.show_button_shadow %}
+          box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      {% endif %}
+      transition: all 0.3s ease; /* 平滑过渡 */
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 19.33px;
+      letter-spacing: 0;
+  }
+  #shopify-section-{{ section.id }} .color-settings1{
+      color:{{ section.settings.button-color-active }};
+      background:{{ section.settings.button-bg-active }};
+      {%if section.settings.button-color-active =='#000000' and section.settings.button-bg-active == '#ffffff'%}
+        border:1px solid {{ section.settings.button-color-active }};
+      {% endif %}
+      margin-right:10px;
+  }
+      #shopify-section-{{ section.id }} .color-settings2{
+      color:{{ section.settings.button-color-active2 }};
+      background:{{ section.settings.button-bg-active2 }};
+      {%if section.settings.button-color-active2 =='#000000' and section.settings.button-bg-active2 == '#ffffff'%}
+        border:1px solid {{ section.settings.button-color-active2 }};
+      {% endif %}
+  }
+  {%if section.settings.show_button_shadow %}
+    
+      #shopify-section-{{ section.id }} .link-button:hover{
+      transform: translateY(-3px); /* 稍微上浮 */
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25); /* 阴影更浓一些 */
+  }
+  {% endif %}
+
+  #shopify-section-{{ section.id }} .product-button .button{
+      padding: 0 10px;
+      background: none;
+  }
+  #shopify-section-{{ section.id }} .product-button .check-buttons{
+      visibility: hidden;
+      position: absolute;
+      z-index: -11;
+  }
+  #shopify-section-{{ section.id }} .tab-content{
+      overflow:hidden;
+  }
+  {% for block in section.blocks%}
+      .flex-{{ block.id }}{
+          {% if block.settings.image-flex == 'left'%}
+              flex-direction: row;
+          {% else %}
+              flex-direction: row-reverse;
+          {%endif %}
+      }
+      .content-{{block.id }}{
+          text-align:{{ block.settings.content-flex }}
+      }
+      .content-{{block.id }} .product-buttons{
+          {%if block.settings.content-flex == 'left'%}
+              justify-content: flex-start;
+          {%elsif block.settings.content-flex == 'center' %}
+              justify-content: center;
+          {%else %}
+              justify-content: flex-end;
+          {%endif %}
+      }
+
+      .content-{{block.id }} .product-description ul{
+          display: flex;
+          flex-direction: column;
+          {%if block.settings.content-flex == 'left'%}
+              align-items: flex-start;
+          {%elsif block.settings.content-flex == 'center' %}
+              align-items: center;
+          {%else %}
+              align-items: flex-end;
+          {%endif %}
+      }
+
+           #block-{{ section.id }}-{{ block.id }}  .badge-image {
+        position: absolute;
+        top: 20px;
+         {% if block.settings.badge_position == 'right' %}
+      right: 20px;
+      left: auto;
+    {% else %}
+      left: 20px;
+      right: auto;
+    {% endif %}
+     width: {{ block.settings.badge_width }}px;
+      height: {{ block.settings.badge_height }}px;
+
+        font-weight:700;
+        font-size: {{ block.settings.badge_font_size }}px;
+      color: {{ block.settings.badge_text_color }};
+      }
+
+
+  {% endfor %}
+      #shopify-section-{{ section.id }} .badge-image>span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          line-height: 1;
+      }
+
+      #shopify-section-{{ section.id }} .badge-image img{
+          border-radius:0;
+              aspect-ratio: auto;
+      }
+      #shopify-section-{{ section.id }} .tab-swiper-pagination{
+          position: unset;
+          width: 100%;
+          margin-top: 40px;
+          display: flex;
+          background:{{section.settings.pag_bg }};
+          border-radius:10px;
+      }
+      #shopify-section-{{ section.id }} .swiper-pagination-progressbar-fill{
+          position: unset;
+          background:{{section.settings.pag_step_bg }};
+          border-radius:10px;
+
+      }
+      #shopify-section-{{ section.id }} .swiper-3d {
+      }
+      #shopify-section-{{ section.id }} .tab-swiper-pagination-mob{
+          display:none
+      }
+  @media(max-width:750px){
+  #shopify-section-{{ section.id }} .tab-header{
+    text-align:center;
+  }
+      #shopify-section-{{ section.id }} .tab-swiper-pagination{
+          display:none
+      }
+      #shopify-section-{{ section.id }} .swiper-pagination-bullet{
+          width:4px;
+          height:4px;
+          background:#D9D9D9;
+          border-radius:5px;
+          transition: all 0.5s ease;
+          opacity:1;
+      }
+      #shopify-section-{{ section.id }} .swiper-pagination-bullet-active{
+          background:#53565A;
+          width:14px;
+      }
+      #shopify-section-{{ section.id }} .tab-swiper-pagination-mob{
+          display: flex;
+          position: unset;
+          margin-top: 20px;
+          justify-content: center;
+      }
+      #shopify-section-{{ section.id }} .tab-check{
+          width: 100%;
+          overflow: scroll;
+          scrollbar-width: none;
+      }
+      #shopify-section-{{ section.id }} .tab-item{
+          white-space: nowrap;
+      }
+      #shopify-section-{{ section.id }} .content-item{
+          flex-direction: column-reverse;
+          padding: 12px 12px 20px;
+          gap: 20px;
+      }
+      #shopify-section-{{ section.id }} .product-buttons{
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+                  width: 100%;
+                  margin-top:30px;
+      }
+      #shopify-section-{{ section.id }} .button-groups{
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+                  width: 100%;
+      }
+      #shopify-section-{{ section.id }} .product-button{
+          width:100%;
+      }
+      #shopify-section-{{ section.id }} .link-button{
+          padding: 11px 35px;
+          width:100%;
+          margin: 0;
+      }
+      #shopify-section-{{ section.id }} .content-left{
+              gap: 10px;
+  align-items: center;
+      padding: 0 30px;
+      }
+      #shopify-section-{{ section.id }} .price,#shopify-section-{{ section.id }} .product-link{
+          flex: 1;
+      }
+
+      #shopify-section-{{ section.id }} .subtitle{
+          line-height: 140%;
+          letter-spacing:normal;
+          font-size:14px;
+              margin-top: var(--spacing-5);
+      }
+      #shopify-section-{{ section.id }} .tab-check{
+          gap:5px;
+      }
+      #shopify-section-{{ section.id }} .product-title{
+          max-width: 100%;
+          text-align:center;
+      }
+      #shopify-section-{{ section.id }} .product-subtitle{
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          text-align: center;
+          margin-bottom:10px;
+      }
+      #shopify-section-{{ section.id }} .content-tag{
+          margin-bottom:15px;
+      }
+      #shopify-section-{{ section.id }} .product-description ul{
+          font-size: 15px;
+      }
+      #shopify-section-{{ section.id }}  .badge-image {
+    /* 进一步缩小徽章尺寸以适应手机屏幕 */
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 16px !important;
+    /* 调整徽章位置，避免边缘溢出 */
+    top: 10px;
+    left: 10px !important;
+    right: auto !important;
+  }
+
+  /* 修复徽章文字换行显示问题 */
+  #shopify-section-{{ section.id }} .badge-image>span {
+    white-space: nowrap; /* 防止文字换行导致错乱 */
+    line-height: 1.2; /* 微调行高，确保文字居中 */
+  }
+  #shopify-section-{{ section.id }} .badge-image img{
+      border-radius:0;
+  }
+
+
+  #shopify-section-{{ section.id }} .tab-header .title{
+      margin-bottom:0;
+      width: 100%;
+  }
+  #shopify-section-{{ section.id }} .swiper-control{
+      display:none;
+  }
+  }
+</style>
+{%- render 'posthog-context',
+  page_type: 'PDP',
+  page_type_label: 'Product Detail Page',
+  page_type_metaobject: section.settings.posthog_page_type_metaobject
+-%}
+{%- liquid
+  assign tracking_enabled = section.settings.tracking_enabled
+  assign tracking_page_type = 'PDP'
+  assign tracking_module_name = 'you_may_like'
+  assign tracking_module_label = section.settings.title | default: 'You may also like'
+  assign tracking_module_source = 'fallback'
+  assign tracking_module_type_metaobject = section.settings.tracking_module_type_metaobject
+  assign tracking_template = template.name
+  assign tracking_page_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  assign tracking_page_handle = product.handle | default:page.handle
+
+  if tracking_module_type_metaobject != blank
+    assign tracking_module_name_from_metaobject = tracking_module_type_metaobject.key.value | default: tracking_module_type_metaobject.module_name.value | default: tracking_module_type_metaobject.module_type.value | default: tracking_module_type_metaobject.system.handle
+    assign tracking_module_label_from_metaobject = tracking_module_type_metaobject.label.value | default: tracking_module_type_metaobject.name.value | default: tracking_module_type_metaobject.title.value | default: tracking_module_type_metaobject.system.handle
+
+    if tracking_module_name_from_metaobject != blank
+      assign tracking_module_name = tracking_module_name_from_metaobject
+      assign tracking_module_label = tracking_module_label_from_metaobject
+      assign tracking_module_source = 'metaobject'
+    endif
+  endif
+
+  if template.suffix != blank
+    assign tracking_template = template.name | append: '.' | append: template.suffix
+  endif
+-%}
+
+{%- liquid
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_overrides = section.settings.tracking_content_overrides | newline_to_br | split: '<br />'
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  for override in tracking_content_overrides
+    assign override_parts = override | strip | split: '='
+    assign override_handle = override_parts[0] | strip
+    assign override_key = override_parts[1] | strip
+
+    if override_handle == page.handle or override_handle == product.handle and override_key != blank
+      assign tracking_content_key = override_key
+    endif
+  endfor
+  assign tracking_name = tracking_page_type | upcase | append: '_' | append: tracking_page_sku | append: '_' | append: tracking_module_name | append: '_' | append: tracking_content_key
+-%}
+<section
+      {% if tracking_enabled %}
+    data-mrk-track-section
+    data-mrk-track-action="view"
+    data-mrk-track-page-type="{{ tracking_page_type | upcase | escape }}"
+    data-mrk-track-module-name="{{ tracking_module_name | escape }}"
+    data-mrk-track-module-label="{{ tracking_module_label | escape }}"
+    data-mrk-track-module-source="{{ tracking_module_source | escape }}"
+    data-mrk-track-module-title="{{ section.settings.module_title | escape }}"
+    data-mrk-track-content-key="{{ tracking_content_key }}"
+    data-mrk-track-content-type="module"
+    data-mrk-track-tracking-name="{{ tracking_page_type | upcase }}{% if tracking_page_sku != blank %}_{{ tracking_page_sku }}{% endif %} _{{ tracking_module_name }} _{{ tracking_content_key }}"
+    data-mrk-track-template="{{ tracking_template | escape }}"
+    data-mrk-track-section-id="{{ section.id | escape }}"
+    data-mrk-track-section-type="{{ section.type | escape }}"
+    data-mrk-track-page-handle="{{ tracking_page_handle | escape }}"
+  {% endif %}
+  id="feature-list-{{ section.settings.anchor_id | default: section.id }}"
+  class="link-tab-check section-padding"
+>
+  <div class="link-tab-check-container section-maxwidth section-gap {% if section.settings.animate %}fade-element{% endif %}">
+    <div class="tab-header">
+      {% if section.settings.title != blank %}
+        <div class="{{ section.settings.heading_tag }} title">{{ section.settings.title }}</div>
+      {% endif %}
+      {% if section.settings.show_control %}
+        <div class="swiper-control">
+          <div class="link-tab-button link-button-prev">
+            <svg width="10" height="15" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.116 0.75L1.06067 9.80529L10.116 18.8606" stroke="white" stroke-opacity="0.5" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="link-tab-button link-button-next">
+            <svg width="10" height="15" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.75 0.75L9.80529 9.80529L0.75 18.8606" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="tab-content link-tab-swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.settings.product != blank %}
+              {% assign product = block.settings.product %}
+              {% assign lowest_price = product.price | divided_by: 100.0 %}
+              {% assign current_product_price = product.compare_at_price | divided_by: 100.0 %}
+              {% assign has_metafield_price = false %}
+
+              {% for variant in product.variants %}
+                {% if variant.metafields.flexify.price != blank %}
+                  {% assign current_price = variant.metafields.flexify.price | times: 1.0 %}
+                  {% assign has_metafield_price = true %}
+                  {% if forloop.first %}
+                    {% assign lowest_price = current_price %}
+                  {% else %}
+                    {% if current_price < lowest_price %}
+                      {% assign lowest_price = current_price %}
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+
+            <div
+              id="block-{{ section.id }}-{{ block.id }}"
+              class="check-box swiper-slide"
+              data-checkid="{{ block.id }}"
+            >
+              <div class="content-item flex-{{ block.id }}">
+                <div class="content-left content-{{block.id }}">
+                  {% if block.settings.tag != blank %}
+                    <div class="content-tag">{{ block.settings.tag }}</div>
+                  {% endif %}
+                  <div>
+                    <div class="product-title">
+                      {{ block.settings['product-title'] | default: block.settings.product.title }}
+                    </div>
+                    {% if block.settings.subtitle != blank %}
+                      <div class="product-subtitle">
+                        {{ block.settings.subtitle }}
+                      </div>
+                    {% endif %}
+                  </div>
+
+                  {% if block.settings.description != blank %}
+                    <div class="product-description">
+                      {{ block.settings.description }}
+                    </div>
+                  {% endif %}
+
+                  <div>
+                    {%- render 'price-list',
+                      variant: block.settings.product.selected_or_first_available_variant,
+                      size: 'lg'
+                    -%}
+                    {% if block.settings.tip_text != blank %}
+                      <div class="product-tip">
+                        {{ block.settings.tip_text }}
+                        {{ block.settings.tip_svg }}
+                      </div>
+                    {% endif %}
+                  </div>
+
+                  {%- capture product_form_id -%}product-form-{{ product.id }}-{{ section.id }}{%- endcapture -%}
+
+                  <div class="product-buttons">
+                    {% if block.settings.show_add_to_cart %}
+                      <div class="product-button">
+                        <div class="price">{{ block.settings.product.price | money }}</div>
+                        <form
+                          action="{{ routes.cart_url }}"
+                          method="POST"
+                          class="buy-buttons check-buttons {% if section.settings.show_checkout_button %}buy-buttons--compact{% endif %}"
+                        >
+                          {%- render 'button',
+                            type: 'submit',
+                            content: checkout_label,
+                            icon: 'picto-lock',
+                            name: 'checkout',
+                            size: 'xl'
+                          -%}
+                        </form>
+                        {%- render 'buy-buttons',
+                          product: block.settings.product,
+                          form_id: product_form_id,
+                          show_payment_button: false,
+                          show_gift_card_recipient: false,
+                          atc_button_background: block.settings.atc_button_background,
+                          atc_button_text_color: block.settings.atc_button_text_color
+                        -%}
+                      </div>
+                    {% endif %}
+                    <div class="button-groups">
+                      {% if block.settings['button-text'] != blank %}
+                        <a
+                          href="{{ block.settings.button-link | default:block.settings.product.url }}"
+                          class="link-button color-settings1"
+                        >
+                          {{- block.settings['button-text'] -}}
+                        </a>
+                      {% endif %}
+                      {% if block.settings['button-text2'] != blank %}
+                        <a
+                          href="{{ block.settings.button-link2 | default:block.settings.product.url }}"
+                          class="link-button color-settings2"
+                        >
+                          {{- block.settings['button-text2'] -}}
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="content-right">
+                  {% if block.settings.img != blank %}
+                    <img src="{{ block.settings.img | img_url:'' }}" alt="{{ block.settings.img.alt }}">
+                  {% endif %}
+                  {% if has_metafield_price %}
+                    {% if section.settings.badge_img != blank
+                      and block.settings.product
+                      and block.settings.product.compare_at_price > 0
+                    %}
+                      <div class="badge-image">
+                        <img src="{{ section.settings.badge_img | img_url: 'medium' }}" alt="badge image">
+
+                        {% liquid
+                          if has_metafield_price
+                            assign price = current_product_price | minus: lowest_price
+                            assign price_old = block.settings.product.compare_at_price | divided_by: 100.00
+                          else
+                            assign price = block.settings.product.compare_at_price | minus: block.settings.product.price | divided_by: 100.00
+                            assign price_old = block.settings.product.compare_at_price | divided_by: 100.00
+                          endif
+
+                          if block.settings.discount_mode == 'percentage' or section.settings.badge_display_mode == 'percentage'
+                            assign off = price | divided_by: price_old
+                            assign badge_text = off | times: 100 | round | append: '%<br>OFF'
+                          else
+                            assign badge_text = price | times: 100 | money | append: '<br>OFF'
+                          endif
+                        %}
+                        <span>{{ badge_text }}</span>
+                      </div>
+                    {% endif %}
+                  {% else %}
+                    {% if section.settings.badge_img != blank
+                      and block.settings.product
+                      and block.settings.product.compare_at_price > 0
+                    %}
+                      <div class="badge-image">
+                        <img src="{{ section.settings.badge_img | img_url: 'medium' }}" alt="badge image">
+                        {% liquid
+                          if has_metafield_price
+                            assign price = current_product_price | minus: lowest_price
+                            assign price_old = block.settings.product.compare_at_price | divided_by: 100.00
+                          else
+                            assign price = block.settings.product.compare_at_price | minus: block.settings.product.price | divided_by: 100.00
+                            assign price_old = block.settings.product.compare_at_price | divided_by: 100.00
+                          endif
+
+                          if block.settings.discount_mode == 'percentage' or section.settings.badge_display_mode == 'percentage'
+                            assign off = price | divided_by: price_old
+                            assign badge_text = off | times: 100 | round | append: '%<br>OFF'
+                          else
+                            assign badge_text = price | round | append: '€<br>OFF'
+                          endif
+                        %}
+                        <span>{{ badge_text }}</span>
+                      </div>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="tab-swiper-pagination"></div>
+        <div class="tab-swiper-pagination-mob"></div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  (function(){
+      const link_tab_swiper = new Swiper(".link-tab-swiper", {
+          slidesPerView: 1,
+          spaceBetween:20,
+
+          effect: "slide",
+          breakpoints:{
+              750:{
+                  {%if section.settings.show_pag %}
+                      pagination: {
+                          el: ".tab-swiper-pagination",
+                          type: "progressbar",
+                      },
+                  {% endif %}
+                  navigation: {
+                      nextEl: ".link-button-next",
+                      prevEl: ".link-button-prev",
+                  },
+              },
+              0:{
+                  pagination: {
+                      el: ".tab-swiper-pagination-mob",
+                  },
+              }
+          }
+      });
+  })()
+</script>
+<script>
+  (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      // 遍历每个产品模块
+      document.querySelectorAll('#shopify-section-{{ section.id }} .product-button').forEach((productBlock) => {
+        const addForm = productBlock.querySelector('form[action*="/cart/add"]');
+        const checkoutForm = productBlock.querySelector('form[action="{{ routes.cart_url }}"] button');
+
+        if (!addForm || !checkoutForm) return; // 如果缺少某个，就跳过
+
+        addForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(addForm);
+
+          // 第一步：异步加购
+          fetch('{{ routes.cart_add_url }}.js', {
+            method: 'POST',
+            body: formData,
+          })
+            .then((res) => {
+              if (!res.ok) throw new Error('Add to cart failed');
+              return res.json();
+            })
+            .then(() => {
+              // 第二步：找到对应 checkout form 提交
+              checkoutForm.click();
+            })
+            .catch((err) => {
+              console.error('Add to cart error:', err);
+            });
+        });
+      });
+    });
+  });
+</script>
+{% if tracking_enabled %}
+  <script>
+    (() => {
+      const section = document.getElementById('shopify-section-{{ section.id }}');
+      if (!section || !window.posthog) {
+        return;
+      }
+
+      const firstValue = (...values) => values.find((value) => (typeof value === 'string' ? value.trim() : value));
+      const buildTrackingName = (...values) => values.filter(Boolean).join('_');
+
+      const buildPayload = (element, action) => {
+        const pageContext = window.MerachTrackingContext || {};
+        const pageType = firstValue(pageContext.page_type, element.dataset.mrkTrackPageType);
+        const pageSku = firstValue(pageContext.page_sku);
+        const moduleName = firstValue(element.dataset.mrkTrackModuleName);
+        const contentKey = firstValue(element.dataset.mrkTrackContentKey);
+        const contentSku = firstValue(element.dataset.mrkTrackContentSku);
+        const actionSku = action === 'click' ? firstValue(element.dataset.mrkTrackActionSku, contentSku) : null;
+        const trackingName =
+          buildTrackingName(pageType, pageSku, moduleName, contentKey) || element.dataset.mrkTrackTrackingName;
+
+        const payload = {
+          ...pageContext,
+          schema_version: '1.0',
+          action,
+          tracking_name: trackingName,
+          page_type: pageType,
+          page_key: pageSku,
+          page_sku: pageSku,
+          page_handle: firstValue(pageContext.page_handle, element.dataset.mrkTrackPageHandle),
+          page_url: window.location.href,
+          module_name: moduleName,
+          module_label: element.dataset.mrkTrackModuleLabel,
+          module_source: element.dataset.mrkTrackModuleSource,
+          module_title: element.dataset.mrkTrackModuleTitle,
+          content_key: contentKey,
+          content_sku: contentSku,
+          content_type: element.dataset.mrkTrackContentType,
+          content_handle: element.dataset.mrkTrackContentHandle,
+          item_position: Number(element.dataset.mrkTrackItemPosition || 0) || null,
+          template: firstValue(pageContext.template, element.dataset.mrkTrackTemplate),
+          section_id: element.dataset.mrkTrackSectionId,
+          section_type: element.dataset.mrkTrackSectionType,
+          utm_source: sessionStorage.getItem('utm_source') || '',
+        };
+
+        if (actionSku) {
+          payload.action_sku = actionSku;
+        }
+
+        return payload;
+      };
+
+      const capture = (element, action) => {
+        const trackedActions = (element.dataset.mrkTrackedActions || '').split('|');
+
+        if (trackedActions.includes(action)) {
+          return;
+        }
+
+        window.posthog.capture('merach_module_interaction', buildPayload(element, action));
+        element.dataset.mrkTrackedActions = `${element.dataset.mrkTrackedActions || ''}|${action}`;
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              capture(entry.target, entry.target.dataset.mrkTrackAction || 'view');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+
+      section.querySelectorAll('[data-mrk-track-section],[data-mrk-track-item]').forEach((element) => observer.observe(element));
+
+      section.addEventListener('click', (event) => {
+        const item = event.target.closest('[data-mrk-track-item]');
+        if (item) {
+          capture(item, item.dataset.mrkTrackClickAction || 'click');
+        }
+      });
+    })();
+  </script>
+{% endif %}
+{% schema %}
+{
+  "name": "link-tab-check",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Unique ID for anchor links",
+      "default": "multi-column-product-pro"
+    },
+    {
+      "type": "checkbox",
+      "id": "animate",
+      "label": "启用键入动画",
+      "default": true,
+      "info": "修改配置的时候关闭"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom"
+    },
+
+    {
+      "type": "range",
+      "id": "padding-gap",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "badge_img",
+      "label": "Badge image"
+    },
+    {
+      "type": "header",
+      "content": "Width restriction",
+      "info": "Section maxWidth"
+    },
+    {
+      "type": "range",
+      "id": "max-width",
+      "max": 1920,
+      "min": 1100,
+      "step": 20,
+      "default": 1600,
+      "label": "Section width"
+    },
+    {
+      "type": "header",
+      "content": "Mob setting"
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-gap-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap mob"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Style",
+      "options": [
+        {
+          "value": "h1",
+          "label": "X-Large"
+        },
+        {
+          "value": "h2",
+          "label": "Large"
+        },
+        {
+          "value": "h3",
+          "label": "Medium"
+        },
+        {
+          "value": "h4",
+          "label": "Small"
+        },
+        {
+          "value": "h5",
+          "label": "X-Small"
+        },
+        {
+          "value": "h6",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h1"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_control",
+      "label": "显示滑块控制组件",
+      "default": true
+    },
+        {
+          "type": "checkbox",
+          "id": "show_button_shadow",
+          "default": true,
+          "label": "开启按钮阴影"
+        },
+    {
+      "type": "checkbox",
+      "id": "show_pag",
+      "label": "显示分页条",
+      "default": true
+    },
+
+    {
+      "type": "header",
+      "content": "Color settings"
+    },
+    {
+      "type": "color_background",
+      "id": "section-bg",
+      "label": "Section background"
+    },
+    {
+      "type": "color",
+      "id": "title-color",
+      "label": "Title color"
+    },
+
+    {
+      "type": "color_background",
+      "id": "card-bg",
+      "label": "Card background"
+    },
+    {
+      "type": "color",
+      "id": "card-color",
+      "label": "Card color"
+    },
+    {
+      "type": "color",
+      "id": "tag-color",
+      "label": "Tag color"
+    },
+
+    {
+      "type": "color",
+      "id": "price-color",
+      "label": "价格颜色",
+      "default": "#40BFF0"
+    },
+    {
+      "type": "color",
+      "id": "price-color-sale",
+      "label": "折扣价格颜色",
+      "default": "#A9A9A9"
+    },
+    {
+      "type": "color",
+      "id": "pag_bg",
+      "label": "分页条背景色",
+      "default": "#53565A"
+    },
+    {
+      "type": "color",
+      "id": "pag_step_bg",
+      "label": "分页条step背景色",
+      "default": "#ECECE7"
+    },
+
+    {
+      "type": "header",
+      "content": "Button color"
+    },
+
+    {
+      "type": "color",
+      "id": "button-color-active",
+      "label": "按钮1文本颜色",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "button-bg-active",
+      "label": "按钮1文本背景",
+      "default": "#aebde3"
+    },
+    {
+      "type": "color",
+      "id": "button-color-active2",
+      "label": "按钮2文本颜色",
+      "default": "#000000"
+    },
+    {
+      "type": "color_background",
+      "id": "button-bg-active2",
+      "label": "按钮2文本背景",
+      "default": "#ffffff"
+    },
+     {
+      "type": "header",
+      "content": "埋点相关配置"
+    },
+    {
+      "type": "checkbox",
+      "id": "tracking_enabled",
+      "label": "Enable tracking demo",
+      "default": false
+    },
+    {
+      "type": "metaobject",
+      "id": "tracking_module_type_metaobject",
+      "label": "PostHog module type",
+      "metaobject_type": "test_posthog_module_type",
+      "info": "Select the module type entry maintained by business, for example you_may_like."
+    },
+    {
+      "type": "textarea",
+      "id": "tracking_content_overrides",
+      "label": "Tracking content overrides",
+      "info": "One per line: product-handle=content_key"
+    },
+    {
+      "type": "text",
+      "id": "module_title",
+      "label": "Module title on capture"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "image-flex",
+          "label": "图文排布",
+          "options": [
+            { "value": "left", "label": "左文右图" },
+            { "value": "right", "label": "左图右文" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "content-flex",
+          "label": "内容布局",
+          "options": [
+            { "value": "left", "label": "left" },
+            { "value": "right", "label": "right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "text",
+          "id": "item-name",
+          "label": "Item name"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "product"
+        },
+
+        {
+          "type": "select",
+          "id": "discount_mode",
+          "label": "折扣显示方式",
+          "options": [
+            {
+              "value": "percentage",
+              "label": "百分比"
+            },
+            {
+              "value": "amount",
+              "label": "金额"
+            }
+          ],
+          "default": "percentage"
+        },
+        {
+          "type": "range",
+          "id": "badge_width",
+          "label": "Badge width",
+          "min": 40,
+          "max": 200,
+          "step": 5,
+          "unit": "px",
+          "default": 120
+        },
+        {
+          "type": "range",
+          "id": "badge_height",
+          "label": "Badge height",
+          "min": 40,
+          "max": 200,
+          "step": 5,
+          "unit": "px",
+          "default": 120
+        },
+        {
+          "type": "range",
+          "id": "badge_font_size",
+          "label": "Badge font size",
+          "min": 12,
+          "max": 48,
+          "step": 1,
+          "unit": "px",
+          "default": 32
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Badge text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "select",
+          "id": "badge_position",
+          "label": "Badge position",
+          "options": [
+            {
+              "value": "right",
+              "label": "Right"
+            },
+            {
+              "value": "left",
+              "label": "Left"
+            }
+          ],
+          "default": "right"
+        },
+
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag",
+          "default": "New Release"
+        },
+        {
+          "type": "text",
+          "id": "product-title",
+          "label": "Product title",
+          "info": "default product title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "模块描述",
+          "info": "default product description"
+        },
+        {
+          "type": "text",
+          "id": "tip_text",
+          "label": "分期文本",
+          "default": "Starting at $94 / month with "
+        },
+        {
+          "type": "textarea",
+          "id": "tip_svg",
+          "label": "分期log"
+        },
+        {
+          "type": "header",
+          "content": "Button settings"
+        },
+
+        {
+          "type": "checkbox",
+          "id": "show_add_to_cart",
+          "default": false,
+          "label": "开启加购按钮"
+        },
+        {
+          "type": "url",
+          "id": "button-link",
+          "label": "button link"
+        },
+        {
+          "type": "text",
+          "id": "button-text",
+          "label": "button text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "button-link2",
+          "label": "button link2"
+        },
+        {
+          "type": "text",
+          "id": "button-text2",
+          "label": "button text2",
+          "default": "View More"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "us-link-tab-check" }]
+}
+{% endschema %}
