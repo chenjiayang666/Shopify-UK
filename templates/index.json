@@ -792,6 +792,79 @@
         "show_mob_pag": false
       }
     },
+    "us_bricks_comments_iRUJjj": {
+      "type": "us-bricks-comments",
+      "blocks": {
+        "comment_Lfzmyt": {
+          "type": "comment",
+          "settings": {
+            "alignment": "column",
+            "video": "shopify://files/videos/Merach R50 Pro Rowing Machine with with HD Screen-2 (2).mp4",
+            "author": "raceacrossthestates",
+            "content": "\"It’s SUPER easy to use & has a training plan laid out for me based on my goals. It also automatically adjusts the resistance during the workout - which is awesome because I can just focus on my workout.\""
+          }
+        },
+        "comment_GNNUGE": {
+          "type": "comment",
+          "settings": {
+            "alignment": "column",
+            "video": "shopify://files/videos/Merach R50 Pro Rowing Machine with with HD Screen-2 (3).mp4",
+            "author": "mamirosetv",
+            "content": "\"Para mí la parte más difícil de ir a gym es tener que salir de casa, pero ya resolví con esta caminadora de\""
+          }
+        },
+        "comment_wwTAJR": {
+          "type": "comment",
+          "settings": {
+            "alignment": "column",
+            "video": "shopify://files/videos/Merach R50 Pro Rowing Machine with with HD Screen-2 (1).mp4",
+            "author": "joshlevitan",
+            "content": "\"Lately I’ve been adding rowing into my workouts and man it’s been humbling! I’ve been using the Merach R50 Pro. If you’re tired of the same old cardio, give this a try! \""
+          }
+        },
+        "comment_rjBhWA": {
+          "type": "comment",
+          "settings": {
+            "alignment": "column",
+            "video": "shopify://files/videos/Sofia-UK-W50.mp4",
+            "author": "dr.zachcolls",
+            "content": "\"💥 This is the Merach NovaRow R50—and it’s hands down one of the best budget air rowers I’ve used⚡️ The R50 uses air resistance, which means the harder you pull, the more resistance you get—just like rowing on water.\""
+          }
+        }
+      },
+      "block_order": [
+        "comment_Lfzmyt",
+        "comment_GNNUGE",
+        "comment_wwTAJR",
+        "comment_rjBhWA"
+      ],
+      "name": "us-Bricks Comments",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "max-width": 1600,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 20,
+        "padding-gap-mob": 20,
+        "float_card": true,
+        "title": "Voice of Influencers",
+        "heading_tag": "h1",
+        "subtitle": "",
+        "button_text": "Show Now",
+        "button_link": "",
+        "show_button_shadow": true,
+        "section-bg": "",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "button_bg": "#fff",
+        "button_color": "#0096F9",
+        "comment_card_bg": "#000",
+        "comment_color": "#fff"
+      }
+    },
     "text_with_icons_Rwf4A3": {
       "type": "us-text-with-icons",
       "blocks": {
@@ -1175,6 +1248,7 @@
     "custom_grid_kmi4Ra",
     "slide_banner_LALm4i",
     "slide_banner_NWXnWL",
+    "us_bricks_comments_iRUJjj",
     "text_with_icons_Rwf4A3",
     "slide_banner_Ha4kn3",
     "custom_grid_8RKaiy",
