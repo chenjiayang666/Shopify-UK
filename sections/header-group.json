@@ -91,6 +91,7 @@
         "message_7PjAM7",
         "message_PYcTLy"
       ],
+      "disabled": true,
       "custom_css": [
         ".text-xs {font-size: 12px;}"
       ],
