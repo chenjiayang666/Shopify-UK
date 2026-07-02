@@ -1,0 +1,961 @@
+{% render 'section-settings' %}
+<style>
+    #shopify-section-{{ section.id }} .custom-grid{
+      background-color: {{ section.settings.section-bg }};
+    }
+        #shopify-section-{{ section.id }} .custom-grid-body{
+            overflow: hidden;
+        }
+           #shopify-section-{{ section.id }} .tab-header{
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          justify-content: space-between;
+            padding:50px 0;
+        }
+      #shopify-section-{{ section.id }} .tab-header-content{
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+      }
+           #shopify-section-{{ section.id }} .tab-header .title{
+          color:{{ section.settings.title-color}};
+      }
+       #shopify-section-{{ section.id }} .tab-header .subtitle{
+          color:{{ section.settings.subtitle-color}};
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 26px;
+      }
+
+            #shopify-section-{{ section.id }} .link-button{
+        border-radius: 20px;
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        height: 100%;
+        {% comment %} box-shadow: 0 4px 8px rgba(0,0,0,0.15); {% endcomment %}
+        transition: all 0.3s ease; /* 平滑过渡 */
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19.33px;
+        letter-spacing: 0;
+    }
+            {% comment %} #shopify-section-{{ section.id }} .link-button:hover{
+        transform: translateY(-3px); /* 稍微上浮 */
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25); /* 阴影更浓一些 */
+    } {% endcomment %}
+    #shopify-section-{{ section.id }} .color-settings1{
+        color:{{ section.settings.button_color }};
+        background:{{ section.settings.button_bg }};
+        {%if section.settings.button_color =='#000000' and section.settings.button_bg == '#ffffff'%}
+          border:1px solid {{ section.settings.button_color }};
+        {% endif %}
+    }
+      #shopify-section-{{ section.id }} .custom-grid-item{
+        border-radius: {{ section.settings.radius }}px;
+        background:{{ section.settings.card-bg }};
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        {% comment %} box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); {% endcomment %}
+        flex-direction: column;
+        transition: all 0.3s ease; /* 平滑过渡 */
+      }
+      {% comment %} #shopify-section-{{ section.id }} .custom-grid-item:hover{
+                transform: translateY(-3px); /* 稍微上浮 */
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25); /* 阴影更浓一些 */
+      } {% endcomment %}
+      #shopify-section-{{ section.id }} .custom-grid-item a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      {%if section.settings.float_card %}
+      #shopify-section-{{ section.id }} .custom-grid-item-info{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 30px 30px;
+        cursor:pointer;
+    }
+    {% else %}
+      #shopify-section-{{ section.id }} .custom-grid-item-info-content{
+      }
+      #shopify-section-{{ section.id }} .custom-grid-item-info{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1;
+        padding: 20px;
+      }
+      {% endif %}
+    #shopify-section-{{ section.id }} .custom-grid-item-info .title{
+      color: {{ section.settings.card-title-color }};
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 120%;
+      letter-spacing: 0;
+      margin-bottom:5px;
+    }
+    #shopify-section-{{ section.id }} .custom-grid-item-info .subtitle{
+      color: {{ section.settings.card_description_color }};
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 120%;
+    }
+     #shopify-section-{{ section.id }} .custom-grid-button{
+      width:42px;
+      height: 42px;
+      border-radius: 50%;
+      background: {{ section.settings.link_bg }};
+      transition: all 0.3s ease;
+  }
+  #shopify-section-{{ section.id }} .custom-grid-item:hover .custom-grid-button{
+      background: {{ section.settings.link_color }};
+  }
+  #shopify-section-{{ section.id }} .custom-grid-item:hover .custom-grid-button {
+  }
+  #shopify-section-{{ section.id }} .custom-grid-item:hover .custom-grid-button path{
+      stroke: {{ section.settings.link_bg }};
+  }
+  #shopify-section-{{ section.id }} .custom-grid-item .custom-grid-button path{
+    stroke:{{ section.settings.link_color }};
+      transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .custom-grid-item img,#shopify-section-{{ section.id }} .custom-grid-item video{
+    transition: transform 0.5s ease;
+    display:flex;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: {{ section.settings.aspect_ratio }};
+  }
+  #shopify-section-{{ section.id }} .full_style_container{
+    width:100%;
+}
+#shopify-section-{{ section.id }} .swiper-pagination-bullet{
+    width:52px;
+    height:4px;
+    background:#1f1f19;
+    border-radius:5px;
+    transition: all 0.5s ease;
+}
+#shopify-section-{{ section.id }} .swiper-pagination-bullet-active{
+    background:#53565A;
+    width:180px;
+}
+.swiper-pagination-{{ section.id }}{
+    position: unset;
+    margin-top: 50px;
+}
+
+
+        @media (max-width: 768px) {
+          #shopify-section-{{ section.id }} .swiper-pagination-bullet{
+            width:4px;
+            height:4px;
+            background:#D9D9D9;
+            border-radius:5px;
+            transition: all 0.5s ease;
+            opacity:1;
+        }
+        .swiper-pagination-{{ section.id }}{
+          display:none;
+        }
+        #shopify-section-{{ section.id }} .swiper-pagination-bullet-active{
+            background:#53565A;
+            width:14px;
+        }
+        #shopify-section-{{ section.id }} .swiper-pagination-mob-{{ section.id }}{
+            display: flex;
+            position: unset;
+            margin-top: 20px;
+            justify-content: center;
+        }
+            #shopify-section-{{ section.id }} .custom-grid-body{
+
+            }
+            .full_style_container{
+                padding: 0 20px;
+            }
+          #shopify-section-{{ section.id }} .tab-header-content{
+            gap:10px;
+            align-items: center;
+            text-align: center;
+          }
+          #shopify-section-{{ section.id }} .tab-header{
+            padding: 30px 0 50px;
+            flex-direction: column;
+          }
+          #shopify-section-{{ section.id }} .custom-grid-item-info .title{
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 120%;
+            letter-spacing: 0;
+          }
+          #shopify-section-{{ section.id }} .custom-grid-item-info .subtitle{
+            font-size: 12px;
+            line-height: 120%;
+          }
+          #shopify-section-{{ section.id }} .custom-grid-button{
+            width: 25px;
+            height: 25px;
+          }
+          #shopify-section-{{ section.id }} .custom-grid-button svg{
+            transform: scale(.6); 
+          }
+          #shopify-section-{{ section.id }} .tab-header .subtitle {
+              color: #000;
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 20px;
+          }
+                  #shopify-section-{{ section.id }} .link-button{
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 17.33px;
+        }
+        }
+</style>
+
+{%- render 'posthog-context',
+  page_type: 'PDP',
+  page_type_label: 'Product Detail Page',
+  page_type_metaobject: section.settings.posthog_page_type_metaobject
+-%}
+{%- liquid
+  assign tracking_enabled = section.settings.tracking_enabled
+  assign tracking_page_type = 'PDP'
+  assign tracking_module_name = 'you_may_like'
+  assign tracking_module_label = section.settings.title | default: section.settings.module_title
+  assign tracking_module_source = 'fallback'
+  assign tracking_module_type_metaobject = section.settings.tracking_module_type_metaobject
+  assign tracking_template = template.name
+  assign tracking_page_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  assign tracking_page_handle = product.handle | default:page.handle
+
+  if tracking_module_type_metaobject != blank
+    assign tracking_module_name_from_metaobject = tracking_module_type_metaobject.key.value | default: tracking_module_type_metaobject.module_name.value | default: tracking_module_type_metaobject.module_type.value | default: tracking_module_type_metaobject.system.handle
+    assign tracking_module_label_from_metaobject = tracking_module_type_metaobject.label.value | default: tracking_module_type_metaobject.name.value | default: tracking_module_type_metaobject.title.value | default: tracking_module_type_metaobject.system.handle
+
+    if tracking_module_name_from_metaobject != blank
+      assign tracking_module_name = tracking_module_name_from_metaobject
+      assign tracking_module_label = tracking_module_label_from_metaobject
+      assign tracking_module_source = 'metaobject'
+    endif
+  endif
+
+  if template.suffix != blank
+    assign tracking_template = template.name | append: '.' | append: template.suffix
+  endif
+-%}
+
+{%- liquid
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_overrides = section.settings.tracking_content_overrides | newline_to_br | split: '<br />'
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  for override in tracking_content_overrides
+    assign override_parts = override | strip | split: '='
+    assign override_handle = override_parts[0] | strip
+    assign override_key = override_parts[1] | strip
+
+    if override_handle == page.handle or override_handle == product.handle and override_key != blank
+      assign tracking_content_key = override_key
+    endif
+  endfor
+  assign tracking_name = tracking_page_type | upcase | append: '_' | append: tracking_page_sku | append: '_' | append: tracking_module_name | append: '_' | append: tracking_content_key
+-%}
+
+<section
+    {% if tracking_enabled %}
+    data-mrk-track-section
+    data-mrk-track-action="view"
+    data-mrk-track-page-type="{{ tracking_page_type | upcase | escape }}"
+    data-mrk-track-module-name="{{ tracking_module_name | escape }}"
+    data-mrk-track-module-label="{{ tracking_module_label | escape }}"
+    data-mrk-track-module-source="{{ tracking_module_source | escape }}"
+    data-mrk-track-module-title="{{ section.settings.module_title | escape }}"
+    data-mrk-track-content-key="{{ tracking_content_key }}"
+    data-mrk-track-content-type="module"
+    data-mrk-track-tracking-name="{{ tracking_page_type | upcase }}{% if tracking_page_sku != blank %}_{{ tracking_page_sku }}{% endif %} _{{ tracking_module_name }} _{{ tracking_content_key }}"
+    data-mrk-track-template="{{ tracking_template | escape }}"
+    data-mrk-track-section-id="{{ section.id | escape }}"
+    data-mrk-track-section-type="{{ section.type | escape }}"
+    data-mrk-track-page-handle="{{ tracking_page_handle | escape }}"
+  {% endif %}
+  class="custom-grid section-padding">
+  <div class="custom-grid-container section-maxwidth section-gap {% if section.settings.animate %}fade-element{% endif %}">
+    {% if section.settings.title != blank or section.settings.subtitle != blank %}
+      <div class="tab-header  section-maxwidth section-gap">
+        <div class="tab-header-content">
+          {% if section.settings.title != blank %}
+            <div class="{{ section.settings.heading_tag }} title">{{ section.settings.title }}</div>
+          {% endif %}
+          {% if section.settings.subtitle != blank %}
+            <div class="subtitle">{{ section.settings.subtitle }}</div>
+          {% endif %}
+        </div>
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link }}" class="link-button color-settings1">
+            {{- section.settings.button_text -}}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+  </div>
+  <div class="{%if section.settings.full_width == false%}section-maxwidth section-gap {%else%} full_style_container {% endif %} {% if section.settings.animate %}fade-element{% endif %}">
+    {% if section.blocks.size > 0 %}
+      <div class="custom-grid-body grid-swiper-{{ section.id }}">
+        <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="custom-grid-item swiper-slide">
+            <{%if block.settings.video == blank%}a{%else%}div{%endif %} class="custom-grid-item-img" href="{{ block.settings.url | default: block.settings.product.url }}">
+              {% if block.settings.video != blank %}
+                {{-
+                  block.settings.video
+                  | video_tag:
+                    playsinline: true,
+                    preload: 'metadata',
+                    autoplay: true,
+                    muted: true,
+                    loop: true,
+                    controls: true,
+                    image_size: '800x',
+                    class: 'lazy-video  media'
+                -}}
+              {% elsif block.settings.image != blank or block.settings.product != blank %}
+                <div style="width:100%">
+                  {% if block.settings.image != blank %}
+                    <img
+                      src="{{ block.settings.image | image_url: width: 800 }}"
+                      loading="lazy"
+                      alt="{{ block.settings.title }}"
+                    >
+                  {% else %}
+                    {%- assign featured_image = block.settings.product.featured_image -%}
+
+                    <img
+                      src="{{ featured_image | image_url: width: 800 }}"
+                      loading="lazy"
+                      alt="{{ block.settings.title }}"
+                    >
+                  {% endif %}
+                </div>
+              {% endif %}
+            </{%if block.settings.video == blank%}a{%else%}div{%endif %}>
+            <div class="custom-grid-item-info">
+              <div class="custom-grid-item-info-content">
+                <h3 class="title">{{ block.settings.title }}</h3>
+                <p class="subtitle">{{ block.settings.subtitle }}</p>
+              </div>
+              {% if block.settings.url != blank or block.settings.product != blank %}
+                <a class="custom-grid-button" href="{{ block.settings.url | default: block.settings.product.url }}">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.0676 12.8172L13.0676 0.847888L0.599609 0.847888M13.0676 0.847888L0.599609 13.3159" stroke-width="1.69565"/>
+                    </svg>
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+        {% if section.settings.show_pagination %}
+          <div class="swiper-pagination swiper-pagination-{{ section.id }} "></div>
+        {% endif %}
+        {% if section.settings.show_pagination_mob %}
+          <div class="swiper-pagination swiper-pagination-mob-{{ section.id }}"></div>
+        {%endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+<script>
+    (function(){
+
+
+        var gridSwiperConfig = {
+
+        };
+        // 移动端配置
+        gridSwiperConfig.breakpoints = {
+            0: {
+                {%if section.settings.slide_grid_mob%}
+                    slidesPerView: {{ section.settings.slide_per_view_mob }},
+                    grid: {
+                        rows: {{ section.settings.grid-rows-mob }},
+                        fill: 'row'
+                    },
+                {% else %}
+                    {% if section.settings.slide_per_splite_mob > 0  %}
+                        slidesPerView: {{ section.settings.slide_per_view_mob }}.{{ section.settings.slide_per_splite_mob }},
+                    {% else %}
+                        slidesPerView: {{ section.settings.slide_per_view_mob }},
+                    {% endif %}
+                {% endif %}
+                spaceBetween: {{ section.settings.slide_gap_mob }},
+                {% if section.settings.show_pagination_mob %}
+                    pagination: {
+                        el: '.swiper-pagination-mob-{{ section.id }}',
+                        clickable: true,
+                    }
+                  {% else %}
+                    pagination: {
+                    }
+                {% endif %}
+            },
+            750:{
+                {%if section.settings.slide_grid %}
+                    slidesPerView: {{ section.settings.slide_per_view }},
+                    grid: {
+                        rows: {{ section.settings.grid-rows }},
+                        fill: 'row'
+                    },
+                {%else %}
+                    {% if section.settings.slide_per_splite > 0 %}
+                        slidesPerView: {{ section.settings.slide_per_view }}.{{ section.settings.slide_per_splite }},
+                    {% else %}
+                        slidesPerView: {{ section.settings.slide_per_view }},
+                    {% endif %}
+                {% endif %}
+                spaceBetween: {{ section.settings.slide_gap }},
+                {% if section.settings.show_pagination %}
+                    pagination: {
+                        el: '.swiper-pagination-{{ section.id }}',
+                        clickable: true,
+                    }
+                {% endif %}
+            }
+        };
+
+        var gridSwiper = new Swiper(".grid-swiper-{{ section.id }}",gridSwiperConfig);
+    })();
+</script>
+{% if tracking_enabled %}
+  <script>
+      (() => {
+        const section = document.getElementById('shopify-section-{{ section.id }}');
+        if (!section || !window.posthog) {
+          return;
+        }
+
+        const firstValue = (...values) => values.find((value) => (typeof value === 'string' ? value.trim() : value));
+        const buildTrackingName = (...values) => values.filter(Boolean).join('_');
+
+        const buildPayload = (element, action) => {
+          const pageContext = window.MerachTrackingContext || {};
+          const pageType = firstValue(pageContext.page_type, element.dataset.mrkTrackPageType);
+          const pageSku = firstValue(pageContext.page_sku);
+          const moduleName = firstValue(element.dataset.mrkTrackModuleName);
+          const contentKey = firstValue(element.dataset.mrkTrackContentKey);
+          const contentSku = firstValue(element.dataset.mrkTrackContentSku);
+          const actionSku = action === 'click' ? firstValue(element.dataset.mrkTrackActionSku, contentSku) : null;
+          const trackingName =
+            buildTrackingName(pageType, pageSku, moduleName, contentKey) || element.dataset.mrkTrackTrackingName;
+
+          const payload = {
+            ...pageContext,
+            schema_version: '1.0',
+            action,
+            tracking_name: trackingName,
+            page_type: pageType,
+            page_key: pageSku,
+            page_sku: pageSku,
+            page_handle: firstValue(pageContext.page_handle, element.dataset.mrkTrackPageHandle),
+            page_url: window.location.href,
+            module_name: moduleName,
+            module_label: element.dataset.mrkTrackModuleLabel,
+            module_source: element.dataset.mrkTrackModuleSource,
+            module_title: element.dataset.mrkTrackModuleTitle,
+            content_key: contentKey,
+            content_sku: contentSku,
+            content_type: element.dataset.mrkTrackContentType,
+            content_handle: element.dataset.mrkTrackContentHandle,
+            item_position: Number(element.dataset.mrkTrackItemPosition || 0) || null,
+            template: firstValue(pageContext.template, element.dataset.mrkTrackTemplate),
+            section_id: element.dataset.mrkTrackSectionId,
+            section_type: element.dataset.mrkTrackSectionType,
+            utm_source: sessionStorage.getItem('utm_source') || '',
+          };
+
+          if (actionSku) {
+            payload.action_sku = actionSku;
+          }
+
+          return payload;
+        };
+
+        const capture = (element, action) => {
+          const trackedActions = (element.dataset.mrkTrackedActions || '').split('|');
+
+          if (trackedActions.includes(action)) {
+            return;
+          }
+
+          window.posthog.capture('merach_module_interaction', buildPayload(element, action));
+          element.dataset.mrkTrackedActions = `${element.dataset.mrkTrackedActions || ''}|${action}`;
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                capture(entry.target, entry.target.dataset.mrkTrackAction || 'view');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.35 }
+        );
+
+        section.querySelectorAll('[data-mrk-track-section],[data-mrk-track-item]').forEach((element) => observer.observe(element));
+
+        section.addEventListener('click', (event) => {
+          const item = event.target.closest('[data-mrk-track-item]');
+          if (item) {
+            capture(item, item.dataset.mrkTrackClickAction || 'click');
+          }
+        });
+      })();
+  </script>
+{% endif %}
+{% schema %}
+{
+  "name": "Custom Grid",
+  "class": "custom-grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Unique ID for anchor links",
+      "default": "multi-column-product-pro"
+    },
+                {
+      "type": "checkbox",
+      "id": "animate",
+      "label": "启用键入动画",
+      "default": true,
+      "info": "修改配置的时候关闭"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom"
+    },
+    {
+      "type": "range",
+      "id": "padding-gap",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap"
+    },
+    {
+      "type": "header",
+      "content": "Width restriction",
+      "info": "Section maxWidth"
+    },
+    {
+      "type": "range",
+      "id": "max-width",
+      "max": 1920,
+      "min": 720,
+      "step": 20,
+      "default": 1600,
+      "label": "Section width"
+    },
+    {
+      "type": "header",
+      "content": "Mob setting"
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-gap-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap mob"
+    },
+    {
+      "type": "checkbox",
+      "id": "float_card",
+      "label": "Float card",
+      "default": true
+    },
+        {
+        "type":"text",
+        "id":"aspect_ratio",
+        "label":"图片比例",
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "滑块部分全宽",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Stronger Starts at Home"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Style",
+      "options": [
+        {
+          "value": "h1",
+          "label": "X-Large"
+        },
+        {
+          "value": "h2",
+          "label": "Large"
+        },
+        {
+          "value": "h3",
+          "label": "Medium"
+        },
+        {
+          "value": "h4",
+          "label": "Small"
+        },
+        {
+          "value": "h5",
+          "label": "X-Small"
+        },
+        {
+          "value": "h6",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h1"
+    },
+
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Choose your goal. We’ll handle the rest"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Show Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    
+    {
+      "type": "header",
+      "content": "Color settings"
+    },
+    {
+      "type": "color_background",
+      "id": "section-bg",
+      "label": "Section background"
+    },
+    {
+      "type": "color_background",
+      "id": "title-color",
+      "label": "Title color",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "subtitle-color",
+      "label": "Subtitle color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "card-title-color",
+      "label": "卡片标题颜色",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "card_description_color",
+      "label": "卡片描述颜色",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+        {
+      "type": "color_background",
+      "id": "button_bg",
+      "label": "Header Button background",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Header Button color",
+      "default": "#0096F9"
+    },
+    {
+      "type": "color",
+      "id": "link_bg",
+      "label": "Link background",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Line color",
+      "default": "#0096F9"
+    },
+
+    {
+      "type": "header",
+      "content": "Card"
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "Card Radius",
+      "default": 10,
+      "min": 0,
+      "max": 50
+    },
+    {
+      "type": "header",
+      "content": "滑块"
+    },
+    {
+        "type":"checkbox",
+        "id":"slide_grid",
+        "label":"启用网格滑块",
+        "default":true
+    },
+    {
+      "type": "range",
+      "id": "slide_per_view",
+      "max": 5,
+      "min": 1,
+      "step": 1,
+      "default": 1,
+      "label": "单页滑块数量"
+    },
+    {
+      "type": "range",
+      "id": "slide_per_splite",
+      "max": 9,
+      "min": 0,
+      "step": 1,
+      "default": 0,
+      "label": "单页滑块分割数(比如像实现单页2.5这样的数量,只在网格滑块关闭的情况下)"
+    },
+    {
+      "type": "range",
+      "id": "slide_gap",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "label": "滑块之间间距",
+      "default": 20
+    },
+
+        {
+      "type": "range",
+      "id": "grid-rows",
+      "label": "网格列数",
+      "default": 2,
+      "min": 1,
+      "max": 6
+    },
+    {
+        "type":"checkbox",
+        "id":"show_pagination",
+        "label":"显示分页",
+        "default":false
+    },
+    {
+      "type": "header",
+      "content": "移动端滑块设置"
+    },
+    {
+        "type":"checkbox",
+        "id":"slide_grid_mob",
+        "label":"启用移动端网格滑块",
+        "default":true
+    },
+    {
+      "type": "range",
+      "id": "slide_per_view_mob",
+      "max": 5,
+      "min": 1,
+      "step": 1,
+      "default": 1,
+      "label": "移动端单页滑块数量"
+    },
+    {
+      "type": "range",
+      "id": "slide_per_splite_mob",
+      "max": 9,
+      "min": 0,
+      "step": 1,
+      "default": 2,
+      "label": "移动端单页滑块分割数只在网格滑块关闭的情况下"
+    },
+        {
+      "type": "range",
+      "id": "grid-rows-mob",
+      "label": "移动端网格列数",
+      "default": 1,
+      "min": 1,
+      "max": 4
+    },
+    {
+      "type": "range",
+      "id": "slide_gap_mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "label": "移动端滑块之间间距",
+      "default": 20
+    },
+    {
+        "type":"checkbox",
+        "id":"show_pagination_mob",
+        "label":"移动端显示分页",
+        "default":false
+    },
+        {
+      "type": "header",
+      "content": "埋点相关配置"
+    },
+    {
+      "type": "checkbox",
+      "id": "tracking_enabled",
+      "label": "Enable tracking demo",
+      "default": false
+    },
+    {
+      "type": "metaobject",
+      "id": "tracking_module_type_metaobject",
+      "label": "PostHog module type",
+      "metaobject_type": "test_posthog_module_type",
+      "info": "Select the module type entry maintained by business, for example you_may_like."
+    },
+    {
+      "type": "textarea",
+      "id": "tracking_content_overrides",
+      "label": "Tracking content overrides",
+      "info": "One per line: product-handle=content_key"
+    },
+    {
+      "type": "text",
+      "id": "module_title",
+      "label": "Module title on capture"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "grid",
+      "name": "Grid Item",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Minute Workouts"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": " Find the time. Make it count."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Grid",
+      "blocks": [
+        { "type": "grid", "settings": { "title": "Minute Workouts" } },
+        {
+          "type": "grid",
+          "settings": { "title": "Reshape Your Body" }
+        },
+        { "type": "grid", "settings": { "title": "Advanced Training" } },
+        {
+          "type": "grid",
+          "settings": { "title": "The Legacy Series" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
