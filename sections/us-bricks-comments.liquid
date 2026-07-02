@@ -1,0 +1,804 @@
+{% render 'section-settings' %}
+<style>
+        #shopify-section-{{ section.id }} .bricks-comments{
+        background:{{ section.settings.section-bg }};
+    }
+    #shopify-section-{{ section.id }} .tab-header{
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+        padding:50px 0;
+    }
+  #shopify-section-{{ section.id }} .tab-header-content{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+  }
+   #shopify-section-{{ section.id }} .tab-header .title{
+      color: {{ section.settings.title-color }};
+
+    }
+    #shopify-section-{{ section.id }} .tab-header .subtitle{
+      color: {{ section.settings.subtitle-color }};
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 120%;
+    }
+
+    #shopify-section-{{ section.id }} .link-button{
+        border-radius: 20px;
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        height: 100%;
+      {%if section.settings.show_button_shadow %}
+          box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      {% endif %}
+        transition: all 0.3s ease; /* 平滑过渡 */
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19.33px;
+        letter-spacing: 0;
+    }
+      {%if section.settings.show_button_shadow %}
+      #shopify-section-{{ section.id }} .link-button:hover{
+          transform: translateY(-3px); /* 稍微上浮 */
+          box-shadow: 0 6px 16px rgba(0,0,0,0.25); /* 阴影更浓一些 */
+      }
+      {% endif %}
+    #shopify-section-{{ section.id }} .color-settings1{
+        color:{{ section.settings.button_color }};
+        background:{{ section.settings.button_bg }};
+        {%if section.settings.button_color =='#000000' and section.settings.button_bg == '#ffffff'%}
+          border:1px solid {{ section.settings.button_color }};
+        {% endif %}
+        margin-right:10px;
+    }
+    #shopify-section-{{ section.id }} .comment-item{
+      display:flex;
+      gap:16px;
+      align-items: center;
+      justify-content: space-between;
+      height: auto;
+    }
+    #shopify-section-{{ section.id }} .comment-item-media img,
+    #shopify-section-{{ section.id }} .comment-item-media video{
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 255/340;
+      width:100%;
+      display:flex;
+      object-fit: cover;
+    }
+    #shopify-section-{{ section.id }} .comment-item-info{
+      border-radius: 16px;
+      overflow: hidden;
+      background:{{ section.settings.comment_card_bg }};
+      color:{{ section.settings.comment_color }};
+    padding: 20px 20px 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    }
+
+     #shopify-section-{{ section.id }} .comment-item-author{
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap:12px;
+      padding-bottom:15px;
+      border-bottom:1px solid #F5F5F580;
+      margin-bottom:15px;
+    }
+     #shopify-section-{{ section.id }} .comment-item-author img{
+        width:32px;
+        height:32px;
+        border-radius: 50%;
+        object-fit: cover;
+        display:flex;
+     }
+    #shopify-section-{{ section.id }} .comment-item-content{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+    }
+     #shopify-section-{{ section.id }} .bricks-comments-container{
+        overflow:hidden;
+    }
+    {% for block in section.blocks %}
+    .{{block.id }}{
+        flex-direction: {{block.settings.alignment}};
+      }
+    {% endfor %}
+
+    @media(max-width:750px){
+          #shopify-section-{{ section.id }} .tab-header{
+        padding-top:30px;
+        padding-bottom:30px;
+        flex-direction: column;
+      }
+      #shopify-section-{{ section.id }} .tab-header .subtitle {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+      }
+      #shopify-section-{{ section.id }} .tab-header-content{
+        gap:10px;
+        align-items: center;
+        text-align: center;
+      }
+      #shopify-section-{{ section.id }} .bricks-comments-swiper{
+        overflow:hidden;
+      }
+      #shopify-section-{{ section.id }} .comment-item{
+        flex-direction:column;
+      }
+      #shopify-section-{{ section.id }} .swiper-pagination-bullet{
+            width:4px;
+            height:4px;
+            background:#FFFFFF80;
+            border-radius:5px;
+            transition: all 0.5s ease;
+            opacity:1;
+        }
+        #shopify-section-{{ section.id }} .swiper-pagination-bullet-active{
+            background:#fff;
+            width:14px;
+        }
+        #shopify-section-{{ section.id }} .bricks-comments-swiper-pagination{
+            display: flex;
+            position: unset;
+            margin-top: 20px;
+            justify-content: center;
+        }
+    }
+
+</style>
+{%- render 'posthog-context',
+  page_type: 'PDP',
+  page_type_label: 'Product Detail Page',
+  page_type_metaobject: section.settings.posthog_page_type_metaobject
+-%}
+{%- liquid
+  assign tracking_enabled = section.settings.tracking_enabled
+  assign tracking_page_type = 'PDP'
+  assign tracking_module_name = 'you_may_like'
+  assign tracking_module_label = section.settings.title | default: section.settings.module_title
+  assign tracking_module_source = 'fallback'
+  assign tracking_module_type_metaobject = section.settings.tracking_module_type_metaobject
+  assign tracking_template = template.name
+  assign tracking_page_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  assign tracking_page_handle = product.handle | default:page.handle
+
+  if tracking_module_type_metaobject != blank
+    assign tracking_module_name_from_metaobject = tracking_module_type_metaobject.key.value | default: tracking_module_type_metaobject.module_name.value | default: tracking_module_type_metaobject.module_type.value | default: tracking_module_type_metaobject.system.handle
+    assign tracking_module_label_from_metaobject = tracking_module_type_metaobject.label.value | default: tracking_module_type_metaobject.name.value | default: tracking_module_type_metaobject.title.value | default: tracking_module_type_metaobject.system.handle
+
+    if tracking_module_name_from_metaobject != blank
+      assign tracking_module_name = tracking_module_name_from_metaobject
+      assign tracking_module_label = tracking_module_label_from_metaobject
+      assign tracking_module_source = 'metaobject'
+    endif
+  endif
+
+  if template.suffix != blank
+    assign tracking_template = template.name | append: '.' | append: template.suffix
+  endif
+-%}
+
+{%- liquid
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_overrides = section.settings.tracking_content_overrides | newline_to_br | split: '<br />'
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  for override in tracking_content_overrides
+    assign override_parts = override | strip | split: '='
+    assign override_handle = override_parts[0] | strip
+    assign override_key = override_parts[1] | strip
+
+    if override_handle == page.handle or override_handle == product.handle and override_key != blank
+      assign tracking_content_key = override_key
+    endif
+  endfor
+  assign tracking_name = tracking_page_type | upcase | append: '_' | append: tracking_page_sku | append: '_' | append: tracking_module_name | append: '_' | append: tracking_content_key
+-%}
+<section
+      {% if tracking_enabled %}
+    data-mrk-track-section
+    data-mrk-track-action="view"
+    data-mrk-track-page-type="{{ tracking_page_type | upcase | escape }}"
+    data-mrk-track-module-name="{{ tracking_module_name | escape }}"
+    data-mrk-track-module-label="{{ tracking_module_label | escape }}"
+    data-mrk-track-module-source="{{ tracking_module_source | escape }}"
+    data-mrk-track-module-title="{{ section.settings.module_title | escape }}"
+    data-mrk-track-content-key="{{ tracking_content_key }}"
+    data-mrk-track-content-type="module"
+    data-mrk-track-tracking-name="{{ tracking_page_type | upcase }}{% if tracking_page_sku != blank %}_{{ tracking_page_sku }}{% endif %} _{{ tracking_module_name }} _{{ tracking_content_key }}"
+    data-mrk-track-template="{{ tracking_template | escape }}"
+    data-mrk-track-section-id="{{ section.id | escape }}"
+    data-mrk-track-section-type="{{ section.type | escape }}"
+    data-mrk-track-page-handle="{{ tracking_page_handle | escape }}"
+  {% endif %}
+  class="bricks-comments section-padding">
+  <div class="bricks-comments-container section-maxwidth section-gap {% if section.settings.animate %}fade-element{% endif %}">
+    {% if section.settings.title != blank or section.settings.subtitle != blank %}
+      <div class="tab-header  section-maxwidth section-gap">
+        <div class="tab-header-content">
+          {% if section.settings.title != blank %}
+            <div class="{{ section.settings.heading_tag }} title">{{ section.settings.title }}</div>
+          {% endif %}
+          {% if section.settings.subtitle != blank %}
+            <div class="subtitle">{{ section.settings.subtitle }}</div>
+          {% endif %}
+        </div>
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link }}" class="link-button color-settings1">
+            {{- section.settings.button_text -}}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="bricks-comments-swiper comment-container">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide comment-item {{block.id }}">
+            <div class="comment-item-media">
+              {% if block.settings.video != blank %}
+                <div class="video-wrapper sm:block sm-max:hidden">
+                  {{-
+                    block.settings.video
+                    | video_tag:
+                      playsinline: true,
+                      preload: 'metadata',
+                      autoplay: true,
+                      muted: true,
+                      loop: true,
+                      controls: false,
+                      image_size: '800x',
+                      class: 'lazy-video  media pc-video pc-control'
+                  -}}
+
+                  <div class="video-control">
+                    <svg width="70" height="70">
+                      <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
+                      <circle class="progress-bar" cx="35" cy="35" r="30"></circle>
+                    </svg>
+                    <div class="icon play"></div>
+                  </div>
+                </div>
+
+              {% elsif block.settings.image != blank %}
+                <img
+                  class="sm:block sm-max:hidden media pc-control"
+                  src="{{ block.settings.image | img_url:''}}"
+                  alt="{{ block.settings.image.alt }}"
+                  loading="lazy"
+                >
+              {% endif %}
+
+              {% if block.settings.video_m != blank %}
+                <div class="video-wrapper sm:hidden sm-max:block">
+                  {{-
+                    block.settings.video_m
+                    | video_tag:
+                      playsinline: true,
+                      preload: 'metadata',
+                      muted: true,
+                      loop: true,
+                      autoplay: true,
+                      controls: false,
+                      image_size: '800x',
+                      class: 'lazy-video  media'
+                  -}}
+                  <div class="video-control">
+                    <svg width="70" height="70">
+                      <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
+                      <circle class="progress-bar" cx="35" cy="35" r="30"></circle>
+                    </svg>
+                    <div class="icon play"></div>
+                  </div>
+                </div>
+              {% elsif block.settings.image_mob != blank %}
+                <img
+                  class="sm:hidden sm-max:block media"
+                  src="{{ block.settings.image_mob | img_url:'' }}"
+                  alt="{{ block.settings.image_mob.alt }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+            <div class="comment-item-info">
+              <div class="comment-item-author">
+                {{- block.settings.author -}}
+                {% if block.settings.author_img != blank %}
+                  <img
+                    src="{{ block.settings.author_img | img_url:'' }}"
+                    alt="{{ block.settings.author_img.alt }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+              </div>
+              <div class="comment-item-content">{{- block.settings.content -}}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="bricks-comments-swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const bricks_comments_swiper = new Swiper('.bricks-comments-swiper', {
+      slidesPerView: 4,
+      navigation: {
+        nextEl: '.bricks-comments-button-next',
+        prevEl: '.bricks-comments-button-prev',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 16,
+        },
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 16,
+          pagination: {
+            el: '.bricks-comments-swiper-pagination',
+          },
+        },
+      },
+    });
+  })();
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+  const videos = document.querySelectorAll('#shopify-section-{{ section.id }} .lazy-video');
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      const video = entry.target;
+      const source = video.querySelector('source');
+
+      if (entry.isIntersecting) {
+
+        // 首次加载
+        if (source.dataset.src && !source.src) {
+
+          source.src = source.dataset.src;
+
+          video.load();
+        }
+
+        video.play().catch(() => {});
+
+      } else {
+
+        video.pause();
+
+      }
+
+    });
+
+  }, {
+    threshold: 0.3
+  });
+
+  videos.forEach(video => observer.observe(video));
+
+});
+</script>
+{% if tracking_enabled %}
+  <script>
+      (() => {
+        const section = document.getElementById('shopify-section-{{ section.id }}');
+        if (!section || !window.posthog) {
+          return;
+        }
+
+        const firstValue = (...values) => values.find((value) => (typeof value === 'string' ? value.trim() : value));
+        const buildTrackingName = (...values) => values.filter(Boolean).join('_');
+
+        const buildPayload = (element, action) => {
+          const pageContext = window.MerachTrackingContext || {};
+          const pageType = firstValue(pageContext.page_type, element.dataset.mrkTrackPageType);
+          const pageSku = firstValue(pageContext.page_sku);
+          const moduleName = firstValue(element.dataset.mrkTrackModuleName);
+          const contentKey = firstValue(element.dataset.mrkTrackContentKey);
+          const contentSku = firstValue(element.dataset.mrkTrackContentSku);
+          const actionSku = action === 'click' ? firstValue(element.dataset.mrkTrackActionSku, contentSku) : null;
+          const trackingName =
+            buildTrackingName(pageType, pageSku, moduleName, contentKey) || element.dataset.mrkTrackTrackingName;
+
+          const payload = {
+            ...pageContext,
+            schema_version: '1.0',
+            action,
+            tracking_name: trackingName,
+            page_type: pageType,
+            page_key: pageSku,
+            page_sku: pageSku,
+            page_handle: firstValue(pageContext.page_handle, element.dataset.mrkTrackPageHandle),
+            page_url: window.location.href,
+            module_name: moduleName,
+            module_label: element.dataset.mrkTrackModuleLabel,
+            module_source: element.dataset.mrkTrackModuleSource,
+            module_title: element.dataset.mrkTrackModuleTitle,
+            content_key: contentKey,
+            content_sku: contentSku,
+            content_type: element.dataset.mrkTrackContentType,
+            content_handle: element.dataset.mrkTrackContentHandle,
+            item_position: Number(element.dataset.mrkTrackItemPosition || 0) || null,
+            template: firstValue(pageContext.template, element.dataset.mrkTrackTemplate),
+            section_id: element.dataset.mrkTrackSectionId,
+            section_type: element.dataset.mrkTrackSectionType,
+            utm_source: sessionStorage.getItem('utm_source') || '',
+          };
+
+          if (actionSku) {
+            payload.action_sku = actionSku;
+          }
+
+          return payload;
+        };
+
+        const capture = (element, action) => {
+          const trackedActions = (element.dataset.mrkTrackedActions || '').split('|');
+
+          if (trackedActions.includes(action)) {
+            return;
+          }
+
+          window.posthog.capture('merach_module_interaction', buildPayload(element, action));
+          element.dataset.mrkTrackedActions = `${element.dataset.mrkTrackedActions || ''}|${action}`;
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                capture(entry.target, entry.target.dataset.mrkTrackAction || 'view');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.35 }
+        );
+
+        section.querySelectorAll('[data-mrk-track-section],[data-mrk-track-item]').forEach((element) => observer.observe(element));
+
+        section.addEventListener('click', (event) => {
+          const item = event.target.closest('[data-mrk-track-item]');
+          if (item) {
+            capture(item, item.dataset.mrkTrackClickAction || 'click');
+          }
+        });
+      })();
+  </script>
+{% endif %}
+{% schema %}
+{
+  "name": "bricks-comments",
+  "settings": [
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Unique ID for anchor links",
+      "default": "multi-column-product-pro"
+    },
+                {
+      "type": "checkbox",
+      "id": "animate",
+      "label": "启用键入动画",
+      "default": true,
+      "info": "修改配置的时候关闭"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom"
+    },
+    {
+      "type": "range",
+      "id": "padding-gap",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap"
+    },
+    {
+      "type": "header",
+      "content": "Width restriction",
+      "info": "Section maxWidth"
+    },
+    {
+      "type": "range",
+      "id": "max-width",
+      "max": 1920,
+      "min": 720,
+      "step": 20,
+      "default": 1600,
+      "label": "Section width"
+    },
+    {
+      "type": "header",
+      "content": "Mob setting"
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-gap-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap mob"
+    },
+    {
+      "type": "checkbox",
+      "id": "float_card",
+      "label": "Float card",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Voice of Influencers"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Style",
+      "options": [
+        {
+          "value": "h1",
+          "label": "X-Large"
+        },
+        {
+          "value": "h2",
+          "label": "Large"
+        },
+        {
+          "value": "h3",
+          "label": "Medium"
+        },
+        {
+          "value": "h4",
+          "label": "Small"
+        },
+        {
+          "value": "h5",
+          "label": "X-Small"
+        },
+        {
+          "value": "h6",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "h1"
+    },
+
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Show Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+                {
+          "type": "checkbox",
+          "id": "show_button_shadow",
+          "default": true,
+          "label": "开启按钮阴影"
+        },
+    {
+      "type": "header",
+      "content": "Color settings"
+    },
+    {
+      "type": "color_background",
+      "id": "section-bg",
+      "label": "Section background"
+    },
+    {
+      "type": "color_background",
+      "id": "title-color",
+      "label": "Title color",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "subtitle-color",
+      "label": "Subtitle color",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#0096F9"
+    },
+    {
+      "type": "color_background",
+      "id": "comment_card_bg",
+      "label": "comment_card_bg",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "comment_color",
+      "label": "comment_card_text-color",
+      "default": "#fff"
+    },
+            {
+      "type": "header",
+      "content": "埋点相关配置"
+    },
+    {
+      "type": "checkbox",
+      "id": "tracking_enabled",
+      "label": "Enable tracking demo",
+      "default": false
+    },
+    {
+      "type": "metaobject",
+      "id": "tracking_module_type_metaobject",
+      "label": "PostHog module type",
+      "metaobject_type": "test_posthog_module_type",
+      "info": "Select the module type entry maintained by business, for example you_may_like."
+    },
+    {
+      "type": "textarea",
+      "id": "tracking_content_overrides",
+      "label": "Tracking content overrides",
+      "info": "One per line: product-handle=content_key"
+    },
+    {
+      "type": "text",
+      "id": "module_title",
+      "label": "Module title on capture"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "comment",
+      "name": "Comment",
+      "settings": [
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Comment alignment",
+          "options": [
+            {
+              "value": "column",
+              "label": "Column"
+            },
+            {
+              "value": "column-reverse",
+              "label": "Column Reverse"
+            }
+          ],
+          "default": "column"
+        },
+        {
+          "type": "header",
+          "content": "Comment Video/img"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "video",
+          "id": "video_m",
+          "label": "Video m"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mob",
+          "label": "image Mob"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Author"
+        },
+        {
+          "type": "image_picker",
+          "id": "author_img",
+          "label": "Author img"
+        },
+        {
+          "type": "text",
+          "id": "content",
+          "label": "Content",
+          "default": "Comment"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "us-Bricks Comments",
+      "blocks": [
+        { "type": "comment", "settings": { "author": "KARINA NICOLDINE" } },
+        {
+          "type": "comment",
+          "settings": { "author": "Thejunglegymreviews" }
+        },
+        { "type": "comment", "settings": { "author": "Nicholas Dompierre" } },
+        {
+          "type": "comment",
+          "settings": { "author": "trx_core" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
