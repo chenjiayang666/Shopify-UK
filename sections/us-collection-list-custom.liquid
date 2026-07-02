@@ -1,0 +1,655 @@
+{% render 'section-settings' %}
+
+<style>
+
+    @media(min-width:750px){
+                #shopify-section-{{ section.id }} .list-item:hover{
+            transform:translateY(-20px)
+        }
+                #shopify-section-{{ section.id }} .list-item:hover img {
+            transform:scale(1.1);
+        }
+    }
+
+    .collection-list-custom{
+        background:{{ section.settings.section-bg }}
+    }
+        #shopify-section-{{ section.id }} .list-item {
+            overflow:hidden;
+            border-radius:{{ section.settings.radius }}px;
+            position:relative;
+            transition:transform .5s ease;
+            padding:15px;
+        }
+
+        #shopify-section-{{ section.id }} .item-content{
+            width:100%;
+            height:100%;
+            margin-top:25px;
+            display:flex;
+            align-items:center;
+            justify-content:flex-end;
+            flex-direction:column;
+        }
+        #shopify-section-{{ section.id }} .collection-title{
+            font-weight: 600;
+            font-size: 15.66px;
+            line-height: 120%;
+            letter-spacing: -0.3px;
+        }
+        #shopify-section-{{ section.id }} .collection-subtitle{
+            opacity:0.6;
+        }
+        #shopify-section-{{ section.id }} .collection-img{
+            width:100%;
+            transition:transform .5s ease;
+            display:flex;
+            object-fit:cover;
+        }
+         #shopify-section-{{ section.id }} .list-swiper{
+            overflow:hidden;
+            padding:30px 0 0 0;
+
+        }
+        #shopify-section-{{ section.id }} .transform-box{
+            {% if section.settings.enable_offset %}
+                transform: translateY(-50%);
+                z-index:1;
+                position: relative;
+            {% endif %}
+        }
+    {% for block in section.blocks %}
+      .color-{{ block.id }}{
+            color:{{ block.settings.text-color }};
+            background:{{ block.settings.block-bg }};
+        }
+
+    {% endfor %}
+    #shopify-section-{{ section.id }} .list-button-next{
+        position:absolute;
+        top:50%;
+        right:40px;
+    }
+    #shopify-section-{{ section.id }} .list-button-prev{
+        position:absolute;
+        top:50%;
+        left:40px;
+    }
+    #shopify-section-{{ section.id }} .list-swiper{
+        position:relative;
+    }
+    #shopify-section-{{ section.id }} .list-button{
+        transform:translateY(-50%) scale(0.2);
+        opacity:0;
+        transition:all .5s ease;
+        z-index:1;
+    }
+    #shopify-section-{{ section.id }} .list-swiper:hover .list-button{
+        transform:translateY(-50%) scale(1);
+        opacity:1;
+    }
+    #shopify-section-{{ section.id }} .list-button.swiper-button-disabled{
+        display:none;
+    }
+    #shopify-section-{{ section.id }} .tab-header .title{
+        font-size:26px;
+        line-height:31px;
+        font-weight:600;
+        color:{{section.settings.title-color }}
+    }
+    @media(max-width:750px){
+        #shopify-section-{{ section.id }} .list-swiper{
+            overflow:hidden;
+            padding:30px 0 0px 20px;
+        }
+        #shopify-section-{{ section.id }} .transform-box{
+            {% if section.settings.enable_offset %}
+                transform: translateY(-35%);
+                z-index:1;
+            {% endif %}
+        }
+        #shopify-section-{{ section.id }} .collection-list-custom-container{
+            padding:0;
+        }   
+        #shopify-section-{{ section.id }} .list-button{
+            display:none;
+        }
+        #shopify-section-{{ section.id }} .list-item:hover{
+        }
+        #shopify-section-{{ section.id }} .swiper-slide-active{
+            {% comment %} transform:translateY(-15px) {% endcomment %}
+        }
+                #shopify-section-{{ section.id }} .collection-title{
+            font-weight: 600;
+            font-size: 13.66px;
+            line-height: 120%;
+            letter-spacing: -0.3px;
+        }
+        #shopify-section-{{ section.id }} .tab-header{
+            padding:0px 0 0px 20px;
+        }
+        #shopify-section-{{ section.id }} .tab-header .title{
+            font-weight: 600;
+            font-size: 18.64px;
+            line-height: 100%;
+            letter-spacing: 0;
+        }
+              #shopify-section-{{ section.id }} .slide-swiper-pagination{
+          position: unset;
+          width: 50%;
+          margin: 30px auto 0;
+          display: flex;
+                  height: 2px;
+          background:{{section.settings.pag_bg }};
+          border-radius:10px;
+      }
+
+      #shopify-section-{{ section.id }} .swiper-pagination-progressbar-fill{
+          position: unset;
+          background:{{section.settings.pag_step_bg }};
+          border-radius:10px;
+            height: 2px;
+      }
+    }
+
+</style>
+{%- render 'posthog-context',
+  page_type: 'PDP',
+  page_type_label: 'Product Detail Page',
+  page_type_metaobject: section.settings.posthog_page_type_metaobject
+-%}
+{%- liquid
+  assign tracking_enabled = section.settings.tracking_enabled
+  assign tracking_page_type = 'PDP'
+  assign tracking_module_name = 'you_may_like'
+  assign tracking_module_label = section.settings.title | default: 'You may also like'
+  assign tracking_module_source = 'fallback'
+  assign tracking_module_type_metaobject = section.settings.tracking_module_type_metaobject
+  assign tracking_template = template.name
+  assign tracking_page_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  assign tracking_page_handle = product.handle | default:page.handle
+
+  if tracking_module_type_metaobject != blank
+    assign tracking_module_name_from_metaobject = tracking_module_type_metaobject.key.value | default: tracking_module_type_metaobject.module_name.value | default: tracking_module_type_metaobject.module_type.value | default: tracking_module_type_metaobject.system.handle
+    assign tracking_module_label_from_metaobject = tracking_module_type_metaobject.label.value | default: tracking_module_type_metaobject.name.value | default: tracking_module_type_metaobject.title.value | default: tracking_module_type_metaobject.system.handle
+
+    if tracking_module_name_from_metaobject != blank
+      assign tracking_module_name = tracking_module_name_from_metaobject
+      assign tracking_module_label = tracking_module_label_from_metaobject
+      assign tracking_module_source = 'metaobject'
+    endif
+  endif
+
+  if template.suffix != blank
+    assign tracking_template = template.name | append: '.' | append: template.suffix
+  endif
+-%}
+
+{%- liquid
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_overrides = section.settings.tracking_content_overrides | newline_to_br | split: '<br />'
+  assign tracking_content_key = product.handle | replace: '-', '_'
+  assign tracking_content_sku = product.selected_or_first_available_variant.sku | default: product.handle
+  for override in tracking_content_overrides
+    assign override_parts = override | strip | split: '='
+    assign override_handle = override_parts[0] | strip
+    assign override_key = override_parts[1] | strip
+
+    if override_handle == page.handle or override_handle == product.handle and override_key != blank
+      assign tracking_content_key = override_key
+    endif
+  endfor
+  assign tracking_name = tracking_page_type | upcase | append: '_' | append: tracking_page_sku | append: '_' | append: tracking_module_name | append: '_' | append: tracking_content_key
+-%}
+<section
+    {% if tracking_enabled %}
+    data-mrk-track-section
+    data-mrk-track-action="view"
+    data-mrk-track-page-type="{{ tracking_page_type | upcase | escape }}"
+    data-mrk-track-module-name="{{ tracking_module_name | escape }}"
+    data-mrk-track-module-label="{{ tracking_module_label | escape }}"
+    data-mrk-track-module-source="{{ tracking_module_source | escape }}"
+    data-mrk-track-module-title="{{ section.settings.module_title | escape }}"
+    data-mrk-track-content-key="{{ tracking_content_key }}"
+    data-mrk-track-content-type="module"
+    data-mrk-track-tracking-name="{{ tracking_page_type | upcase }}{% if tracking_page_sku != blank %}_{{ tracking_page_sku }}{% endif %} _{{ tracking_module_name }} _{{ tracking_content_key }}"
+    data-mrk-track-template="{{ tracking_template | escape }}"
+    data-mrk-track-section-id="{{ section.id | escape }}"
+    data-mrk-track-section-type="{{ section.type | escape }}"
+    data-mrk-track-page-handle="{{ tracking_page_handle | escape }}"
+  {% endif %}
+     class="collection-list-custom section-padding">
+    <div class="collection-list-custom-container section-maxwidth section-gap">
+        <div class="transform-box">
+
+        <div class="tab-header">
+            {% if section.settings.title != blank %}
+                <div class="title">{{ section.settings.title }}</div>
+            {% endif %}
+        </div>
+        <div class="list-swiper list-custom-swiper">
+            <div class="list-container swiper-wrapper">
+                {% for block in section.blocks %}
+                  <a
+                    {% if tracking_enabled %}
+                data-mrk-track-item
+                data-mrk-track-action="item_view"
+                data-mrk-track-click-action="click"
+                data-mrk-track-tracking-name="{{ tracking_name | escape }}"
+                data-mrk-track-page-type="{{ tracking_page_type | upcase | escape }}"
+                data-mrk-track-page-key="{{ tracking_page_sku | escape }}"
+                data-mrk-track-page-sku="{{ tracking_page_sku | escape }}"
+                data-mrk-track-page-handle="{{ tracking_page_handle | escape }}"
+                data-mrk-track-module-name="{{ tracking_module_name | escape }}"
+                data-mrk-track-module-label="{{ tracking_module_label | escape }}"
+                data-mrk-track-module-source="{{ tracking_module_source | escape }}"
+                data-mrk-track-module-title="{{ section.settings.module_title | escape }}"
+                data-mrk-track-content-key="{{ tracking_content_key | escape }}"
+                data-mrk-track-content-sku="{{ tracking_content_sku | escape }}"
+                data-mrk-track-action-sku="{{ tracking_content_sku | escape }}"
+                data-mrk-track-content-type="link"
+                data-mrk-track-content-handle="{{ block.settings.track_item_name | escape }}"
+                data-mrk-track-item-position="{{ forloop.index }}"
+                data-mrk-track-template="{{ tracking_template | escape }}"
+                data-mrk-track-section-id="{{ section.id | escape }}"
+                data-mrk-track-section-type="{{ section.type | escape }}"
+              {% endif %}
+                     class="list-item swiper-slide color-{{ block.id }} radius-{{ block.id }}" href="{% if block.settings.link != blank%}{{ block.settings.link }}{% else %}{{ block.settings.collection.url }}{% endif %}">
+                    <div style="overflow:hidden;">
+                        {% if block.settings.img != blank %}
+                            <img class="collection-img" src="{{ block.settings.img | img_url:'' }}" alt="{{ block.settings.img.alt }}">
+                        {% else %}
+                            <img class="collection-img" src="{{ block.settings.collection.featured_image | img_url:'' }}" alt="{{ block.settings.collection.featured_image.alt }}">
+                        {% endif %}
+                    </div>
+                    
+                        <div class="item-content" >
+                            
+                        <div class="collection-title">
+                            {% if block.settings.title != blank %}
+                            {{ block.settings.title }}
+                            {% else %}
+                            {{ block.settings.collection.title }}
+                            {% endif %}
+                        </div>
+
+                        {% comment %} {% if block.settings.subtitle != blank %}
+                            <div class="collection-subtitle">{{ block.settings.subtitle }}</div>
+                        {% endif %} {% endcomment %}
+
+                        </div>
+
+
+                    </a>
+                {% endfor %}
+            </div>
+
+            <div class="list-button-prev list-button">
+                          <button  class="circle-button circle-button--lg circle-button--fill border group" >
+            <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
+            <span class="animated-arrow animated-arrow--reverse"></span>
+          </button>
+            </div>
+            <div class="list-button-next list-button">
+                <button  class="circle-button circle-button--lg circle-button--fill border group">
+                    <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
+                    <span class="animated-arrow"></span>
+                </button>
+            </div>
+        <div class="slide-swiper-pagination"></div>
+        </div>
+        </div>
+        
+    </div>
+</section>
+
+{% comment %} <script src="{{ 'swiper-bundle.min.js' | asset_url }}"></script> {% endcomment %}
+<script>
+    (function(){
+        const slide_swiper = new Swiper(".list-custom-swiper", {
+            slidesPerView: {{ section.settings.show-number }},
+            spaceBetween: {{ section.settings.card-space }},
+            navigation: {
+                nextEl: ".list-button-next",
+                prevEl: ".list-button-prev",
+            },
+            breakpoints: {
+                1300:{
+                    spaceBetween: {{ section.settings.card-space }},
+                },
+                768: {  
+                    slidesPerView: {{ section.settings.show-number }},
+                    spaceBetween: 40,
+                },
+                360: { 
+                    slidesPerView: 1.8,
+                    spaceBetween:10,
+                    pagination: {
+                          el: ".slide-swiper-pagination",
+                          type: "progressbar",
+                    },
+                }
+            }
+        });
+    })()
+
+</script>
+{% if tracking_enabled %}
+  <script>
+    (() => {
+      const section = document.getElementById('shopify-section-{{ section.id }}');
+      if (!section || !window.posthog) {
+        return;
+      }
+
+      const firstValue = (...values) => values.find((value) => (typeof value === 'string' ? value.trim() : value));
+      const buildTrackingName = (...values) => values.filter(Boolean).join('_');
+
+      const buildPayload = (element, action) => {
+        const pageContext = window.MerachTrackingContext || {};
+        const pageType = firstValue(pageContext.page_type, element.dataset.mrkTrackPageType);
+        const pageSku = firstValue(pageContext.page_sku);
+        const moduleName = firstValue(element.dataset.mrkTrackModuleName);
+        const contentKey = firstValue(element.dataset.mrkTrackContentKey);
+        const contentSku = firstValue(element.dataset.mrkTrackContentSku);
+        const actionSku = action === 'click' ? firstValue(element.dataset.mrkTrackActionSku, contentSku) : null;
+        const trackingName =
+          buildTrackingName(pageType, pageSku, moduleName, contentKey) || element.dataset.mrkTrackTrackingName;
+
+        const payload = {
+          ...pageContext,
+          schema_version: '1.0',
+          action,
+          tracking_name: trackingName,
+          page_type: pageType,
+          page_key: pageSku,
+          page_sku: pageSku,
+          page_handle: firstValue(pageContext.page_handle, element.dataset.mrkTrackPageHandle),
+          page_url: window.location.href,
+          module_name: moduleName,
+          module_label: element.dataset.mrkTrackModuleLabel,
+          module_source: element.dataset.mrkTrackModuleSource,
+          module_title: element.dataset.mrkTrackModuleTitle,
+          content_key: contentKey,
+          content_sku: contentSku,
+          content_type: element.dataset.mrkTrackContentType,
+          content_handle: element.dataset.mrkTrackContentHandle,
+          item_position: Number(element.dataset.mrkTrackItemPosition || 0) || null,
+          template: firstValue(pageContext.template, element.dataset.mrkTrackTemplate),
+          section_id: element.dataset.mrkTrackSectionId,
+          section_type: element.dataset.mrkTrackSectionType,
+          utm_source: sessionStorage.getItem('utm_source') || '',
+        };
+
+        if (actionSku) {
+          payload.action_sku = actionSku;
+        }
+
+        return payload;
+      };
+
+      const capture = (element, action) => {
+        const trackedActions = (element.dataset.mrkTrackedActions || '').split('|');
+
+        if (trackedActions.includes(action)) {
+          return;
+        }
+
+        window.posthog.capture('merach_module_interaction', buildPayload(element, action));
+        element.dataset.mrkTrackedActions = `${element.dataset.mrkTrackedActions || ''}|${action}`;
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              capture(entry.target, entry.target.dataset.mrkTrackAction || 'view');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+
+      section.querySelectorAll('[data-mrk-track-section],[data-mrk-track-item]').forEach((element) => observer.observe(element));
+
+      section.addEventListener('click', (event) => {
+        const item = event.target.closest('[data-mrk-track-item]');
+        if (item) {
+          capture(item, item.dataset.mrkTrackClickAction || 'click');
+        }
+      });
+    })();
+  </script>
+{% endif %}
+{% schema %}
+{
+    "name": "collection-list-custom",
+    "settings": [
+            {
+            "type": "range",
+            "id": "padding-top",
+            "max": 100,
+            "min": 0,
+            "step": 1,
+            "default": 20,
+            "label": "Section top"
+            },
+            {
+            "type": "range",
+            "id": "padding-bottom",
+            "max": 100,
+            "min": 0,
+            "step": 1,
+            "default": 20,
+            "label": "Section bottom"
+            },
+
+            {
+            "type": "range",
+            "id": "padding-gap",
+            "max": 100,
+            "min": 0,
+            "step": 1,
+            "default": 20,
+            "label": "Section gap"
+            },
+
+            {
+            "type": "header",
+            "content": "Width restriction",
+            "info": "Section maxWidth"
+            },
+            {
+            "type": "range",
+            "id": "max-width",
+            "max": 1920,
+            "min": 1200,
+            "step": 20,
+            "default": 1600,
+            "label": "Section width"
+            },
+            {
+            "type": "header",
+            "content": "Mob setting"
+            },
+            {
+            "type": "range",
+            "id": "padding-top-mob",
+            "max": 100,
+            "min": 0,
+            "step": 1,
+            "default": 20,
+            "label": "Section top mob"
+            },
+            {
+            "type": "range",
+            "id": "padding-bottom-mob",
+            "max": 100,
+            "min": 0,
+            "step": 1,
+            "default": 20,
+            "label": "Section bottom mob"
+            },
+
+            {
+            "type": "range",
+            "id": "padding-gap-mob",
+            "max": 100,
+            "min": 0,
+            "step": 1,
+            "default": 20,
+            "label": "Section gap mob"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "checkbox",
+                "id": "enable_offset",
+                "label": "启用偏移",
+                "default":false,
+            },
+            {
+                "type": "range",
+                "id": "show-number",
+                "max": 9,
+                "min": 3,
+                "step": 1,
+                "default":5,
+                "label": "pc端一行展示数量"
+            },
+            {
+                "type": "range",
+                "id":"radius",
+                "max": 30,
+                "min": 0,
+                "step": 1,
+                "default":15,
+                "label": "卡片radius"
+            },
+            {
+                "type": "range",
+                "id":"card-space",
+                "max": 100,
+                "min": 10,
+                "step": 1,
+                "default":16,
+                "label": "卡片间距"
+            },
+            {
+                "type": "header",
+                "content":"Color settings"
+            },
+            {
+                "type": "color_background",
+                "id": "section-bg",
+                "label": "Section background"
+            },
+            {
+                "type": "color",
+                "id": "title-color",
+                "label": "Title color",
+                "default": "#000"
+            },
+                {
+      "type": "color",
+      "id": "pag_bg",
+      "label": "分页条背景色",
+      "default": "#53565A"
+    },
+    {
+      "type": "color",
+      "id": "pag_step_bg",
+      "label": "分页条step背景色",
+      "default": "#ECECE7"
+    },
+    {
+      "type": "header",
+      "content": "埋点相关配置"
+    },
+    {
+      "type": "checkbox",
+      "id": "tracking_enabled",
+      "label": "Enable tracking demo",
+      "default": false
+    },
+    {
+      "type": "metaobject",
+      "id": "tracking_module_type_metaobject",
+      "label": "PostHog module type",
+      "metaobject_type": "test_posthog_module_type",
+      "info": "Select the module type entry maintained by business, for example you_may_like."
+    },
+    {
+      "type": "textarea",
+      "id": "tracking_content_overrides",
+      "label": "Tracking content overrides",
+      "info": "One per line: product-handle=content_key"
+    },
+    {
+      "type": "text",
+      "id": "module_title",
+      "label": "Module title on capture"
+    }
+    ],
+    "blocks": [
+        {
+            "type": "collection",
+            "name":"collection",
+            "settings": [
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "Collection"
+                },
+                {
+                    "type": "image_picker",
+                    "id":"img",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "info": "Default to collection title."
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link",
+                    "info": "Default to collection url."                    
+                },
+                {
+                    "type": "header",
+                    "content": "Color settings"
+                },
+                {
+                    "type": "color",
+                    "id": "text-color",
+                    "label": "Text color",
+                    "default":"#fff"
+                },
+                {
+                    "type": "color_background",
+                    "id": "block-bg",
+                    "label": "Block background",
+                    "default":"#000"
+                },
+                {
+                    "type": "header",
+                    "content": "埋点相关配置"
+                },
+                {
+                    "type": "text",
+                    "id": "track_item_name",
+                    "label": "Track item name"
+                }
+            ]
+        }
+    ],
+    "presets": [{"name": "us-collection-list-custom"}]
+}
+{% endschema %}
