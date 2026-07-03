@@ -246,6 +246,33 @@
             "image-flex": "left",
             "content-flex": "left",
             "item-name": "",
+            "img": "shopify://shop_images/R28_UK_FIRST_PAGE.jpg",
+            "product": "merach-r28r1-water-rowing-machine",
+            "discount_mode": "percentage",
+            "badge_width": 75,
+            "badge_height": 75,
+            "badge_font_size": 15,
+            "badge_text_color": "#ffffff",
+            "badge_position": "right",
+            "tag": "Best Sellers",
+            "product-title": "R28 Water Rowing Machine",
+            "subtitle": "",
+            "description": "",
+            "tip_text": "",
+            "tip_svg": "",
+            "show_add_to_cart": false,
+            "button-link": "shopify://products/merach-r28r1-water-rowing-machine",
+            "button-text": "Shop Now",
+            "button-link2": "https://uk.merachfit.com/products/merach-r28r1-water-rowing-machine",
+            "button-text2": ""
+          }
+        },
+        "item_Hy9ABL": {
+          "type": "item",
+          "settings": {
+            "image-flex": "left",
+            "content-flex": "left",
+            "item-name": "",
             "img": "shopify://shop_images/MERACH_S29R3_Exercise_Bike_with_21.5_Rotating_Display_ZT_9.jpg",
             "product": "family-package-treadmill-exercise-bike",
             "discount_mode": "percentage",
@@ -269,7 +296,8 @@
         }
       },
       "block_order": [
-        "item_py9EqN"
+        "item_py9EqN",
+        "item_Hy9ABL"
       ],
       "custom_css": [
         ".product-tip {color: #53565a;}"
