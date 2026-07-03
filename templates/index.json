@@ -260,7 +260,7 @@
             "description": "",
             "tip_text": "",
             "tip_svg": "",
-            "show_add_to_cart": false,
+            "show_add_to_cart": true,
             "button-link": "shopify://products/merach-r28r1-water-rowing-machine",
             "button-text": "Shop Now",
             "button-link2": "https://uk.merachfit.com/products/merach-r28r1-water-rowing-machine",
