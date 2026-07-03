@@ -212,7 +212,7 @@
           "type": "mega_item",
           "settings": {
             "menu_item": "Treadmill",
-            "menu_type": "type_1",
+            "menu_type": "type_2",
             "tab_normal_bg_color": "#fafafc",
             "tab_normal_color": "#97999b",
             "tab_active_color": "#0096f9",
