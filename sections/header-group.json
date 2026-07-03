@@ -382,7 +382,7 @@
           "type": "mega_item",
           "settings": {
             "menu_item": "Nova Row",
-            "menu_type": "type_3",
+            "menu_type": "type_1",
             "tab_normal_bg_color": "#fafafc",
             "tab_normal_color": "#97999b",
             "tab_active_color": "#0096f9",
@@ -416,7 +416,7 @@
           "type": "mega_item",
           "settings": {
             "menu_item": "Nova Walk",
-            "menu_type": "type_3",
+            "menu_type": "type_1",
             "tab_normal_bg_color": "#fafafc",
             "tab_normal_color": "#97999b",
             "tab_active_color": "#0096f9",
