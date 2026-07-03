@@ -208,11 +208,11 @@
             "bottom_group_btn_text": ""
           }
         },
-        "mega_item_Fgc4Vg": {
+        "mega_item_d678qa": {
           "type": "mega_item",
           "settings": {
-            "menu_item": "Essential",
-            "menu_type": "type_2",
+            "menu_item": "Treadmill",
+            "menu_type": "type_1",
             "tab_normal_bg_color": "#fafafc",
             "tab_normal_color": "#97999b",
             "tab_active_color": "#0096f9",
@@ -235,11 +235,11 @@
             "title": "",
             "description": "",
             "link_url": "",
-            "link_text": "",
+            "link_text": "Shop Now",
             "button_group_compare_href": "",
-            "button_group_compare_text": "",
+            "button_group_compare_text": "Compare",
             "bottom_group_btn_href": "",
-            "bottom_group_btn_text": ""
+            "bottom_group_btn_text": "Rowing Machine Guide"
           }
         },
         "mega_item_gYLFQR": {
@@ -342,6 +342,40 @@
             "button_group_compare_text": "Compare",
             "bottom_group_btn_href": "",
             "bottom_group_btn_text": "Rowing Machine Guide"
+          }
+        },
+        "mega_item_Fgc4Vg": {
+          "type": "mega_item",
+          "settings": {
+            "menu_item": "Essential",
+            "menu_type": "type_1",
+            "tab_normal_bg_color": "#fafafc",
+            "tab_normal_color": "#97999b",
+            "tab_active_color": "#0096f9",
+            "tab_active_border_color": "#0096f9",
+            "btn_bg_color": "linear-gradient(180deg, rgba(164, 200, 255, 1) 21.7%, rgba(0, 150, 249, 1) 100%)",
+            "btn_text_color": "#ffffff",
+            "grid_tab_color": "#061237",
+            "grid_card_bg": "#fafafc",
+            "grid_title_color": "#000000",
+            "grid_price_color": "#53565a",
+            "grid_btn_bg_color": "linear-gradient(180deg, rgba(164, 200, 255, 1) 21.7%, rgba(0, 150, 249, 1) 100%)",
+            "grid_btn_text_color": "#ffffff",
+            "slide_card_bg": "#fafafc",
+            "slide_title_color": "#000000",
+            "slide_des_color": "#b1b3b3",
+            "slide_btn_bg_color": "linear-gradient(180deg, rgba(164, 200, 255, 1) 21.7%, rgba(0, 150, 249, 1) 100%)",
+            "slide_btn_text_color": "#ffffff",
+            "link_color": "#53565a",
+            "product": "",
+            "title": "",
+            "description": "",
+            "link_url": "",
+            "link_text": "",
+            "button_group_compare_href": "",
+            "button_group_compare_text": "",
+            "bottom_group_btn_href": "",
+            "bottom_group_btn_text": ""
           }
         },
         "mega_item_HCxPC9": {
@@ -638,10 +672,11 @@
         "country_item_DXceNV",
         "country_item_rMiTqW",
         "mega_item_zeGtia",
-        "mega_item_Fgc4Vg",
+        "mega_item_d678qa",
         "mega_item_gYLFQR",
         "mega_item_rwMnqq",
         "mega_item_mD6hJR",
+        "mega_item_Fgc4Vg",
         "mega_item_HCxPC9",
         "mega_item_tijMk4",
         "mega_item_QD3dYV",
