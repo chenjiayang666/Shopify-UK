@@ -125,44 +125,20 @@
             "text": ""
           }
         },
-        "country_item_C7KUFL": {
-          "type": "country_item",
-          "settings": {
-            "enable": true,
-            "name": "Canada",
-            "link": "https://www.merachfit.ca/"
-          }
-        },
-        "country_item_RDGHfr": {
-          "type": "country_item",
-          "settings": {
-            "enable": true,
-            "name": "Australia",
-            "link": "https://au.merachfit.com/"
-          }
-        },
-        "country_item_bbwL6t": {
-          "type": "country_item",
-          "settings": {
-            "enable": true,
-            "name": "Mexico",
-            "link": "https://merachfit.mx/"
-          }
-        },
-        "country_item_4rGU3y": {
-          "type": "country_item",
-          "settings": {
-            "enable": true,
-            "name": "Europe",
-            "link": "https://merachfit.eu/"
-          }
-        },
         "country_item_DXceNV": {
           "type": "country_item",
           "settings": {
             "enable": true,
             "name": "Germany",
             "link": "https://merachfit.de/"
+          }
+        },
+        "country_item_g78nkG": {
+          "type": "country_item",
+          "settings": {
+            "enable": true,
+            "name": "Europe",
+            "link": ""
           }
         },
         "country_item_rMiTqW": {
@@ -528,11 +504,8 @@
       "block_order": [
         "country_item_n3nnXa",
         "blacklist_YPhDNf",
-        "country_item_C7KUFL",
-        "country_item_RDGHfr",
-        "country_item_bbwL6t",
-        "country_item_4rGU3y",
         "country_item_DXceNV",
+        "country_item_g78nkG",
         "country_item_rMiTqW",
         "mega_item_d678qa",
         "mega_item_gYLFQR",
