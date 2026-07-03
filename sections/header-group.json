@@ -729,7 +729,7 @@
         "logo": "shopify://shop_images/Frame_1_035c8d87-a83a-4896-9276-f025545b8a4e.png",
         "logo_max_width": 120,
         "logo_mobile_max_width": 100,
-        "menu": "main-menu",
+        "menu": "new-header",
         "sidebar_menu": "",
         "secondary_menu": "",
         "menu_open_trigger": "hover",
