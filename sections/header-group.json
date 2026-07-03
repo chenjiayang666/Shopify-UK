@@ -542,7 +542,7 @@
         "transparent_header_text_color": "#000000",
         "left_benefits": "https://cdn.shopify.com/s/files/1/0507/1611/5119/files/Group_1288115767.png?v=1780367432,Free Shipping;https://cdn.shopify.com/s/files/1/0507/1611/5119/files/Group_1288115765.png?v=1780367432,30-Day Returns;https://cdn.shopify.com/s/files/1/0507/1611/5119/files/Group_1288115766.png?v=1780367433,2 Year Warranty",
         "reduce_padding": true,
-        "background_opacity": 52,
+        "background_opacity": 100,
         "background_blur_radius": 0
       }
     },
