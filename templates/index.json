@@ -267,37 +267,65 @@
             "button-text2": ""
           }
         },
-        "item_Hy9ABL": {
+        "item_cq6ckx": {
           "type": "item",
           "settings": {
             "image-flex": "left",
             "content-flex": "left",
             "item-name": "",
-            "img": "shopify://shop_images/MERACH_S29R3_Exercise_Bike_with_21.5_Rotating_Display_ZT_9.jpg",
-            "product": "family-package-treadmill-exercise-bike",
+            "img": "shopify://shop_images/R28_UK_FIRST_PAGE.jpg",
+            "product": "merach-r28r1-water-rowing-machine",
             "discount_mode": "percentage",
             "badge_width": 75,
             "badge_height": 75,
             "badge_font_size": 15,
             "badge_text_color": "#ffffff",
             "badge_position": "right",
-            "tag": "New Release",
-            "product-title": "UltraWalk W60 Plus",
-            "subtitle": "Your First and Last Walking Pad One Machine Built to Last",
+            "tag": "Best Sellers",
+            "product-title": "R28 Water Rowing Machine",
+            "subtitle": "Bluetooth Display | Tablet Holder | 180° Foldable",
             "description": "",
-            "tip_text": "Starting at $94 / month with",
-            "tip_svg": "<img src=\"https://cdn.shopify.com/s/files/1/0507/1611/5119/files/101520_Afterpay_Badge-faq-logo.webp?v=1749119866\" alt=\"Afterpay\" style=\"width:44px;height:20px;display:inline-block;vertical-align:middle;object-fit:contain;\" loading=\"lazy\">",
+            "tip_text": "",
+            "tip_svg": "",
             "show_add_to_cart": false,
-            "button-link": "shopify://products/merach-ultrawalk-w60-plus",
+            "button-link": "shopify://products/merach-r28r1-water-rowing-machine",
             "button-text": "Shop Now",
-            "button-link2": "https://merachfit.com/pages/ultrawalk-w60-explore",
-            "button-text2": "Explore"
+            "button-link2": "https://uk.merachfit.com/products/merach-r28r1-water-rowing-machine",
+            "button-text2": ""
+          }
+        },
+        "item_aXLUgd": {
+          "type": "item",
+          "settings": {
+            "image-flex": "left",
+            "content-flex": "left",
+            "item-name": "",
+            "img": "shopify://shop_images/R28_UK_FIRST_PAGE.jpg",
+            "product": "merach-r28r1-water-rowing-machine",
+            "discount_mode": "percentage",
+            "badge_width": 75,
+            "badge_height": 75,
+            "badge_font_size": 15,
+            "badge_text_color": "#ffffff",
+            "badge_position": "right",
+            "tag": "Best Sellers",
+            "product-title": "R28 Water Rowing Machine",
+            "subtitle": "Bluetooth Display | Tablet Holder | 180° Foldable",
+            "description": "",
+            "tip_text": "",
+            "tip_svg": "",
+            "show_add_to_cart": false,
+            "button-link": "shopify://products/merach-r28r1-water-rowing-machine",
+            "button-text": "Shop Now",
+            "button-link2": "https://uk.merachfit.com/products/merach-r28r1-water-rowing-machine",
+            "button-text2": ""
           }
         }
       },
       "block_order": [
         "item_py9EqN",
-        "item_Hy9ABL"
+        "item_cq6ckx",
+        "item_aXLUgd"
       ],
       "custom_css": [
         ".product-tip {color: #53565a;}"
