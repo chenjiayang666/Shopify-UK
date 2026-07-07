@@ -15,7 +15,8 @@
         "image_8k7KaP": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/ee53b25a993bf2946b05aad8f113009e6a42e313.jpg",
+            "image": "shopify://shop_images/Merach_R28R1_Water_Rowing_Machine_update_banner_1.jpg",
+            "mobile_image": "shopify://shop_images/Merach_R28R1_Water_Rowing_Machine_update_banner_2.jpg",
             "content_max_width": 780,
             "content_max_width_mob": 320,
             "mobile_text_position": "place-self-center text-center",
