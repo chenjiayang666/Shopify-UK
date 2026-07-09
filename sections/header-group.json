@@ -285,6 +285,40 @@
             "bottom_group_btn_text": "Rowing Machine Guide"
           }
         },
+        "mega_item_wTjG4p": {
+          "type": "mega_item",
+          "settings": {
+            "menu_item": "Essentials",
+            "menu_type": "type_2",
+            "tab_normal_bg_color": "#fafafc",
+            "tab_normal_color": "#97999b",
+            "tab_active_color": "#0096f9",
+            "tab_active_border_color": "#0096f9",
+            "btn_bg_color": "linear-gradient(180deg, rgba(164, 200, 255, 1) 21.7%, rgba(0, 150, 249, 1) 100%)",
+            "btn_text_color": "#ffffff",
+            "grid_tab_color": "#061237",
+            "grid_card_bg": "#fafafc",
+            "grid_title_color": "#000000",
+            "grid_price_color": "#53565a",
+            "grid_btn_bg_color": "linear-gradient(180deg, rgba(164, 200, 255, 1) 21.7%, rgba(0, 150, 249, 1) 100%)",
+            "grid_btn_text_color": "#ffffff",
+            "slide_card_bg": "#fafafc",
+            "slide_title_color": "#000000",
+            "slide_des_color": "#b1b3b3",
+            "slide_btn_bg_color": "linear-gradient(180deg, rgba(164, 200, 255, 1) 21.7%, rgba(0, 150, 249, 1) 100%)",
+            "slide_btn_text_color": "#ffffff",
+            "link_color": "#53565a",
+            "product": "",
+            "title": "",
+            "description": "",
+            "link_url": "",
+            "link_text": "Shop Now",
+            "button_group_compare_href": "",
+            "button_group_compare_text": "Compare",
+            "bottom_group_btn_href": "",
+            "bottom_group_btn_text": "Rowing Machine Guide"
+          }
+        },
         "mega_item_QD3dYV": {
           "type": "mega_item",
           "settings": {
@@ -511,6 +545,7 @@
         "mega_item_gYLFQR",
         "mega_item_di4Mrn",
         "mega_item_gMpjxU",
+        "mega_item_wTjG4p",
         "mega_item_QD3dYV",
         "mega_item_bNPWDj",
         "mega_item_9A88gn",
