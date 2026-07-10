@@ -149,7 +149,8 @@
         "collection_d8kakY": {
           "type": "collection",
           "settings": {
-            "collection": "bike",
+            "collection": "rower",
+            "img": "shopify://shop_images/Frame_1289.jpg",
             "title": "Rowing Machine",
             "link": "shopify://collections/rowing-machines",
             "text-color": "#1a1a1a",
@@ -159,7 +160,8 @@
         "collection_43rzDb": {
           "type": "collection",
           "settings": {
-            "collection": "air-resistance-rowing-machines",
+            "collection": "bike",
+            "img": "shopify://shop_images/Frame_1289_6.jpg",
             "title": "Exercise Bike",
             "link": "shopify://collections/exercise-bikes",
             "text-color": "#1a1a1a",
@@ -169,7 +171,8 @@
         "collection_zJjkcn": {
           "type": "collection",
           "settings": {
-            "collection": "clearance-sale",
+            "collection": "treadmill",
+            "img": "shopify://shop_images/Frame_1289_2.jpg",
             "title": "Treadmill",
             "link": "shopify://collections/treadmills",
             "text-color": "#1a1a1a",
@@ -178,6 +181,7 @@
         },
         "collection_MGwTG9": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "walking-pad",
             "title": "Walking Pad",
@@ -189,7 +193,8 @@
         "collection_GmhTED": {
           "type": "collection",
           "settings": {
-            "collection": "clearance",
+            "collection": "essentials",
+            "img": "shopify://shop_images/Frame_1289_4.jpg",
             "title": "Essential",
             "link": "shopify://collections/others",
             "text-color": "#1a1a1a",
@@ -199,9 +204,10 @@
         "collection_a9NKmV": {
           "type": "collection",
           "settings": {
-            "collection": "all-products-1",
+            "collection": "",
+            "img": "shopify://shop_images/Frame_1289_5.jpg",
             "title": "App",
-            "link": "https://merachfit.com/pages/merach-app",
+            "link": "shopify://pages/app",
             "text-color": "#1a1a1a",
             "block-bg": "#fff"
           }
