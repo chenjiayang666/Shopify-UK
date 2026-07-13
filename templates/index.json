@@ -109,11 +109,61 @@
             "button_text_color2_hover": "#ffffff",
             "track_item_name": ""
           }
+        },
+        "image_hiQXWz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Merach_R28R1_Water_Rowing_Machine_update_banner_1.jpg",
+            "mobile_image": "shopify://shop_images/Merach_R28R1_Water_Rowing_Machine_update_banner_2.jpg",
+            "content_max_width": 780,
+            "content_max_width_mob": 320,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "addition_offset_mob": "",
+            "addition_offset": "",
+            "subheading": "",
+            "subheading_tag": "h2",
+            "subheading_size": "dev-xx-small",
+            "title": "",
+            "heading_size": "dev-xx-large",
+            "description": "",
+            "title_seo1": "",
+            "heading_tag1": "h1",
+            "pc_heading_width1": "auto",
+            "h5_heading_width1": "auto",
+            "heading_size1": "dev-xx-large",
+            "title_seo2": "",
+            "heading_tag2": "h1",
+            "pc_heading_width2": "auto",
+            "h5_heading_width2": "auto",
+            "heading_size2": "dev-xx-large",
+            "button_text": "",
+            "button_link": "",
+            "button_text2": "",
+            "button_link2": "",
+            "button_radius": 4,
+            "button_size": "xl",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": "",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "button_background2": "#ffffff",
+            "button_text_color2": "#000000",
+            "button_background_hover": "#ffffff",
+            "button_text_color_hover": "#000000",
+            "button_background2_hover": "#ffffff",
+            "button_text_color2_hover": "#000000",
+            "track_item_name": ""
+          }
         }
       },
       "block_order": [
         "image_8k7KaP",
-        "image_JdmJdT"
+        "image_JdmJdT",
+        "image_hiQXWz"
       ],
       "custom_css": [
         ".heading_title {color: #434343;}",
