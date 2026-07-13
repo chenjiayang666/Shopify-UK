@@ -15,8 +15,8 @@
         "image_8k7KaP": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Merach_R28R1_Water_Rowing_Machine_update_banner_1.jpg",
-            "mobile_image": "shopify://shop_images/Merach_R28R1_Water_Rowing_Machine_update_banner_2.jpg",
+            "image": "shopify://shop_images/w50_pc_4000x1875-1.jpg",
+            "mobile_image": "shopify://shop_images/w50_mo_750x1444-1.jpg",
             "content_max_width": 780,
             "content_max_width_mob": 320,
             "mobile_text_position": "place-self-center text-center",
@@ -64,7 +64,8 @@
         "image_JdmJdT": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Merach_R28R1_Water_Rowing_Machine_detail_xqy_eu_uk.jpg",
+            "image": "shopify://shop_images/R28_pc_4000x1875_724d3763-92c6-4e74-9696-82c7c66b0db8.jpg",
+            "mobile_image": "shopify://shop_images/R28_mo_750x1444_b848fb12-8902-436f-a8d1-611c67a7d9be.jpg",
             "content_max_width": 780,
             "content_max_width_mob": 260,
             "mobile_text_position": "place-self-start-center text-center",
@@ -88,12 +89,12 @@
             "h5_heading_width2": "auto",
             "heading_size2": "dev-xx-large",
             "button_text": "Shop Now",
-            "button_link": "https://merachfit.com/pages/sale",
+            "button_link": "shopify://products/merach-r28r1-water-rowing-machine",
             "button_text2": "",
             "button_link2": "",
             "button_radius": 20,
             "button_size": "sm",
-            "text_color": "#000000",
+            "text_color": "#FFFFFF",
             "overlay_color": "#000000",
             "overlay_opacity": 0,
             "background": "",
