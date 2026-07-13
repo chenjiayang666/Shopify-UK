@@ -376,12 +376,8 @@
           "type": "collection",
           "settings": {
             "tab_name": "Rowers",
-            "products": [
-              "merach-2397b2-thigh-master",
-              "merach-2354b2-2-in-1-mini-stepper",
-              "family-package-treadmill-exercise-bike"
-            ],
-            "collection": ""
+            "products": [],
+            "collection": "rower"
           }
         },
         "collection_xdVRqX": {
