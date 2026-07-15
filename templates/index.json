@@ -203,7 +203,7 @@
             "collection": "rower",
             "img": "shopify://shop_images/Frame_1289.jpg",
             "title": "Rowing Machine",
-            "link": "shopify://collections/rowing-machines",
+            "link": "https://uk.merachfit.com/collections/rower",
             "text-color": "#1a1a1a",
             "block-bg": "#fff"
           }
@@ -214,7 +214,7 @@
             "collection": "bike",
             "img": "shopify://shop_images/Frame_1289_6.jpg",
             "title": "Exercise Bike",
-            "link": "shopify://collections/exercise-bikes",
+            "link": "https://uk.merachfit.com/collections/bike",
             "text-color": "#1a1a1a",
             "block-bg": "#fff"
           }
@@ -225,7 +225,7 @@
             "collection": "treadmill",
             "img": "shopify://shop_images/Frame_1289_2.jpg",
             "title": "Treadmill",
-            "link": "shopify://collections/treadmills",
+            "link": "https://uk.merachfit.com/collections/treadmill",
             "text-color": "#1a1a1a",
             "block-bg": "#fff"
           }
@@ -247,7 +247,7 @@
             "collection": "essentials",
             "img": "shopify://shop_images/Frame_1289_4.jpg",
             "title": "Essential",
-            "link": "shopify://collections/others",
+            "link": "https://uk.merachfit.com/collections/essentials",
             "text-color": "#1a1a1a",
             "block-bg": "#fff"
           }
