@@ -55,8 +55,8 @@
             "button_background2": "#FFFFF",
             "button_text_color2": "#000000",
             "button_background_hover": "#ffffff",
-            "button_text_color_hover": "#ffffff",
-            "button_background2_hover": "#ffffff",
+            "button_text_color_hover": "#000000",
+            "button_background2_hover": "#3FBFF0",
             "button_text_color2_hover": "#ffffff",
             "track_item_name": ""
           }
