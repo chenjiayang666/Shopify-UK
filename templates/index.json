@@ -64,17 +64,17 @@
         "image_JdmJdT": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/R28_pc_4000x1875_724d3763-92c6-4e74-9696-82c7c66b0db8.jpg",
-            "mobile_image": "shopify://shop_images/R28_mo_750x1444_b848fb12-8902-436f-a8d1-611c67a7d9be.jpg",
+            "image": "shopify://shop_images/W50_UK_BANNER_UPDATE_2.jpg",
+            "mobile_image": "shopify://shop_images/W50_UK_BANNER_UPDATE_1.jpg",
             "content_max_width": 780,
             "content_max_width_mob": 260,
             "mobile_text_position": "place-self-start-center text-center",
             "desktop_text_position": "sm:place-self-center-start sm:text-start",
             "addition_offset_mob": "2rem  0 0 0",
             "addition_offset": "0 0 6rem 0",
-            "subheading": "Prime Day Sale",
-            "subheading_tag": "h3",
-            "subheading_size": "dev-large",
+            "subheading": " Quiet 3.5 HP Motor with 12% Incline",
+            "subheading_tag": "h2",
+            "subheading_size": "dev-xx-small",
             "title": "",
             "heading_size": "dev-xx-small",
             "description": "<p><br/></p>",
@@ -116,6 +116,7 @@
         "image_JdmJdT"
       ],
       "custom_css": [
+        ".heading_title {color: #434343;}",
         ".dev-x-large {font-size: 38px;}"
       ],
       "name": "Slideshow",
