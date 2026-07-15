@@ -50,7 +50,7 @@
             "overlay_opacity": 0,
             "background": "",
             "background_gradient": "",
-            "button_background": "linear-gradient(180deg, rgba(63, 191, 240, 1), rgba(63, 191, 240, 1) 86%)",
+            "button_background": "linear-gradient(180deg, rgba(63, 191, 240, 1), rgba(4, 124, 222, 1) 100%)",
             "button_text_color": "#ffffff",
             "button_background2": "#FFFFF",
             "button_text_color2": "#000000",
