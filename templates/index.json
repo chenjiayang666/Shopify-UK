@@ -325,33 +325,6 @@
             "button-text2": ""
           }
         },
-        "item_aXLUgd": {
-          "type": "item",
-          "settings": {
-            "image-flex": "left",
-            "content-flex": "left",
-            "item-name": "",
-            "img": "shopify://shop_images/BEST_SELLER_W50_UK.jpg",
-            "product": "merach-w50-treadmill-with-12-auto-incline",
-            "discount_mode": "percentage",
-            "badge_width": 75,
-            "badge_height": 75,
-            "badge_font_size": 15,
-            "badge_text_color": "#ffffff",
-            "badge_position": "right",
-            "tag": "Best Sellers",
-            "product-title": "T25 Under-Desk Treadmill",
-            "subtitle": "LED Display | 1–6 km/h Speed | 25 dB Ultra-Quiet",
-            "description": "",
-            "tip_text": "",
-            "tip_svg": "",
-            "show_add_to_cart": false,
-            "button-link": "shopify://products/merach-r28r1-water-rowing-machine",
-            "button-text": "Shop Now",
-            "button-link2": "https://uk.merachfit.com/products/merach-r28r1-water-rowing-machine",
-            "button-text2": ""
-          }
-        },
         "item_cq6ckx": {
           "type": "item",
           "settings": {
@@ -378,12 +351,39 @@
             "button-link2": "https://uk.merachfit.com/products/merach-r28r1-water-rowing-machine",
             "button-text2": ""
           }
+        },
+        "item_aXLUgd": {
+          "type": "item",
+          "settings": {
+            "image-flex": "left",
+            "content-flex": "left",
+            "item-name": "",
+            "img": "shopify://shop_images/BEST_SELLER_W50_UK.jpg",
+            "product": "merach-w50-treadmill-with-12-auto-incline",
+            "discount_mode": "percentage",
+            "badge_width": 75,
+            "badge_height": 75,
+            "badge_font_size": 15,
+            "badge_text_color": "#ffffff",
+            "badge_position": "right",
+            "tag": "Best Sellers",
+            "product-title": "T25 Under-Desk Treadmill",
+            "subtitle": "LED Display | 1–6 km/h Speed | 25 dB Ultra-Quiet",
+            "description": "",
+            "tip_text": "",
+            "tip_svg": "",
+            "show_add_to_cart": false,
+            "button-link": "shopify://products/merach-r28r1-water-rowing-machine",
+            "button-text": "Shop Now",
+            "button-link2": "https://uk.merachfit.com/products/merach-r28r1-water-rowing-machine",
+            "button-text2": ""
+          }
         }
       },
       "block_order": [
         "item_py9EqN",
-        "item_aXLUgd",
-        "item_cq6ckx"
+        "item_cq6ckx",
+        "item_aXLUgd"
       ],
       "custom_css": [
         ".product-tip {color: #53565a;}"
@@ -428,8 +428,8 @@
             "tab_name": "Rowers",
             "products": [
               "merach-15-pro-magnetic-rowing-machine",
-              "merach-r11b2-rowing-machine-with-air-resistance",
-              "merach-magnetic-rower-q1s"
+              "merach-magnetic-rower-q1s",
+              "merach-r26b1-magnetic-rower"
             ],
             "collection": ""
           }
