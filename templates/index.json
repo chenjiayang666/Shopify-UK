@@ -116,7 +116,6 @@
         "image_JdmJdT"
       ],
       "custom_css": [
-        ".heading_title {color: #434343;}",
         ".dev-x-large {font-size: 38px;}"
       ],
       "name": "Slideshow",
