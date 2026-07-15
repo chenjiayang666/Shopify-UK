@@ -115,7 +115,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/Merach_UK_HOMEPAGE_R28.jpg",
-            "mobile_image": "shopify://shop_images/R28_mo_750x1444_91b50f54-7e3d-4556-8d46-a8182b613e3d.jpg",
+            "mobile_image": "shopify://shop_images/Merach_UK_HOMEPAGE_R28_MOBILE.jpg",
             "content_max_width": 780,
             "content_max_width_mob": 260,
             "mobile_text_position": "place-self-start-center text-center",
