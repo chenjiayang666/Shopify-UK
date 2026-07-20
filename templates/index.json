@@ -985,6 +985,7 @@
           "type": "item",
           "settings": {
             "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/UK_HOME_PAGE_ICONS_2.png",
             "mobile_icon_width": 72,
             "icon_width": 60,
             "icon_background_type": "none",
@@ -994,10 +995,11 @@
             "content": "<p>Return within 30 days</p>"
           }
         },
-        "item_VYrzUD": {
+        "item_cH8HKd": {
           "type": "item",
           "settings": {
             "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/UK_HOME_PAGE_ICONS_1.png",
             "mobile_icon_width": 72,
             "icon_width": 60,
             "icon_background_type": "none",
@@ -1011,13 +1013,14 @@
           "type": "item",
           "settings": {
             "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/UK_HOME_PAGE_ICONS_3.png",
             "mobile_icon_width": 72,
             "icon_width": 48,
             "icon_background_type": "none",
             "icon_background": "",
             "icon_color": "",
-            "title": "HSA/FSA Eligible",
-            "content": "<p>Save up to 30-40% with HSA/FSA dollars.</p>"
+            "title": "",
+            "content": ""
           }
         },
         "item_aUxiMp": {
@@ -1036,7 +1039,7 @@
       },
       "block_order": [
         "item_Egd97Q",
-        "item_VYrzUD",
+        "item_cH8HKd",
         "item_pcb8by",
         "item_aUxiMp"
       ],
