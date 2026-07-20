@@ -60,14 +60,14 @@
           "type": "message",
           "settings": {
             "text": "Subscribe for 5% Off Your First Order",
-            "url": "https://uk.merachfit.com/pages/sales"
+            "url": "shopify://pages/2026-summer-sale"
           }
         },
         "message_Lhn7Fh": {
           "type": "message",
           "settings": {
             "text": "Save £40 on Orders £500 +",
-            "url": "shopify://pages/sales"
+            "url": "shopify://pages/2026-summer-sale"
           }
         },
         "message_PYcTLy": {
