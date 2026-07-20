@@ -60,7 +60,7 @@
           "type": "message",
           "settings": {
             "text": "Subscribe for 5% Off Your First Order",
-            "url": "shopify://pages/sales"
+            "url": "https://uk.merachfit.com/pages/sales"
           }
         },
         "message_Lhn7Fh": {
@@ -109,7 +109,7 @@
         "text_size": "text-base",
         "navigation_mode": "arrows",
         "scrolling_speed": 10,
-        "background": "#0B99F4",
+        "background": "#0b99f4",
         "background_gradient": "linear-gradient(170deg, rgba(11, 153, 244, 1), rgba(11, 153, 244, 1) 68%, rgba(11, 153, 244, 1) 82%, rgba(11, 153, 244, 1) 95%, rgba(11, 153, 244, 1) 100%)",
         "text_color": "#ffffff"
       }
