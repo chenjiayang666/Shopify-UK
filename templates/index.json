@@ -1027,6 +1027,7 @@
           "type": "item",
           "settings": {
             "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/UK_HOME_PAGE_ICONS_4.png",
             "mobile_icon_width": 72,
             "icon_width": 60,
             "icon_background_type": "none",
