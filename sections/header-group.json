@@ -119,26 +119,13 @@
             "link": "https://uk.merachfit.com/"
           }
         },
-        "blacklist_YPhDNf": {
-          "type": "blacklist",
-          "settings": {
-            "text": ""
-          }
-        },
         "country_item_DXceNV": {
           "type": "country_item",
           "settings": {
             "enable": true,
             "name": "Germany",
+            "flag_image": "shopify://shop_images/de.webp",
             "link": "https://merachfit.de/"
-          }
-        },
-        "country_item_g78nkG": {
-          "type": "country_item",
-          "settings": {
-            "enable": true,
-            "name": "Europe",
-            "link": ""
           }
         },
         "country_item_rMiTqW": {
@@ -146,7 +133,41 @@
           "settings": {
             "enable": true,
             "name": "France",
+            "flag_image": "shopify://shop_images/France.png",
             "link": "https://fr.merachfit.com/"
+          }
+        },
+        "country_item_g78nkG": {
+          "type": "country_item",
+          "settings": {
+            "enable": true,
+            "name": "Europe",
+            "flag_image": "shopify://shop_images/EU-icon_430x_e69a0dfa-8c1e-4121-b379-35e80c33c387.webp",
+            "link": "https://merachfit.eu/"
+          }
+        },
+        "country_item_XWpwhR": {
+          "type": "country_item",
+          "settings": {
+            "enable": true,
+            "name": "Japan",
+            "flag_image": "shopify://shop_images/Japan_430x_ee963b43-87b2-471e-a96e-c799f56cee1d.webp",
+            "link": "https://merach.jp/"
+          }
+        },
+        "country_item_bh9eNQ": {
+          "type": "country_item",
+          "settings": {
+            "enable": true,
+            "name": "US",
+            "flag_image": "shopify://shop_images/merachfit.com.png",
+            "link": "https://merachfit.com/"
+          }
+        },
+        "blacklist_YPhDNf": {
+          "type": "blacklist",
+          "settings": {
+            "text": ""
           }
         },
         "mega_item_d678qa": {
@@ -467,10 +488,12 @@
       },
       "block_order": [
         "country_item_n3nnXa",
-        "blacklist_YPhDNf",
         "country_item_DXceNV",
-        "country_item_g78nkG",
         "country_item_rMiTqW",
+        "country_item_g78nkG",
+        "country_item_XWpwhR",
+        "country_item_bh9eNQ",
+        "blacklist_YPhDNf",
         "mega_item_d678qa",
         "mega_item_gYLFQR",
         "mega_item_di4Mrn",
