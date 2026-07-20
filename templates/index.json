@@ -518,7 +518,7 @@
           "type": "block",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Merach_R15_Pro_Electromagnetic_Rowing_Machine_social_update.jpg",
+            "image": "shopify://shop_images/UK_HOMEPAGE_BANNER_1.png",
             "url": "",
             "title": "Verywell Fit",
             "subtitle": "Merach’s NovaRow R50 Rower is an excellent value."
@@ -528,7 +528,7 @@
           "type": "block",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Merach_R15_Pro_Electromagnetic_Rowing_Machine_social_update_3.jpg",
+            "image": "shopify://shop_images/UK_HOMEPAGE_BANNER_2.png",
             "url": "",
             "title": "BarBend",
             "subtitle": "Dual magnetic and water resistance gives each stroke a unique feel."
@@ -538,7 +538,7 @@
           "type": "block",
           "settings": {
             "product": "",
-            "image": "shopify://shop_images/Merach_S29R2_Self-Powered_Exercise_Bike_social_update_3.jpg",
+            "image": "shopify://shop_images/UK_HOMEPAGE_BANNER_3.png",
             "url": "",
             "title": "Life Hacker",
             "subtitle": "It's now almost two years since I started using it, and it has held together well."
@@ -551,7 +551,7 @@
             "image": "shopify://shop_images/Merach_R15_Pro_Electromagnetic_Rowing_Machine_social_update_4.jpg",
             "url": "",
             "title": "Women's Health",
-            "subtitle": "The sturdy frame feels stable at all times no matter what speed I’m going, which is impressive for its small size."
+            "subtitle": "The sturdy frame keeps every stroke smooth and stable, while the real-time display lets me track my workout progress with ease."
           }
         }
       },
