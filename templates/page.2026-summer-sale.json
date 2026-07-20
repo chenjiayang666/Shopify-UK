@@ -49,8 +49,8 @@
         "allow_transparent_header": false,
         "enable_parallax": false,
         "image_size": "auto",
-        "image": "shopify://shop_images/new_uk.merachfit.com_valentine_s_day_2.jpg",
-        "mobile_image": "shopify://shop_images/new_uk.merachfit.com_valentine_s_day_3.jpg",
+        "image": "shopify://shop_images/Summer_Sale_4.jpg",
+        "mobile_image": "shopify://shop_images/Summer_Sale_2.jpg",
         "mobile_text_position": "place-self-center-start text-start",
         "desktop_text_position": "sm:place-self-center-start sm:text-start",
         "text_color": "#ffffff",
@@ -72,22 +72,22 @@
         "nav_item_9xFztP": {
           "type": "nav_item",
           "settings": {
-            "nav_item_title": "Best Seller",
-            "anchor_id": "multi-column-product-pro-1"
+            "nav_item_title": "Best Sellers",
+            "anchor_id": "multi-column-product-pro"
           }
         },
         "nav_item_KyDpeN": {
           "type": "nav_item",
           "settings": {
-            "nav_item_title": "Combo Offer",
-            "anchor_id": "multi-column-product-pro"
+            "nav_item_title": "Explore Cardio",
+            "anchor_id": "feature-collection-tab-44"
           }
         },
         "nav_item_wfVV8J": {
           "type": "nav_item",
           "settings": {
-            "nav_item_title": "2× Rewards",
-            "anchor_id": "media-grid"
+            "nav_item_title": "Extra 10% Off",
+            "anchor_id": "999991"
           }
         }
       },
@@ -99,9 +99,9 @@
       ],
       "name": "Custom Navbar",
       "settings": {
-        "background_color": "#ffaba9",
+        "background_color": "#0b99f4",
         "font_size": "15px",
-        "font_color": "#780e12",
+        "font_color": "#ffffff",
         "active_color": "#ffd700",
         "font_weight": "600"
       }
@@ -112,11 +112,11 @@
         "item_c9fM6F": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/uk.merachfit.com_valentine_s_day_8.png",
+            "image": "shopify://shop_images/Discount_sale_1.png",
             "stretch_image": true,
             "link_text": "",
             "link_url": "",
-            "background": "#fff0f0",
+            "background": "#e9f6ff",
             "text_color": "#ffffff",
             "overlay_color": "rgba(0,0,0,0)",
             "overlay_opacity": 0
@@ -125,11 +125,11 @@
         "item_rDUYr9": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/uk.merachfit.com_valentine_s_day_9.png",
+            "image": "shopify://shop_images/Discount_sale_2.png",
             "stretch_image": true,
             "link_text": "",
             "link_url": "",
-            "background": "#fff0f0",
+            "background": "#e9f6ff",
             "text_color": "#ffffff",
             "overlay_color": "rgba(0,0,0,0)",
             "overlay_opacity": 0
@@ -138,11 +138,11 @@
         "item_rnUcra": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/uk.merachfit.com_valentine_s_day_7.png",
+            "image": "shopify://shop_images/Discount_sale_3.png",
             "stretch_image": true,
             "link_text": "",
             "link_url": "",
-            "background": "#fff0f0",
+            "background": "#e9f6ff",
             "text_color": "#ffffff",
             "overlay_color": "rgba(0,0,0,0)",
             "overlay_opacity": 0
@@ -150,12 +150,13 @@
         },
         "item_VHDJhx": {
           "type": "item",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/uk.merachfit.com_valentine_s_day_10.png",
+            "image": "shopify://shop_images/uk.merachfit_easter_sale-3_5_3.png",
             "stretch_image": true,
             "link_text": "",
             "link_url": "",
-            "background": "#fff0f0",
+            "background": "#e9f6ff",
             "text_color": "#ffffff",
             "overlay_color": "rgba(0,0,0,0)",
             "overlay_opacity": 0
@@ -178,66 +179,133 @@
         "content": "",
         "link_url": "",
         "link_text": "",
-        "background": "#fff0f0",
+        "background": "#ffffff",
         "background_gradient": "",
         "text_color": "",
         "heading_color": "",
         "heading_gradient": ""
       }
     },
-    "rich_text_Mm6fYB": {
-      "type": "rich-text",
+    "link_tab_check_GL4cPb": {
+      "type": "link-tab-check",
       "blocks": {
-        "heading_nwRYKe": {
-          "type": "heading",
+        "item_H9mUMC": {
+          "type": "item",
           "settings": {
-            "text": "Best Seller",
-            "heading_tag": "h1",
-            "text_color": "",
-            "gradient": ""
+            "image-flex": "right",
+            "content-flex": "left",
+            "item-name": "R28R1 Rower",
+            "img": "shopify://shop_images/R28R1_5d3215d4-5f2b-41bf-b5e0-8c7019af8e2a.jpg",
+            "product": "merach-r28r1-water-rowing-machine",
+            "discount_mode": "amount",
+            "badge_width": 110,
+            "badge_height": 140,
+            "badge_font_size": 23,
+            "badge_text_color": "#ffffff",
+            "badge_position": "left",
+            "tag": "",
+            "product-title": "",
+            "subtitle": "",
+            "description": "<ul><li>Adjustable tablet holder</li><li>180° foldable storage</li><li>Professional training monitor</li></ul>",
+            "button_add_text": "Shop Now",
+            "button_sold_out_text": "Sold out",
+            "button-link": "",
+            "button-text": "View more"
+          }
+        },
+        "item_Y7NjQY": {
+          "type": "item",
+          "settings": {
+            "image-flex": "right",
+            "content-flex": "left",
+            "item-name": "T31 Treadmill",
+            "img": "shopify://shop_images/T31B1.jpg",
+            "product": "merach-t31b1-foldable-treadmill-with-18-auto-incline",
+            "discount_mode": "amount",
+            "badge_width": 110,
+            "badge_height": 140,
+            "badge_font_size": 23,
+            "badge_text_color": "#ffffff",
+            "badge_position": "left",
+            "tag": "",
+            "product-title": "",
+            "subtitle": "",
+            "description": "<ul><li>18% Automatic Incline</li><li>0.6–8.7 mph Speed Range</li><li>30-Second Hydraulic Folding Design</li></ul>",
+            "button_add_text": "Shop Now",
+            "button_sold_out_text": "Sold out",
+            "button-link": "",
+            "button-text": "View more"
+          }
+        },
+        "item_83wQMA": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "image-flex": "left",
+            "content-flex": "left",
+            "item-name": "Q3 Rower",
+            "img": "shopify://shop_images/Merach_R21_Pro_Magnetic_Rowing_Machine-2_4.jpg",
+            "product": "merach-q3-magnetic-rowing-machine",
+            "discount_mode": "percentage",
+            "badge_width": 120,
+            "badge_height": 120,
+            "badge_font_size": 32,
+            "badge_text_color": "#ffffff",
+            "badge_position": "right",
+            "tag": "",
+            "product-title": "Merach Q3 Magnetic Rowing Machine",
+            "subtitle": "",
+            "description": "<ul><li>Maximum resistance 60 kg</li><li>Automatic resistance adjustment</li><li>16 resistance levels</li><li>Self-powered system </li><li>Extra-large HD LED display</li></ul>",
+            "button_add_text": "Shop Now",
+            "button_sold_out_text": "Sold Out",
+            "button-link": "shopify://products/merach-q3-magnetic-rowing-machine",
+            "button-text": "Learn More"
           }
         }
       },
       "block_order": [
-        "heading_nwRYKe"
+        "item_H9mUMC",
+        "item_Y7NjQY",
+        "item_83wQMA"
       ],
-      "name": "Rich text",
+      "name": "link-tab-check",
       "settings": {
-        "anchor_id": "rich-text-1",
-        "full_width": true,
-        "content_width": "large",
-        "text_position": "center",
-        "background": "#fff0f0",
-        "background_gradient": "",
-        "text_color": "#780e12"
+        "anchor_id": "multi-column-product-pro",
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "badge_img": "shopify://shop_images/icon_discount.png",
+        "max-width": 1400,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 20,
+        "padding-gap-mob": 20,
+        "title": "Best Sellers",
+        "heading_tag": "h2",
+        "subtitle": "",
+        "section-bg": "#EAF4FF",
+        "title-color": "#000000",
+        "subtitle-color": "#ebf7ff",
+        "card-bg": "#EAF4FF",
+        "card-color": "#1a1a1a",
+        "tag-color": "",
+        "button-color": "#1a1a1a",
+        "button-color-active": "#ffffff",
+        "price-color": "#f83a3a",
+        "button-bg": "#f2f2f2",
+        "button-bg-active": "#000000"
       }
     },
     "multi_column_product_pro_UExKya": {
       "type": "multi-column-product-pro",
       "blocks": {
-        "item_efyfe6": {
-          "type": "item",
-          "settings": {
-            "background": "#ffffff",
-            "enable_link": true,
-            "product": "merach-r50-rowing-machine-with-air-resistance",
-            "column_size": "4",
-            "title": "",
-            "heading_tag": "h4",
-            "content": "Foldable Design",
-            "content_two": "Max.  353 lbs",
-            "content_three": "10-Level \\nAir Resistance",
-            "link_url": "",
-            "link_text": "",
-            "link_style": "link"
-          }
-        },
         "item_JFjNYK": {
           "type": "item",
+          "disabled": true,
           "settings": {
             "background": "#ffffff",
             "enable_link": true,
             "product": "merach-r28r1-water-rowing-machine",
+            "image": "shopify://shop_images/R28.jpg",
             "column_size": "4",
             "title": "",
             "heading_tag": "h4",
@@ -245,6 +313,41 @@
             "content_two": "180° Foldable Storage",
             "content_three": "Max Weight 397 lbs",
             "link_url": "shopify://products/merach-r28r1-water-rowing-machine",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_axxgkf": {
+          "type": "item",
+          "settings": {
+            "background": "#ffffff",
+            "enable_link": true,
+            "product": "merach-15-pro-magnetic-rowing-machine",
+            "column_size": "4",
+            "title": "",
+            "heading_tag": "h4",
+            "content": "16 Resistance Levels",
+            "content_two": "40KG Peak Resistance",
+            "content_three": "Large Display",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link"
+          }
+        },
+        "item_efyfe6": {
+          "type": "item",
+          "settings": {
+            "background": "#ffffff",
+            "enable_link": true,
+            "product": "merach-r50-rowing-machine-with-air-resistance",
+            "image": "shopify://shop_images/R11B2_ccdea8ff-4501-42fa-9360-4c2b257faef4.jpg",
+            "column_size": "4",
+            "title": "",
+            "heading_tag": "h4",
+            "content": "Foldable Design",
+            "content_two": "Max.  353 lbs",
+            "content_three": "10-Level \\nAir Resistance",
+            "link_url": "",
             "link_text": "",
             "link_style": "link"
           }
@@ -285,8 +388,9 @@
         }
       },
       "block_order": [
-        "item_efyfe6",
         "item_JFjNYK",
+        "item_axxgkf",
+        "item_efyfe6",
         "item_6UAwGQ",
         "item_PkCRXn"
       ],
@@ -300,20 +404,20 @@
         "text_alignment": "center",
         "subheading": "",
         "title": "",
-        "background": "#fff0f0",
+        "background": "#eaf4ff",
         "background_gradient": "",
         "text_color": "",
         "off_color": "#000000",
         "price_color": "#bd221e",
         "badge_color": "",
         "badge_text_color": "#bd221e",
-        "badge_Spare_color": "#ffe8b4",
-        "badge_Spare_bg_color_left": "#fff0f0",
-        "badge_Spare_bg_color_right": "#941d21",
-        "buy_button_color": "#780e12",
+        "badge_Spare_color": "#ffffff",
+        "badge_Spare_bg_color_left": "#0b99f4",
+        "badge_Spare_bg_color_right": "#c5dbf2",
+        "buy_button_color": "#000000",
         "buy_button_text_color": "#ffffff",
-        "section_pdtop": 50,
-        "section_pdbot": 79
+        "section_pdtop": 10,
+        "section_pdbot": 43
       }
     },
     "clearance_sale_4T39bH": {
@@ -390,49 +494,6 @@
         "slide-width": 70,
         "show_day": true,
         "show_badges": true
-      }
-    },
-    "slideshow_FJ6MQK": {
-      "type": "slideshow",
-      "blocks": {
-        "image_Q6FDWj": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/uk.merachfit.com_valentine_s_day_4.jpg",
-            "mobile_image": "shopify://shop_images/uk.merachfit.com_valentine_s_day_3.jpg",
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "subheading": "",
-            "title": "",
-            "heading_tag": "h0",
-            "button_text": "",
-            "button_link": "shopify://products/merach-r28r1-water-rowing-machine",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "background": "",
-            "background_gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_Q6FDWj"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "full_width": false,
-        "allow_transparent_header": true,
-        "show_initial_transition": false,
-        "image_size": "auto",
-        "controls_type": "dots",
-        "transition_type": "fade_with_text",
-        "autoplay": false,
-        "cycle_speed": 6,
-        "background": "#fff0f0",
-        "background_gradient": ""
       }
     },
     "rich_text_F9LRb6": {
@@ -646,287 +707,42 @@
         "button-bg-active": "#ffde8f"
       }
     },
-    "link_tab_check_N3yNrG": {
-      "type": "link-tab-check",
-      "blocks": {
-        "item_76eD93": {
-          "type": "item",
-          "settings": {
-            "image-flex": "right",
-            "content-flex": "center",
-            "item-name": "S29",
-            "img": "shopify://shop_images/Merach_S29B1_Exercise_Bike_350_lbs_Max_Capacity-1_3.jpg",
-            "product": "merach-s29b1-exercise-bike-350-lbs-max-capacity",
-            "discount_mode": "percentage",
-            "badge_width": 120,
-            "badge_height": 120,
-            "badge_font_size": 32,
-            "badge_text_color": "#ffffff",
-            "badge_position": "right",
-            "tag": "",
-            "product-title": "Merach S29B1 Exercise Bike 350 lbs Max Capacity",
-            "subtitle": "",
-            "description": "<ul><li>40 lb Heavy-Duty Flywheel</li><li>350 lb Max Weight</li><li>Noise &lt; 25 dB</li><li>Integrated Dumbbell Rack</li></ul>",
-            "button_add_text": "Shop Now",
-            "button_sold_out_text": "Sold out",
-            "button-link": "shopify://products/merach-s29b1-exercise-bike-350-lbs-max-capacity",
-            "button-text": "Learn More"
-          }
-        },
-        "item_cfMFDU": {
-          "type": "item",
-          "disabled": true,
-          "settings": {
-            "image-flex": "right",
-            "content-flex": "center",
-            "item-name": "S19",
-            "img": "shopify://shop_images/S19-0227.jpg",
-            "product": "merach-s19b1-recumbent-exercise-bike",
-            "discount_mode": "percentage",
-            "badge_width": 120,
-            "badge_height": 120,
-            "badge_font_size": 32,
-            "badge_text_color": "#ffffff",
-            "badge_position": "right",
-            "tag": "",
-            "product-title": "Merach S19B1 Recumbent Exercise Bike",
-            "subtitle": "",
-            "description": "<ul><li>Built-In Heart Rate Sensors</li><li>8-Level Resistance</li><li>Max Weight: 150 kg</li><li>Adjustable Seat: 8 Positions</li></ul>",
-            "button_add_text": "Shop Now",
-            "button_sold_out_text": "Sold out",
-            "button-link": "shopify://products/merach-s19b1-recumbent-exercise-bike",
-            "button-text": "Learn More"
-          }
-        },
-        "item_ebyXA8": {
-          "type": "item",
-          "settings": {
-            "image-flex": "right",
-            "content-flex": "center",
-            "item-name": "S15",
-            "img": "shopify://shop_images/S15B2_Merach_4-in-1_Heimtrainer_Fahrrad_Schwarz_1_8b177910-b05f-416a-aa49-e19d70b25970.jpg",
-            "product": "merach-s15b2-4-in-1-home-exercise-bike-black",
-            "discount_mode": "percentage",
-            "badge_width": 120,
-            "badge_height": 120,
-            "badge_font_size": 32,
-            "badge_text_color": "#ffffff",
-            "badge_position": "right",
-            "tag": "",
-            "product-title": "Merach S15B2 4-in-1 Home Exercise Bike Black",
-            "subtitle": "",
-            "description": "<ul><li>Foldable design</li><li>With heart rate monitoring</li><li>16 levels of magnetic resistance</li><li>Weight capacity: 136 kg</li></ul>",
-            "button_add_text": "Shop Now",
-            "button_sold_out_text": "Sold out",
-            "button-link": "shopify://products/merach-s15b2-4-in-1-home-exercise-bike-black",
-            "button-text": "Learn More"
-          }
-        },
-        "item_dB9YCU": {
-          "type": "item",
-          "settings": {
-            "image-flex": "right",
-            "content-flex": "center",
-            "item-name": "S08",
-            "img": "shopify://shop_images/S08B1_Merach_Liegeergometer_Heimtrainer_7.jpg",
-            "product": "merach-s08b1-recumbent-exercise-bike",
-            "discount_mode": "percentage",
-            "badge_width": 120,
-            "badge_height": 120,
-            "badge_font_size": 32,
-            "badge_text_color": "#ffffff",
-            "badge_position": "right",
-            "tag": "",
-            "product-title": "Merach S08B1 Recumbent Exercise Bike",
-            "subtitle": "",
-            "description": "<ul><li>8 adjustable resistance levels</li><li>Larger seat</li><li>Adjustable backrest</li><li>Supports heart rate monitoring</li></ul>",
-            "button_add_text": "Shop Now",
-            "button_sold_out_text": "Sold out",
-            "button-link": "shopify://products/merach-s08b1-recumbent-exercise-bike",
-            "button-text": "Learn More"
-          }
-        }
-      },
-      "block_order": [
-        "item_76eD93",
-        "item_cfMFDU",
-        "item_ebyXA8",
-        "item_dB9YCU"
-      ],
-      "disabled": true,
-      "name": "link-tab-check",
-      "settings": {
-        "anchor_id": "multi-column-product-pro",
-        "padding-top": 20,
-        "padding-bottom": 20,
-        "padding-gap": 20,
-        "badge_img": "shopify://shop_images/uk.merachfit.com_black_friday_sale_6.png",
-        "max-width": 1600,
-        "padding-top-mob": 20,
-        "padding-bottom-mob": 20,
-        "padding-gap-mob": 20,
-        "title": "",
-        "heading_tag": "h1",
-        "subtitle": "Bike",
-        "section-bg": "linear-gradient(180deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%)",
-        "title-color": "#ffde8f",
-        "subtitle-color": "#ffffff",
-        "card-bg": "",
-        "card-color": "#ffffff",
-        "tag-color": "",
-        "button-color": "#1a1a1a",
-        "button-color-active": "#1a1a1a",
-        "price-color": "#ed1b24",
-        "button-bg": "#ffffff",
-        "button-bg-active": "#ffde8f"
-      }
-    },
-    "link_tab_check_MezQH7": {
-      "type": "link-tab-check",
-      "blocks": {
-        "item_4x4LgX": {
-          "type": "item",
-          "settings": {
-            "image-flex": "left",
-            "content-flex": "center",
-            "item-name": "T26",
-            "img": "shopify://shop_images/T26B1_Merach_3_in_1_Laufband_19_6cdcb2b9-36b7-4eca-8358-fd3f094e6e73.jpg",
-            "product": "merach-t26b1-3-in-1-treadmill",
-            "discount_mode": "percentage",
-            "badge_width": 120,
-            "badge_height": 120,
-            "badge_font_size": 32,
-            "badge_text_color": "#ffffff",
-            "badge_position": "right",
-            "tag": "",
-            "product-title": "Merach T26B1 3-in-1 Treadmill",
-            "subtitle": "",
-            "description": "<ul><li>2.75HP motor</li><li>With a remote control</li><li>LED display</li><li>120 kg weight capacity</li></ul>",
-            "button_add_text": "Shop Now",
-            "button_sold_out_text": "Sold out",
-            "button-link": "shopify://products/merach-t26b1-3-in-1-treadmill",
-            "button-text": "Learn More"
-          }
-        },
-        "item_ce4JUb": {
-          "type": "item",
-          "settings": {
-            "image-flex": "left",
-            "content-flex": "center",
-            "item-name": "T12B2",
-            "img": "shopify://shop_images/Merach_T12B2_Foldable_Treadmill_with_15_Auto_Incline_4.jpg",
-            "product": "merach-t12b2-foldable-treadmill-with-15-auto-incline",
-            "discount_mode": "percentage",
-            "badge_width": 120,
-            "badge_height": 120,
-            "badge_font_size": 32,
-            "badge_text_color": "#ffffff",
-            "badge_position": "right",
-            "tag": "",
-            "product-title": "Merach T12B2 Foldable Treadmill with 15% Auto Incline",
-            "subtitle": "",
-            "description": "<ul><li>15% Auto Incline Treadmill</li><li>0.8–12 km/h Walking Pad</li><li>With Heart Rate Monitor</li><li>Maximum Load Capacity: 300 lbs</li><li>Extra-Wide Running Belt: 42.5 × 16.5 inch</li></ul>",
-            "button_add_text": "Shop Now",
-            "button_sold_out_text": "Sold out",
-            "button-link": "shopify://products/merach-t12b2-foldable-treadmill-with-15-auto-incline",
-            "button-text": "Learn more"
-          }
-        },
-        "item_GU98tz": {
-          "type": "item",
-          "settings": {
-            "image-flex": "left",
-            "content-flex": "center",
-            "item-name": "T14",
-            "img": "shopify://shop_images/T14B1MerachLaufbandFurZuhause_4.jpg",
-            "product": "merach-t14b1-treadmill-with-9-auto-incline",
-            "discount_mode": "percentage",
-            "badge_width": 120,
-            "badge_height": 120,
-            "badge_font_size": 32,
-            "badge_text_color": "#ffffff",
-            "badge_position": "right",
-            "tag": "",
-            "product-title": "Merach T14B1 Treadmill with 9% Auto Incline",
-            "subtitle": "",
-            "description": "<ul><li>Under-desk treadmill for home & office</li><li>Ultra-quiet 2.5HP motor</li><li>9% electric incline</li><li>Magnetic remote control</li><li>Speed Range: 0.6-4mp/h（1-6km/h）</li></ul>",
-            "button_add_text": "Shop Now",
-            "button_sold_out_text": "Sold out",
-            "button-link": "shopify://products/merach-t14b1-treadmill-with-9-auto-incline",
-            "button-text": "Learn More"
-          }
-        }
-      },
-      "block_order": [
-        "item_4x4LgX",
-        "item_ce4JUb",
-        "item_GU98tz"
-      ],
-      "disabled": true,
-      "name": "link-tab-check",
-      "settings": {
-        "anchor_id": "multi-column-product-pro",
-        "padding-top": 20,
-        "padding-bottom": 20,
-        "padding-gap": 20,
-        "badge_img": "shopify://shop_images/uk.merachfit.com_black_friday_sale_6.png",
-        "max-width": 1600,
-        "padding-top-mob": 20,
-        "padding-bottom-mob": 20,
-        "padding-gap-mob": 20,
-        "title": "",
-        "heading_tag": "h2",
-        "subtitle": "Treadmill",
-        "section-bg": "linear-gradient(180deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%)",
-        "title-color": "#ffde8f",
-        "subtitle-color": "#ffffff",
-        "card-bg": "",
-        "card-color": "#ffffff",
-        "tag-color": "",
-        "button-color": "#1a1a1a",
-        "button-color-active": "#1a1a1a",
-        "price-color": "#ed1b24",
-        "button-bg": "#ffffff",
-        "button-bg-active": "#ffde8f"
-      }
-    },
     "minimum_spend_8xEXBn": {
       "type": "minimum-spend",
       "blocks": {
+        "produt_list_RUrDBJ": {
+          "type": "produt_list",
+          "settings": {
+            "product_list": [
+              "merach-2415b1-ab-workout-machine",
+              "merach-r07w1-full-body-workout-squat-assist-trainer"
+            ]
+          }
+        },
         "produt_list_XjUMrp": {
           "type": "produt_list",
           "settings": {
             "product_list": [
               "merach-r28r1-water-rowing-machine",
+              "merach-t14b1-treadmill-with-9-auto-incline",
+              "merach-s26b2-indoor-exercise-bike-with-magnetic-resistance",
+              "merach-t21b1-3-in-1-treadmill",
               "merach-magnetic-rower-q1s",
               "merach-r50-rowing-machine-with-air-resistance",
               "merach-15-pro-magnetic-rowing-machine",
               "merach-r23r1-water-rowing-machine"
             ]
           }
-        },
-        "produt_list_RUrDBJ": {
-          "type": "produt_list",
-          "settings": {
-            "product_list": [
-              "merach-s26b2-indoor-exercise-bike-with-magnetic-resistance",
-              "merach-s29b1-exercise-bike-350-lbs-max-capacity",
-              "merach-w50-treadmill-with-12-auto-incline",
-              "merach-s19b1-recumbent-exercise-bike",
-              "merach-t12b2-foldable-treadmill-with-15-auto-incline",
-              "merach-t14b1-treadmill-with-9-auto-incline",
-              "merach-t21b1-3-in-1-treadmill"
-            ]
-          }
         }
       },
       "block_order": [
-        "produt_list_XjUMrp",
-        "produt_list_RUrDBJ"
+        "produt_list_RUrDBJ",
+        "produt_list_XjUMrp"
       ],
+      "disabled": true,
       "name": "minimum-spend",
       "settings": {
-        "anchor_id": "multi-column-product-pro",
+        "anchor_id": "multi-column-product-pro11",
         "animate": true,
         "padding-top": 20,
         "padding-bottom": 20,
@@ -935,20 +751,20 @@
         "padding-top-mob": 20,
         "padding-bottom-mob": 20,
         "padding-gap-mob": 20,
-        "title": "",
-        "subtitle": "<p>Buy 2, Get 10% Off</p>",
-        "section-bg": "#FFF0F0",
+        "title": "Applies to 2415 & R07",
+        "subtitle": "<p>Buy Cardio Machines, Get 2nd 50% Off</p>",
+        "section-bg": "#EAF4FF",
         "container-bg": "#fff",
-        "bottom-bg": "#FFF0F0",
+        "bottom-bg": "#EAF4FF",
         "header-color": "#000000",
         "point-color": "#666666",
         "badge-bg": "",
         "badge-color": "",
         "price-color": "#000000",
         "tip-color": "#404040",
-        "sale-bg": "linear-gradient(90deg, rgba(255, 240, 240, 1), rgba(155, 41, 38, 0.6588) 94%)",
-        "sale-color": "#941d21",
-        "check-bg": "#941D21",
+        "sale-bg": "linear-gradient(98deg, rgba(11, 153, 244, 1), rgba(23, 121, 244, 1) 88.849%, rgba(234, 244, 255, 1) 100%)",
+        "sale-color": "#ffffff",
+        "check-bg": "#000000",
         "check-color": "#f2f2f2",
         "tab-bg": "white",
         "tab-color": "#000000",
@@ -957,43 +773,141 @@
         "show_badges": false
       }
     },
-    "pure_collections_container_8qjUxk": {
+    "apps_7Y6yCT": {
+      "type": "apps",
+      "blocks": {
+        "omnisend_email_marketing_sms_embedded_form_g8y73B": {
+          "type": "shopify://apps/omnisend-email-marketing-sms/blocks/embedded-form/44704aa2-794f-4c5d-8c8e-039c841158e9",
+          "settings": {
+            "form_id": "6a55e58f1401ba3cb2b1c8c8"
+          }
+        }
+      },
+      "block_order": [
+        "omnisend_email_marketing_sms_embedded_form_g8y73B"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "pure_collections_container_E67Dfx": {
       "type": "pure-collections-container",
       "blocks": {
-        "tab_NeJHkL": {
+        "tab_EXdwRa": {
           "type": "tab",
           "settings": {
-            "title": "Rower"
+            "title": "Save Extra 10% Off"
           }
         },
-        "products_collection_aWTRxy": {
+        "products_collection_8qeBhn": {
           "type": "products_collection",
           "settings": {
             "products": [
-              "merach-15-pro-magnetic-rowing-machine",
-              "merach-q3-magnetic-rowing-machine",
-              "merach-magnetic-rower-q1s",
-              "merach-r26b1-magnetic-rower"
+              "merach-w50-treadmill-with-12-auto-incline",
+              "merach-r23r1-water-rowing-machine",
+              "merach-s19b1-recumbent-exercise-bike",
+              "merach-s08b1-recumbent-exercise-bike",
+              "merach-s23b1-recumbent-exercise-bike",
+              "merach-e27b3-elliptical-trainer",
+              "merach-e33b3-self-powered-elliptical-trainer"
             ],
             "collection": "",
             "discount_texts": "",
             "rewrite_titles": ""
           }
-        },
-        "tab_W6aadm": {
+        }
+      },
+      "block_order": [
+        "tab_EXdwRa",
+        "products_collection_8qeBhn"
+      ],
+      "name": "Featured collection Tab盒子",
+      "settings": {
+        "anchor_id": "999991",
+        "padding-top": 36,
+        "padding-bottom": 34,
+        "padding-top-mob": 30,
+        "padding-bottom-mob": 14,
+        "title_font_size": "16px",
+        "title_color": "#1a1a1a",
+        "sale_price_font_size": "20px",
+        "sale_price_color": "#be1c24",
+        "compare_at_price_font_size": "14px",
+        "compare_at_price_color": "#1a1a1a",
+        "stage_count_font_size": "14px",
+        "stage_count_color": "#be1c24",
+        "stage_price_font_size": "14px",
+        "stage_price_color": "#be1c24",
+        "buy_button_background": "#1a1a1a",
+        "buy_button_text": "Buy Now",
+        "buy_button_text_color": "#ffffff",
+        "fit_black_background": false,
+        "title": "",
+        "heading_color": "#bf071f",
+        "stage_count": "3",
+        "want_tags": "",
+        "lead_to_click_text": "",
+        "whole_tabs_bg_color": "#0b99f4",
+        "tab_font_color": "#ffffff",
+        "active_tab_font_color": "#1a1a1a",
+        "products_title_position": "center",
+        "badge_Spare_bg_color_position": "left",
+        "stack_products": false,
+        "show_progress_bar": true,
+        "products_count": 50,
+        "products_per_row_mobile": "1",
+        "products_per_row_desktop": 5,
+        "background_tab": "#f8f8f8",
+        "background": "#f8f8f8",
+        "badge_Spare_bg_color_left": "#0b99f4",
+        "badge_Spare_bg_color_right": "#c9ddf2",
+        "badge_Spare_color": "#ffffff",
+        "background_gradient": "",
+        "product_card_background": "#ffffff",
+        "product_card_text_color": ""
+      }
+    },
+    "image_with_text_overlay_J7VeA9": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "anchor_id": "image-with-text-overlay",
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/summer_sale_discont_1.jpg",
+        "mobile_image": "shopify://shop_images/summer_sale_discont_3.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "pure_collections_container_8qjUxk": {
+      "type": "pure-collections-container",
+      "blocks": {
+        "tab_fRQWBy": {
           "type": "tab",
           "settings": {
-            "title": "Treadmill"
+            "title": "Great Value"
           }
         },
-        "products_collection_xMqzqE": {
+        "products_collection_cAXNYa": {
           "type": "products_collection",
           "settings": {
             "products": [
-              "merach-t21b1-3-in-1-treadmill",
-              "merach-t12b2-foldable-treadmill-with-15-auto-incline",
-              "merach-t14b1-treadmill-with-9-auto-incline",
-              "merach-t26b1-3-in-1-treadmill"
+              "merach-r07w1-full-body-workout-squat-assist-trainer",
+              "merach-2314w2-adjustable-ab-trainer",
+              "merach-2417b1-squat-trainer-for-home",
+              "merach-2415b1-ab-workout-machine",
+              "merach-2438b1-stair-stepper-for-home-gym",
+              "merach-2440-vibration-plate-with-200-kg-weight-capacity"
             ],
             "collection": "",
             "discount_texts": "",
@@ -1010,10 +924,54 @@
           "type": "products_collection",
           "settings": {
             "products": [
-              "merach-s29b1-exercise-bike-350-lbs-max-capacity",
-              "merach-s08b1-recumbent-exercise-bike",
+              "merach-s36l5-indoor-exercise-bike-with-hd-screen",
               "merach-s28b1-exercise-bike-with-6-incline",
-              "merach-s38b2-indoor-exercise-bike"
+              "merach-s29b1-exercise-bike-350-lbs-max-capacity",
+              "merach-s26b4-indoor-exercise-bike-with-hd-screen",
+              "merach-s29r2-self-powered-exercise-bike"
+            ],
+            "collection": "",
+            "discount_texts": "",
+            "rewrite_titles": ""
+          }
+        },
+        "tab_W6aadm": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "title": "Treadmill"
+          }
+        },
+        "products_collection_xMqzqE": {
+          "type": "products_collection",
+          "disabled": true,
+          "settings": {
+            "products": [
+              "merach-w50-treadmill-with-12-auto-incline",
+              "merach-t12b1-foldable-treadmill-with-6-incline",
+              "merach-t12b2-foldable-treadmill-with-15-auto-incline",
+              "merach-t31b1-foldable-treadmill-with-18-auto-incline"
+            ],
+            "collection": "",
+            "discount_texts": "",
+            "rewrite_titles": ""
+          }
+        },
+        "tab_NeJHkL": {
+          "type": "tab",
+          "settings": {
+            "title": "Rower"
+          }
+        },
+        "products_collection_aWTRxy": {
+          "type": "products_collection",
+          "settings": {
+            "products": [
+              "merach-magnetic-rower-q1s",
+              "merach-r26b1-magnetic-rower",
+              "merach-r15-magnetic-rowing-machine",
+              "merach-r50-aura-rowing-machine-with-with-hd-screen",
+              "merach-r15-pro-3-0-magnetic-rowing-machine-with-hd-screen"
             ],
             "collection": "",
             "discount_texts": "",
@@ -1022,12 +980,14 @@
         }
       },
       "block_order": [
-        "tab_NeJHkL",
-        "products_collection_aWTRxy",
+        "tab_fRQWBy",
+        "products_collection_cAXNYa",
+        "tab_U8aBPk",
+        "products_collection_wfhyyY",
         "tab_W6aadm",
         "products_collection_xMqzqE",
-        "tab_U8aBPk",
-        "products_collection_wfhyyY"
+        "tab_NeJHkL",
+        "products_collection_aWTRxy"
       ],
       "name": "Featured collection Tab盒子",
       "settings": {
@@ -1046,17 +1006,17 @@
         "stage_count_color": "#006cd9",
         "stage_price_font_size": "inherit",
         "stage_price_color": "#006cd9",
-        "buy_button_background": "#941d21",
+        "buy_button_background": "#000000",
         "buy_button_text": "Shop Now",
-        "buy_button_text_color": "#f2f2f2",
+        "buy_button_text_color": "#ffffff",
         "fit_black_background": false,
-        "title": "Buy 3, Get 13% Off",
-        "heading_color": "#941d21",
+        "title": "Top Picks",
+        "heading_color": "#000000",
         "stage_count": "",
         "want_tags": "",
         "lead_to_click_text": "",
-        "whole_tabs_bg_color": "#fff0f0",
-        "tab_font_color": "#941d21",
+        "whole_tabs_bg_color": "#0b99f4",
+        "tab_font_color": "#ffffff",
         "active_tab_font_color": "#1a1a1a",
         "products_title_position": "center",
         "badge_Spare_bg_color_position": "left",
@@ -1065,11 +1025,11 @@
         "products_count": 50,
         "products_per_row_mobile": "2",
         "products_per_row_desktop": 4,
-        "background_tab": "#fff0f0",
+        "background_tab": "#eaf4ff",
         "background": "rgba(0,0,0,0)",
-        "badge_Spare_bg_color_left": "#fff0f0",
-        "badge_Spare_bg_color_right": "#9b2926",
-        "badge_Spare_color": "#ffe8b4",
+        "badge_Spare_bg_color_left": "#e6dde9",
+        "badge_Spare_bg_color_right": "#0b99f4",
+        "badge_Spare_color": "#ffffff",
         "background_gradient": "",
         "product_card_background": "",
         "product_card_text_color": ""
@@ -1186,9 +1146,9 @@
         "full_width": true,
         "content_width": "large",
         "text_position": "center",
-        "background": "#fff0f0",
+        "background": "#eaf4ff",
         "background_gradient": "",
-        "text_color": "#780e12"
+        "text_color": "#000000"
       }
     },
     "media_grid_fDfaGd": {
@@ -1197,7 +1157,7 @@
         "image_9h8WMn": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/uk.merachfit.com_valentine_s_day_15.png",
+            "image": "shopify://shop_images/MERACH_PRIME_DAY_SALE.jpg",
             "title": "Points = Coupon",
             "heading_tag": "h4",
             "link_url": "shopify://pages/merach-rewards-program",
@@ -1208,10 +1168,10 @@
             "desktop_text_position": "sm:place-self-start-center sm:text-center",
             "background": "#b15a5d",
             "background_gradient": "",
-            "text_color": "#780e12",
+            "text_color": "#000000",
             "text_gradient": "",
-            "button_background": "#fff0f0",
-            "button_text_color": "#1a1a1a",
+            "button_background": "#0b99f4",
+            "button_text_color": "#ffffff",
             "overlay_color": "rgba(0,0,0,0)",
             "overlay_opacity": 0
           }
@@ -1219,7 +1179,7 @@
         "image_eGhe3g": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/uk.merachfit.com_valentine_s_day_11.png",
+            "image": "shopify://shop_images/prime_day_sale_dt_1.jpg",
             "title": "",
             "heading_tag": "h4",
             "link_url": "",
@@ -1230,7 +1190,7 @@
             "desktop_text_position": "sm:place-self-center sm:text-center",
             "background": "rgba(0,0,0,0)",
             "background_gradient": "",
-            "text_color": "#ffffff",
+            "text_color": "#000000",
             "text_gradient": "",
             "button_background": "#000000",
             "button_text_color": "#ffffff",
@@ -1241,7 +1201,7 @@
         "image_g8qQkp": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/uk.merachfit.com_valentine_s_day_12.png",
+            "image": "shopify://shop_images/prime_day_sale_dt_2.jpg",
             "title": "",
             "heading_tag": "h4",
             "link_url": "",
@@ -1263,7 +1223,7 @@
         "image_AGKx7U": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/uk.merachfit.com_valentine_s_day_13.png",
+            "image": "shopify://shop_images/prime_day_sale_dt_3.jpg",
             "title": "",
             "heading_tag": "h4",
             "link_url": "",
@@ -1285,7 +1245,7 @@
         "image_n6y8g6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/uk.merachfit.com_valentine_s_day_14.png",
+            "image": "shopify://shop_images/prime_day_sale_dt_4.jpg",
             "title": "",
             "heading_tag": "h4",
             "link_url": "",
@@ -1318,7 +1278,7 @@
         "reduce_width": false,
         "desktop_row_height": 290,
         "mobile_row_height": 150,
-        "background": "#fff0f0",
+        "background": "#eaf4ff",
         "background_gradient": ""
       }
     },
@@ -1338,15 +1298,16 @@
       "block_order": [
         "heading_khR77B"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "anchor_id": "rich-text",
         "full_width": true,
         "content_width": "small",
         "text_position": "center",
-        "background": "#fff0f0",
+        "background": "#eaf4ff",
         "background_gradient": "",
-        "text_color": "#780e12"
+        "text_color": "#000000"
       }
     },
     "video_carousel_TaHgGw": {
@@ -1400,6 +1361,7 @@
         "video_riyaGC",
         "video_WaC4gc"
       ],
+      "disabled": true,
       "name": "Video list",
       "settings": {
         "slider_gap": 10,
@@ -1417,7 +1379,7 @@
         "flex_direction": "row",
         "flex_align": "center-center",
         "section_bg": "",
-        "background": "#fff0f0",
+        "background": "#eaf4ff",
         "background_gradient": "",
         "text_color": "#f8f8f8",
         "heading_color": "",
@@ -1604,16 +1566,16 @@
     "image_with_text_overlay_T9TEUT",
     "custom_navbar_PEYD4r",
     "image_link_blocks_7YcA8n",
-    "rich_text_Mm6fYB",
+    "link_tab_check_GL4cPb",
     "multi_column_product_pro_UExKya",
     "clearance_sale_4T39bH",
-    "slideshow_FJ6MQK",
     "rich_text_F9LRb6",
     "image_link_blocks_fVtGVq",
     "link_tab_check_e6igfX",
-    "link_tab_check_N3yNrG",
-    "link_tab_check_MezQH7",
     "minimum_spend_8xEXBn",
+    "apps_7Y6yCT",
+    "pure_collections_container_E67Dfx",
+    "image_with_text_overlay_J7VeA9",
     "pure_collections_container_8qjUxk",
     "link_tab_check_7hxzTw",
     "rich_text_pg4MXT",
