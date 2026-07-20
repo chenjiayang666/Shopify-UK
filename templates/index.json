@@ -707,6 +707,7 @@
         "grid_NXLHg9",
         "grid_n9UrCb"
       ],
+      "disabled": true,
       "name": "Custom Grid",
       "settings": {
         "anchor_id": "multi-column-product-pro",
