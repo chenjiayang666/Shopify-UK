@@ -60,7 +60,7 @@
           "type": "message",
           "settings": {
             "text": "Subscribe for 5% Off Your First Order",
-            "url": "shopify://pages/2026-summer-sale"
+            "url": "shopify://pages/sales"
           }
         },
         "message_Lhn7Fh": {
