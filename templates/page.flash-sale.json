@@ -11,65 +11,972 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "content_width": "80ch"
       }
     },
-    "rich_text_pVypkd": {
-      "type": "rich-text",
+    "image_with_text_overlay_6hnT9T": {
+      "type": "image-with-text-overlay",
       "blocks": {
-        "richtext_cBKy3j": {
-          "type": "richtext",
-          "settings": {
-            "content": ""
-          }
-        },
-        "subheading_TTMy4b": {
+        "subheading_wGYULi": {
           "type": "subheading",
           "settings": {
-            "text": "Wir würden uns freuen, von Ihnen zu hören. Unser Team ist für Sie da!"
+            "text": "Curated Summer Flash Deals"
+          }
+        },
+        "heading_pxVNxy": {
+          "type": "heading",
+          "settings": {
+            "text": "Summer Flash Sale",
+            "heading_tag": "h1"
           }
         }
       },
       "block_order": [
-        "richtext_cBKy3j",
-        "subheading_TTMy4b"
+        "subheading_wGYULi",
+        "heading_pxVNxy"
       ],
-      "disabled": true,
+      "settings": {
+        "anchor_id": "image-with-text-overlay",
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/Flash_Sale_update_2.jpg",
+        "mobile_image": "shopify://shop_images/Flash_Sale_update_1.jpg",
+        "mobile_text_position": "place-self-start-center text-center",
+        "desktop_text_position": "sm:place-self-center-start sm:text-start",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "apps_npbDAR": {
+      "type": "apps",
+      "blocks": {
+        "omnisend_email_marketing_sms_embedded_form_TGA4VJ": {
+          "type": "shopify://apps/omnisend-email-marketing-sms/blocks/embedded-form/44704aa2-794f-4c5d-8c8e-039c841158e9",
+          "settings": {
+            "form_id": "6a4df3853bfece1cf563e7bf"
+          }
+        }
+      },
+      "block_order": [
+        "omnisend_email_marketing_sms_embedded_form_TGA4VJ"
+      ],
       "settings": {
         "full_width": true,
-        "content_width": "small",
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_icmGBw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zD8xUC": {
+          "type": "heading",
+          "settings": {
+            "text": "Must-Have Products Under £70",
+            "heading_tag": "h2",
+            "text_color": "#ed1b24",
+            "gradient": "linear-gradient(36deg, rgba(237, 27, 36, 1) 17%, rgba(255, 201, 104, 1) 54%, rgba(203, 68, 194, 1) 86%)"
+          }
+        },
+        "subheading_8VzB6q": {
+          "type": "subheading",
+          "settings": {
+            "text": "Buy 2 items, save 10%! Stack Your Subscriber Discount on Single Items!"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zD8xUC",
+        "subheading_8VzB6q"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": false,
+        "content_width": "large",
         "text_position": "center",
         "background": "",
         "background_gradient": "",
         "text_color": ""
       }
     },
-    "contact_jNUR8P": {
-      "type": "contact",
-      "disabled": true,
+    "pure_collections_container_JYUtKi": {
+      "type": "pure-collections-container",
+      "blocks": {
+        "tab_bMUWqL": {
+          "type": "tab",
+          "settings": {
+            "title": "Under £70"
+          }
+        },
+        "products_collection_PD83BB": {
+          "type": "products_collection",
+          "settings": {
+            "products": [
+              "merach-r07w1-full-body-workout-squat-assist-trainer",
+              "merach-2415b1-ab-workout-machine",
+              "merach-2438b1-stair-stepper-for-home-gym",
+              "merach-2417b1-squat-trainer-for-home",
+              "merach-2314w2-adjustable-ab-trainer",
+              "merach-4-in-1-dumbbells-2444"
+            ],
+            "collection": "",
+            "discount_texts": "",
+            "rewrite_titles": ""
+          }
+        },
+        "tab_Dq7VGj": {
+          "type": "tab",
+          "settings": {
+            "title": "Top Value"
+          }
+        },
+        "products_collection_tpKgdg": {
+          "type": "products_collection",
+          "settings": {
+            "products": [
+              "merach-2448b1-stair-stepper-for-home-gym",
+              "merach-2420b1-fitness-trampolines-without-handle",
+              "merach-2420b2-fitness-trampolines-include-handle",
+              "merach-2429-outdoor-trampolines"
+            ],
+            "collection": "",
+            "discount_texts": "",
+            "rewrite_titles": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_bMUWqL",
+        "products_collection_PD83BB",
+        "tab_Dq7VGj",
+        "products_collection_tpKgdg"
+      ],
+      "name": "Featured collection Tab盒子",
       "settings": {
+        "anchor_id": "feature-collection-tab",
+        "padding-top": 0,
+        "padding-bottom": 43,
+        "padding-top-mob": 43,
+        "padding-bottom-mob": 43,
+        "title_font_size": "inherit",
+        "title_color": "#000000",
+        "sale_price_font_size": "24px",
+        "sale_price_color": "#000000",
+        "compare_at_price_font_size": "inherit",
+        "compare_at_price_color": "#999999",
+        "stage_count_font_size": "inherit",
+        "stage_count_color": "#006cd9",
+        "stage_price_font_size": "inherit",
+        "stage_price_color": "#006cd9",
+        "buy_button_background": "#ffc968",
+        "buy_button_text": "Shop Now",
+        "buy_button_text_color": "#ffffff",
+        "fit_black_background": false,
+        "title": "",
+        "heading_color": "",
+        "stage_count": "",
+        "want_tags": "",
+        "lead_to_click_text": "",
+        "whole_tabs_bg_color": "#f6f7f9",
+        "tab_font_color": "#000000",
+        "active_tab_font_color": "#000000",
+        "products_title_position": "center",
+        "badge_Spare_bg_color_position": "left",
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_count": 50,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 5,
+        "background_tab": "",
+        "background": "",
+        "badge_Spare_bg_color_left": "#ffc968",
+        "badge_Spare_bg_color_right": "#cb44c2",
+        "badge_Spare_color": "#ffffff",
+        "background_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "pure_collections_container_yF4tUh": {
+      "type": "pure-collections-container",
+      "blocks": {
+        "products_collection_mnbFDc": {
+          "type": "products_collection",
+          "settings": {
+            "products": [
+              "merach-2417b1-squat-trainer-for-home",
+              "merach-r07w1-full-body-workout-squat-assist-trainer",
+              "merach-2314w2-adjustable-ab-trainer",
+              "merach-2415b1-ab-workout-machine",
+              "merach-4-in-1-dumbbells-2444",
+              "merach-2438b1-stair-stepper-for-home-gym",
+              "merach-2448b1-stair-stepper-for-home-gym"
+            ],
+            "collection": "",
+            "discount_texts": "",
+            "rewrite_titles": ""
+          }
+        }
+      },
+      "block_order": [
+        "products_collection_mnbFDc"
+      ],
+      "disabled": true,
+      "name": "Featured collection Tab盒子",
+      "settings": {
+        "anchor_id": "feature-collection-tab",
+        "padding-top": 0,
+        "padding-bottom": 20,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 20,
+        "title_font_size": "inherit",
+        "title_color": "#000000",
+        "sale_price_font_size": "24px",
+        "sale_price_color": "#000000",
+        "compare_at_price_font_size": "inherit",
+        "compare_at_price_color": "#999999",
+        "stage_count_font_size": "inherit",
+        "stage_count_color": "#006cd9",
+        "stage_price_font_size": "inherit",
+        "stage_price_color": "#006cd9",
+        "buy_button_background": "#ffb74a",
+        "buy_button_text": "Shop Now",
+        "buy_button_text_color": "#ffffff",
+        "fit_black_background": false,
+        "title": "",
+        "heading_color": "",
+        "stage_count": "",
+        "want_tags": "",
+        "lead_to_click_text": "",
+        "whole_tabs_bg_color": "#f6f7f9",
+        "tab_font_color": "#000000",
+        "active_tab_font_color": "#000000",
+        "products_title_position": "center",
+        "badge_Spare_bg_color_position": "left",
+        "stack_products": false,
+        "show_progress_bar": false,
+        "products_count": 50,
+        "products_per_row_mobile": "1",
+        "products_per_row_desktop": 5,
+        "background_tab": "",
+        "background": "",
+        "badge_Spare_bg_color_left": "#ffb74a",
+        "badge_Spare_bg_color_right": "#803cee",
+        "badge_Spare_color": "#ffffff",
+        "background_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "rich_text_xC6iaw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QeX6F7": {
+          "type": "heading",
+          "settings": {
+            "text": "Winter’s Best Home Gym Gifts",
+            "heading_tag": "h2",
+            "text_color": "#ed1b24",
+            "gradient": "linear-gradient(36deg, rgba(237, 27, 36, 1) 17%, rgba(255, 201, 104, 1) 54%, rgba(203, 68, 194, 1) 86%)"
+          }
+        },
+        "subheading_VwLMtQ": {
+          "type": "subheading",
+          "settings": {
+            "text": "Limited availability. Only while stocks last."
+          }
+        }
+      },
+      "block_order": [
+        "heading_QeX6F7",
+        "subheading_VwLMtQ"
+      ],
+      "disabled": true,
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "rich-text",
         "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_qhw4bM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_w3LJNC": {
+          "type": "heading",
+          "settings": {
+            "text": "Smart Savings",
+            "heading_tag": "h2",
+            "text_color": "#f90303",
+            "gradient": "linear-gradient(90deg, rgba(240, 69, 87, 1), rgba(255, 201, 104, 1) 52.518%, rgba(203, 68, 194, 1) 100%)"
+          }
+        },
+        "subheading_M3hXA7": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Limited availability. Only while stocks last."
+          }
+        }
+      },
+      "block_order": [
+        "heading_w3LJNC",
+        "subheading_M3hXA7"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "#ffebda",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_zL43yg": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_yac7jb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_rwTxAi": {
+          "type": "heading",
+          "settings": {
+            "text": "Full-Body Workout Gear",
+            "heading_tag": "h2",
+            "text_color": "#ed1b24",
+            "gradient": "linear-gradient(36deg, rgba(237, 27, 36, 1) 17%, rgba(255, 201, 104, 1) 54%, rgba(203, 68, 194, 1) 86%)"
+          }
+        },
+        "subheading_RziFVf": {
+          "type": "subheading",
+          "settings": {
+            "text": "Up to £290 Off"
+          }
+        }
+      },
+      "block_order": [
+        "heading_rwTxAi",
+        "subheading_RziFVf"
+      ],
+      "disabled": true,
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "featured_collection_8aE4M3": {
+      "type": "featured-collection",
+      "disabled": true,
+      "name": "Featured collection",
+      "settings": {
+        "collection": "total-body-workout-gear-clearance",
+        "products": [],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": true,
+        "products_count": 6,
+        "products_per_row_mobile": "1",
+        "products_per_row_desktop": 5,
         "subheading": "",
-        "title": "Brauchen Sie Hilfe?",
-        "content": "<p>Bitte geben Sie die Bestellnummer und die E-Mail-Adresse für den Kauf an, falls zutreffend</p><p><strong>E-Mail:</strong> info@merachfit.com<br/><br/><strong>Tel.: </strong>+44 7704 580120<br/><br/>Öffnungszeiten: Mon-Fri: 9 a.m. to 6 p.m. (GMT+2)<br/>Geschlossen: Samstag-Sonntag und Feiertage.</p><p><strong>Geschäftsanschrift: </strong>Kreuzstraße 60, 40210 Düsseldorf</p>",
-        "text_position": "start",
-        "contact_form_size": "large",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
         "background": "",
         "background_gradient": "",
         "text_color": "",
         "heading_color": "",
         "heading_gradient": "",
-        "contact_background": "",
-        "contact_text_color": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "rich_text_8TE6RT": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "pure_collections_container_pCJawU": {
+      "type": "pure-collections-container",
+      "blocks": {
+        "tab_GFmi4t": {
+          "type": "tab",
+          "settings": {
+            "title": "Handpicked Machines"
+          }
+        },
+        "products_collection_7G4UEE": {
+          "type": "products_collection",
+          "settings": {
+            "products": [
+              "merach-magnetic-rower-q1s",
+              "merach-w50-treadmill-with-12-auto-incline",
+              "merach-r26b1-magnetic-rower",
+              "merach-t12b1-foldable-treadmill-with-6-incline",
+              "merach-r23r1-water-rowing-machine",
+              "merach-t12b2-foldable-treadmill-with-15-auto-incline"
+            ],
+            "collection": "",
+            "discount_texts": "",
+            "rewrite_titles": ""
+          }
+        },
+        "tab_GJTaQa": {
+          "type": "tab",
+          "settings": {
+            "title": "Bikes"
+          }
+        },
+        "products_collection_PxithX": {
+          "type": "products_collection",
+          "settings": {
+            "products": [
+              "merach-s19b1-recumbent-exercise-bike",
+              "merach-s14-4-in-1-indoor-exercise-bike",
+              "merach-s08b1-recumbent-exercise-bike",
+              "merach-s23b1-recumbent-exercise-bike"
+            ],
+            "collection": "",
+            "discount_texts": "",
+            "rewrite_titles": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_GFmi4t",
+        "products_collection_7G4UEE",
+        "tab_GJTaQa",
+        "products_collection_PxithX"
+      ],
+      "name": "Featured collection Tab盒子",
+      "settings": {
+        "anchor_id": "feature-collection-tab",
+        "padding-top": 43,
+        "padding-bottom": 43,
+        "padding-top-mob": 43,
+        "padding-bottom-mob": 43,
+        "title_font_size": "inherit",
+        "title_color": "#3a3a3a",
+        "sale_price_font_size": "18px",
+        "sale_price_color": "#f83a3a",
+        "compare_at_price_font_size": "inherit",
+        "compare_at_price_color": "#999999",
+        "stage_count_font_size": "inherit",
+        "stage_count_color": "#006cd9",
+        "stage_price_font_size": "inherit",
+        "stage_price_color": "#006cd9",
+        "buy_button_background": "#ffb74a",
+        "buy_button_text": "Buy Now",
+        "buy_button_text_color": "#ffffff",
+        "fit_black_background": false,
+        "title": "",
+        "heading_color": "",
+        "stage_count": "",
+        "want_tags": "",
+        "lead_to_click_text": "",
+        "whole_tabs_bg_color": "#ffb74a",
+        "tab_font_color": "#ffffff",
+        "active_tab_font_color": "#000000",
+        "products_title_position": "center",
+        "badge_Spare_bg_color_position": "left",
+        "stack_products": false,
+        "show_progress_bar": true,
+        "products_count": 50,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 5,
+        "background_tab": "#ffebda",
+        "background": "#ffebda",
+        "badge_Spare_bg_color_left": "#ffc968",
+        "badge_Spare_bg_color_right": "#cb44c2",
+        "badge_Spare_color": "#ffffff",
+        "background_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "rich_text_Pxw98C": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_mLa7YL": {
+          "type": "heading",
+          "settings": {
+            "text": "Home Elliptical Trainers",
+            "heading_tag": "h2",
+            "text_color": "#ed1b24",
+            "gradient": "linear-gradient(36deg, rgba(237, 27, 36, 1) 17%, rgba(255, 201, 104, 1) 54%, rgba(203, 68, 194, 1) 86%)"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mLa7YL"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "#f1f1f1",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "pure_collections_container_VkgzMQ": {
+      "type": "pure-collections-container",
+      "blocks": {
+        "tab_7k47qE": {
+          "type": "tab",
+          "settings": {
+            "title": "Affordable Elliptical Trainer"
+          }
+        },
+        "products_collection_MnJeRF": {
+          "type": "products_collection",
+          "settings": {
+            "products": [
+              "merach-e27b3-elliptical-trainer",
+              "merach-e43b1-mini-elliptical-trainer",
+              "merach-e43b2-mini-elliptical-trainer",
+              "merach-e33b3-self-powered-elliptical-trainer",
+              "merach-e33b4-elliptical-trainer"
+            ],
+            "collection": "",
+            "discount_texts": "",
+            "rewrite_titles": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_7k47qE",
+        "products_collection_MnJeRF"
+      ],
+      "name": "Featured collection Tab盒子",
+      "settings": {
+        "anchor_id": "feature-collection-tab",
+        "padding-top": 43,
+        "padding-bottom": 43,
+        "padding-top-mob": 43,
+        "padding-bottom-mob": 43,
+        "title_font_size": "inherit",
+        "title_color": "#3a3a3a",
+        "sale_price_font_size": "18px",
+        "sale_price_color": "#f83a3a",
+        "compare_at_price_font_size": "inherit",
+        "compare_at_price_color": "#999999",
+        "stage_count_font_size": "inherit",
+        "stage_count_color": "#006cd9",
+        "stage_price_font_size": "inherit",
+        "stage_price_color": "#006cd9",
+        "buy_button_background": "#ffb74a",
+        "buy_button_text": "Buy Now",
+        "buy_button_text_color": "#ffffff",
+        "fit_black_background": false,
+        "title": "",
+        "heading_color": "",
+        "stage_count": "",
+        "want_tags": "",
+        "lead_to_click_text": "",
+        "whole_tabs_bg_color": "#ffb74a",
+        "tab_font_color": "#ffffff",
+        "active_tab_font_color": "#000000",
+        "products_title_position": "center",
+        "badge_Spare_bg_color_position": "left",
+        "stack_products": false,
+        "show_progress_bar": true,
+        "products_count": 50,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 5,
+        "background_tab": "#f1f1f1",
+        "background": "#f1f1f1",
+        "badge_Spare_bg_color_left": "#ffc968",
+        "badge_Spare_bg_color_right": "#cb44c2",
+        "badge_Spare_color": "#ffffff",
+        "background_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "rich_text_hbnnBJ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Q4GkLr": {
+          "type": "heading",
+          "settings": {
+            "text": "Loved by Customers & Creators",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_Q4GkLr"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "#f1f1f1",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "video_carousel_mH6HDb": {
+      "type": "Video-Carousel",
+      "blocks": {
+        "video_bigqUH": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/r50 father and daughter.mp4",
+            "video_url": "",
+            "title": ""
+          }
+        },
+        "video_aetUFK": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/r50 family rower.mp4",
+            "video_url": "",
+            "title": ""
+          }
+        },
+        "video_NKgHib": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/T26.mp4",
+            "video_url": "",
+            "title": ""
+          }
+        },
+        "video_6UNJGq": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/R28 WATER ROWING MACHINE.mp4",
+            "video_url": "",
+            "title": ""
+          }
+        },
+        "video_ppEMYT": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/S26B2.mp4",
+            "video_url": "",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_bigqUH",
+        "video_aetUFK",
+        "video_NKgHib",
+        "video_6UNJGq",
+        "video_ppEMYT"
+      ],
+      "name": "Video list",
+      "settings": {
+        "slider_gap": 10,
+        "card_radius": 10,
+        "autoplay": false,
+        "full_width": true,
+        "stack_collections": false,
+        "collections_per_row": 5,
+        "show_progress_bar": true,
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "flex_direction": "row",
+        "flex_align": "center-center",
+        "section_bg": "",
+        "background": "#f1f1f1",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "faq_Dpzg6z": {
+      "type": "faq",
+      "blocks": {
+        "item_4DRiYj": {
+          "type": "item",
+          "settings": {
+            "title": "Water, Magnetic, or Air Rowing Machine – Which One Is Right for You?",
+            "content": "<p><strong>Water Rowing Machine</strong><br/><br/>Pros:<br/>1. Very realistic rowing feel thanks to real water resistance<br/>2. Pleasant, calming water sound<br/>3. Intensity automatically adapts to your pulling force<br/><br/>Cons:<br/>1. Slightly heavier and larger than other models<br/>2. Water needs to be refilled or changed occasionally<br/>3. Usually higher priced<br/><br/><br/><strong>Magnetic Rowing Machine</strong><br/><br/>Pros:<br/>1. Very quiet operation – ideal for apartments<br/>2. Smooth, controllable resistance<br/>3. Compact and often foldable<br/><br/>Cons:<br/>1. Less realistic rowing sensation<br/>2. Resistance must be adjusted manually<br/>3. Less dynamic workout compared to water or air<br/><br/><br/><br/><strong>Air Rowing Machine</strong><br/><br/>Pros:<br/>1. Dynamic resistance – the harder you pull, the greater the intensity<br/>2. Ideal for high-intensity interval training (HIIT)<br/>3. Common in gyms – robust and high-performance<br/><br/>Cons:<br/>1. Relatively loud due to airflow<br/>2. Requires more space<br/><br/><br/><strong><br/>Conclusion for Your Home Gym:</strong><br/>1. Limited space & need for quiet? → Magnetic Rowing Machine<br/>2. Want a realistic feel & soothing atmosphere? → Water Rowing Machine<br/>3. Looking for tough workouts & maximum intensity? → Air Rowing Machine<br/><br/>Tip: Choose the machine that best suits your lifestyle, training goals, and available space – so you stay motivated and consistent in the long run!</p>"
+          }
+        },
+        "item_cCFgNj": {
+          "type": "item",
+          "settings": {
+            "title": "What’s the Best Treadmill for Home Use?",
+            "content": "<p>A treadmill is perfect for weather-independent training — whether you want to walk, jog, or run.<br/><br/>The best treadmill for you depends on your fitness goals, available space, and comfort preferences.<br/><br/>1. Foldable design for small spaces<br/>2. Good cushioning to protect your joints<br/>3. Bluetooth & app compatibility for interactive workouts<br/>4. Quiet motor for peaceful indoor training</p>"
+          }
+        },
+        "item_LtFaVk": {
+          "type": "item",
+          "settings": {
+            "title": "Which Rowing Machine Is the Best?",
+            "content": "<p>Rowing machines are true all-rounders – they train your legs, back, arms, and core at the same time, providing an intense cardio workout.<br/><br/>The best rowing machines stand out with realistic movement, quiet operation, and a space-saving design.<br/><br/>There are three main resistance systems to choose from:<br/><br/>1. Water – authentic rowing feel with a calming water sound<br/>2. Magnetic – extra quiet, ideal for apartments<br/>3. Air – dynamic resistance, perfect for HIIT workouts<br/><br/>Also look out for:<br/>4. App connectivity for tracking your workouts<br/>5. Adjustable seat height<br/>6. Easy storage (e.g. foldable or upright positioning)<br/><br/>For anyone looking to combine full-body training with limited space – a rowing machine is the perfect choice!</p>"
+          }
+        },
+        "item_B7WRRj": {
+          "type": "item",
+          "settings": {
+            "title": "What is the best home exercise bike?",
+            "content": "<p>Indoor bikes offer effective cardiovascular training with minimal joint impact. The best home exercise bike is quiet, stable, and adjusts to your needs – whether for beginners, seniors, or avid athletes.<br/><br/>There are differences, for example:<br/><br/>1. Upright bike: classic seating position, compact.<br/>2. Recumbent ergometer: extra back support, very joint-friendly.<br/>3. Speed bike (spinning): athletic & intense, ideal for interval training.<br/>4. Adjustable seat & handlebars.<br/>5. Heart rate monitoring and resistance adjustment.<br/><br/>Compatibility with apps like MERACH, Kinomap, or Zwift.<br/>A good home exercise bike adds movement to your daily routine, regardless of weather or the gym.</p>"
+          }
+        },
+        "item_CTFTee": {
+          "type": "item",
+          "settings": {
+            "title": "Which Elliptical Trainer is best for home use?",
+            "content": "<p>A Elliptical Trainer offers effective full-body training without putting too much strain on the joints – ideal for both beginners and advanced users.<br/><br/>The best model for your home should:<br/><br/>1. Be compact (space-saving, possibly foldable)<br/>2. Run smoothly, even at higher intensity<br/>3. Offer individually adjustable programs<br/>4. Allow joint-friendly movement with a fluid motion<br/><br/><br/>Cross trainers are especially popular among people who:<br/><br/>1. Want to burn calories<br/>2. Want to lose weight gently on the joints<br/>3. Or simply want to stay active regularly<br/><br/>Pay attention to app connectivity, flywheel weight, resistance levels, and comfort features – this is how you'll find your ideal workout partner for home use.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_4DRiYj",
+        "item_cCFgNj",
+        "item_LtFaVk",
+        "item_B7WRRj",
+        "item_CTFTee"
+      ],
+      "disabled": true,
+      "name": "FAQ",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "FAQ",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
         "button_background": "",
-        "button_text_color": ""
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "rich_text_aB34fA": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_jN638b": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_nKwUdd": {
+          "type": "heading",
+          "settings": {
+            "text": "Why Choose Merach",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_Rn7T3W": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_jN638b",
+        "heading_nKwUdd",
+        "richtext_Rn7T3W"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "#f1f1f1",
+        "background_gradient": "",
+        "text_color": "#3a3a3a"
+      }
+    },
+    "image_link_blocks_nCD4R8": {
+      "type": "image-link-blocks",
+      "blocks": {
+        "item_b7Wfxw": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_6.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "#f8f8f8",
+            "text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_acEDtt": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_2.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "#f8f8f8",
+            "text_color": "#ffffff",
+            "overlay_color": "#ffffff",
+            "overlay_opacity": 0
+          }
+        },
+        "item_6C6m46": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_5.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "#f8f8f8",
+            "text_color": "#ffffff",
+            "overlay_color": "#ffffff",
+            "overlay_opacity": 0
+          }
+        },
+        "item_Q3HGGM": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_4.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "#f8f8f8",
+            "text_color": "#ffffff",
+            "overlay_color": "#ffffff",
+            "overlay_opacity": 0
+          }
+        },
+        "item_p7N6zL": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_awards_new_6_25ec14e5-b244-44d7-9605-0d9cd0b594e3.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "#f8f8f8",
+            "text_color": "#ffffff",
+            "overlay_color": "#ffffff",
+            "overlay_opacity": 0
+          }
+        },
+        "item_4G6Q9a": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_1.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "#f8f8f8",
+            "text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item_b7Wfxw",
+        "item_acEDtt",
+        "item_6C6m46",
+        "item_Q3HGGM",
+        "item_p7N6zL",
+        "item_4G6Q9a"
+      ],
+      "settings": {
+        "anchor_id": "image-link-blocks",
+        "full_width": true,
+        "block_size": "medium",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "#f1f1f1",
+        "background_gradient": "",
+        "text_color": "#000000",
+        "heading_color": "",
+        "heading_gradient": ""
       }
     }
   },
   "order": [
     "main",
-    "rich_text_pVypkd",
-    "contact_jNUR8P"
+    "image_with_text_overlay_6hnT9T",
+    "apps_npbDAR",
+    "rich_text_icmGBw",
+    "pure_collections_container_JYUtKi",
+    "pure_collections_container_yF4tUh",
+    "rich_text_xC6iaw",
+    "rich_text_qhw4bM",
+    "rich_text_zL43yg",
+    "rich_text_yac7jb",
+    "featured_collection_8aE4M3",
+    "rich_text_8TE6RT",
+    "pure_collections_container_pCJawU",
+    "rich_text_Pxw98C",
+    "pure_collections_container_VkgzMQ",
+    "rich_text_hbnnBJ",
+    "video_carousel_mH6HDb",
+    "faq_Dpzg6z",
+    "rich_text_aB34fA",
+    "image_link_blocks_nCD4R8"
   ]
 }
