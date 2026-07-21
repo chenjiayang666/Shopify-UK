@@ -67,7 +67,7 @@
           "type": "message",
           "settings": {
             "text": "Save £40 on Orders £500 +",
-            "url": "shopify://pages/2026-summer-sale"
+            "url": "shopify://pages/sales"
           }
         },
         "message_PYcTLy": {
