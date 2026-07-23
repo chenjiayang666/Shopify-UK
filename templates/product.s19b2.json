@@ -1,0 +1,1585 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "disabled": true,
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "badges": {
+          "type": "badges",
+          "settings": {}
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {
+            "show_empty": false
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "klarna_on_site_messaging_app_block_8Gmppq": {
+          "type": "shopify://apps/klarna-on-site-messaging/blocks/app-block/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "0",
+            "messagePrefix": ""
+          }
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
+          }
+        },
+        "selleasy_lb_upsell_widget_pal_gQtJE8": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-pal/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
+        "offer_MKFNW6": {
+          "type": "offer",
+          "settings": {
+            "text_alignment": "start",
+            "icon_position": "aligned",
+            "icon": "none",
+            "icon_width": 20,
+            "title": "",
+            "content": "<p><strong>NOTE: New and older model versions may be shipped at random. The only difference is that the handle and body are black, while the images currently show the silver-gray version.</strong><br/></p>",
+            "background": "#f2f2f2",
+            "text_color": "#1a1a1a"
+          }
+        },
+        "product_variations_hJeP98": {
+          "type": "product_variations",
+          "disabled": true,
+          "settings": {
+            "option_name": "",
+            "option_value_metafield": "",
+            "products": [],
+            "selector_style": "swatch"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "text_3tyUw6": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share some content to your customers about your products.</p>"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "show_cutdown": false,
+            "cutdown_text": "End in:",
+            "sale_cutdown": "2026-12-20 23:59:59",
+            "buy_text": "Buy now",
+            "buy_style": "fill",
+            "add_style": "fill",
+            "cutdown_color": "",
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "atc_button_background2": "",
+            "atc_button_text_color2": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "liquid_B8ikTz": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<style>\n    .payment-icons-container {\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: center;\n        margin: 0 -5px; \n    }\n\n    .payment-icons-container img {\n        height: 30px;\n        margin: 5px; \n    }\n\n    @media only screen and (max-width: 600px) {\n        .payment-icons-container img {\n            height: 25px; \n            margin: 3px; \n        }\n    }\n</style>\n\n<div class=\"payment-icons-container\">\n    <img src=\"{{ 'paypal' | payment_type_img_url }}\" alt=\"paypal\" />\n    <img src=\"{{ 'visa' | payment_type_img_url }}\" alt=\"visa\" />\n    <img src=\"{{ 'master' | payment_type_img_url }}\" alt=\"master\" />\n    <img src=\"{{ 'american_express' | payment_type_img_url }}\" alt=\"american express\" />    \n    <img src=\"{{ 'discover' | payment_type_img_url }}\" alt=\"discover\" />\n   <img src=\"{{ 'klarna' | payment_type_img_url }}\" alt=\"klarna\" />    \n    <img src=\"{{ 'apple_pay' | payment_type_img_url }}\" alt=\"apple pay\" />\n<img src=\"{{ 'google_pay' | payment_type_img_url }}\" alt=\"google pay\" />\n</div>"
+          }
+        },
+        "collapsible_text_4ngpjY": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_4.png",
+            "icon_width": 20,
+            "title": "Free Shipping",
+            "content": "<p>Our commitment: The best shipping solutions for you</p><p><strong>Order Processing Schedule:</strong></p><p>Processing Time: Within 48 business hours</p><p>Shipping Methods: Fedex, UPS, DHL, DPD, TNT, GLS</p><p>Shipping Time: 3–7 business days</p><p>Total Duration: 4-9 business days (Excluding special circumstances such as force majeure, e.g., bad weather)</p><p>Order Processing Hours: Mon-Fri: 9 a.m. to 6 p.m. (GMT+1)</p><p>Shipping Costs: Free Shipping</p><p>Our goal is to provide the best shipping solution for your order and ensure that the product arrives quickly and in good condition. Everything is done for our customers to have a great shopping experience.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_REPDQb": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_2.png",
+            "icon_width": 20,
+            "title": "30-Day Return",
+            "content": "<p>You have the option to cancel this product within 30 days. Please refer to our <a href=\"/pages/return-refund\" title=\"Return & Refund\">return & refund policy.</a></p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_BAGbAm": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_5.png",
+            "icon_width": 20,
+            "title": "24-Month Warranty",
+            "content": "<p>Merach provides a 2-year warranty to ensure a secure and reliable shopping experience for our customers.</p><p>For more details, please refer to our warranty terms. If you have any questions, please contact us via email at <a>info.uk@merachfit.com</a>.</p>",
+            "page": ""
+          }
+        },
+        "share_buttons_ETiqXV": {
+          "type": "share_buttons",
+          "settings": {
+            "alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "badges",
+        "rating",
+        "price",
+        "klarna_on_site_messaging_app_block_8Gmppq",
+        "payment_terms",
+        "separator",
+        "description",
+        "selleasy_lb_upsell_widget_pal_gQtJE8",
+        "offer_MKFNW6",
+        "product_variations_hJeP98",
+        "variant_picker",
+        "text_3tyUw6",
+        "quantity_selector",
+        "buy_buttons",
+        "liquid_B8ikTz",
+        "collapsible_text_4ngpjY",
+        "collapsible_text_REPDQb",
+        "collapsible_text_BAGbAm",
+        "share_buttons_ETiqXV"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_fixed_add_to_cart": true,
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_left",
+        "mobile_media_size": "expanded",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "recommendations_count": 6,
+        "products": [],
+        "full_width": true,
+        "stack_products": true,
+        "show_progress_bar": false,
+        "products_per_row_mobile": "1",
+        "products_per_row_desktop": 3,
+        "subheading": "",
+        "title": "You may also like",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "slideshow_YmCwBE": {
+      "type": "slideshow",
+      "blocks": {
+        "image_LnkBg4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-1_7.jpg",
+            "mobile_image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-1_2.jpg",
+            "content_max_width": 600,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "subheading": "Enjoy the comfort of the mesh backrest and benefit from precise heart rate tracking",
+            "title": "Gentle Training Recumbent Bike S19B1",
+            "heading_tag": "h3",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 7,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_LnkBg4"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 4,
+        "background": "#f2f2f2",
+        "background_gradient": ""
+      }
+    },
+    "press_m4qctV": {
+      "type": "press",
+      "blocks": {
+        "quote_t4iPWf": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/merach_press_logo_3.png",
+            "logo_width": 100,
+            "author": "",
+            "content": "Das Merach Rudergerät ist einfach zu montieren und macht während des Betriebs praktisch keinen Lärm!",
+            "show_rating": false,
+            "rating": 4
+          }
+        },
+        "quote_ELnUeb": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/merach_press_logo_5.png",
+            "logo_width": 100,
+            "author": "",
+            "content": "Alle diese Modelle sind zumindest teilweise zusammengebaut und mit der Merach-App kompatibel, die Kurse anbietet, mit denen Sie Ihr neues Fitnessgerät nutzen können.",
+            "show_rating": false,
+            "rating": 4
+          }
+        },
+        "quote_A8rc7q": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/merach_press_logo_2.png",
+            "logo_width": 100,
+            "author": "",
+            "content": "Merach hilft Ihnen, Ihren Platz optimal zu nutzen, denn es lässt sich bequem zusammenklappen und unter dem Bett, im Schrank, hinter dem Schreibtisch und so weiter verstauen.",
+            "show_rating": false,
+            "rating": 4
+          }
+        },
+        "quote_fGeyE9": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/merach_press_logo_4.png",
+            "logo_width": 100,
+            "author": "",
+            "content": "Das Gerät selbst verfügt über 16 Widerstandsstufen, rutschfeste Pedale und ein flüsterleises Design, das weder Ihre Familie noch Ihre Nachbarn im Erdgeschoss stört.",
+            "show_rating": false,
+            "rating": 4
+          }
+        },
+        "quote_FnHYAU": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/merach_press_logo_1.png",
+            "logo_width": 100,
+            "author": "",
+            "content": "Das Merach Rudergerät für zu Hause fordert Sie auf einer ganz neuen Ebene.",
+            "show_rating": false,
+            "rating": 4
+          }
+        }
+      },
+      "block_order": [
+        "quote_t4iPWf",
+        "quote_ELnUeb",
+        "quote_A8rc7q",
+        "quote_fGeyE9",
+        "quote_FnHYAU"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "content_size": "medium",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "logo_item_background": "",
+        "logo_item_border": ""
+      }
+    },
+    "image_link_blocks_jM444X": {
+      "type": "image-link-blocks",
+      "blocks": {
+        "item_nTKCVk": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_cULFzj": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_G7NNVF": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_ARkqPE": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_pRgNBC": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item_nTKCVk",
+        "item_cULFzj",
+        "item_G7NNVF",
+        "item_ARkqPE",
+        "item_pRgNBC"
+      ],
+      "disabled": true,
+      "settings": {
+        "anchor_id": "image-link-blocks",
+        "full_width": false,
+        "block_size": "medium",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "video_carousel_PFXAaE": {
+      "type": "Video-Carousel",
+      "blocks": {
+        "video_AjbH8E": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/MERACH UK S19 (4).mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_jcD9w8": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/MERACH UK S19 (3).mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_EcVFQc": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/S19 OLD  (2).mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_BVLYXU": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/S19 OLD  (1).mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_ynnjJQ": {
+          "type": "video",
+          "disabled": true,
+          "settings": {
+            "video": "shopify://files/videos/MERACH UK S19 (1).mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_3pQfeF": {
+          "type": "video",
+          "disabled": true,
+          "settings": {
+            "video": "shopify://files/videos/MERACH UK S19 (5).mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_hB4Miy": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/MERACH UK S19 (2).mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_AjbH8E",
+        "video_jcD9w8",
+        "video_EcVFQc",
+        "video_BVLYXU",
+        "video_ynnjJQ",
+        "video_3pQfeF",
+        "video_hB4Miy"
+      ],
+      "name": "Video list",
+      "settings": {
+        "slider_gap": 10,
+        "card_radius": 10,
+        "autoplay": false,
+        "full_width": true,
+        "stack_collections": false,
+        "collections_per_row": 5,
+        "show_progress_bar": false,
+        "subheading": "",
+        "title": "Hear from the Experts",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "flex_direction": "row",
+        "flex_align": "center-center",
+        "section_bg": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "rich_text_KmMfit": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ytdVKE": {
+          "type": "heading",
+          "settings": {
+            "text": "Merach Awards",
+            "heading_tag": "h3",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_ytdVKE"
+      ],
+      "disabled": true,
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "image_link_blocks_CX6KFw": {
+      "type": "image-link-blocks",
+      "blocks": {
+        "item_amtW9d": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_6.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_EerJhV": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_4.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_WezA9c": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_2.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_JWVheh": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_5.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_9J4faL": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_3.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_T9wPkg": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_1.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item_amtW9d",
+        "item_EerJhV",
+        "item_WezA9c",
+        "item_JWVheh",
+        "item_9J4faL",
+        "item_T9wPkg"
+      ],
+      "disabled": true,
+      "settings": {
+        "anchor_id": "image-link-blocks",
+        "full_width": true,
+        "block_size": "small",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "video_eJGQY3": {
+      "type": "video",
+      "blocks": {
+        "play_HxTDQV": {
+          "type": "play",
+          "settings": {}
+        },
+        "heading_KfWJQ6": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Video",
+            "heading_tag": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "play_HxTDQV",
+        "heading_KfWJQ6"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "autoplay": true,
+        "video_size": "auto",
+        "external_video_url": "",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "impact_text_X9jCW7": {
+      "type": "impact-text",
+      "blocks": {
+        "item_Erm9bY": {
+          "type": "item",
+          "settings": {
+            "title": "8",
+            "subheading": "Tailored Comfort",
+            "content": "<p>Easily adjustable with 8 seat positions for a perfectly personalized workout experience.</p>",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": false,
+            "animate_impact_text_duration": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_Erm9bY"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "none",
+        "impact_text_size_ratio": 1,
+        "background": "",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "media_with_text_DhFPkU": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_U3DLJp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-2_1.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "8-Level Resistance System",
+            "title": "Effortless Adjustment",
+            "content": "<p>Easily fine-tune your resistance with a simple lever—no complicated settings to disrupt your workout.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_CqTifB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-2_2.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Ergonomically Padded Seat & Mesh Backrest",
+            "title": "Comfortable Seating",
+            "content": "<p>Customize your fit with 8 adjustable seat positions, tailored to your needs and inseam length. The breathable mesh backrest and enhanced cushioning provide a cool and comfortable workout experience, even during high-intensity sessions.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_t6K6Gk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-2_4.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Heart Rate Monitoring",
+            "title": "Workout More Efficiently",
+            "content": "<p>The built-in monitor tracks your heart rate in real time, helping you stay within your optimal heart rate zone and maximize workout efficiency.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_U3DLJp",
+        "image_CqTifB",
+        "image_t6K6Gk"
+      ],
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "small"
+      }
+    },
+    "rich_text_4BhJJq": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_BhkU4y": {
+          "type": "subheading",
+          "settings": {
+            "text": "Wasseraufbereitungstabletten, zu 90% vormontiert"
+          }
+        },
+        "heading_GEKJkT": {
+          "type": "heading",
+          "settings": {
+            "text": "Pflege Unser Kunde",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_hGmjCf": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Dieses Rudergerät wird mit einer Wasserreinigungstablette geliefert, um sicherzustellen, dass Ihr Wasser sauber und sicher ist. 90% vormontiert, einfache und schnelle Montage in nur 10 Minuten. Merach konzentriert sich beim Produktdesign immer auf Benutzerfreundlichkeit und Sicherheit.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_BhkU4y",
+        "heading_GEKJkT",
+        "richtext_hGmjCf"
+      ],
+      "disabled": true,
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_BmQRfp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_a4trVQ": {
+          "type": "heading",
+          "settings": {
+            "text": "Low-Impact Training",
+            "heading_tag": "h3",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_a4trVQ"
+      ],
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "slideshow_MhjrXn": {
+      "type": "slideshow",
+      "blocks": {
+        "image_4Heq6H": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-1_1.jpg",
+            "mobile_image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-1_4.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 2,
+            "background": "",
+            "background_gradient": ""
+          }
+        },
+        "image_CRpqx9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-1_8.jpg",
+            "mobile_image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-1_3.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 2,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_4Heq6H",
+        "image_CRpqx9"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
+        "background_gradient": ""
+      }
+    },
+    "rich_text_aRRR6Y": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_thLLN7": {
+          "type": "subheading",
+          "settings": {
+            "text": "Therapy & Rehabilitation – Promotes circulation, endurance, and flexibility—ideal for seniors to enhance balance, strength, and mobility."
+          }
+        }
+      },
+      "block_order": [
+        "subheading_thLLN7"
+      ],
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "medium",
+        "text_position": "center",
+        "background": "#d2c9c0",
+        "background_gradient": "",
+        "text_color": "#f8f8f8"
+      }
+    },
+    "rich_text_CXcwi3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ikD9M6": {
+          "type": "heading",
+          "settings": {
+            "text": "Every Detail Makes Fitness More Efficient",
+            "heading_tag": "h3",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_ikD9M6"
+      ],
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "multi_column_bUcXYW": {
+      "type": "multi-column",
+      "blocks": {
+        "item_AUKXdT": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-3_3.jpg",
+            "column_size": "3",
+            "title": "Slient Dual-Belt Drive System",
+            "heading_tag": "h4",
+            "content": "<p>The smooth drive system and 3 kg flywheel ensure a silent workout—perfect for your home.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000000",
+            "check-color": "#ffffff"
+          }
+        },
+        "item_eYLWgW": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-3_2.jpg",
+            "column_size": "3",
+            "title": "Matte Handlebars",
+            "heading_tag": "h4",
+            "content": "<p>Unlike traditional plastic grips, our matte handlebars prevent sweat buildup and provide a secure, non-slip hold.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000000",
+            "check-color": "#ffffff"
+          }
+        },
+        "item_77zXwN": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-3_1.jpg",
+            "column_size": "3",
+            "title": "MERACH APP",
+            "heading_tag": "h4",
+            "content": "<p>Developed by professional fitness trainers, the app offers a variety of courses and training modes to help you achieve your fitness goals. (Compatible apps: Merach, Kinomap, Zwift, Apple Health, Google Fit, Fanton Fite by Merach).</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000000",
+            "check-color": "#ffffff"
+          }
+        },
+        "item_FWiCMj": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-3_4.jpg",
+            "column_size": "3",
+            "title": "Easy to Move",
+            "heading_tag": "h4",
+            "content": "<p>Thanks to the front transport wheels and rear handle, the bike can be effortlessly moved to anywhere.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000000",
+            "check-color": "#ffffff"
+          }
+        },
+        "item_HxLrkL": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-3_5.jpg",
+            "column_size": "3",
+            "title": "LCD Display",
+            "heading_tag": "h4",
+            "content": "<p>Tracking key data such as time, distance, speed, calories burned, and heart rate to keep you motivated during your workout.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000000",
+            "check-color": "#ffffff"
+          }
+        },
+        "item_cmGzgG": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-3_6.jpg",
+            "column_size": "3",
+            "title": "Easy Assembly",
+            "heading_tag": "h4",
+            "content": "<p>The bike is 80% pre-assembled. With the included installation video, assembly is completed in less than 30 minutes – even for beginners.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000000",
+            "check-color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "item_AUKXdT",
+        "item_eYLWgW",
+        "item_77zXwN",
+        "item_FWiCMj",
+        "item_HxLrkL",
+        "item_cmGzgG"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_HCDU4e": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JHqABm": {
+          "type": "heading",
+          "settings": {
+            "text": "User-friendly Design",
+            "heading_tag": "h3",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_JHqABm"
+      ],
+      "settings": {
+        "anchor_id": "rich-text",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "hot_spots_BriKVX": {
+      "type": "hot-spots",
+      "blocks": {
+        "item_Qz6mmi": {
+          "type": "item",
+          "settings": {
+            "horizontal_position": 54,
+            "vertical_position": 76,
+            "horizontal_position_mobile": 83,
+            "vertical_position_mobile": 70,
+            "icon_width": 32,
+            "title": "Pedals",
+            "content": "<p>Adjustable straps, non-slip, suitable for all sizes.</p>"
+          }
+        },
+        "item_LbJtYP": {
+          "type": "item",
+          "settings": {
+            "horizontal_position": 59,
+            "vertical_position": 32,
+            "horizontal_position_mobile": 84,
+            "vertical_position_mobile": 44,
+            "icon_width": 32,
+            "title": "Water Bottle Holder",
+            "content": "<p>Stay hydrated anytime, anywhere.</p>"
+          }
+        },
+        "item_hPixmE": {
+          "type": "item",
+          "settings": {
+            "horizontal_position": 38,
+            "vertical_position": 31,
+            "horizontal_position_mobile": 17,
+            "vertical_position_mobile": 37,
+            "icon_width": 32,
+            "title": "Ergonomic Backrest",
+            "content": "<p>Pressure relief for the spine.</p>"
+          }
+        },
+        "item_iQw4Yr": {
+          "type": "item",
+          "settings": {
+            "horizontal_position": 37,
+            "vertical_position": 87,
+            "horizontal_position_mobile": 17,
+            "vertical_position_mobile": 82,
+            "icon_width": 32,
+            "title": "Rear Carry Handle",
+            "content": "<p>Lift the machine effortlessly.</p>"
+          }
+        },
+        "item_QQVtCG": {
+          "type": "item",
+          "settings": {
+            "horizontal_position": 42,
+            "vertical_position": 59,
+            "horizontal_position_mobile": 33,
+            "vertical_position_mobile": 58,
+            "icon_width": 32,
+            "title": "Easily Adjustable Seat",
+            "content": "<p>Perfect fit for users of different sizes.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_Qz6mmi",
+        "item_LbJtYP",
+        "item_hPixmE",
+        "item_iQw4Yr",
+        "item_QQVtCG"
+      ],
+      "settings": {
+        "full_width": true,
+        "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-1_6.jpg",
+        "mobile_image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-1_5.jpg",
+        "title": "",
+        "content": "",
+        "button_text": "",
+        "button_url": "",
+        "desktop_text_position": "place-self-start text-start",
+        "image_background": "",
+        "image_background_gradient": "",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "overlay_text_color": "#ffffff",
+        "overlay_button_background": "",
+        "overlay_button_text_color": "",
+        "hot_spot_dot_background": "#ffffff",
+        "hot_spot_dot_text_color": "#000000",
+        "hot_spot_content_background": "#ffffff",
+        "hot_spot_content_text_color": "#000000",
+        "hot_spot_content_opacity": 90,
+        "hot_spot_content_blur_radius": 3
+      }
+    },
+    "accordion_content_ABVBL4": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_VcpLPc": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Steuerelemente und Funktionen",
+            "content": "<p>Write content to help your customers to better understand your products or policies.</p>",
+            "page": ""
+          }
+        },
+        "item_NhAFCk": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Abmessungen der Maschine",
+            "content": "<p>111</p>",
+            "page": ""
+          }
+        },
+        "item_Nxwg4T": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Garantie",
+            "content": "<ul><li>Rahmen: 12 Monate</li><li>Motor: 12 Monate</li><li>Teile: 12 Monate</li><li>Verschleißteile: 12 Monate</li><li>Kosmetische Teile: 90 Tage</li><li>Gewerbliche Nutzung: Nicht verfügbar, nur für den privaten Gebrauch.</li></ul>",
+            "page": ""
+          }
+        },
+        "item_Pgrxki": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Packliste",
+            "content": "<p>Write content to help your customers to better understand your products or policies.</p>",
+            "page": ""
+          }
+        },
+        "item_KG8pzh": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Benutzerhandbuch",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0570/8280/6344/files/S26B1.pdf?v=1735281125\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0570/8280/6344/files/S26B1.pdf?v=1735281125\">Download-Anleitung &lt;&lt;</a></p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_VcpLPc",
+        "item_NhAFCk",
+        "item_Nxwg4T",
+        "item_Pgrxki",
+        "item_KG8pzh"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Produktspezifikationen",
+        "content": "<p>Hier finden Sie die Details zum Produkt. Sollten Sie weitere Informationen benötigen, zögern Sie bitte nicht, uns zu kontaktieren.</p><p>E-Mail: <a href=\"mailto:info@merachfit.de\" target=\"_blank\" title=\"mailto:info@merachfit.de\">info@merachfit.de</a></p>",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "specification_table_N4iPYp": {
+      "type": "specification-table",
+      "blocks": {
+        "row_FijwjU": {
+          "type": "row",
+          "settings": {
+            "heading": "Steuerelemente und Funktionen",
+            "value": "<p>111</p>"
+          }
+        },
+        "row_jqYT34": {
+          "type": "row",
+          "settings": {
+            "heading": "Abmessungen der Maschine",
+            "value": "<p>Value 2</p>"
+          }
+        },
+        "row_zdjWzD": {
+          "type": "row",
+          "settings": {
+            "heading": "Garantie",
+            "value": "<ul><li>Rahmen: 12 Monate</li><li>Motor: 12 Monate</li><li>Teile: 12 Monate</li><li>Verschleißteile: 12 Monate</li><li>Kosmetische Teile: 90 Tage</li><li>Gewerbliche Nutzung: Nicht verfügbar, nur für den privaten Gebrauch.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "row_FijwjU",
+        "row_jqYT34",
+        "row_zdjWzD"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "",
+        "content": "<p>Hier finden Sie die Details zum Produkt. Sollten Sie weitere Informationen benötigen, zögern Sie bitte nicht, uns zu kontaktieren.</p><p>E-Mail: <a href=\"mailto:info@merachfit.de\" target=\"_blank\" title=\"mailto:info@merachfit.de\">info@merachfit.de</a></p>",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "max_rows": 5,
+        "view_all_text": "View all",
+        "view_less_text": "View less",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "chart_background": "",
+        "chart_text_color": "",
+        "chart_true_false_color": ""
+      }
+    },
+    "text_with_icons_NxFBYQ": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_xkqbRm": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_4.png",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "circle",
+            "icon_background": "#f8f8f8",
+            "icon_color": "",
+            "title": "Free Shipping",
+            "content": "<p>Fast delivery in 3-7 business days with free shipping</p>"
+          }
+        },
+        "item_hQMYRL": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_2.png",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "circle",
+            "icon_background": "#f8f8f8",
+            "icon_color": "",
+            "title": "30-Day Return",
+            "content": "<p>New, unused products can be returned within 30 days of order delivery</p>"
+          }
+        },
+        "item_K9GgUM": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_5.png",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "circle",
+            "icon_background": "#f8f8f8",
+            "icon_color": "",
+            "title": "24-Month Warranty",
+            "content": "<p>Free replacement and support for 24 months</p>"
+          }
+        },
+        "item_CbBhgD": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_6.png",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "circle",
+            "icon_background": "#f8f8f8",
+            "icon_color": "",
+            "title": "Fast Response",
+            "content": "<p>The professional Merach customer service team is always ready to assist you</p>"
+          }
+        },
+        "item_FzVDki": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_1.png",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "circle",
+            "icon_background": "#f8f8f8",
+            "icon_color": "",
+            "title": "Secure Payment",
+            "content": "<p>Supports PayPal, credit card, Google Pay, etc</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_xkqbRm",
+        "item_hQMYRL",
+        "item_K9GgUM",
+        "item_CbBhgD",
+        "item_FzVDki"
+      ],
+      "settings": {
+        "anchor_id": "text-with-icons",
+        "full_width": true,
+        "stack_on_mobile": false,
+        "title": "",
+        "heading_tag": "h5",
+        "text_alignment": "center",
+        "icon_spacing": "medium",
+        "background": "#f8f8f8",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "faq_weMq9E": {
+      "type": "faq",
+      "blocks": {
+        "item_wxtgXi": {
+          "type": "item",
+          "settings": {
+            "title": "Was ist unser Versprechen?",
+            "content": "<p>Wenn Sie mit dem Produkt nicht zufrieden sind oder ein Problem mit dem Produkt haben, können Sie es innerhalb von 30 Tagen nach Erhalt des Pakets kostenlos zurückgeben. Die Garantiezeit für Merach-Produkte beträgt ein Jahr.</p>"
+          }
+        },
+        "item_ipmC7L": {
+          "type": "item",
+          "settings": {
+            "title": "Wie lange dauert es, bis ich mein Gerät erhalte?",
+            "content": "<p>Ihre Bestellung wird in der Regel innerhalb von 1-4 Werktagen eintreffen, abhängig von Ihrer Lieferadresse.</p>"
+          }
+        },
+        "item_HXX7xV": {
+          "type": "item",
+          "settings": {
+            "title": "Was ist die auf dem Rudergerät angezeigte Distanzeinheit?",
+            "content": "<p>Die Entfernungseinheit, die auf dem Rudergerät angezeigt wird, ist in Kilometern (KM).</p>"
+          }
+        },
+        "item_DkTw8N": {
+          "type": "item",
+          "settings": {
+            "title": "Worin besteht der Hauptunterschied zwischen den Widerstandsarten der Rudergeräte?",
+            "content": "<p>Rudergeräte arbeiten hauptsächlich mit drei Arten von Widerstand: Luft-, Magnet- und Wasserwiderstand.</p><p><strong>Luftwiderstand:</strong> Er nimmt mit der Intensität des Ruderns zu; je stärker Sie ziehen, desto mehr Widerstand spüren Sie. Er sorgt für ein natürliches Rudererlebnis.</p><p><br/><strong>Magnetischer Widerstand: </strong>Der Widerstand wird mit Hilfe von Magneten erzeugt. Er ist leiser und lässt sich ohne Änderung der Rudergeschwindigkeit einstellen. Dieser Typ ermöglicht oft einen gleichmäßigeren Widerstand während des gesamten Ruderzugs.</p><p><br/><strong>Wasserwiderstand:</strong> Imitiert das Gefühl des Ruderns auf dem Wasser mit Hilfe eines wassergefüllten Tanks. Der Widerstand erhöht sich mit der Rudergeschwindigkeit und sorgt so für ein sanftes und dynamisches Trainingserlebnis.</p>"
+          }
+        },
+        "item_gm8BdE": {
+          "type": "item",
+          "settings": {
+            "title": "Was ist ein duales Widerstandssystem?",
+            "content": "<p>Das duale Widerstandssystem ist eine Kombination aus Magnet- und Wasserwiderstand, die zusammenarbeiten, um Ihr Training zu verbessern und mehr Leistung und Rudererfahrung zu bieten. Mit diesem System können Sie den Widerstand Ihres Rudergeräts einstellen und so ein sanftes und intensives Training absolvieren, mit dem Sie Ihre Fitnessziele erreichen können.</p>"
+          }
+        },
+        "item_fTHWjV": {
+          "type": "item",
+          "settings": {
+            "title": "Welche Funktionen unterstützt die Merach APP?",
+            "content": "<p>-Echtzeit-Trainingstracking<br/>-Gratis-Fitnesskurse<br/>-Fortschrittsverfolgung und Trainingsberichte über die Zeit<br/>-freier Trainingsmodus<br/>-Daten-PKs (Wettbewerbe) im Kurs<br/>-Innovativer Real-Scene-Modus zum Eintauchen in die Trainingseinheiten.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_wxtgXi",
+        "item_ipmC7L",
+        "item_HXX7xV",
+        "item_DkTw8N",
+        "item_gm8BdE",
+        "item_fTHWjV"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "FAQ",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "Unser Kundensupport ist erreichbar: Mon-Fri: 9 a.m. to 6 p.m. (GMT+2)",
+        "answer_time": "Geschlossen: Samstag-Sonntag und Feiertage.",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "slideshow_YmCwBE",
+    "press_m4qctV",
+    "image_link_blocks_jM444X",
+    "video_carousel_PFXAaE",
+    "rich_text_KmMfit",
+    "image_link_blocks_CX6KFw",
+    "video_eJGQY3",
+    "impact_text_X9jCW7",
+    "media_with_text_DhFPkU",
+    "rich_text_4BhJJq",
+    "rich_text_BmQRfp",
+    "slideshow_MhjrXn",
+    "rich_text_aRRR6Y",
+    "rich_text_CXcwi3",
+    "multi_column_bUcXYW",
+    "rich_text_HCDU4e",
+    "hot_spots_BriKVX",
+    "accordion_content_ABVBL4",
+    "specification_table_N4iPYp",
+    "text_with_icons_NxFBYQ",
+    "faq_weMq9E"
+  ]
+}
