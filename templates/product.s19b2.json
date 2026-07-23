@@ -256,7 +256,7 @@
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center-start sm:text-start",
             "subheading": "Enjoy the comfort of the mesh backrest and benefit from precise heart rate tracking",
-            "title": "Gentle Training Recumbent Bike S19B1",
+            "title": "Gentle Training Recumbent Bike S19B2",
             "heading_tag": "h3",
             "button_text": "",
             "button_link": "",
@@ -524,6 +524,7 @@
         "video_3pQfeF",
         "video_hB4Miy"
       ],
+      "disabled": true,
       "name": "Video list",
       "settings": {
         "slider_gap": 10,
@@ -733,6 +734,7 @@
       "block_order": [
         "item_Erm9bY"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "stack_mobile": true,
@@ -824,6 +826,7 @@
         "image_CqTifB",
         "image_t6K6Gk"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "alternate_media_position": false,
@@ -887,6 +890,7 @@
       "block_order": [
         "heading_a4trVQ"
       ],
+      "disabled": true,
       "settings": {
         "anchor_id": "rich-text",
         "full_width": true,
@@ -975,6 +979,7 @@
       "block_order": [
         "subheading_thLLN7"
       ],
+      "disabled": true,
       "settings": {
         "anchor_id": "rich-text",
         "full_width": true,
@@ -1113,6 +1118,7 @@
         "item_HxLrkL",
         "item_cmGzgG"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "stack_on_mobile": false,
@@ -1142,6 +1148,7 @@
       "block_order": [
         "heading_JHqABm"
       ],
+      "disabled": true,
       "settings": {
         "anchor_id": "rich-text",
         "full_width": true,
@@ -1223,6 +1230,7 @@
         "item_iQw4Yr",
         "item_QQVtCG"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "image": "shopify://shop_images/S19B1_Merach_Liegeergometer_Heimtrainer-1_6.jpg",
