@@ -81,13 +81,6 @@
         "disabled": false,
         "settings": {}
       },
-      "15796953133730294439": {
-        "type": "shopify://apps/growave-loyalty-wishlist/blocks/block.embed.socialshopwave-helper/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
-        "disabled": false,
-        "settings": {
-          "disable_shadow_root_globally": false
-        }
-      },
       "9356323809658795675": {
         "type": "shopify://apps/reelup-shoppable-videos-reels/blocks/reelup/a8ec9e4d-d192-44f7-9c23-595f9ee7dd5b",
         "disabled": false,
@@ -212,6 +205,13 @@
         "type": "shopify://apps/schema-plus-for-seo/blocks/schemaplus_app_embed/0199c405-aef8-7230-87a6-aacc5fab62ed",
         "disabled": false,
         "settings": {}
+      },
+      "15796953133730294439": {
+        "type": "shopify://apps/growave-loyalty-wishlist/blocks/block.embed.socialshopwave-helper/b3d2efbe-110a-4e27-84a8-1f2ed63996a4",
+        "disabled": false,
+        "settings": {
+          "disable_shadow_root_globally": false
+        }
       }
     }
   },
