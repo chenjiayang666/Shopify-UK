@@ -58,6 +58,50 @@
         "overlay_opacity": 0
       }
     },
+    "slideshow_WVXfDD": {
+      "type": "slideshow",
+      "blocks": {
+        "image_zWLxPY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/summer_sale_discont_2.png",
+            "mobile_image": "shopify://shop_images/summer_sale_discont_1.png",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_zWLxPY"
+      ],
+      "disabled": true,
+      "name": "Slideshow",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#F2F2F2",
+        "background_gradient": ""
+      }
+    },
     "custom_navbar_PEYD4r": {
       "type": "custom-navbar",
       "blocks": {
@@ -1564,6 +1608,7 @@
   "order": [
     "main",
     "image_with_text_overlay_T9TEUT",
+    "slideshow_WVXfDD",
     "custom_navbar_PEYD4r",
     "image_link_blocks_7YcA8n",
     "link_tab_check_GL4cPb",
