@@ -384,6 +384,7 @@
         },
         "mega_item_bNPWDj": {
           "type": "mega_item",
+          "disabled": true,
           "settings": {
             "menu_item": "Program",
             "menu_type": "type_4",
@@ -418,6 +419,7 @@
         },
         "mega_item_9A88gn": {
           "type": "mega_item",
+          "disabled": true,
           "settings": {
             "menu_item": "Policy",
             "menu_type": "type_4",
