@@ -383,6 +383,7 @@
         },
         "mega_item_bNPWDj": {
           "type": "mega_item",
+          "disabled": true,
           "settings": {
             "menu_item": "Program",
             "menu_type": "type_4",
