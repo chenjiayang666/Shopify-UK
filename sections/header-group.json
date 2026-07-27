@@ -349,6 +349,7 @@
         },
         "mega_item_QD3dYV": {
           "type": "mega_item",
+          "disabled": true,
           "settings": {
             "menu_item": "Program",
             "menu_type": "type_3",
