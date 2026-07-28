@@ -305,7 +305,9 @@
                                         target-index="mega-menu-{{ forloop.parentloop.index }}-{{ forloop.index }}"
                                         class="dropdown-bar__item dropdown-bar_item_trigger second-level-item gap-2.5 link-faded-reverse"
                                       >
-                                        {{ sub_link.title }}
+                                        <a href="{{ sub_link.url }}">
+                                          {{ sub_link.title }}
+                                        </a>
                                         <div style="transform:rotate(270deg)">
                                           {%- render 'icon' with 'chevron-bottom' -%}
                                         </div>
