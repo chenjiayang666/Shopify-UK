@@ -591,6 +591,7 @@
       "blocks": {
         "quote_dmpGmM": {
           "type": "quote",
+          "disabled": true,
           "settings": {
             "logo": "shopify://shop_images/20260525-171055.jpg",
             "logo_width": 350,
