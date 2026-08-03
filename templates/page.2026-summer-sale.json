@@ -332,11 +332,12 @@
         "card-bg": "#EAF4FF",
         "card-color": "#1a1a1a",
         "tag-color": "",
+        "custom-button-color": "#FFFFFF",
         "button-color": "#1a1a1a",
         "button-color-active": "#ffffff",
         "price-color": "#f83a3a",
         "button-bg": "#f2f2f2",
-        "button-bg-active": "#1F93E1"
+        "button-bg-active": "#1f93e1"
       }
     },
     "multi_column_product_pro_UExKya": {
@@ -744,6 +745,7 @@
         "card-bg": "",
         "card-color": "#ffffff",
         "tag-color": "",
+        "custom-button-color": "",
         "button-color": "#1a1a1a",
         "button-color-active": "#1a1a1a",
         "price-color": "#ed1b24",
@@ -1155,6 +1157,7 @@
         "card-bg": "linear-gradient(180deg, rgba(177, 90, 93, 1), rgba(177, 90, 93, 1) 97%)",
         "card-color": "#ffe8b4",
         "tag-color": "",
+        "custom-button-color": "",
         "button-color": "#941d21",
         "button-color-active": "#000000",
         "price-color": "#b41919",
