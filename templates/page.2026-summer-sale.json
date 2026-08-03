@@ -98,7 +98,7 @@
         "transition_type": "fade_with_text",
         "autoplay": false,
         "cycle_speed": 6,
-        "background": "#F2F2F2",
+        "background": "#f2f2f2",
         "background_gradient": ""
       }
     },
@@ -336,7 +336,7 @@
         "button-color-active": "#ffffff",
         "price-color": "#f83a3a",
         "button-bg": "#f2f2f2",
-        "button-bg-active": "#000000"
+        "button-bg-active": "#1F93E1"
       }
     },
     "multi_column_product_pro_UExKya": {
