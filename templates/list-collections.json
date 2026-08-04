@@ -1,1 +1,53 @@
-{"sections":{"main":{"type":"main-list-collections","settings":{}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "settings": {
+        "collections": [
+          "all-products-1",
+          "air-resistance-rowing-machines",
+          "bike",
+          "cardio-leg-shapers",
+          "clearance",
+          "clearance-sale",
+          "cross-trainer-machine",
+          "desk-elliptical",
+          "elliptical-trainer",
+          "endurance-training",
+          "endurance-training-1",
+          "essentials",
+          "full-body-training",
+          "full-body-workout",
+          "home-fitness-hot-sale",
+          "home-gym-equipment-clearance-sale",
+          "frontpage",
+          "magnetic-rowing-machine",
+          "mini-stepper",
+          "recovery",
+          "recumbent-bike",
+          "rower",
+          "smart-bike-with-adjustable-incline",
+          "smart-fitness",
+          "smart-fitness-bike"
+        ],
+        "collections_per_row_mobile": "1",
+        "collections_per_row": 3,
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
