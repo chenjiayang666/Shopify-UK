@@ -20,10 +20,33 @@
       padding-block-start: max(var(--section-inner-max-spacing-block), var(--header-height));
     }
   {%- endunless -%}
+
+  #shopify-section-{{ section.id }} .video-wrapper{
+      width: 100%;
+      max-width: max-content;
+      grid-area: 1 / 1 / span 3 / span 3;
+  }
+  #shopify-section-{{ section.id }} .video-control {
+        position: absolute;
+    bottom: 0;
+    right: unset;
+    left: 0;
+    transform: translate(0%, 0%) scale(0.6);
+  }
+    #shopify-section-{{ section.id }} .section-maxwidth{
+        max-width:{{ section.settings.max-width }}px;
+            margin: 0 auto;
+    }
+  @media(max-width:750px){
+      #shopify-section-{{ section.id }} .video-control {
+    transform: translate(0%, 0%) scale(0.4);
+  }
+  }
 </style>
 
-<div {% render 'section-properties' %} {% if section.settings.allow_transparent_header %}allow-transparent-header{% endif %}>
-  {%- capture class -%}content-over-media {% if section.settings.video_size != 'auto' %}content-over-media--{{ section.settings.video_size }}{% endif %} {% if section.settings.full_width %}full-bleed{% else %}shadow-block rounded-lg{% endif %}{%- endcapture -%}
+<div
+  id="{{ section.settings.anchor_id }}" {% render 'section-properties' %} {% if section.settings.allow_transparent_header %}allow-transparent-header{% endif %}>
+  {%- capture class -%}content-over-media   {% if section.settings.video_size != 'auto' %}content-over-media--{{ section.settings.video_size }}{% endif %} {% if section.settings.full_width %}full-bleed{% else %}section-maxwidth shadow-block rounded-lg{% endif %}{%- endcapture -%}
 
   <div {% render 'surface', class: class, text_color: section.settings.text_color %}>
     {%- capture poster -%}
@@ -43,18 +66,47 @@
       {%- endif -%}
 
       {%- if section.settings.mobile_video != blank -%}
-        {%- assign poster_image = section.settings.poster | default: section.settings.mobile_video.preview_image -%}
-  
-        <video-media {% if section.settings.autoplay %}autoplay{% endif %} class="sm:hidden" {% if section.settings.video_size == 'auto' %}style="--aspect-ratio: {{ section.settings.mobile_video.aspect_ratio }}"{% endif %}>
-          {{- section.settings.mobile_video | video_tag: class: 'object-cover sm:hidden', controls: show_controls, playsinline: true, muted: section.settings.autoplay, loop: section.settings.autoplay, preload: 'metadata', image_size: '400x' -}}
-          {{- poster_image | image_url: width: poster_image.width | image_tag: sizes: '100vw', widths: '200,300,400,500,600,700,800,900,1000,1200' -}}
-        </video-media>
+        {%- assign poster_image = section.settings.poster_mob | default: section.settings.mobile_video.preview_image -%}
+        {%if section.settings.show_step and show_controls == false%}
+          <div class="video-wrapper sm:hidden">
+        {% endif %}
+          <video-media {% if section.settings.autoplay %}autoplay{% endif %} class="sm:hidden" {% if section.settings.video_size == 'auto' %}style="--aspect-ratio: {{ section.settings.mobile_video.aspect_ratio }}"{% endif %}>
+            {{- section.settings.mobile_video | video_tag: class: 'object-cover sm:hidden', controls: show_controls, playsinline: true, muted: section.settings.autoplay, loop: section.settings.autoplay, preload: 'metadata', image_size: '400x' -}}
+            {{- poster_image | image_url: width: poster_image.width | image_tag: sizes: '100vw', widths: '200,300,400,500,600,700,800,900,1000,1200' -}}
+          </video-media>
+        {%if section.settings.show_step and show_controls == false %}
+          <div class="video-control">
+            <svg width="70" height="70">
+              <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
+              <circle class="progress-bar" cx="35" cy="35" r="30"></circle>
+            </svg>
+            <div class="icon play"></div>
+          </div>
+        </div>
+      {% endif %}
       {%- endif -%}
 
-      <video-media {% if section.settings.autoplay %}autoplay{% endif %} {% if section.settings.mobile_video != blank %}class="hidden sm:block"{% endif %} {% if section.settings.video_size == 'auto' %}style="--aspect-ratio: {{ section.settings.video.aspect_ratio }}"{% endif %}>
-        {{- section.settings.video | video_tag: playsinline: true, preload: 'metadata', muted: section.settings.autoplay, loop: section.settings.autoplay, controls: show_controls, image_size: '800x' -}}
-        {{- poster -}}
-      </video-media>
+      {%if section.settings.show_step and show_controls == false%}
+        <div class="video-wrapper  {% if section.settings.mobile_video != blank %}hidden sm:block{% endif %} ">
+      {% endif %}
+
+        <video-media {% if section.settings.autoplay %}autoplay{% endif %} {% if section.settings.mobile_video != blank %}class="hidden sm:block"{% endif %} {% if section.settings.video_size == 'auto' %}style="--aspect-ratio: {{ section.settings.video.aspect_ratio }}"{% endif %}>
+          {{- section.settings.video | video_tag: playsinline: true, preload: 'metadata', muted: section.settings.autoplay, loop: section.settings.autoplay, controls: show_controls, image_size: '800x' -}}
+          {{- poster -}}
+        </video-media>
+      {%if section.settings.show_step and show_controls == false %}
+
+        <div class="video-control">
+          <svg width="70" height="70">
+            <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
+            <circle class="progress-bar" cx="35" cy="35" r="30"></circle>
+          </svg>
+          <div class="icon play"></div>
+        </div>
+      </div>
+      {% endif %}
+
+
     {%- else -%}
       <video-media host="{{ section.settings.external_video_url.type }}" {% if section.settings.autoplay %}autoplay class="pointer-events-none"{% endif %}>
         {{- poster -}}
@@ -84,12 +136,16 @@
 
               {%- when 'subheading' -%}
                 {%- if block.settings.text != blank -%}
-                  <p class="bold" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+                  <{{ block.settings.subheading_tag }} class="{{ block.settings.subheading_size }}" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</{{ block.settings.subheading_tag }}>
                 {%- endif -%}
 
               {%- when 'heading' -%}
                 {%- if block.settings.text != blank -%}
                   <p class="{{ block.settings.heading_tag }}" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+                {%- elsif block.settings.title_seo != blank -%}
+                  <{{ block.settings.heading_tag }} class="{{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                    {{ block.settings.title_seo }}
+                  </{{ block.settings.heading_tag }}>
                 {%- endif -%}
 
               {%- when 'richtext' -%}
@@ -110,11 +166,7 @@
     {%- endif -%}
   </div>
 </div>
-{% for block in section.blocks %}
-  {% if block.type == 'video_schema' %}
-    {% render 'schema-builder',schema_type:'VideoObject'name:block.settings.title,description:block.settings.description,thumbnail:block.settings.thumbnailurl,upload_date:block.settings.uploadDate,content_url:block.settings.contenturl,embed_url:block.settings.embedUrl %}
-  {% endif %}
-{% endfor %}
+
 {% schema %}
 {
   "name": "Video",
@@ -124,6 +176,13 @@
     "groups": ["header", "custom.overlay"]
   },
   "settings": [
+        {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Unique ID for anchor links",
+      "default": "minimum-slide"
+    },
     {
       "type": "paragraph",
       "content": "For best visual results and avoid platform branding, use a MP4 file."
@@ -133,6 +192,15 @@
       "id": "full_width",
       "label": "Full width",
       "default": true
+    },
+       {
+      "type": "range",
+      "id": "max-width",
+      "max": 1920,
+      "min": 900,
+      "step": 20,
+      "default": 1200,
+      "label": "Section width"
     },
     {
       "type": "checkbox",
@@ -148,6 +216,14 @@
       "info": "Video are muted to allow autoplay. For best results, do not add any content on top of the video when autoplay is enabled.",
       "default": false
     },
+    {
+      "type": "checkbox",
+      "id": "show_step",
+      "label": "progress bar",
+      "info": "Display progress bar",
+      "default": false
+    },
+    
     {
       "type": "select",
       "id": "video_size",
@@ -202,6 +278,12 @@
       "label": "Poster image",
       "info": "3200 x 1600px .jpg recommended. Poster is not visible when autoplay is enabled."
     },
+        {
+      "type": "image_picker",
+      "id": "poster_mob",
+      "label": "Poster image mobile",
+      "info": "3200 x 1600px .jpg recommended. Poster is not visible when autoplay is enabled."
+    },
     {
       "type": "header",
       "content": "Colors"
@@ -227,7 +309,8 @@
       "step": 1,
       "unit": "%",
       "default": 30
-    }
+    },
+   
   ],
   "blocks": [
     {
@@ -250,6 +333,82 @@
           "id": "text",
           "label": "Text",
           "default": "Subheading"
+        },
+        {
+          "type": "select",
+          "id": "subheading_tag",
+          "label": "Subheading HTML tag",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "p",
+              "label": "Paragraph (p)"
+            },
+            {
+              "value": "div",
+              "label": "Div(不具有语义)"
+            }
+          ],
+          "default": "p"
+        },
+        {
+          "type": "select",
+          "id": "subheading_size",
+          "label": "Subheading size",
+          "options": [
+            {
+              "value": "dev-xx-large",
+              "label": "XX-Large"
+            },
+            {
+              "value": "dev-x-large",
+              "label": "X-Large"
+            },
+            {
+              "value": "dev-large",
+              "label": "Large"
+            },
+            {
+              "value": "dev-medium",
+              "label": "Medium"
+            },
+            {
+              "value": "dev-small",
+              "label": "Small"
+            },
+            {
+              "value": "dev-x-small",
+              "label": "X-Small"
+            },
+            {
+              "value": "dev-xx-small",
+              "label": "XX-Small"
+            }
+          ],
+          "default": "dev-xx-large"
         }
       ]
     },
@@ -258,46 +417,105 @@
       "name": "Heading",
       "settings": [
         {
+          "type": "header",
+          "content": "原有用法"
+        },
+        {
           "type": "text",
           "id": "text",
           "label": "Text",
-          "default": "Heading"
+          "default": "Heading",
+          "info": "如果使用Seo Heading，则清空该输入框。因为代码逻辑是：该输入框有值则使用该值(就不会使用SEO用法了)。"
+        },
+        {
+          "type": "header",
+          "content": "SEO用法"
+        },
+        {
+          "type": "textarea",
+          "id": "title_seo",
+          "label": "SEO Text"
         },
         {
           "type": "select",
           "id": "heading_tag",
-          "label": "Style",
+          "label": "SEO Text HTML tag",
           "options": [
             {
-              "value": "h0",
-              "label": "XX-Large"
-            },
-            {
               "value": "h1",
-              "label": "X-Large"
+              "label": "H1"
             },
             {
               "value": "h2",
-              "label": "Large"
+              "label": "H2"
             },
             {
               "value": "h3",
-              "label": "Medium"
+              "label": "H3"
             },
             {
               "value": "h4",
-              "label": "Small"
+              "label": "H4"
             },
             {
               "value": "h5",
-              "label": "X-Small"
+              "label": "H5"
             },
             {
               "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "p",
+              "label": "Paragraph (p)"
+            },
+            {
+              "value": "div",
+              "label": "Div(不具有语义)"
+            }
+          ],
+          "default": "p"
+        },
+        {
+          "type": "header",
+          "content": "其他设置"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading size",
+          "options": [
+            {
+              "value": "dev-xx-large",
+              "label": "XX-Large"
+            },
+            {
+              "value": "dev-x-large",
+              "label": "X-Large"
+            },
+            {
+              "value": "dev-large",
+              "label": "Large"
+            },
+            {
+              "value": "dev-medium",
+              "label": "Medium"
+            },
+            {
+              "value": "dev-small",
+              "label": "Small"
+            },
+            {
+              "value": "dev-x-small",
+              "label": "X-Small"
+            },
+            {
+              "value": "dev-xx-small",
               "label": "XX-Small"
             }
           ],
-          "default": "h1"
+          "default": "dev-xx-large",
+          "info": "这个选框的值，Text和SEO Text都会应用上。"
         }
       ]
     },
