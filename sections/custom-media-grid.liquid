@@ -1,0 +1,1043 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- comment -%}
+  ------------------------------------------------------------------------------------------------------------------------
+  CSS
+  ------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+      #shopify-section-{{ section.id }} .section{
+    {% if section.settings.background_image != blank %}
+      background-image:url({{ section.settings.background_image | img_url: ''  }});
+      background-size: cover;
+      background-repeat: no-repeat;
+    {% endif %}
+  }
+  @media (min-width:768px){
+    .content-over-media__media.h5 {
+      display: none;
+    }
+  }
+  @media (max-width:767px){
+    .content-over-media__media.pc {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .section{
+    {% if section.settings.background_image_mob != blank %}
+      background-image:url({{ section.settings.background_image_mob | img_url: ''  }});
+      background-size: cover;
+      background-repeat: no-repeat;
+    {% endif %}
+  }
+  }
+
+  #shopify-section-{{ section.id }} {
+    --media-grid-row-height: {{ section.settings.mobile_row_height }}px;
+    --media-grid-column: {{ section.settings.mobile_column }};
+  }
+  #shopify-section-{{ section.id }} .text-block-description {
+    margin-top: var(--spacing-2);
+  }
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ section.id }} {
+      --media-grid-row-height: {{ section.settings.desktop_row_height }}px;
+      --media-grid-column: {{ section.settings.desktop_column }};
+    }
+    #shopify-section-{{ section.id }} .text-block-description {
+      margin-top: var(--spacing-5);
+    }
+  }
+
+  {%- for block in section.blocks -%}
+    #media-grid-{{ block.id }} {
+      --content-over-media-overlay: {{ block.settings.overlay_color.rgb }} /{{ block.settings.overlay_opacity | divided_by: 100.0 }};
+
+      {%- if block.settings.heading_tag == 'h5' or block.settings.heading_tag == 'h6' -%}
+        --content-over-media-gap: 1rem;
+      {%- endif -%}
+    }
+
+    {%- if block.settings.heading_tag == 'h5' or block.settings.heading_tag == 'h6' -%}
+      @media screen and (min-width: 740px) {
+        #media-grid-{{ block.id }} {
+          --content-over-media-gap: 1.5rem;
+        }
+      }
+    {%- endif -%}
+  {%- endfor -%}
+</style>
+
+{%- comment -%}
+  ------------------------------------------------------------------------------------------------------------------------
+  LIQUID
+  ------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+
+
+<div
+  {% render 'section-properties', narrow: section.settings.reduce_width %}
+>
+  <media-grid class="custom-media-grid">
+    {%- for block in section.blocks -%}
+      {% comment %} 解析出行列范围 {% endcomment %}
+      {% assign desktop_rows_columns = block.settings.desktop_layout_ranges | split: ',' %}
+      {% assign desktop_row_ranges = desktop_rows_columns[0] | split: '-' %}
+      {% assign desktop_column_ranges = desktop_rows_columns[1] | split: '-' %}
+      {% assign mobile_rows_columns = block.settings.mobile_layout_ranges | split: ',' %}
+      {% assign mobile_row_ranges = mobile_rows_columns[0] | split: '-' %}
+      {% assign mobile_column_ranges = mobile_rows_columns[1] | split: '-' %}
+      {% comment %} 下面计算span数 {% endcomment %}
+      {% assign start_range = desktop_column_ranges[0] | plus: 0 %}
+      {% assign end_range = desktop_column_ranges[1] | plus: 0 %}
+      {% assign desktop_column_span = end_range | minus: start_range %}
+      <style>
+          .{{block.id}}.custom-media-grid__item {
+            --media-grid-column-start: {{ mobile_column_ranges[0] }};
+            --media-grid-column-end: {{ mobile_column_ranges[1] }};
+            --media-grid-row-start: {{ mobile_row_ranges[0] }};
+            --media-grid-row-end: {{ mobile_row_ranges[1] }};
+          }
+        @media screen and (min-width: 700px) {
+          .{{block.id}}.custom-media-grid__item {
+            --media-grid-column-start: {{ desktop_column_ranges[0] }};
+            --media-grid-column-end: {{ desktop_column_ranges[1] }};
+            --media-grid-row-start: {{ desktop_row_ranges[0] }};
+            --media-grid-row-end: {{ desktop_row_ranges[1] }};
+          }
+        }
+        @media (max-width:767px) {
+          #media-grid-{{ block.id }} .prose>* {
+            font-size: {{ block.settings.h5_font_size }};
+          }
+        }
+      </style>
+      <a
+        {% if block.settings.link_url != blank %}
+          href="{{ block.settings.link_url }}"
+        {% endif %}
+        class="{{block.id}} custom-media-grid__item shadow group"
+        reveal-js
+        {{ block.shopify_attributes }}
+      >
+        {% comment %} style="--media-grid-column-start: {{ desktop_column_ranges[0] }}; --media-grid-column-end: {{ desktop_column_ranges[1] }}; --media-grid-row-start: {{ desktop_row_ranges[0] }}; --media-grid-row-end: {{ desktop_row_ranges[1] }}" {% endcomment %}
+        <div
+          id="media-grid-{{ block.id }}"
+          {% render 'surface',
+            class: 'content-over-media rounded',
+            background: block.settings.background,
+            background_gradient: block.settings.background_gradient,
+            text_color: block.settings.text_color
+          %}
+        >
+          {%- liquid
+            assign loading_strategy = null
+
+            if section.index > 3 or forloop.index > 3
+              assign loading_strategy = 'lazy'
+            endif
+          -%}
+
+          {%- case block.type -%}
+            {%- when 'text' -%}
+              <div
+              class="{{ block.settings.mobile_text_position }} {{ block.settings.desktop_text_position }} text-block-wrap">
+                {%- if block.settings.block_title -%}
+                  <div class="text-block-title {{ block.settings.heading_tag }}">
+                    {% render 'styled-text',
+                      content: block.settings.block_title,
+                      gradient: block.settings.text_gradient
+                    %}
+                  </div>
+                {%- endif -%}
+                {% if block.settings.description %}
+                  <div class="text-block-description" style="font-size:{{ block.settings.description_font_size }}">
+                    {% render 'styled-text',
+                      content: block.settings.description,
+                      gradient: block.settings.text_gradient
+                    %}
+                  </div>
+                {% endif %}
+              </div>
+            {%- when 'image' -%}
+              {%- if block.settings.image -%}
+                {%- capture sizes -%}min({{ 390 | times: desktop_column_span }}px, {{ 25 | times: desktop_column_span }}vw){%- endcapture -%}
+                {{-
+                  block.settings.image
+                  | image_url: width: block.settings.image.width
+                  | image_tag:
+                    loading: loading_strategy,
+                    sizes: sizes,
+                    widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800,2000,2200,2400',
+                    class: 'pc content-over-media__media zoom-image'
+                -}}
+                {%- capture sizes_two -%}100vw{%- endcapture -%}
+                {%- if block.settings.mobile_image -%}
+                  {{-
+                    block.settings.mobile_image
+                    | image_url: width: block.settings.mobile_image.width
+                    | image_tag:
+                      loading: loading_strategy,
+                      sizes: sizes_two,
+                      widths: '200,300,400,500,600,700,800,1000,1200',
+                      class: 'h5 content-over-media__media zoom-image'
+                  -}}
+                {%- endif -%}
+              {%- endif -%}
+
+            {%- when 'video' -%}
+              {%- if block.settings.video -%}
+                <video-media autoplay style="--aspect-ratio: auto">
+                  {%- if block.settings.show_video_controls -%}
+                    {%- assign loop_video = false -%}
+                  {%- else -%}
+                    {%- assign loop_video = true -%}
+                  {%- endif -%}
+
+                  {{-
+                    block.settings.video
+                    | video_tag:
+                      playsinline: true,
+                      muted: true,
+                      loop: loop_video,
+                      controls: block.settings.show_video_controls,
+                      preload: 'metadata',
+                      class: 'object-fill'
+                  -}}
+                </video-media>
+              {%- else -%}
+                <video-media host="{{ block.settings.external_video_url.type }}" autoplay style="--aspect-ratio: auto">
+                  <template>
+                    {%- if block.settings.external_video_url.type == 'youtube' -%}
+                      <iframe
+                        src="https://www.youtube.com/embed/{{ block.settings.external_video_url.id }}?playsinline=1&autoplay=1&controls=0&mute=1&loop=1&playlist={{ block.settings.external_video_url.id }}&enablejsapi=1&rel=0&modestbranding=1&origin={{ 'https://' | append: request.host | url_encode }}"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen="allowfullscreen"
+                      ></iframe>
+                    {%- elsif block.settings.external_video_url.type == 'vimeo' -%}
+                      <iframe
+                        src="https://player.vimeo.com/video/{{ block.settings.external_video_url.id }}?autoplay=1&autopause=1&background=1&loop=1&muted=1&transparent=0&responsive=1&portrait=0&title=0&byline=0&color={{ settings.text_color | remove_first: '#' }}"
+                        allow="autoplay; encrypted-media;"
+                        allowfullscreen="allowfullscreen"
+                      ></iframe>
+                    {%- endif -%}
+                  </template>
+                </video-media>
+              {%- endif -%}
+          {%- endcase -%}
+
+          {%- if block.settings.title != blank or block.settings.link_text != blank -%}
+            <div class="{{ block.settings.mobile_text_position }} {{ block.settings.desktop_text_position }}">
+              <div class="prose">
+                {%- if block.settings.title != blank -%}
+                  <p class="{{ block.settings.heading_tag }}">
+                    {% render 'styled-text', content: block.settings.title, gradient: block.settings.text_gradient %}
+                  </p>
+                {%- endif -%}
+
+                {%- if block.settings.link_text != blank -%}
+                  {%- render 'button',
+                    size: 'lg',
+                    content: block.settings.link_text,
+                    background: block.settings.button_background,
+                    text_color: block.settings.button_text_color
+                  -%}
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+      </a>
+    {%- endfor -%}
+  </media-grid>
+</div>
+{% schema %}
+{
+  "name": "高自定义的Media grid",
+  "class": "shopify-section--media-grid",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "max_blocks": 15,
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "desktop_layout_ranges",
+          "label": "pc端的行列网格线范围(网格线范围使用-分隔，行列使用英文,分隔)",
+          "info": "比如1-3,2-4。解析：行：1-3(1网格线到3网格线，占两行)，列：2-4(2网格线到4网格线，占两列)"
+        },
+        {
+          "type": "text",
+          "id": "mobile_layout_ranges",
+          "label": "h5端的行列网格线范围(网格线范围使用-分隔，行列使用英文,分隔)",
+          "info": "比如1-2,1-3。解析：行：1-2(1网格线到2网格线，占一行)，列：1-3(1网格线到3网格线，占两列)"
+        },
+        {
+          "type": "text",
+          "id": "block_title",
+          "label": "Heading",
+          "default": "Promote your products"
+        },
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "label": "Heading size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "X-Large"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h3",
+              "label": "Medium"
+            },
+            {
+              "value": "h4",
+              "label": "Small"
+            },
+            {
+              "value": "h5",
+              "label": "X-Small"
+            },
+            {
+              "value": "h6",
+              "label": "XX-Small"
+            }
+          ],
+          "default": "h4"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "info": "除了字体大小、位置外，其他配置同Heading"
+        },
+        {
+          "type": "text",
+          "id": "description_font_size",
+          "label": "字体大小(推荐单位px，自行带上)",
+          "default": "20px"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link text"
+        },
+        {
+          "type": "header",
+          "content": "Mobile"
+        },
+        {
+          "type": "select",
+          "id": "mobile_text_position",
+          "label": "移动端-文本内容区的位置",
+          "options": [
+            {
+              "value": "place-self-start text-start",
+              "label": "Top left"
+            },
+            {
+              "value": "place-self-start-center text-center",
+              "label": "Top center"
+            },
+            {
+              "value": "place-self-start-end text-end",
+              "label": "Top right"
+            },
+            {
+              "value": "place-self-center-start text-start",
+              "label": "Middle left"
+            },
+            {
+              "value": "place-self-center text-center",
+              "label": "Middle center"
+            },
+            {
+              "value": "place-self-center-end text-end",
+              "label": "Middle right"
+            },
+            {
+              "value": "place-self-end-start text-start",
+              "label": "Bottom left"
+            },
+            {
+              "value": "place-self-end-center text-center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "place-self-end text-end",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "place-self-center text-center"
+        },
+        {
+          "type": "header",
+          "content": "Desktop",
+          "info": "When using a 1x1 tile, we recommend not using text on top of media."
+        },
+        {
+          "type": "select",
+          "id": "desktop_text_position",
+          "label": "PC端-文本内容区的位置",
+          "options": [
+            {
+              "value": "sm:place-self-start sm:text-start",
+              "label": "Top left"
+            },
+            {
+              "value": "sm:place-self-start-center sm:text-center",
+              "label": "Top center"
+            },
+            {
+              "value": "sm:place-self-start-end sm:text-end",
+              "label": "Top right"
+            },
+            {
+              "value": "sm:place-self-center-start sm:text-start",
+              "label": "Middle left"
+            },
+            {
+              "value": "sm:place-self-center sm:text-center",
+              "label": "Middle center"
+            },
+            {
+              "value": "sm:place-self-center-end sm:text-end",
+              "label": "Middle right"
+            },
+            {
+              "value": "sm:place-self-end-start sm:text-start",
+              "label": "Bottom left"
+            },
+            {
+              "value": "sm:place-self-end-center sm:text-center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "sm:place-self-end sm:text-end",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "sm:place-self-center sm:text-center"
+        },
+        {
+          "type": "header",
+          "content": "Colors",
+          "info": "Gradient replaces solid colors when set. Background is ignored when image is used."
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background",
+          "default": "#000000"
+        },
+        {
+          "type": "color_background",
+          "id": "background_gradient",
+          "label": "Background gradient"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color_background",
+          "id": "text_gradient",
+          "label": "Text gradient"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text",
+          "default": "#ffffff"
+        },
+
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "text",
+          "id": "desktop_layout_ranges",
+          "label": "pc端的行列网格线范围(网格线范围使用-分隔，行列使用英文,分隔)",
+          "info": "比如1-3,2-4。解析：行：1-3(1网格线到3网格线，占两行)，列：2-4(2网格线到4网格线，占两列)"
+        },
+        {
+          "type": "text",
+          "id": "mobile_layout_ranges",
+          "label": "h5端的行列网格线范围(网格线范围使用-分隔，行列使用英文,分隔)",
+          "info": "比如1-2,1-3。解析：行：1-2(1网格线到2网格线，占一行)，列：1-3(1网格线到3网格线，占两列)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "PC Image",
+          "info": "1000 x 1500px .jpg recommended (portrait) or 1500 x 1500px .jpg recommended (square)"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Promote your products"
+        },
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "label": "Heading size",
+          "options": [
+            {
+              "value": "h1",
+              "label": "X-Large"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h3",
+              "label": "Medium"
+            },
+            {
+              "value": "h4",
+              "label": "Small"
+            },
+            {
+              "value": "h5",
+              "label": "X-Small"
+            },
+            {
+              "value": "h6",
+              "label": "XX-Small"
+            }
+          ],
+          "default": "h4"
+        },
+        {
+          "type": "text",
+          "id": "h5_font_size",
+          "label": "H5端的字体大小",
+          "info": "推荐单位px，自行带上",
+          "default": "12px"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link text"
+        },
+        {
+          "type": "header",
+          "content": "Mobile"
+        },
+        {
+          "type": "select",
+          "id": "mobile_text_position",
+          "label": "Content position",
+          "options": [
+            {
+              "value": "place-self-start text-start",
+              "label": "Top left"
+            },
+            {
+              "value": "place-self-start-center text-center",
+              "label": "Top center"
+            },
+            {
+              "value": "place-self-start-end text-end",
+              "label": "Top right"
+            },
+            {
+              "value": "place-self-center-start text-start",
+              "label": "Middle left"
+            },
+            {
+              "value": "place-self-center text-center",
+              "label": "Middle center"
+            },
+            {
+              "value": "place-self-center-end text-end",
+              "label": "Middle right"
+            },
+            {
+              "value": "place-self-end-start text-start",
+              "label": "Bottom left"
+            },
+            {
+              "value": "place-self-end-center text-center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "place-self-end text-end",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "place-self-center text-center"
+        },
+        {
+          "type": "header",
+          "content": "Desktop",
+          "info": "When using a 1x1 tile, we recommend not using text on top of media."
+        },
+        {
+          "type": "select",
+          "id": "desktop_text_position",
+          "label": "Content position",
+          "options": [
+            {
+              "value": "sm:place-self-start sm:text-start",
+              "label": "Top left"
+            },
+            {
+              "value": "sm:place-self-start-center sm:text-center",
+              "label": "Top center"
+            },
+            {
+              "value": "sm:place-self-start-end sm:text-end",
+              "label": "Top right"
+            },
+            {
+              "value": "sm:place-self-center-start sm:text-start",
+              "label": "Middle left"
+            },
+            {
+              "value": "sm:place-self-center sm:text-center",
+              "label": "Middle center"
+            },
+            {
+              "value": "sm:place-self-center-end sm:text-end",
+              "label": "Middle right"
+            },
+            {
+              "value": "sm:place-self-end-start sm:text-start",
+              "label": "Bottom left"
+            },
+            {
+              "value": "sm:place-self-end-center sm:text-center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "sm:place-self-end sm:text-end",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "sm:place-self-center sm:text-center"
+        },
+        {
+          "type": "header",
+          "content": "Colors",
+          "info": "Gradient replaces solid colors when set. Background is ignored when image is used."
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background",
+          "default": "#000000"
+        },
+        {
+          "type": "color_background",
+          "id": "background_gradient",
+          "label": "Background gradient"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color_background",
+          "id": "text_gradient",
+          "label": "Text gradient"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 0
+        },
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "text",
+          "id": "desktop_layout_ranges",
+          "label": "pc端的行列网格线范围(网格线范围使用-分隔，行列使用英文,分隔)",
+          "info": "比如1-3,2-4。解析：行：1-3(1网格线到3网格线，占两行)，列：2-4(2网格线到4网格线，占两列)"
+        },
+        {
+          "type": "text",
+          "id": "mobile_layout_ranges",
+          "label": "h5端的行列网格线范围(网格线范围使用-分隔，行列使用英文,分隔)",
+          "info": "比如1-2,1-3。解析：行：1-2(1网格线到2网格线，占一行)，列：1-3(1网格线到3网格线，占两列)"
+        },
+        {
+          "type": "paragraph",
+          "content": "Video are muted to allow autoplay. For best visual results and avoid platform branding, we recommend uploading a MP4 file."
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Replaces external video if both are set."
+        },
+        {
+          "type": "video_url",
+          "id": "external_video_url",
+          "accept": ["vimeo", "youtube"],
+          "label": "Video URL",
+          "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_video_controls",
+          "label": "Show video controls",
+          "info": "Only applicable for MP4 videos. When controls are shown, loop is disabled.",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Promote your products"
+        },
+        {
+          "type": "text",
+          "id": "h5_font_size",
+          "label": "H5端的字体大小",
+          "info": "推荐单位px，自行带上",
+          "default": "12px"
+        },
+        {
+          "type": "header",
+          "content": "Mobile"
+        },
+        {
+          "type": "select",
+          "id": "mobile_text_position",
+          "label": "Content position",
+          "options": [
+            {
+              "value": "place-self-start text-start",
+              "label": "Top left"
+            },
+            {
+              "value": "place-self-start-center text-center",
+              "label": "Top center"
+            },
+            {
+              "value": "place-self-start-end text-end",
+              "label": "Top right"
+            },
+            {
+              "value": "place-self-center-start text-start",
+              "label": "Middle left"
+            },
+            {
+              "value": "place-self-center text-center",
+              "label": "Middle center"
+            },
+            {
+              "value": "place-self-center-end text-end",
+              "label": "Middle right"
+            },
+            {
+              "value": "place-self-end-start text-start",
+              "label": "Bottom left"
+            },
+            {
+              "value": "place-self-end-center text-center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "place-self-end text-end",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "place-self-center text-center"
+        },
+        {
+          "type": "header",
+          "content": "Desktop",
+          "info": "When using a 1x1 tile, we recommend not using text on top of media."
+        },
+        {
+          "type": "select",
+          "id": "desktop_text_position",
+          "label": "Content position",
+          "options": [
+            {
+              "value": "sm:place-self-start sm:text-start",
+              "label": "Top left"
+            },
+            {
+              "value": "sm:place-self-start-center sm:text-center",
+              "label": "Top center"
+            },
+            {
+              "value": "sm:place-self-start-end sm:text-end",
+              "label": "Top right"
+            },
+            {
+              "value": "sm:place-self-center-start sm:text-start",
+              "label": "Middle left"
+            },
+            {
+              "value": "sm:place-self-center sm:text-center",
+              "label": "Middle center"
+            },
+            {
+              "value": "sm:place-self-center-end sm:text-end",
+              "label": "Middle right"
+            },
+            {
+              "value": "sm:place-self-end-start sm:text-start",
+              "label": "Bottom left"
+            },
+            {
+              "value": "sm:place-self-end-center sm:text-center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "sm:place-self-end sm:text-end",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "sm:place-self-center sm:text-center"
+        },
+        {
+          "type": "header",
+          "content": "Colors",
+          "info": "Gradient replaces solid colors when set. Background is ignored when image is used."
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background",
+          "default": "#000000"
+        },
+        {
+          "type": "color_background",
+          "id": "background_gradient",
+          "label": "Background gradient"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color_background",
+          "id": "text_gradient",
+          "label": "Text gradient"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "Overlay",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 0
+        },
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "使用教程",
+      "info": "在下面的配置中，将列进行划分后，得到一个基础的网格布局。重点：下方的配置块默认按照从左到右，从上到下在网格布局中排列，而我们还可以通过配置每一个块的行列范围来进行定制化配置。"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "reduce_width",
+      "label": "Reduce width on large screens",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "背景图"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mob",
+      "label": "移动端背景图"
+    },
+    {
+      "type": "header",
+      "content": "Columns"
+    },
+    {
+      "type": "number",
+      "id": "desktop_column",
+      "label": "Desktop 具有几个基础列",
+      "info": "你的PC端目标布局效果需要几个基础列才能完成。基础列+行 划分出单元格之后，我们还能使用单元格合并来完成目标布局。"
+    },
+    {
+      "type": "number",
+      "id": "mobile_column",
+      "label": "Mobile 具有几个基础列",
+      "info": "你的H5端目标布局效果需要几个基础列才能完成。基础列+行 划分出单元格之后，我们还能使用单元格合并来完成目标布局。推荐列数为2列。",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Row height",
+      "info": "Define the height of a single row, from which the grid is dynamically created."
+    },
+    {
+      "type": "range",
+      "id": "desktop_row_height",
+      "label": "Desktop row height",
+      "min": 20,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "default": 290
+    },
+    {
+      "type": "range",
+      "id": "mobile_row_height",
+      "label": "Mobile row height",
+      "min": 120,
+      "max": 260,
+      "step": 10,
+      "unit": "px",
+      "default": 150
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    
+  ],
+  "presets": [
+    {
+      "name": "高自定义的Media Grid",
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "desktop_layout_ranges": "1-2,1-3",
+            "mobile_layout_ranges": "1-2,1-2"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "desktop_layout_ranges": "2-3,1-3",
+            "mobile_layout_ranges": "1-2,2-3"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "desktop_layout_ranges": "3-4,1-3",
+            "mobile_layout_ranges": "2-3,1-2"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
