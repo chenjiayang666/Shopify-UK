@@ -1,0 +1,500 @@
+{% render 'section-settings' %}
+
+<style>
+      #shopify-section-{{ section.id }} .discount-tab{
+          background:{{ section.settings.section_bg }}
+      }
+    #shopify-section-{{ section.id }} .check-box > * {
+        overflow: hidden;
+    }
+  #shopify-section-{{ section.id }} .effect-vertical .check-box {
+    display: none;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.8s ease, opacity 0.8s ease;
+  }
+
+  #shopify-section-{{ section.id }} .effect-vertical .check-box.active {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    display:flex;
+  }
+  #shopify-section-{{ section.id }} .effect-horizontal .tab-content {
+    position: relative;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .effect-horizontal .check-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    opacity: 0;
+    transform: translateX(1000px);
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .effect-horizontal .check-box.active {
+    opacity: 1;
+    transform: translateX(0);
+    position: relative;
+    pointer-events: auto;
+    transition: all 0.8s ease;
+  }
+    #shopify-section-{{ section.id }} .tab-list{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap:3rem;
+    }
+    #shopify-section-{{ section.id }} .tab-item{
+      padding: 10px 0px;
+      cursor: pointer;
+          font-size: {{section.settings.tab_font}}px;
+      font-weight: 500;
+      line-height: normal;
+      text-align: center;
+      white-space:nowrap;
+  }
+    #shopify-section-{{ section.id }} .tab-btn{
+      cursor: pointer;
+      color:{{section.settings.tab_color}};
+      border-bottom:1px solid {{ section.settings.tab_color }};
+    }
+    #shopify-section-{{ section.id }} .tab-btn.active{
+      color:{{ section.settings.tab_color_active }};
+      border-bottom:1px solid {{ section.settings.tab_color_active }};
+    }
+
+    #shopify-section-{{ section.id }} .content-list{
+    }
+    #shopify-section-{{ section.id }} .content-list .media{
+      width:100%;
+      border-radius:16px;
+          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  }
+
+   #shopify-section-{{ section.id }} .media-description{
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      #shopify-section-{{ section.id }} .media-description p{
+        font-size: {{ section.settings.description_font_size }}px;
+        line-height: 1.6;
+        text-align: center;
+      }
+      @media(max-width:750px){
+        #shopify-section-{{ section.id }} .media-description p{
+          font-size: calc({{ section.settings.description_font_size }}px * 0.875);
+        }
+</style>
+<style>
+      #shopify-section-{{ section.id }} .feacture-item{
+        height:auto;
+      }
+
+  #shopify-section-{{ section.id }} .line_through{
+      font-size: 14px;
+      text-align: center;
+        position: relative;
+    display: inline-block;
+    width:fit-content;
+    margin:0 auto !important;
+    text-decoration: none; /* 先去掉默认下划线 */
+  }
+  #shopify-section-{{ section.id }} .line_through::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px; /* 下划线厚度 */
+    width: 100%;
+    background-color: currentColor; /* 使用文字颜色 */
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .line_through:hover::after {
+    transform: scaleX(1);
+  }
+   @media(max-width:750px){
+        #shopify-section-{{ section.id }} .tab-list{
+            justify-content: flex-start;
+            gap: 20px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            flex-wrap: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 0 20px;
+        }
+        #shopify-section-{{ section.id }} .tab-list::-webkit-scrollbar{
+            display: none;
+        }
+        #shopify-section-{{ section.id }} .tab-item{
+                    font-size: {{section.settings.tab_font_mob}}px;
+            padding: 0 0 5px 0;
+            min-width: fit-content;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        #shopify-section-{{ section.id }} .tab-btn{
+            max-width: none;
+        }
+        #shopify-section-{{ section.id }} .tab-item.active{
+            padding: 0 0 5px 0;
+        }
+        }
+</style>
+
+<div class="{% if section.settings.show_content =='pc' %}sm:block sm-max:hidden{%endif %}  {% if section.settings.show_content =='mobile' %}sm:hidden sm-max:block{%endif %}">
+  <section
+    id="{{ section.settings.anchor_id }}"
+    class="discount-tab section-padding effect-{{ section.settings.switch_effect }}"
+  >
+    <div class="tab-container section-gap section-maxwidth">
+      <div class="tab-list">
+        {% for block in section.blocks %}
+          {% if block.type == 'media' %}
+            <div
+              class="tab-item tab-btn -text {% if section.settings.animate %}fade-element{% endif %}"
+              data-checkid="{{ block.id }}"
+            >
+              {% if block.settings.title != blank %}
+                {{ block.settings.title | default: 'collection' }}
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="tab-content {% if section.settings.animate %}fade-element{% endif %}">
+        {% for block in section.blocks %}
+          {% if block.type == 'media' %}
+            <div class="tab-content-item check-box" data-checkid="{{ block.id }}">
+              <div class="content-list">
+                {% if block.settings.description != blank %}
+                  <div class="media-description prose">
+                    {{ block.settings.description }}
+                  </div>
+                {% endif %}
+                {% if block.settings.video != blank %}
+                  <div class="video-wrapper sm:block sm-max:hidden">
+                    {{-
+                      block.settings.video
+                      | video_tag:
+                        playsinline: true,
+                        preload: 'metadata',
+                        autoplay: true,
+                        muted: true,
+                        loop: true,
+                        controls: false,
+                        image_size: '800x',
+                        class: 'lazy-video  media pc-video'
+                    -}}
+                    <div class="video-control">
+                      <svg width="70" height="70">
+                        <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
+                        <circle class="progress-bar" cx="35" cy="35" r="30"></circle>
+                      </svg>
+                      <div class="icon play"></div>
+                    </div>
+                  </div>
+
+                {% elsif block.settings.image != blank %}
+                  <img
+                    class="sm:block sm-max:hidden media"
+                    src="{{ block.settings.image | img_url:'' }}"
+                    alt="{{ block.settings.image.alt }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+
+                {% if block.settings.video_m != blank %}
+                  <div class="video-wrapper sm:hidden sm-max:block">
+                    {{-
+                      block.settings.video_m
+                      | video_tag:
+                        playsinline: true,
+                        preload: 'metadata',
+                        muted: true,
+                        loop: true,
+                        autoplay: true,
+                        controls: false,
+                        image_size: '800x',
+                        class: 'lazy-video  media'
+                    -}}
+                    <div class="video-control">
+                      <svg width="70" height="70">
+                        <circle class="progress-bg" cx="35" cy="35" r="30"></circle>
+                        <circle class="progress-bar" cx="35" cy="35" r="30"></circle>
+                      </svg>
+                      <div class="icon play"></div>
+                    </div>
+                  </div>
+                {% elsif block.settings.image_mob != blank %}
+                  <img
+                    class="sm:hidden sm-max:block media"
+                    src="{{ block.settings.image_mob | img_url:'' }}"
+                    alt="{{ block.settings.image_mob.alt }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+  (function () {
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('#shopify-section-{{ section.id }} .tab-btn');
+      const items = document.querySelectorAll('#shopify-section-{{ section.id }} .check-box');
+
+      if (buttons.length && items.length) {
+        // 默认第一个激活
+        buttons[0].classList.add('active');
+        items[0].classList.add('active');
+
+        buttons.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-checkid');
+
+            // 切换按钮
+            buttons.forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // 切换内容
+            items.forEach((item) => {
+              item.classList.toggle('active', item.getAttribute('data-checkid') === id);
+            });
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Media Tab",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "show_content",
+      "label": "模块显示模式",
+      "options": [
+        {
+          "value": "pc",
+          "label": "pc端显示"
+        },
+        {
+          "value": "mobile",
+          "label": "移动端显示"
+        },
+        {
+          "value": "mobile_pc",
+          "label": "双端显示"
+        }
+      ],
+      "default": "mobile_pc"
+    },
+    {
+      "type": "checkbox",
+      "id": "animate",
+      "label": "启用键入动画",
+      "default": true,
+      "info": "修改配置的时候关闭"
+    },
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Unique ID for anchor links",
+      "default": "discount-tab"
+    },
+    {
+      "type": "header",
+      "content": "Section Layout"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom"
+    },
+
+    {
+      "type": "range",
+      "id": "padding-gap",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap"
+    },
+
+    {
+      "type": "header",
+      "content": "Width restriction",
+      "info": "Section maxWidth"
+    },
+    {
+      "type": "range",
+      "id": "max-width",
+      "max": 1920,
+      "min": 900,
+      "step": 20,
+      "default": 1600,
+      "label": "Section width"
+    },
+    {
+      "type": "header",
+      "content": "Mob setting"
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section top mob"
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section bottom mob"
+    },
+
+    {
+      "type": "range",
+      "id": "padding-gap-mob",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "default": 20,
+      "label": "Section gap mob"
+    },
+    {
+      "type": "select",
+      "id": "switch_effect",
+      "label": "切换动画效果",
+      "default": "vertical",
+      "options": [
+        { "value": "vertical", "label": "上下展开" },
+        { "value": "horizontal", "label": "左右滑动" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Color settings"
+    },
+    {
+      "type": "color_background",
+      "id": "section_bg",
+      "label": "Section background"
+    },
+    {
+      "type": "color",
+      "id": "tab_color",
+      "label": "Tab color"
+    },
+    {
+      "type": "color",
+      "id": "tab_color_active",
+      "label": "Tab color active"
+    },
+    {
+      "type": "range",
+      "id": "tab_font",
+      "max": 60,
+      "min": 0,
+      "step": 1,
+      "default": 18,
+      "label": "Tab Font"
+    },
+    {
+      "type": "range",
+      "id": "tab_font_mob",
+      "max": 30,
+      "min": 0,
+      "step": 1,
+      "default": 14,
+      "label": "Tab Font Mob"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "media",
+      "name": "media",
+      "settings": [
+        {
+          "type": "header",
+          "content": "数据源"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Item"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "video",
+          "id": "video_m",
+          "label": "Video m"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mob",
+          "label": "image Mob"
+        },
+
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media Tab"
+    }
+  ]
+}
+{% endschema %}
