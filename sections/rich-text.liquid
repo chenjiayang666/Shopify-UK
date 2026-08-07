@@ -3,11 +3,47 @@
 
   <style>
     #shopify-section-{{ section.id }} {
-      --rich-text-max-width: {% if section.settings.content_width == 'small' %}650px{% elsif section.settings.content_width == 'medium' %}780px{% else %}100%{% endif %}
+      --rich-text-max-width: {% if section.settings.content_width == 'small' %}650px{% elsif section.settings.content_width == 'medium' %}780px{% elsif section.settings.content_width == 'big' %}1000px{% elsif section.settings.content_width == 'base' %}1200px{% else %}100%{% endif %}
+    }
+    #rich-text{{ section.id }} {
+      padding-top:{{section.settings.section_pdtop}}px;
+      padding-bottom:{{section.settings.section_pdbot}}px;
+    }
+    #shopify-section-{{ section.id }} .decor-heading{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:center;
+    }
+    #shopify-section-{{ section.id }} .decor-heading img{
+        max-width:74px;
+        margin-block-start: var(--spacing-8) !important;
+      }
+    @media screen and (max-width:768px){
+      #rich-text{{ section.id }} {
+        padding-top:calc({{section.settings.section_pdtop}}px / 2);
+        padding-bottom:calc({{section.settings.section_pdbot}}px / 2);
+      }
+      #shopify-section-{{ section.id }} .decor-heading img{
+              max-width:36px;
+        margin-block-start: var(--spacing-4) !important;
+      }
+    }
+
+    @media(min-width:750px){
+      #shopify-section-{{ section.id }} #rich-text{{ section.id }}{
+          {% if section.settings.section_background_image != blank %}
+              background-image:url({{ section.settings.section_background_image | img_url: ''  }});
+              background-size: cover;
+              background-repeat: no-repeat;
+          {% endif %}
+      }
     }
   </style>
 
-  <div id="feature-list-{{ section.settings.anchor_id | default: section.id }}" {% render 'section-properties' %}>
+<div
+    id="{{ section.settings.anchor_id }}" class="{% if section.settings.show_content =='pc' %}sm:block sm-max:hidden{%endif %}  {% if section.settings.show_content =='mobile' %}sm:hidden sm-max:block{%endif %}">
+  <div id="rich-text{{ section.id }}" {% render 'section-properties' %}>
     {%- assign text_position = section.settings.text_position -%}
     {%- assign blocks_before_divider = '' -%}
     {%- assign blocks_after_divider = '' -%}
@@ -17,14 +53,33 @@
         {%- case block.type -%}
           {%- when 'subheading' -%}
             {%- if block.settings.text != blank -%}
-              <p class="subheading" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+              <{{ block.settings.subheading-tag }} class="bold" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</{{ block.settings.subheading-tag }}>
             {%- endif -%}
 
           {%- when 'heading' -%}
             {%- if block.settings.text != blank -%}
-              <p class="{{ block.settings.heading_tag }} hyphenate" {{ block.shopify_attributes }}>
-                {%- render 'styled-text', content: block.settings.text, text_color: block.settings.text_color, gradient: block.settings.gradient -%}
-              </p>
+
+              {%if block.settings.decorate_img1 != blank or block.settings.decorate_img2 %}
+                <div class="decor-heading">
+              {% endif %}
+
+              {%if block.settings.decorate_img1 != blank %}
+                <img src="{{block.settings.decorate_img1 |img_url:''}}" alt="{{block.settings.decorate_img1.alt}}">
+              {% endif %}
+            
+              <{{ block.settings.heading-tag }} class="{{ block.settings.heading_tag }} hyphenate" {{ block.shopify_attributes }} style="{% if block.settings.remove_margin %}margin:0{% endif %}">
+                {%- render 'styled-text', content: block.settings.text, text_color: block.settings.text_color, gradient: block.settings.gradient,shadow:block.settings.shadow -%}
+              </{{ block.settings.heading-tag }}>
+            
+              {% if block.settings.decorate_img2 != blank %}
+                <img src="{{block.settings.decorate_img2 |img_url:''}}" alt="{{block.settings.decorate_img2.alt}}">
+              {% endif %}
+
+              {%if block.settings.decorate_img1 != blank or block.settings.decorate_img2 %}
+                </div>
+              {% endif %}
+
+
             {%- endif -%}
 
           {%- when 'richtext' -%}
@@ -129,8 +184,9 @@
       </div>
     </div>
   </div>
-{%- endif -%}
+</div>
 
+{%- endif -%}
 {% schema %}
 {
   "name": "Rich text",
@@ -140,13 +196,38 @@
     "groups": ["header", "custom.overlay"]
   },
   "settings": [
-      {
-  "type": "text",
-  "id": "anchor_id",
-  "label": "Anchor ID",
-  "info": "Unique ID for anchor links",
-  "default": "rich-text"
-},
+     {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID",
+      "info": "Unique ID for anchor links",
+    },
+    {
+      "type": "select",
+      "id": "show_content",
+      "label": "模块显示模式",
+      "options": [
+        {
+          "value": "pc",
+          "label": "pc端显示"
+        },
+        {
+          "value": "mobile",
+          "label": "移动端显示"
+        },
+        {
+          "value": "mobile_pc",
+          "label": "双端显示"
+        }
+      ],
+      "default": "mobile_pc"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_background_image",
+      "label": "分区背景图片",
+      "info": "优先展示图片"
+    },
     {
       "type": "checkbox",
       "id": "full_width",
@@ -165,6 +246,14 @@
         {
           "value": "medium",
           "label": "Medium"
+        },
+        {
+          "value": "base",
+          "label": "Base"
+        },
+                {
+          "value": "big",
+          "label": "Big"
         },
         {
           "value": "large",
@@ -212,7 +301,28 @@
       "type": "color",
       "id": "text_color",
       "label": "Text"
-    }
+    },
+    {
+      "type": "range",
+      "id": "section_pdtop",
+      "label": "Section top spacing",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "section_pdbot",
+      "label": "Section bottom spacing",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 70
+    },
+   
   ],
   "blocks": [
     {
@@ -224,7 +334,22 @@
           "id": "text",
           "label": "Text",
           "default": "Subheading"
-        }
+        },
+        {
+        "type":"select",
+        "id": "subheading-tag",
+        "label": "Subheading Tag",
+        "options": [
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+             { "value": "h4", "label": "H4" },
+            { "value": "h5", "label": "H5" },
+            { "value": "h6", "label": "H6" },
+            { "value": "p","label": "p"}
+        ],
+        "default": "p"
+      },
       ]
     },
     {
@@ -237,6 +362,37 @@
           "label": "Text",
           "default": "Heading"
         },
+        {
+          "type": "checkbox",
+          "id": "remove_margin",
+          "default":false,
+          "label": "移除富文本盒子对margin的影响"
+        },
+        {
+          "type": "image_picker",
+          "id": "decorate_img1",
+          "label": "修饰图1"
+        },
+        {
+          "type": "image_picker",
+          "id": "decorate_img2",
+          "label": "修饰图2"
+        },
+        {
+        "type":"select",
+        "id": "heading-tag",
+        "label": "Heading Tag",
+        "options": [
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+             { "value": "h4", "label": "H4" },
+            { "value": "h5", "label": "H5" },
+            { "value": "h6", "label": "H6" },
+            { "value": "p","label": "p"}
+        ],
+        "default": "p"
+      },
         {
           "type": "select",
           "id": "heading_tag",
@@ -278,6 +434,11 @@
           "type": "color_background",
           "id": "gradient",
           "label": "Gradient"
+        },
+                {
+          "type": "text",
+          "id": "shadow",
+          "label": "Text Shadow",
         }
       ]
     },
