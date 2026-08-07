@@ -1,0 +1,302 @@
+
+<section
+  class="wbz-icon-grid-section page"
+  style="background-color: {{ section.settings.section_bg_color }};"
+>
+  {% if section.settings.heading != blank %}
+    <h2
+      class="wbz-section-heading"
+      style="color: {{ section.settings.section_heading_color }};"
+    >
+      {{ section.settings.heading }}
+    </h2>
+  {% endif %}
+
+  <div class="wbz-icon-grid">
+    {% for block in section.blocks %}
+      <div
+        class="wbz-icon-grid-item"
+        style="background-color: {{ block.settings.block_bg_color }};"
+        {{ block.shopify_attributes }}
+      >
+        
+        {% if block.settings.icon != blank %}
+          <div class="wbz-icon">
+            <img
+              src="{{ block.settings.icon | image_url: width: 600 }}"
+              alt=""
+              width="{{ block.settings.icon.width }}"
+              height="{{ block.settings.icon.height }}"
+              loading="lazy"
+            >
+          </div>
+        {% endif %}
+
+        {% if block.settings.heading != blank %}
+          <h3
+            class="wbz-block-heading"
+            style="color: {{ block.settings.heading_color }};"
+          >
+            {{ block.settings.heading }}
+          </h3>
+        {% endif %}
+
+        {% if block.settings.subheading != blank %}
+          <div
+            class="wbz-block-subheading"
+            style="color: {{ block.settings.subheading_color }};"
+          >
+            {{ block.settings.subheading }}
+          </div>
+        {% endif %}
+
+        {% if block.settings.text != blank %}
+          <div
+            class="wbz-block-text"
+            style="color: {{ block.settings.text_color }};"
+          >
+            {{ block.settings.text }}
+          </div>
+        {% endif %}
+
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+    .wbz-icon-grid-section {
+  padding: 0px 20px;
+}
+
+.wbz-section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.wbz-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6rem;
+}
+
+.wbz-icon-grid-item {
+  text-align: center;
+  padding: 0px;
+  border-radius: 7px;
+      padding: 0 40px;
+}
+.wbz-icon img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.wbz-section-heading {
+  font-size: 56px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.wbz-block-subheading {
+  margin-bottom: 10px;
+}
+
+.wbz-block-text {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.wbz-icon-grid-section.page {
+  max-width: 1240px;
+}
+.wbz-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wbz-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-width: 70px;
+    margin: 0;
+}
+.wbz-block-heading {
+  font-size: 100px;
+  font-weight: 900;
+  line-height: 1;
+}
+.wbz-block-heading em {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 900;
+}
+.wbz-block-subheading {
+  font-size: 18px;
+}
+@media (min-width: 941px) {
+.wbz-icon-grid {
+  direction: rtl;
+}
+}
+@media (max-width: 940px) {
+  .wbz-section-heading {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 0;
+    line-height: 1.3;
+    }
+    .wbz-block-heading {
+      font-size: 60px;
+    }
+    .wbz-block-heading em {
+      font-size: 16px;
+    }
+    .wbz-icon img{
+      max-width:30px;
+    }
+    .wbz-block-subheading {
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .wbz-icon-grid {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+ 
+        .wbz-icon-grid-item {
+      width: auto;
+        flex: 1;
+        padding: 0;
+    }
+} 
+@media (max-width: 420px) {
+  .wbz-block-text {
+    max-width: 300px;
+  }
+  .wbz-icon-grid {
+    display: flex;
+    flex-direction: row;
+  }
+  .wbz-icon-grid-item {
+    width: 100%;
+  }
+  .wbz-icon {
+    margin-bottom: 5px;
+  }
+   .wbz-block-subheading {
+      font-size: 14px;
+    }
+}
+
+@media (max-width: 940px) and (min-width: 1px) {
+  .wbz-block-text {
+    font-size: 14px;
+    max-width: 300px;
+    margin: auto;
+  }
+  .wbz-block-subheading {
+    font-size: 12px;
+  }
+  .wbz-block-heading {
+    font-size: 48px;
+  }
+  .wbz-icon-grid-item {
+    text-align: center;
+  }
+    .wbz-icon-grid-item {
+      width: auto;
+        flex: 1;
+        padding: 0;
+    }
+
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Custom - Icon Grid",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Section Heading"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "section_heading_color",
+      "label": "Section Heading Color",
+      "default": "#000000"
+    },
+    
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon (Full Width)"
+        },
+        {
+          "type": "color",
+          "id": "block_bg_color",
+          "label": "Block Background Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading Color",
+          "default": "#000000"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "subheading",
+          "label": "Subheading"
+        },
+        {
+          "type": "color",
+          "id": "subheading_color",
+          "label": "Subheading Color",
+          "default": "#333333"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#555555"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom - Icon Grid"
+    }
+  ]
+}
+{% endschema %}
