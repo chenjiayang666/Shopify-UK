@@ -215,9 +215,2057 @@
         "input_background": "rgba(0,0,0,0)",
         "input_text_color": ""
       }
+    },
+    "slideshow_ckHb9d": {
+      "type": "slideshow",
+      "blocks": {
+        "image_KCgwTH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/merach-sale-banner-pc.jpg",
+            "mobile_image": "shopify://shop_images/merach-sale-banner-m.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_KCgwTH"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
+        "background_gradient": ""
+      }
+    },
+    "rich_text_QGJYJe": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_CkKmFR": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading",
+            "subheading-tag": "p"
+          }
+        },
+        "heading_CGKy3y": {
+          "type": "heading",
+          "settings": {
+            "text": "Get the Highlights",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_cdprPb": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_CkKmFR",
+        "heading_CGKy3y",
+        "richtext_cdprPb"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "custom_media_grid_M8L6nj": {
+      "type": "custom-media-grid",
+      "blocks": {
+        "image_UrYQfQ": {
+          "type": "image",
+          "settings": {
+            "desktop_layout_ranges": "1-4,36-50",
+            "mobile_layout_ranges": "2-3, 2-3",
+            "image": "shopify://shop_images/w60-ksp-pc-525_6.jpg",
+            "title": "",
+            "heading_tag": "h4",
+            "h5_font_size": "12px",
+            "link_url": "",
+            "link_text": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_nTJp76": {
+          "type": "image",
+          "settings": {
+            "desktop_layout_ranges": "4-6,22-34",
+            "mobile_layout_ranges": "3-4,1-2",
+            "image": "shopify://shop_images/w60-ksp-pc-525_3.jpg",
+            "title": "",
+            "heading_tag": "h4",
+            "h5_font_size": "12px",
+            "link_url": "",
+            "link_text": "",
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-start-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_mrDg64": {
+          "type": "image",
+          "settings": {
+            "desktop_layout_ranges": "1-4,22-36",
+            "mobile_layout_ranges": "2-3,1-2",
+            "image": "shopify://shop_images/w60-ksp-pc-525_1.jpg",
+            "title": "",
+            "heading_tag": "h4",
+            "h5_font_size": "12px",
+            "link_url": "",
+            "link_text": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_ND6wH3": {
+          "type": "image",
+          "settings": {
+            "desktop_layout_ranges": "4-6,34-42",
+            "mobile_layout_ranges": "3-4,2-3",
+            "image": "shopify://shop_images/w60-ksp-pc-525_4.jpg",
+            "title": "",
+            "heading_tag": "h4",
+            "h5_font_size": "12px",
+            "link_url": "",
+            "link_text": "",
+            "mobile_text_position": "place-self-start text-start",
+            "desktop_text_position": "sm:place-self-start sm:text-start",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_FakdzU": {
+          "type": "image",
+          "settings": {
+            "desktop_layout_ranges": "4-6,42-50",
+            "mobile_layout_ranges": "1-2,2-3",
+            "image": "shopify://shop_images/w60-ksp-pc-525_2.jpg",
+            "title": "",
+            "heading_tag": "h4",
+            "h5_font_size": "12px",
+            "link_url": "",
+            "link_text": "",
+            "mobile_text_position": "place-self-start text-start",
+            "desktop_text_position": "sm:place-self-start sm:text-start",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_y39CTU": {
+          "type": "image",
+          "settings": {
+            "desktop_layout_ranges": "1-6, 1-22",
+            "mobile_layout_ranges": "1-2,1-2",
+            "image": "shopify://shop_images/w60-ksp-pc-525_5.jpg",
+            "title": "",
+            "heading_tag": "h4",
+            "h5_font_size": "12px",
+            "link_url": "",
+            "link_text": "",
+            "mobile_text_position": "place-self-start text-start",
+            "desktop_text_position": "sm:place-self-start sm:text-start",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_UrYQfQ",
+        "image_nTJp76",
+        "image_mrDg64",
+        "image_ND6wH3",
+        "image_FakdzU",
+        "image_y39CTU"
+      ],
+      "custom_css": [
+        ".content-over-media > :is(picture, img, video, iframe, svg, video-media) {width: revert-layer;}",
+        ".dev-section {max-width: 1000px; padding: 2rem 20px; margin: 0 auto;}",
+        ".custom-media-grid {gap: 15px;}",
+        "@media (max-width: 750px) {.custom-media-grid {gap: 12px; }}"
+      ],
+      "name": "高自定义的Media Grid",
+      "settings": {
+        "full_width": false,
+        "reduce_width": false,
+        "mobile_column": 2,
+        "desktop_row_height": 90,
+        "mobile_row_height": 150,
+        "background": "",
+        "background_gradient": ""
+      }
+    },
+    "rich_text_L7YbRD": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_yY9kzQ": {
+          "type": "heading",
+          "settings": {
+            "text": "Sick of Walking Pads  Dying after 6 Months?",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "heading_nYibG9": {
+          "type": "heading",
+          "settings": {
+            "text": "Get One Build to Last",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "#000000",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_KfQ6DM": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Engineered for up to 15,000-hour life*, W60’s 1.25 CHP brushless motor lasts up to 10 years—roughly 10x longer than the industry average.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_yY9kzQ",
+        "heading_nYibG9",
+        "richtext_KfQ6DM"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "big",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "slide_banner_qJRJyr": {
+      "type": "slide-banner",
+      "blocks": {
+        "banner_UkTF9r": {
+          "type": "banner",
+          "settings": {
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_UkTF9r"
+      ],
+      "name": "Slide Banner",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap-left": 20,
+        "padding-gap-right": 20,
+        "max-width": 1000,
+        "media-maxwidth": 1000,
+        "padding-top-mob": 0,
+        "padding-bottom-mob": 20,
+        "padding-gap-left-mob": 20,
+        "padding-gap-right-mob": 20,
+        "title": "",
+        "heading_tag": "h1",
+        "subtitle": "",
+        "button_text": "Show Now",
+        "button_link": "",
+        "show_button_shadow": true,
+        "section-bg": "",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "button_bg": "#fff",
+        "button_color": "#0096f9",
+        "article-card-bg": "#fff",
+        "article-color": "#000",
+        "default-ratio": "355/200",
+        "default-card-bg": "#fff",
+        "default-title-color": "#000",
+        "default-subtitle-color": "#101820",
+        "default-button-color": "#101820",
+        "section-bg-mob": "#000",
+        "title-color-mob": "#fff",
+        "subtitle-color-mob": "#fff",
+        "banner_radius": 20,
+        "slide_per_view": 1,
+        "slide_per_splite": 0,
+        "slide_gap": 20,
+        "show-button": false,
+        "slide-button-bg": "white",
+        "slide-button-color": "#000000",
+        "slide_per_view_mob": 1,
+        "slide_per_splite_mob": 0,
+        "slide_gap_mob": 20,
+        "show_mob_pag": false
+      }
+    },
+    "rich_text_mehM7W": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_mYqimX": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading",
+            "subheading-tag": "p"
+          }
+        },
+        "heading_43UhKb": {
+          "type": "heading",
+          "settings": {
+            "text": "Don't Just Look at Peak HP",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_dFYPbd": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Peak HP is a short burst. CHP is what keeps your walk steady when incline or body weight adds resistance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_mYqimX",
+        "heading_43UhKb",
+        "richtext_dFYPbd"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "slide_banner_WnCrr4": {
+      "type": "slide-banner",
+      "blocks": {
+        "banner_XnM47q": {
+          "type": "banner",
+          "settings": {
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_XnM47q"
+      ],
+      "name": "Slide Banner",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap-left": 20,
+        "padding-gap-right": 20,
+        "max-width": 1000,
+        "media-maxwidth": 1000,
+        "padding-top-mob": 0,
+        "padding-bottom-mob": 20,
+        "padding-gap-left-mob": 20,
+        "padding-gap-right-mob": 20,
+        "title": "",
+        "heading_tag": "h1",
+        "subtitle": "",
+        "button_text": "Show Now",
+        "button_link": "",
+        "show_button_shadow": true,
+        "section-bg": "",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "button_bg": "#fff",
+        "button_color": "#0096f9",
+        "article-card-bg": "#fff",
+        "article-color": "#000",
+        "default-ratio": "355/200",
+        "default-card-bg": "#fff",
+        "default-title-color": "#000",
+        "default-subtitle-color": "#101820",
+        "default-button-color": "#101820",
+        "section-bg-mob": "#000",
+        "title-color-mob": "#fff",
+        "subtitle-color-mob": "#fff",
+        "banner_radius": 0,
+        "slide_per_view": 1,
+        "slide_per_splite": 0,
+        "slide_gap": 20,
+        "show-button": false,
+        "slide-button-bg": "white",
+        "slide-button-color": "#000000",
+        "slide_per_view_mob": 1,
+        "slide_per_splite_mob": 0,
+        "slide_gap_mob": 20,
+        "show_mob_pag": false
+      }
+    },
+    "rich_text_EenLUr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_T7Ympr": {
+          "type": "heading",
+          "settings": {
+            "text": "Built Heavy Where It Counts",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_VEcN3E": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>A heavier frame helps the machine stay planted when your steps get faster, stronger, or heavier.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_T7Ympr",
+        "richtext_VEcN3E"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "slide_banner_XfBVQC": {
+      "type": "slide-banner",
+      "blocks": {
+        "banner_9mVqcY": {
+          "type": "banner",
+          "settings": {
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_9mVqcY"
+      ],
+      "name": "Slide Banner",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap-left": 20,
+        "padding-gap-right": 20,
+        "max-width": 1000,
+        "media-maxwidth": 1000,
+        "padding-top-mob": 0,
+        "padding-bottom-mob": 0,
+        "padding-gap-left-mob": 20,
+        "padding-gap-right-mob": 20,
+        "title": "",
+        "heading_tag": "h1",
+        "subtitle": "",
+        "button_text": "Show Now",
+        "button_link": "",
+        "show_button_shadow": true,
+        "section-bg": "",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "button_bg": "#fff",
+        "button_color": "#0096f9",
+        "article-card-bg": "#fff",
+        "article-color": "#000",
+        "default-ratio": "355/200",
+        "default-card-bg": "#fff",
+        "default-title-color": "#000",
+        "default-subtitle-color": "#101820",
+        "default-button-color": "#101820",
+        "section-bg-mob": "#000",
+        "title-color-mob": "#fff",
+        "subtitle-color-mob": "#fff",
+        "banner_radius": 0,
+        "slide_per_view": 1,
+        "slide_per_splite": 0,
+        "slide_gap": 20,
+        "show-button": false,
+        "slide-button-bg": "white",
+        "slide-button-color": "#000000",
+        "slide_per_view_mob": 1,
+        "slide_per_splite_mob": 0,
+        "slide_gap_mob": 20,
+        "show_mob_pag": false
+      }
+    },
+    "rich_text_6jVxQr": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_epEaEg": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading",
+            "subheading-tag": "p"
+          }
+        },
+        "heading_NthgFq": {
+          "type": "heading",
+          "settings": {
+            "text": "Bigger Rollers. Smoother Belt.",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_GxFAHj": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Smaller rollers bend the belt more sharply. Larger rollers create a gentle turn with less belt stress.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_epEaEg",
+        "heading_NthgFq",
+        "richtext_GxFAHj"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "slide_banner_krmbaX": {
+      "type": "slide-banner",
+      "blocks": {
+        "banner_rwQYFk": {
+          "type": "banner",
+          "settings": {
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_rwQYFk"
+      ],
+      "name": "Slide Banner",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap-left": 20,
+        "padding-gap-right": 20,
+        "max-width": 1000,
+        "media-maxwidth": 1000,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 20,
+        "padding-gap-left-mob": 20,
+        "padding-gap-right-mob": 20,
+        "title": "",
+        "heading_tag": "h1",
+        "subtitle": "",
+        "button_text": "Show Now",
+        "button_link": "",
+        "show_button_shadow": true,
+        "section-bg": "",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "button_bg": "#fff",
+        "button_color": "#0096f9",
+        "article-card-bg": "#fff",
+        "article-color": "#000",
+        "default-ratio": "355/200",
+        "default-card-bg": "#fff",
+        "default-title-color": "#000",
+        "default-subtitle-color": "#101820",
+        "default-button-color": "#101820",
+        "section-bg-mob": "#000",
+        "title-color-mob": "#fff",
+        "subtitle-color-mob": "#fff",
+        "banner_radius": 0,
+        "slide_per_view": 1,
+        "slide_per_splite": 0,
+        "slide_gap": 20,
+        "show-button": false,
+        "slide-button-bg": "white",
+        "slide-button-color": "#000000",
+        "slide_per_view_mob": 1,
+        "slide_per_splite_mob": 0,
+        "slide_gap_mob": 20,
+        "show_mob_pag": false
+      }
+    },
+    "video_xHN38A": {
+      "type": "video",
+      "blocks": {
+        "play_dXQf3A": {
+          "type": "play",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "play_dXQf3A"
+      ],
+      "name": "Video",
+      "settings": {
+        "anchor_id": "minimum-slide",
+        "full_width": false,
+        "max-width": 960,
+        "allow_transparent_header": false,
+        "autoplay": false,
+        "show_step": false,
+        "video_size": "auto",
+        "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "rich_text_HE7NWK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_txfgPd": {
+          "type": "heading",
+          "settings": {
+            "text": "A Treadmill-Grade Walking Pad",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "heading_78hxGX": {
+          "type": "heading",
+          "settings": {
+            "text": "A Perfect Running Alternative",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_Vrh7zx": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>A complete upgrade in quality and experience, plus integrated entertainment, making it the perfect choice for everyone to enjoy walking and climbing at home.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_txfgPd",
+        "heading_78hxGX",
+        "richtext_Vrh7zx"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "big",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "media_tab_qnBrVV": {
+      "type": "media-tab",
+      "blocks": {
+        "media_f8RAwU": {
+          "type": "media",
+          "settings": {
+            "title": "Worried about capacity?",
+            "description": ""
+          }
+        },
+        "media_BTrbVk": {
+          "type": "media",
+          "settings": {
+            "title": "Worried about intensity?",
+            "description": ""
+          }
+        },
+        "media_tGhegc": {
+          "type": "media",
+          "settings": {
+            "title": "Concerned about noise?",
+            "description": ""
+          }
+        },
+        "media_EKMKaL": {
+          "type": "media",
+          "settings": {
+            "title": "Fear the grind?",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "media_f8RAwU",
+        "media_BTrbVk",
+        "media_tGhegc",
+        "media_EKMKaL"
+      ],
+      "custom_css": [
+        ".media-description p {margin-top: 10px;}",
+        ".tab-item {font-size: 18px;}"
+      ],
+      "name": "Media Tab",
+      "settings": {
+        "show_content": "pc",
+        "animate": true,
+        "anchor_id": "discount-tab",
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "max-width": 1000,
+        "padding-top-mob": 0,
+        "padding-bottom-mob": 20,
+        "padding-gap-mob": 20,
+        "switch_effect": "vertical",
+        "section_bg": "",
+        "tab_color": "",
+        "tab_color_active": "#0ca0f7",
+        "tab_font": 24,
+        "tab_font_mob": 14
+      }
+    },
+    "image_text_sroll_GQAzGE": {
+      "type": "image-text-sroll",
+      "blocks": {
+        "item_FgpDV8": {
+          "type": "item",
+          "settings": {
+            "img_text": "Worried about capacity?",
+            "media_width": 50,
+            "title": "",
+            "text": "",
+            "link": ""
+          }
+        },
+        "item_8MxMrX": {
+          "type": "item",
+          "settings": {
+            "img_text": "Worried about intensity?",
+            "media_width": 50,
+            "title": "",
+            "text": "",
+            "link": ""
+          }
+        },
+        "item_rfzjTj": {
+          "type": "item",
+          "settings": {
+            "img_text": "Concerned about noise?",
+            "media_width": 50,
+            "title": "",
+            "text": "",
+            "link": ""
+          }
+        },
+        "item_JJWRJW": {
+          "type": "item",
+          "settings": {
+            "img_text": "Fear the grind?",
+            "media_width": 50,
+            "title": "",
+            "text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_FgpDV8",
+        "item_8MxMrX",
+        "item_rfzjTj",
+        "item_JJWRJW"
+      ],
+      "name": "Media with text scroll",
+      "settings": {
+        "show_content": "mobile",
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "max-width": 1240,
+        "block_height": 420,
+        "padding-top-mob": 0,
+        "padding-bottom-mob": 20,
+        "padding-gap-mob": 20,
+        "section-bg": ""
+      }
+    },
+    "rich_text_BMR7tk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nQ7Fgt": {
+          "type": "heading",
+          "settings": {
+            "text": "Quality & Performance",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h4",
+            "text_color": "",
+            "gradient": "linear-gradient(244deg, rgba(121, 255, 255, 1) 4%, rgba(0, 108, 217, 1) 47%)",
+            "shadow": ""
+          }
+        },
+        "heading_bKNLnc": {
+          "type": "heading",
+          "settings": {
+            "text": "Leading the Way:",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "heading_t9aCTt": {
+          "type": "heading",
+          "settings": {
+            "text": "High-Horsepower Brushless Motor",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_RXkipg": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Built to power real heavy-duty load and solid incline walking—strong, smooth, and quiet for every step.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nQ7Fgt",
+        "heading_bKNLnc",
+        "heading_t9aCTt",
+        "richtext_RXkipg"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "video_WiixzW": {
+      "type": "video",
+      "blocks": {
+        "play_e9febn": {
+          "type": "play",
+          "disabled": true,
+          "settings": {}
+        },
+        "heading_zrRPeM": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "text": "Video",
+            "title_seo": "",
+            "heading_tag": "p",
+            "heading_size": "dev-xx-large"
+          }
+        }
+      },
+      "block_order": [
+        "play_e9febn",
+        "heading_zrRPeM"
+      ],
+      "custom_css": [
+        "#t27-video {padding-bottom: 20px;}"
+      ],
+      "name": "Video",
+      "settings": {
+        "anchor_id": "minimum-slide",
+        "full_width": false,
+        "max-width": 960,
+        "allow_transparent_header": false,
+        "autoplay": true,
+        "show_step": false,
+        "video_size": "auto",
+        "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "wabeez_custom_icon_grid_TnBccf": {
+      "type": "wabeez-custom-icon-grid",
+      "blocks": {
+        "item_pJwLWG": {
+          "type": "item",
+          "settings": {
+            "block_bg_color": "#ffffff",
+            "heading": "",
+            "heading_color": "#000000",
+            "subheading": "<strong>Precision Control: Integrated Hall Sensor</strong>",
+            "subheading_color": "#333333",
+            "text": "",
+            "text_color": "#555555"
+          }
+        },
+        "item_4LFqDC": {
+          "type": "item",
+          "settings": {
+            "block_bg_color": "#ffffff",
+            "heading": "",
+            "heading_color": "#000000",
+            "subheading": "<strong>Maxed-Out Performance: 1.25 CHP / 3.5 HP Peak</strong>",
+            "subheading_color": "#333333",
+            "text": "",
+            "text_color": "#555555"
+          }
+        },
+        "item_FzrKB6": {
+          "type": "item",
+          "settings": {
+            "block_bg_color": "#ffffff",
+            "heading": "",
+            "heading_color": "#000000",
+            "subheading": "<strong>Ditch the Brushed, Go Brushless Motor</strong>",
+            "subheading_color": "#333333",
+            "text": "",
+            "text_color": "#555555"
+          }
+        }
+      },
+      "block_order": [
+        "item_pJwLWG",
+        "item_4LFqDC",
+        "item_FzrKB6"
+      ],
+      "name": "Custom - Icon Grid",
+      "settings": {
+        "heading": "",
+        "section_bg_color": "#ffffff",
+        "section_heading_color": "#000000"
+      }
+    },
+    "slide_banner_ApiLDm": {
+      "type": "slide-banner",
+      "blocks": {
+        "banner_FPdh3q": {
+          "type": "banner",
+          "settings": {
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_FPdh3q"
+      ],
+      "name": "Slide Banner",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap-left": 20,
+        "padding-gap-right": 20,
+        "max-width": 1000,
+        "media-maxwidth": 1000,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 20,
+        "padding-gap-left-mob": 20,
+        "padding-gap-right-mob": 20,
+        "title": "",
+        "heading_tag": "h1",
+        "subtitle": "",
+        "button_text": "",
+        "button_link": "",
+        "show_button_shadow": true,
+        "section-bg": "",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "button_bg": "#fff",
+        "button_color": "#0096f9",
+        "article-card-bg": "#fff",
+        "article-color": "#000",
+        "default-ratio": "355/200",
+        "default-card-bg": "#fff",
+        "default-title-color": "#000",
+        "default-subtitle-color": "#101820",
+        "default-button-color": "#101820",
+        "section-bg-mob": "#000",
+        "title-color-mob": "#fff",
+        "subtitle-color-mob": "#fff",
+        "banner_radius": 0,
+        "slide_per_view": 1,
+        "slide_per_splite": 0,
+        "slide_gap": 20,
+        "show-button": false,
+        "slide-button-bg": "white",
+        "slide-button-color": "#000000",
+        "slide_per_view_mob": 1,
+        "slide_per_splite_mob": 0,
+        "slide_gap_mob": 20,
+        "show_mob_pag": false
+      }
+    },
+    "rich_text_mkNHyW": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_UVt8jz": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading",
+            "subheading-tag": "p"
+          }
+        },
+        "heading_yHaXMF": {
+          "type": "heading",
+          "settings": {
+            "text": "Built to Last & Outperform",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_9M9bbw": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>From incline walking to weight-loss jogging, enjoy rock-solid stability and silent support for every goal.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_UVt8jz",
+        "heading_yHaXMF",
+        "richtext_9M9bbw"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "multi_column_pro_xDG3f3": {
+      "type": "multi-column-pro",
+      "blocks": {
+        "item_QJ7DxH": {
+          "type": "item",
+          "settings": {
+            "column_size": "2",
+            "item_title": "",
+            "title": "0.6–4.0 mph | Average 53.6 dB Quiet Performance",
+            "heading_tag": "h4",
+            "content": "<p>Treadmill-level support meets a silent cotton-weave belt. Workout in total privacy without ever bothering the families and neighbors.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": ""
+          }
+        },
+        "item_Wzjtxi": {
+          "type": "item",
+          "settings": {
+            "column_size": "2",
+            "item_title": "",
+            "title": "Pick up the Pace up to 400 lb. It Stays Steady",
+            "heading_tag": "h4",
+            "content": "<p>3.5 HP peak brushless motor plus a 70 lb reinforced steel frame, it stays stable so you can walk faster without holding back.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_QJ7DxH",
+        "item_Wzjtxi"
+      ],
+      "custom_css": [
+        "@media (max-width: 750px) {.multi-column__item {gap: 15px; } .gap-4 {gap: 10px; }}"
+      ],
+      "name": "Multi-column-pro",
+      "settings": {
+        "padding-top": 0,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "max-width": 1000,
+        "padding-top-mob": 0,
+        "padding-bottom-mob": 20,
+        "padding-gap-mob": 20,
+        "full_width": true,
+        "stack_on_mobile": true,
+        "gap": "x-large",
+        "text_alignment": "start",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "column_gap": 24,
+        "column_gap_mob": 30
+      }
+    },
+    "rich_text_AybaEe": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LgyqdQ": {
+          "type": "heading",
+          "settings": {
+            "text": "Effectiveness",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h4",
+            "text_color": "",
+            "gradient": "linear-gradient(244deg, rgba(121, 255, 255, 1) 4%, rgba(0, 108, 217, 1) 47%)",
+            "shadow": ""
+          }
+        },
+        "heading_kRdnDp": {
+          "type": "heading",
+          "settings": {
+            "text": "Making it Work:",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "heading_wWMXqE": {
+          "type": "heading",
+          "settings": {
+            "text": "12% Auto Incline, Boosts the Fat Burn",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_fNwhLp": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Beyond the standard 6% shaky incline. The W60 offers a solid 12% slope to bring the great outdoors into your home.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LgyqdQ",
+        "heading_kRdnDp",
+        "heading_wWMXqE",
+        "richtext_fNwhLp"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "big",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "video_BVT49R": {
+      "type": "video",
+      "custom_css": [
+        "video-media {aspect-ratio: 16 / 7;}"
+      ],
+      "name": "Video",
+      "settings": {
+        "anchor_id": "minimum-slide",
+        "full_width": true,
+        "max-width": 1200,
+        "allow_transparent_header": false,
+        "autoplay": true,
+        "show_step": false,
+        "video_size": "auto",
+        "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "multi_column_pro_gMrqHb": {
+      "type": "multi-column-pro",
+      "blocks": {
+        "item_rGierc": {
+          "type": "item",
+          "settings": {
+            "column_size": "2",
+            "item_title": "",
+            "title": "Same Time, Double the Fat Burn",
+            "heading_tag": "h4",
+            "content": "<p>Incline walking engages your core and lower body, helping you reach a more effective zone for maximum fat burn.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": ""
+          }
+        },
+        "item_Bgx994": {
+          "type": "item",
+          "settings": {
+            "column_size": "2",
+            "item_title": "",
+            "title": "Elevate the Slope, Elevate Your Posture",
+            "heading_tag": "h4",
+            "content": "<p>Flat ground leads to slouching. The W60’s 12% incline commands a confident, upright posture. Feel the correction in every step.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_rGierc",
+        "item_Bgx994"
+      ],
+      "custom_css": [
+        "@media (max-width: 750px) {.multi-column__item {gap: 15px; } .gap-4 {gap: 10px; }}"
+      ],
+      "name": "Multi-column-pro",
+      "settings": {
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "max-width": 1000,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 20,
+        "padding-gap-mob": 20,
+        "full_width": true,
+        "stack_on_mobile": true,
+        "gap": "medium",
+        "text_alignment": "start",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "column_gap": 24,
+        "column_gap_mob": 24
+      }
+    },
+    "slide_banner_9qJwP4": {
+      "type": "slide-banner",
+      "blocks": {
+        "banner_Qjh4Uk": {
+          "type": "banner",
+          "settings": {
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_Qjh4Uk"
+      ],
+      "name": "Slide Banner",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap-left": 20,
+        "padding-gap-right": 20,
+        "max-width": 1000,
+        "media-maxwidth": 1000,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 20,
+        "padding-gap-left-mob": 20,
+        "padding-gap-right-mob": 20,
+        "title": "",
+        "heading_tag": "h1",
+        "subtitle": "",
+        "button_text": "",
+        "button_link": "",
+        "show_button_shadow": true,
+        "section-bg": "",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "button_bg": "#fff",
+        "button_color": "#0096f9",
+        "article-card-bg": "#fff",
+        "article-color": "#000",
+        "default-ratio": "355/200",
+        "default-card-bg": "#fff",
+        "default-title-color": "#000",
+        "default-subtitle-color": "#101820",
+        "default-button-color": "#101820",
+        "section-bg-mob": "#000",
+        "title-color-mob": "#fff",
+        "subtitle-color-mob": "#fff",
+        "banner_radius": 0,
+        "slide_per_view": 1,
+        "slide_per_splite": 0,
+        "slide_gap": 20,
+        "show-button": false,
+        "slide-button-bg": "white",
+        "slide-button-color": "#000000",
+        "slide_per_view_mob": 1,
+        "slide_per_splite_mob": 0,
+        "slide_gap_mob": 20,
+        "show_mob_pag": false
+      }
+    },
+    "rich_text_maEFzW": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fqri3y": {
+          "type": "heading",
+          "settings": {
+            "text": "A Solid Incline for Every Energy Level",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_y4q6dW": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Adjust the incline to match your energy—from recovery to real burn.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fqri3y",
+        "richtext_y4q6dW"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "multi_column_pro_VFBDtn": {
+      "type": "multi-column-pro",
+      "blocks": {
+        "item_xQrLAC": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "item_title": "",
+            "title": "Low",
+            "heading_tag": "h4",
+            "content": "<p>Recovery and warm-ups</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": "#39c4f4"
+          }
+        },
+        "item_kW3gFi": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "item_title": "",
+            "title": "Mid",
+            "heading_tag": "h4",
+            "content": "<p>Steady cardio and light sweat</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": "#009af1"
+          }
+        },
+        "item_bPhBYg": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "item_title": "",
+            "title": "High",
+            "heading_tag": "h4",
+            "content": "<p>More challenge and fat burn<br/></p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": "#005ad9"
+          }
+        }
+      },
+      "block_order": [
+        "item_xQrLAC",
+        "item_kW3gFi",
+        "item_bPhBYg"
+      ],
+      "custom_css": [
+        "@media (max-width: 750px) {.section-gap {padding-right: 0; }}"
+      ],
+      "name": "Multi-column-pro",
+      "settings": {
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "max-width": 1000,
+        "padding-top-mob": 0,
+        "padding-bottom-mob": 0,
+        "padding-gap-mob": 20,
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "column_gap": 24,
+        "column_gap_mob": 10
+      }
+    },
+    "rich_text_iCJgdm": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RdmKbW": {
+          "type": "heading",
+          "settings": {
+            "text": "Flexibility",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h4",
+            "text_color": "",
+            "gradient": "linear-gradient(244deg, rgba(121, 255, 255, 1) 4%, rgba(0, 108, 217, 1) 47%)",
+            "shadow": ""
+          }
+        },
+        "heading_HmgGQq": {
+          "type": "heading",
+          "settings": {
+            "text": "Step Out and Walk Freely",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "heading_QgdbKd": {
+          "type": "heading",
+          "settings": {
+            "text": "Anywhere You Love",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_PkTPDp": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>While keeping the footprint small, we’ve maximized the running area and lengthened the cord, so you can truly unleash your stride freely at home.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RdmKbW",
+        "heading_HmgGQq",
+        "heading_QgdbKd",
+        "richtext_PkTPDp"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "big",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "multi_column_pro_F3JQdB": {
+      "type": "multi-column-pro",
+      "blocks": {
+        "item_dWJ9NF": {
+          "type": "item",
+          "settings": {
+            "column_size": "2",
+            "item_title": "",
+            "title": "More Room to Actually Walk",
+            "heading_tag": "h4",
+            "content": "<p>The <strong>16.5\"</strong> × <strong>41.3\"</strong> deck, 33% wider than standard, gives you space to move naturally without watching your steps.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": ""
+          }
+        },
+        "item_AcQPfL": {
+          "type": "item",
+          "settings": {
+            "column_size": "2",
+            "item_title": "",
+            "title": "8.2 ft Long Cord, Walk Wherever You Like",
+            "heading_tag": "h4",
+            "content": "<p>Extra-long cord. Zero limits. From the living room to the balcony, place it wherever you want and start moving.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_dWJ9NF",
+        "item_AcQPfL"
+      ],
+      "custom_css": [
+        "@media (max-width: 750px) {.multi-column__item {gap: 15px; } .gap-4 {gap: 10px; }}"
+      ],
+      "name": "Multi-column-pro",
+      "settings": {
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "max-width": 1000,
+        "padding-top-mob": 0,
+        "padding-bottom-mob": 0,
+        "padding-gap-mob": 20,
+        "full_width": true,
+        "stack_on_mobile": true,
+        "gap": "medium",
+        "text_alignment": "start",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "column_gap": 24,
+        "column_gap_mob": 30
+      }
+    },
+    "rich_text_TUtpcx": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_HqTh9x": {
+          "type": "heading",
+          "settings": {
+            "text": "Storage",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h4",
+            "text_color": "",
+            "gradient": "linear-gradient(244deg, rgba(121, 255, 255, 1) 4%, rgba(0, 108, 217, 1) 47%)",
+            "shadow": ""
+          }
+        },
+        "heading_gpCXwU": {
+          "type": "heading",
+          "settings": {
+            "text": "Out of Sight, Never Out of Reach",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_y6DNJg": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>The remote control and walking pad are all designed for easy storage, without adding extra hassle.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HqTh9x",
+        "heading_gpCXwU",
+        "richtext_y6DNJg"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "multi_column_pro_zMUqzd": {
+      "type": "multi-column-pro",
+      "blocks": {
+        "item_3gpkyV": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "item_title": "",
+            "title": "Magnetic Remote Dock",
+            "heading_tag": "h4",
+            "content": "<p>Snap the remote onto the side, so it stays easy to find and ready for next time.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": ""
+          }
+        },
+        "item_CWQQBH": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "item_title": "",
+            "title": "50 mm Easy-Roll Wheels",
+            "heading_tag": "h4",
+            "content": "<p>Larger soft-rubber wheels make moving smoother, quieter, and gentler on your floors.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": ""
+          }
+        },
+        "item_VHK8zc": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "item_title": "",
+            "title": "Fits Into Small Spaces",
+            "heading_tag": "h4",
+            "content": "<p>Tuck it under the sofa or stand it upright in the corner—whatever works for your home.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_3gpkyV",
+        "item_CWQQBH",
+        "item_VHK8zc"
+      ],
+      "custom_css": [
+        "@media (max-width: 750px) {.section-gap {padding-right: 0; }}"
+      ],
+      "name": "Multi-column-pro",
+      "settings": {
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "max-width": 1000,
+        "padding-top-mob": 0,
+        "padding-bottom-mob": 20,
+        "padding-gap-mob": 20,
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "start",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "column_gap": 24,
+        "column_gap_mob": 24
+      }
+    },
+    "rich_text_gj476W": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_qXBWbJ": {
+          "type": "heading",
+          "settings": {
+            "text": "Intelligence",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h4",
+            "text_color": "",
+            "gradient": "linear-gradient(244deg, rgba(121, 255, 255, 1) 4%, rgba(0, 108, 217, 1) 47%)",
+            "shadow": ""
+          }
+        },
+        "heading_Ue8fJd": {
+          "type": "heading",
+          "settings": {
+            "text": "Safe. Precise. Always in Control.",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_nUQgYq": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Designed to keep every step smooth, accurate, and worry-free.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qXBWbJ",
+        "heading_Ue8fJd",
+        "richtext_nUQgYq"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "image_text_sroll_rcENbE": {
+      "type": "image-text-sroll",
+      "blocks": {
+        "item_TGHNJ3": {
+          "type": "item",
+          "settings": {
+            "img_text": "",
+            "media_width": 50,
+            "title": "Adjust without Breaking Your Stride",
+            "text": "Change speed or incline mid-walk, or mute button sounds instantly—via remote or app, without stopping.",
+            "link": ""
+          }
+        },
+        "item_z4DUHK": {
+          "type": "item",
+          "settings": {
+            "img_text": "",
+            "media_width": 50,
+            "title": "Dial in Your Perfect Pace",
+            "text": "0.1 mph precision with 0.01 distance tracking—fine-tuned to what feels right.",
+            "link": ""
+          }
+        },
+        "item_kRpwct": {
+          "type": "item",
+          "settings": {
+            "img_text": "",
+            "media_width": 50,
+            "title": "Your Progress Stays with You",
+            "text": "Track in real time, sync to Apple Health and Google Fit. Pause anytime—then pick up right where you left off.",
+            "link": ""
+          }
+        },
+        "item_CW4Hjq": {
+          "type": "item",
+          "settings": {
+            "img_text": "",
+            "media_width": 50,
+            "title": "Safe for Kids",
+            "text": "Child lock prevents accidental starts—press and hold to unlock.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_TGHNJ3",
+        "item_z4DUHK",
+        "item_kRpwct",
+        "item_CW4Hjq"
+      ],
+      "name": "Media with text scroll",
+      "settings": {
+        "show_content": "mobile_pc",
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "max-width": 1000,
+        "block_height": 420,
+        "padding-top-mob": 0,
+        "padding-bottom-mob": 20,
+        "padding-gap-mob": 20,
+        "section-bg": ""
+      }
+    },
+    "rich_text_YAzq9i": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_X3Akgk": {
+          "type": "heading",
+          "settings": {
+            "text": "Smarter Walks Powered by Merach App",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_zxUCa8": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Guidance, tracking, and feedback that help you keep going.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_X3Akgk",
+        "richtext_zxUCa8"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "slideshow_wfAe8J": {
+      "type": "slideshow",
+      "blocks": {
+        "image_NkX87x": {
+          "type": "image",
+          "settings": {
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_NkX87x"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
+        "background_gradient": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "slideshow_ckHb9d",
+    "rich_text_QGJYJe",
+    "custom_media_grid_M8L6nj",
+    "rich_text_L7YbRD",
+    "slide_banner_qJRJyr",
+    "rich_text_mehM7W",
+    "slide_banner_WnCrr4",
+    "rich_text_EenLUr",
+    "slide_banner_XfBVQC",
+    "rich_text_6jVxQr",
+    "slide_banner_krmbaX",
+    "video_xHN38A",
+    "rich_text_HE7NWK",
+    "media_tab_qnBrVV",
+    "image_text_sroll_GQAzGE",
+    "rich_text_BMR7tk",
+    "video_WiixzW",
+    "wabeez_custom_icon_grid_TnBccf",
+    "slide_banner_ApiLDm",
+    "rich_text_mkNHyW",
+    "multi_column_pro_xDG3f3",
+    "rich_text_AybaEe",
+    "video_BVT49R",
+    "multi_column_pro_gMrqHb",
+    "slide_banner_9qJwP4",
+    "rich_text_maEFzW",
+    "multi_column_pro_VFBDtn",
+    "rich_text_iCJgdm",
+    "multi_column_pro_F3JQdB",
+    "rich_text_TUtpcx",
+    "multi_column_pro_zMUqzd",
+    "rich_text_gj476W",
+    "image_text_sroll_rcENbE",
+    "rich_text_YAzq9i",
+    "slideshow_wfAe8J"
   ]
 }
