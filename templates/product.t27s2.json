@@ -2037,6 +2037,8 @@
         "image_NkX87x": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/w60-2x-new_4.jpg",
+            "mobile_image": "shopify://shop_images/w60-m-new_2.jpg",
             "content_max_width": 780,
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
