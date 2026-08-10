@@ -1082,6 +1082,8 @@
         "banner_FPdh3q": {
           "type": "banner",
           "settings": {
+            "image": "shopify://shop_images/w60-life-pic_3.jpg",
+            "image_mob": "shopify://shop_images/w60-life-pic-m_3.jpg",
             "url": ""
           }
         }
