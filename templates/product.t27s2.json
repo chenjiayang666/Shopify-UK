@@ -222,8 +222,6 @@
         "image_KCgwTH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/merach-sale-banner-pc.jpg",
-            "mobile_image": "shopify://shop_images/merach-sale-banner-m.jpg",
             "content_max_width": 780,
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
@@ -317,7 +315,6 @@
           "settings": {
             "desktop_layout_ranges": "1-4,36-50",
             "mobile_layout_ranges": "2-3, 2-3",
-            "image": "shopify://shop_images/w60-ksp-pc-525_6.jpg",
             "title": "",
             "heading_tag": "h4",
             "h5_font_size": "12px",
@@ -340,7 +337,6 @@
           "settings": {
             "desktop_layout_ranges": "4-6,22-34",
             "mobile_layout_ranges": "3-4,1-2",
-            "image": "shopify://shop_images/w60-ksp-pc-525_3.jpg",
             "title": "",
             "heading_tag": "h4",
             "h5_font_size": "12px",
@@ -363,7 +359,6 @@
           "settings": {
             "desktop_layout_ranges": "1-4,22-36",
             "mobile_layout_ranges": "2-3,1-2",
-            "image": "shopify://shop_images/w60-ksp-pc-525_1.jpg",
             "title": "",
             "heading_tag": "h4",
             "h5_font_size": "12px",
@@ -386,7 +381,6 @@
           "settings": {
             "desktop_layout_ranges": "4-6,34-42",
             "mobile_layout_ranges": "3-4,2-3",
-            "image": "shopify://shop_images/w60-ksp-pc-525_4.jpg",
             "title": "",
             "heading_tag": "h4",
             "h5_font_size": "12px",
@@ -409,7 +403,6 @@
           "settings": {
             "desktop_layout_ranges": "4-6,42-50",
             "mobile_layout_ranges": "1-2,2-3",
-            "image": "shopify://shop_images/w60-ksp-pc-525_2.jpg",
             "title": "",
             "heading_tag": "h4",
             "h5_font_size": "12px",
@@ -432,7 +425,6 @@
           "settings": {
             "desktop_layout_ranges": "1-6, 1-22",
             "mobile_layout_ranges": "1-2,1-2",
-            "image": "shopify://shop_images/w60-ksp-pc-525_5.jpg",
             "title": "",
             "heading_tag": "h4",
             "h5_font_size": "12px",
@@ -588,55 +580,6 @@
         "slide_per_splite_mob": 0,
         "slide_gap_mob": 20,
         "show_mob_pag": false
-      }
-    },
-    "rich_text_mehM7W": {
-      "type": "rich-text",
-      "blocks": {
-        "subheading_mYqimX": {
-          "type": "subheading",
-          "disabled": true,
-          "settings": {
-            "text": "Subheading",
-            "subheading-tag": "p"
-          }
-        },
-        "heading_43UhKb": {
-          "type": "heading",
-          "settings": {
-            "text": "Don't Just Look at Peak HP",
-            "remove_margin": false,
-            "heading-tag": "p",
-            "heading_tag": "h2",
-            "text_color": "",
-            "gradient": "",
-            "shadow": ""
-          }
-        },
-        "richtext_dFYPbd": {
-          "type": "richtext",
-          "settings": {
-            "content": "<p>Peak HP is a short burst. CHP is what keeps your walk steady when incline or body weight adds resistance.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_mYqimX",
-        "heading_43UhKb",
-        "richtext_dFYPbd"
-      ],
-      "name": "Rich text",
-      "settings": {
-        "anchor_id": "",
-        "show_content": "mobile_pc",
-        "full_width": true,
-        "content_width": "large",
-        "text_position": "center",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "section_pdtop": 70,
-        "section_pdbot": 70
       }
     },
     "slide_banner_WnCrr4": {
@@ -799,55 +742,6 @@
         "slide_per_splite_mob": 0,
         "slide_gap_mob": 20,
         "show_mob_pag": false
-      }
-    },
-    "rich_text_6jVxQr": {
-      "type": "rich-text",
-      "blocks": {
-        "subheading_epEaEg": {
-          "type": "subheading",
-          "disabled": true,
-          "settings": {
-            "text": "Subheading",
-            "subheading-tag": "p"
-          }
-        },
-        "heading_NthgFq": {
-          "type": "heading",
-          "settings": {
-            "text": "Bigger Rollers. Smoother Belt.",
-            "remove_margin": false,
-            "heading-tag": "p",
-            "heading_tag": "h2",
-            "text_color": "",
-            "gradient": "",
-            "shadow": ""
-          }
-        },
-        "richtext_GxFAHj": {
-          "type": "richtext",
-          "settings": {
-            "content": "<p>Smaller rollers bend the belt more sharply. Larger rollers create a gentle turn with less belt stress.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_epEaEg",
-        "heading_NthgFq",
-        "richtext_GxFAHj"
-      ],
-      "name": "Rich text",
-      "settings": {
-        "anchor_id": "",
-        "show_content": "mobile_pc",
-        "full_width": true,
-        "content_width": "large",
-        "text_position": "center",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "section_pdtop": 70,
-        "section_pdbot": 70
       }
     },
     "slide_banner_krmbaX": {
@@ -1539,7 +1433,7 @@
         "item_rGierc": {
           "type": "item",
           "settings": {
-            "column_size": "2",
+            "column_size": "3",
             "item_title": "",
             "title": "Same Time, Double the Fat Burn",
             "heading_tag": "h4",
@@ -1553,7 +1447,7 @@
         "item_Bgx994": {
           "type": "item",
           "settings": {
-            "column_size": "2",
+            "column_size": "3",
             "item_title": "",
             "title": "Elevate the Slope, Elevate Your Posture",
             "heading_tag": "h4",
@@ -1563,11 +1457,26 @@
             "link_style": "link",
             "title_color": ""
           }
+        },
+        "item_a4ncpt": {
+          "type": "item",
+          "settings": {
+            "column_size": "3",
+            "item_title": "",
+            "title": "More Challenge with Less Impact",
+            "heading_tag": "h4",
+            "content": "<p>Push your intensity without adding extra stress to your joints, so it’s easier to keep going.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "title_color": ""
+          }
         }
       },
       "block_order": [
         "item_rGierc",
-        "item_Bgx994"
+        "item_Bgx994",
+        "item_a4ncpt"
       ],
       "custom_css": [
         "@media (max-width: 750px) {.multi-column__item {gap: 15px; } .gap-4 {gap: 10px; }}"
@@ -2237,11 +2146,9 @@
     "custom_media_grid_M8L6nj",
     "rich_text_L7YbRD",
     "slide_banner_qJRJyr",
-    "rich_text_mehM7W",
     "slide_banner_WnCrr4",
     "rich_text_EenLUr",
     "slide_banner_XfBVQC",
-    "rich_text_6jVxQr",
     "slide_banner_krmbaX",
     "video_xHN38A",
     "rich_text_HE7NWK",
