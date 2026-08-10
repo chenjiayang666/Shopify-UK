@@ -1925,6 +1925,8 @@
         "item_TGHNJ3": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/w60-safe-1_3.jpg",
+            "image_mob": "shopify://shop_images/w60-safe-1_3.jpg",
             "img_text": "",
             "media_width": 50,
             "title": "Adjust without Breaking Your Stride",
@@ -1935,6 +1937,8 @@
         "item_z4DUHK": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/w60-safe-1_4.jpg",
+            "image_mob": "shopify://shop_images/w60-safe-1_4.jpg",
             "img_text": "",
             "media_width": 50,
             "title": "Dial in Your Perfect Pace",
@@ -1945,6 +1949,8 @@
         "item_kRpwct": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/w60-safe-1_2.jpg",
+            "image_mob": "shopify://shop_images/w60-safe-1_2.jpg",
             "img_text": "",
             "media_width": 50,
             "title": "Your Progress Stays with You",
@@ -1955,6 +1961,8 @@
         "item_CW4Hjq": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/w60-safe-1_1.jpg",
+            "image_mob": "shopify://shop_images/w60-safe-1_1.jpg",
             "img_text": "",
             "media_width": 50,
             "title": "Safe for Kids",
