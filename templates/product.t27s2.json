@@ -790,28 +790,32 @@
           "type": "media",
           "settings": {
             "title": "Worried about capacity?",
-            "description": ""
+            "description": "",
+            "image": "shopify://shop_images/w60-capacity_1.jpg"
           }
         },
         "media_BTrbVk": {
           "type": "media",
           "settings": {
             "title": "Worried about intensity?",
-            "description": ""
+            "description": "",
+            "image": "shopify://shop_images/w60-incline.jpg"
           }
         },
         "media_tGhegc": {
           "type": "media",
           "settings": {
             "title": "Concerned about noise?",
-            "description": ""
+            "description": "",
+            "image": "shopify://shop_images/w60quiet.jpg"
           }
         },
         "media_EKMKaL": {
           "type": "media",
           "settings": {
             "title": "Fear the grind?",
-            "description": ""
+            "description": "",
+            "image": "shopify://shop_images/w60-rgb.jpg"
           }
         }
       },
