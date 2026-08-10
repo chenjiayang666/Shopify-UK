@@ -1526,8 +1526,10 @@
         "item_xQrLAC": {
           "type": "item",
           "settings": {
+            "video": "shopify://files/videos/w60-incline-3-4 (2).mp4",
             "column_size": "3",
-            "item_title": "",
+            "item_title": "Kimi 5’6” 132 lbs",
+            "content_img": "shopify://shop_images/1_7cfe4773-4398-4807-a343-1ec13a27c963.png",
             "title": "Low",
             "heading_tag": "h4",
             "content": "<p>Recovery and warm-ups</p>",
@@ -1540,8 +1542,10 @@
         "item_kW3gFi": {
           "type": "item",
           "settings": {
+            "video": "shopify://files/videos/w60-incline-3-4 (1).mp4",
             "column_size": "3",
-            "item_title": "",
+            "item_title": "Luc 6’1” 265 lbs",
+            "content_img": "shopify://shop_images/2_1746cd6f-e7fc-43ad-94b4-caff196b1da6.png",
             "title": "Mid",
             "heading_tag": "h4",
             "content": "<p>Steady cardio and light sweat</p>",
@@ -1554,8 +1558,10 @@
         "item_bPhBYg": {
           "type": "item",
           "settings": {
+            "video": "shopify://files/videos/w60-incline-3-4 (3).mp4",
             "column_size": "3",
-            "item_title": "",
+            "item_title": "Nata 5’7” 119 lbs",
+            "content_img": "shopify://shop_images/3_56bc60d8-b938-40e4-809d-78ff2eb71e2e.png",
             "title": "High",
             "heading_tag": "h4",
             "content": "<p>More challenge and fat burn<br/></p>",
