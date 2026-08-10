@@ -1332,6 +1332,7 @@
         "autoplay": true,
         "show_step": false,
         "video_size": "auto",
+        "video": "shopify://files/videos/w60-incline.mp4",
         "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "text_color": "#ffffff",
         "overlay_color": "#000000",
@@ -1344,6 +1345,7 @@
         "item_rGierc": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/w60-m-new_4.jpg",
             "column_size": "3",
             "item_title": "",
             "title": "Same Time, Double the Fat Burn",
@@ -1358,6 +1360,7 @@
         "item_Bgx994": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/w60-m-new_1.png",
             "column_size": "3",
             "item_title": "",
             "title": "Elevate the Slope, Elevate Your Posture",
@@ -1372,6 +1375,7 @@
         "item_a4ncpt": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/w60-12.png",
             "column_size": "3",
             "item_title": "",
             "title": "More Challenge with Less Impact",
