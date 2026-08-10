@@ -198,6 +198,7 @@
         "share_buttons_WzxkJw",
         "liquid_B8ikTz"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "show_fixed_add_to_cart": true,
@@ -214,97 +215,6 @@
         "text_color": "",
         "input_background": "rgba(0,0,0,0)",
         "input_text_color": ""
-      }
-    },
-    "slideshow_ckHb9d": {
-      "type": "slideshow",
-      "blocks": {
-        "image_KCgwTH": {
-          "type": "image",
-          "settings": {
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "subheading": "",
-            "title": "",
-            "heading_tag": "h0",
-            "button_text": "",
-            "button_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "background": "",
-            "background_gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_KCgwTH"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "full_width": true,
-        "allow_transparent_header": true,
-        "show_initial_transition": false,
-        "image_size": "auto",
-        "controls_type": "dots",
-        "transition_type": "fade_with_text",
-        "autoplay": false,
-        "cycle_speed": 6,
-        "background": "#f2f2f2",
-        "background_gradient": ""
-      }
-    },
-    "rich_text_QGJYJe": {
-      "type": "rich-text",
-      "blocks": {
-        "subheading_CkKmFR": {
-          "type": "subheading",
-          "disabled": true,
-          "settings": {
-            "text": "Subheading",
-            "subheading-tag": "p"
-          }
-        },
-        "heading_CGKy3y": {
-          "type": "heading",
-          "settings": {
-            "text": "Get the Highlights",
-            "remove_margin": false,
-            "heading-tag": "p",
-            "heading_tag": "h2",
-            "text_color": "",
-            "gradient": "",
-            "shadow": ""
-          }
-        },
-        "richtext_cdprPb": {
-          "type": "richtext",
-          "disabled": true,
-          "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_CkKmFR",
-        "heading_CGKy3y",
-        "richtext_cdprPb"
-      ],
-      "name": "Rich text",
-      "settings": {
-        "anchor_id": "",
-        "show_content": "mobile_pc",
-        "full_width": true,
-        "content_width": "small",
-        "text_position": "center",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "section_pdtop": 70,
-        "section_pdbot": 70
       }
     },
     "custom_media_grid_M8L6nj": {
@@ -477,6 +387,99 @@
         "desktop_row_height": 90,
         "mobile_row_height": 150,
         "background": "",
+        "background_gradient": ""
+      }
+    },
+    "rich_text_QGJYJe": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_CkKmFR": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading",
+            "subheading-tag": "p"
+          }
+        },
+        "heading_CGKy3y": {
+          "type": "heading",
+          "settings": {
+            "text": "Get the Highlights",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_cdprPb": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_CkKmFR",
+        "heading_CGKy3y",
+        "richtext_cdprPb"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "slideshow_ckHb9d": {
+      "type": "slideshow",
+      "blocks": {
+        "image_KCgwTH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/T27-motor-care_1.jpg",
+            "mobile_image": "shopify://shop_images/KV_3.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_KCgwTH"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
         "background_gradient": ""
       }
     },
