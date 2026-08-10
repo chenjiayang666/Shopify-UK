@@ -1792,6 +1792,7 @@
         "item_3gpkyV": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/w60-m-new_7.jpg",
             "column_size": "3",
             "item_title": "",
             "title": "Magnetic Remote Dock",
@@ -1806,6 +1807,7 @@
         "item_CWQQBH": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/w60-m-new_8.jpg",
             "column_size": "3",
             "item_title": "",
             "title": "50 mm Easy-Roll Wheels",
@@ -1820,6 +1822,7 @@
         "item_VHK8zc": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/w60-m-new_1.jpg",
             "column_size": "3",
             "item_title": "",
             "title": "Fits Into Small Spaces",
