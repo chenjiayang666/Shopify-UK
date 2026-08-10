@@ -1027,6 +1027,7 @@
         "item_pJwLWG": {
           "type": "item",
           "settings": {
+            "icon": "shopify://shop_images/Frame_cda55be1-8117-46b0-b206-b7889c02a50a.png",
             "block_bg_color": "#ffffff",
             "heading": "",
             "heading_color": "#000000",
@@ -1039,6 +1040,7 @@
         "item_4LFqDC": {
           "type": "item",
           "settings": {
+            "icon": "shopify://shop_images/Frame_1288116432.png",
             "block_bg_color": "#ffffff",
             "heading": "",
             "heading_color": "#000000",
@@ -1051,6 +1053,7 @@
         "item_FzrKB6": {
           "type": "item",
           "settings": {
+            "icon": "shopify://shop_images/Frame_6ab1b0c7-6e34-49eb-b6db-492f07b897b9.png",
             "block_bg_color": "#ffffff",
             "heading": "",
             "heading_color": "#000000",
