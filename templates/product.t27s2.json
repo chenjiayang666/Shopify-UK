@@ -1675,6 +1675,7 @@
         "item_dWJ9NF": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/T27-W60-motor-new_2.jpg",
             "column_size": "2",
             "item_title": "",
             "title": "More Room to Actually Walk",
@@ -1689,6 +1690,7 @@
         "item_AcQPfL": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/T27-DECK.png",
             "column_size": "2",
             "item_title": "",
             "title": "8.2 ft Long Cord, Walk Wherever You Like",
