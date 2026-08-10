@@ -1194,6 +1194,7 @@
         "item_QJ7DxH": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/w60-cut_1.jpg",
             "column_size": "2",
             "item_title": "",
             "title": "0.6–4.0 mph | Average 53.6 dB Quiet Performance",
@@ -1208,6 +1209,7 @@
         "item_Wzjtxi": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/w60-cut_2.jpg",
             "column_size": "2",
             "item_title": "",
             "title": "Pick up the Pace up to 400 lb. It Stays Steady",
