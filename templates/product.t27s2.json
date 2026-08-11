@@ -1209,7 +1209,7 @@
         "item_Wzjtxi": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/w60-cut_2.jpg",
+            "image": "shopify://shop_images/w60-m-pdp-1.jpg",
             "column_size": "2",
             "item_title": "",
             "title": "Pick up the Pace up to 400 lb. It Stays Steady",
@@ -1360,7 +1360,7 @@
         "item_Bgx994": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/w60-m-new_1.png",
+            "image": "shopify://shop_images/w60-new.jpg",
             "column_size": "3",
             "item_title": "",
             "title": "Elevate the Slope, Elevate Your Posture",
@@ -1375,7 +1375,7 @@
         "item_a4ncpt": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/w60-12.png",
+            "image": "shopify://shop_images/w60-m-1.jpg",
             "column_size": "3",
             "item_title": "",
             "title": "More Challenge with Less Impact",
@@ -1401,7 +1401,7 @@
         "padding-top": 20,
         "padding-bottom": 20,
         "padding-gap": 20,
-        "max-width": 1000,
+        "max-width": 1200,
         "padding-top-mob": 20,
         "padding-bottom-mob": 20,
         "padding-gap-mob": 20,
@@ -1586,7 +1586,7 @@
         "padding-top": 20,
         "padding-bottom": 20,
         "padding-gap": 20,
-        "max-width": 1000,
+        "max-width": 1200,
         "padding-top-mob": 0,
         "padding-bottom-mob": 0,
         "padding-gap-mob": 20,
@@ -1716,7 +1716,7 @@
         "padding-top": 20,
         "padding-bottom": 20,
         "padding-gap": 20,
-        "max-width": 1000,
+        "max-width": 1100,
         "padding-top-mob": 0,
         "padding-bottom-mob": 0,
         "padding-gap-mob": 20,
@@ -1849,7 +1849,7 @@
         "padding-top": 20,
         "padding-bottom": 20,
         "padding-gap": 20,
-        "max-width": 1300,
+        "max-width": 1200,
         "padding-top-mob": 0,
         "padding-bottom-mob": 20,
         "padding-gap-mob": 20,
