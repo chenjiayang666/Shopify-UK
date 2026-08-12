@@ -1212,7 +1212,7 @@
             "image": "shopify://shop_images/w60-m-pdp-1.jpg",
             "column_size": "2",
             "item_title": "",
-            "title": "Pick up the Pace up to 330 lb. It Stays Steady",
+            "title": "Pick up the Pace up to 400 lb. It Stays Steady",
             "heading_tag": "h4",
             "content": "<p>3.5 HP peak brushless motor plus a 70 lb reinforced steel frame, it stays stable so you can walk faster without holding back.</p>",
             "link_url": "",
@@ -1270,7 +1270,7 @@
         "heading_kRdnDp": {
           "type": "heading",
           "settings": {
-            "text": "Making it Work:",
+            "text": "Step Up Your Workout",
             "remove_margin": false,
             "heading-tag": "p",
             "heading_tag": "h2",
@@ -1282,7 +1282,7 @@
         "heading_wWMXqE": {
           "type": "heading",
           "settings": {
-            "text": "12% Auto Incline, Boosts the Fat Burn",
+            "text": "Automatic Incline up to 5°",
             "remove_margin": false,
             "heading-tag": "p",
             "heading_tag": "h2",
@@ -1294,7 +1294,7 @@
         "richtext_fNwhLp": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Beyond the standard 6% shaky incline. The W60 offers a solid 12% slope to bring the great outdoors into your home.</p>"
+            "content": "<p>Move beyond a flat walk. With automatic incline up to 5°, the W60 adds an uphill challenge to your home workout.</p>"
           }
         }
       },
