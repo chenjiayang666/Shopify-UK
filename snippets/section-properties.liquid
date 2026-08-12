@@ -20,6 +20,8 @@ but you can override them by manually passing a different value (although this s
 * input_background: an optional color for input background
 * input_text_color: an optional color for input text color
 * full_width: a boolean saying if the section is full width or not
+* custom_class: a custom class string that will be added to the element's class list
+* custom_id: a custom id that will be applied to the element
 {%- endcomment -%}
 
 {%- assign full_width = full_width | default: section.settings.full_width, allow_false: true -%}
@@ -31,12 +33,12 @@ but you can override them by manually passing a different value (although this s
 
 {%- if background_gradient == blank and background == blank or background == 'rgba(0,0,0,0)' or background == settings.background -%}
   {%- comment -%}The section blends, so we have to use vertical margin, and set a container{%- endcomment -%}
-  {%- capture class -%}{{ class }} section-blends section-full{%- endcapture -%}
+  {%- capture class -%}{{ class }} dev-section section-blends section-full{%- endcapture -%}
 {%- else -%}
   {%- if full_width -%}
-    {%- capture class -%}{{ class }} section-full{%- endcapture -%}
+    {%- capture class -%}{{ class }} dev-section section-full{%- endcapture -%}
   {%- else -%}
-    {%- capture class -%}{{ class }} section-boxed{%- endcapture -%}
+    {%- capture class -%}{{ class }} dev-section section-boxed{%- endcapture -%}
   {%- endif -%}
 
   {%- if background_gradient != blank -%}
@@ -64,7 +66,11 @@ but you can override them by manually passing a different value (although this s
 {%- endunless -%}
 
 {%- if class != blank -%}
-  class="section {% if tight %}section--tight{% endif %} {% if narrow %}section--narrow{% endif %} {{ class | strip }}"
+  class="section {% if tight %}section--tight{% endif %} {% if narrow %}section--narrow{% endif %} {{ class | strip }} {{ custom_class }}"
+{%- endif -%}
+
+{%- if custom_id != blank -%}
+  id="{{ custom_id }}"
 {%- endif -%}
 
 {%- if style_attributes != blank -%}
