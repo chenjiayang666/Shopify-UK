@@ -845,7 +845,7 @@
         "padding-top-mob": 0,
         "padding-bottom-mob": 20,
         "padding-gap-mob": 20,
-        "switch_effect": "vertical",
+        "switch_effect": "horizontal",
         "section_bg": "",
         "tab_color": "",
         "tab_color_active": "#0ca0f7",
@@ -903,6 +903,7 @@
         "item_rfzjTj",
         "item_JJWRJW"
       ],
+      "disabled": true,
       "name": "Media with text scroll",
       "settings": {
         "show_content": "mobile",
