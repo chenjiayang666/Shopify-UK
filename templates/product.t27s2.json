@@ -835,7 +835,7 @@
       ],
       "name": "Media Tab",
       "settings": {
-        "show_content": "pc",
+        "show_content": "mobile_pc",
         "animate": true,
         "anchor_id": "discount-tab",
         "padding-top": 20,
