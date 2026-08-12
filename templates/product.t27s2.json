@@ -791,7 +791,8 @@
           "settings": {
             "title": "Worried about capacity?",
             "description": "",
-            "image": "shopify://shop_images/w60-capacity_1.jpg"
+            "image": "shopify://shop_images/w60-capacity_1.jpg",
+            "image_mob": "shopify://shop_images/w60-capacity_1.jpg"
           }
         },
         "media_BTrbVk": {
@@ -799,7 +800,8 @@
           "settings": {
             "title": "Worried about intensity?",
             "description": "",
-            "image": "shopify://shop_images/w60-incline.jpg"
+            "image": "shopify://shop_images/w60-incline.jpg",
+            "image_mob": "shopify://shop_images/w60-incline.jpg"
           }
         },
         "media_tGhegc": {
@@ -807,7 +809,8 @@
           "settings": {
             "title": "Concerned about noise?",
             "description": "",
-            "image": "shopify://shop_images/w60quiet.jpg"
+            "image": "shopify://shop_images/w60quiet.jpg",
+            "image_mob": "shopify://shop_images/w60quiet.jpg"
           }
         },
         "media_EKMKaL": {
@@ -815,7 +818,8 @@
           "settings": {
             "title": "Fear the grind?",
             "description": "",
-            "image": "shopify://shop_images/w60-rgb.jpg"
+            "image": "shopify://shop_images/w60-rgb.jpg",
+            "image_mob": "shopify://shop_images/w60-rgb.jpg"
           }
         }
       },
