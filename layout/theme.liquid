@@ -28,6 +28,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   src="//static.klaviyo.com/onsite/js/PUBLIC_API_KEY/klaviyo.js"
 ></script>
 
+
+<!-- All Pages Script, insert on all pages to handle first party cookie -->
+
+<script type="text/javascript">
+  (function(c,w,v){function getUrlParameter(e){var t=new RegExp("[\?&]"+e+"=([^&#]*)").exec(location.search);return null===t?"":decodeURIComponent(t[1].replace(/\+/g," "))}function setCookie(e,t){var r,n=w.location.host,a=n.substring(n.indexOf("."));(a.match(/\./g).length<2||".co"===a.substring(0,a.indexOf(".",1)))&&(a="."+n),r='domain='+a;var i=new Date,o=i.getTime()+31536e6;i.setTime(o);var c="expires="+i.toUTCString();v.cookie='e'+'='+'t'+';'+'c'+';'+'r'+';path=/;sameSite=none;Secure=true'}var tdclid_sn=getUrlParameter("tdclid_sn");tdclid_sn&&setCookie("tdclid_sn",tdclid_sn);var q='?org='+c.organization+'&prog='+c.programId;w.tdfallback=function(e){var t,r=v.getElementsByTagName("script")[0];(t=v.createElement("script")).src=e+q,r.parentNode.insertBefore(t,r)};
+  (function(i,s,o,g,r,a,m){i['TDConversionObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script', 'https://staticsuk.merachfit.com/trsdk'+q, 'tdconv'); tdconv('init',c);
+  })({organization: '2457115', programId: '396847', program: false, element: 'iframe'}, window, document);
+  tdconv('tracking-consent', '[TRACKING_CONSENT]');
+  
+</script>
+
+<script src="https://staticsuk.merachfit.com/wrap?id=33523" async></script>
+
+
+
 <script>
   klaviyo.push(['identify', {
     // Change the line below to dynamically print the user's email.
