@@ -260,6 +260,30 @@
         "background_gradient": ""
       }
     },
+    "activity_newsletter_QDqwnb": {
+      "type": "activity-newsletter",
+      "name": "Activity Newsletter",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "full_width": true,
+        "show_icon": true,
+        "title": "Early Access to 100 € Off",
+        "content": "<p>Sign up for our newsletter to receive an exclusive €100 discount code for this product and get early updates when it goes on sale.</p>",
+        "code": "",
+        "copy_text": "🎉 The code has been copied!",
+        "success_text": "You have been subscribed to our newsletter.",
+        "button_text": "Subscribe",
+        "subtext": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": "",
+        "success_background": "#00a341",
+        "success_color": "#00a341"
+      }
+    },
     "rich_text_QGJYJe": {
       "type": "rich-text",
       "blocks": {
@@ -2164,6 +2188,7 @@
   "order": [
     "main",
     "slideshow_ckHb9d",
+    "activity_newsletter_QDqwnb",
     "rich_text_QGJYJe",
     "custom_media_grid_M8L6nj",
     "rich_text_L7YbRD",
