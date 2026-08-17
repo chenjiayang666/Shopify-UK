@@ -1402,7 +1402,7 @@
             "icon": "none",
             "icon_width": 20,
             "title": "Wireless projection supported devices",
-            "content": "<ul><li><strong>Samsung：</strong><br/>J7 Prime (SM-G610F), Samsung S21, Samsung A80, Samsung S6 (SM-G9200), Galaxy S23, 58, 58+, 59+, 510, 510+, S10E, S20, S20+, S20 Ultra, Note8, Note9, Note10, Note10+</li><li><strong>iPhone：</strong><br/>iPhone 8, iPhone 9, iPhone 10, iPhone 11, iPhone 12, iPhone 13, iPhone 14, iPhone 15, iPhone 16</li><li><strong>HUAWEI：</strong><br/>nova 3i, Maimang 7, Honor 8X, Honor 20, P40 Pro, Mate40 Pro, Mate10, Mate10 Pro, Mate20, Mate20 Pro, Mate20X, MateRS, Mate20RS, Mate30, P20, P20 Pro, P20RS, P30, P30 Pro, Huawei Note10, Huawei V20, Mate50 Pro, Mate60 Pro</li><li><strong>OPPO：</strong><br/>R9tm, r15, Find X, Reno7 5G, Find X2 Pro</li><li><strong>LG：</strong><br/>G5, G7, G8X</li><li><strong>XIAOMI：</strong><br/>xiaomi 10, xiaomi 11, xiaomi 12, xiaomi 13, xiaomi 14, xiaomi 15</li></ul>",
+            "content": "<ul><li><strong>Samsung：</strong><br/>J7 Prime (SM-G610F), Samsung S21, Samsung A80, Samsung S6 (SM-G9200), Galaxy S23, 58, 58+, 59+, 510, 510+, 510E, S20, S20+, S20 Ultra, Note8, Note9, Note10, Note10+</li><li><strong>iPhone：</strong><br/>iPhone 8, iPhone 9, iPhone 10, iPhone 11, iPhone 12, iPhone 13, iPhone 14, iPhone 15, iPhone 16</li><li><strong>HUAWEI：</strong><br/>nova 3i, MAIMANG 7, Honor 8X, Honor 20, P40 Pro, Mate40 Pro, Mate10, Mate10 Pro, Mate20, Mate20 Pro, Mate20X, MateRS, Mate20RS, Mate30, P20, P20 Pro, P20RS, P30, P30 Pro, Huawei Note10, Huawei V20, Mate50 Pro, Mate60 Pro</li><li><strong>OPPO：</strong><br/>R9tm, r15, Find X, Reno7 5G, Find X2 Pro</li><li><strong>LG：</strong><br/>G5, G7, G8X</li><li><strong>XIAOMI：</strong><br/>xiaomi 10, xiaomi 11, xiaomi 12, xiaomi 13, xiaomi 14, xiaomi 15</li></ul>",
             "page": ""
           }
         },
@@ -1412,7 +1412,7 @@
             "icon": "none",
             "icon_width": 20,
             "title": "Wired projection supported devices",
-            "content": "<ul><li><strong>Samsung：</strong><br/>GalaxyS23, SamsnugS21, 58, S8+, S9+, S10, S10+, S1OE, S20, S20+, S20Ultra, Note8, Note9, Note10, Note10+</li><li><strong>iPhone：</strong><br/>iPhone 15, iPhone 16</li><li><strong>HUAWEI：</strong><br/>Mate10, Mate10 Pro, Mate20, Mate20 Pro, Mate20X, MateRS, Mate20RS, Mate30, P20, P20 Pro, P20RS, P30, P30 Pro, P40, Huawei Note10, Huawei V20, Mate50 Pro, Mate60 Pro</li><li><strong>OPPO</strong>：<br/>R17 Pro</li><li><strong>LG：</strong><br/>G5, G7</li></ul>",
+            "content": "<ul><li><strong>Samsung：</strong><br/>GalaxyS23, SamsnugS21, 58, S8+, S9+, S10, S10+, S10E, S20, S20+, S20Ultra, Note8, Note9, Note10, Note10+</li><li><strong>iPhone：</strong><br/>iPhone 15, iPhone 16</li><li><strong>HUAWEI：</strong><br/>Mate10, Mate10 Pro, Mate20, Mate20 Pro, Mate20X, MateRS, Mate20RS, Mate30, P20, P20 Pro, P20RS, P30, P30 Pro, P40, Huawei Note10, Huawei V20, Mate50 Pro, Mate60 Pro</li><li><strong>OPPO</strong>：<br/>R17 Pro</li><li><strong>LG：</strong><br/>G5, G7</li></ul>",
             "page": ""
           }
         }
