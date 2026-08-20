@@ -403,7 +403,7 @@
         "background": "",
         "background_gradient": "",
         "text_color": "",
-        "section_pdtop": 70,
+        "section_pdtop": 0,
         "section_pdbot": 70
       }
     },
@@ -1406,7 +1406,6 @@
         "heading_wWMXqE",
         "richtext_fNwhLp"
       ],
-      "disabled": true,
       "name": "Rich text",
       "settings": {
         "anchor_id": "",
@@ -1682,6 +1681,7 @@
         "item_kW3gFi",
         "item_bPhBYg"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (max-width: 750px) {.section-gap {padding-right: 0; }}"
       ],
