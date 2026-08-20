@@ -1,0 +1,22 @@
+<style>
+
+
+</style>
+<div class="tab-card">
+    <a href="{{ product.url }}" class="tab-media-box">
+        <img class="first-image" src="{{ product.featured_image | img_url:'' }}" alt="{{ product.featured_image.alt }}">
+        <img class="second-image" src="{{ product.images[1] | img_url:'' }}" alt="{{ product.images[1].alt }}">
+    </a>
+    <div class="tab-cont">
+        <div class="card-titile">
+             {{ product.title }}
+        </div>
+            <div class="product-purchase mob-none">
+            {%- render 'price-list', variant: product.selected_or_first_available_variant, size: 'lg' -%}
+        </div>
+        <div class="product-button">
+            {%- capture product_form_id -%}product-form-{{ block.settings.product.id }}-{{ section.id }}{%- endcapture -%}
+            {%- render 'buy-buttons', button_size:'sm',product: product, form_id: product_form_id, show_payment_button: false, show_gift_card_recipient: false, atc_button_background: block.settings.button_color, atc_button_text_color: block.settings.button_text_color, payment_button_background: block.settings.payment_button_background, payment_button_text_color: block.settings.payment_button_text_color -%}
+        </div>
+    </div>
+</div>

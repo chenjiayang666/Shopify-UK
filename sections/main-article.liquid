@@ -32,6 +32,121 @@
     {%- endif -%}
   }
 
+  #shopify-section-{{ section.id }} .breadcrumbs {
+    padding: 20px 0;
+    display: flex;
+    margin-left: {{ settings.article_breadcrumbs_margin_left }}%;
+    align-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .breadcrumbs-item {
+    display: flex;
+    align-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .breadcrumbs-item:last-child {
+    min-width: 0;
+  }
+  
+  #shopify-section-{{ section.id }} .breadcrumbs-item:not(:last-child)::after {
+    content: attr(data-separator);
+    margin: 0 5px;
+    color: #6c757d;
+    font-size: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .breadcrumbs-item a {
+    font-size: 16px;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+  }
+
+  #shopify-section-{{ section.id }} .breadcrumbs-item span {
+    font-size: 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .breadcrumbs-item a:hover {
+    color: #3676FF;
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 768px) {
+    #shopify-section-{{ section.id }} .breadcrumbs {
+      padding: 20px 10px;
+      font-size: 14px;
+      width: calc(100% - 20px);
+      max-width: calc(100% - 20px);
+    }
+    
+  }
+
+  #shopify-section-{{ section.id }} .container {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    gap: 1rem !important;
+    justify-content: space-between;
+  }
+
+  #shopify-section-{{ section.id }} .target-container {
+    flex: 1 1 25%;
+  }
+
+  #shopify-section-{{ section.id }} .article-content {
+    flex: 1 1 50%;
+    margin-left: 0px;
+    margin-right: 0px;
+    max-width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .empty-container {
+    flex: 1 1 25%;
+  }
+  #shopify-section-{{ section.id }} .container{
+        margin: 0 auto;
+    max-width: 1660px;
+    padding: 0 40px;
+  }
+  @media screen and (max-width: 768px) {
+    #shopify-section-{{ section.id }} .container {
+      padding-left: max(var(--container-gutter), 50% - var(--container-max-width) / 2);
+      padding-right: max(var(--container-gutter), 50% - var(--container-max-width) / 2);
+      gap: 0 !important;
+    }
+
+    #shopify-section-{{ section.id }} .target-container {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .article-content {
+      width: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .empty-container {
+      display: none;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .share-buttons {
+    
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+  } 
+
+  @media screen and (max-width: 768px) {
+    #shopify-section-{{ section.id }} .breadcrumbs.hidden-mobile {
+      display: none !important;
+    }
+  }
+
+
   {%- if article_image == blank -%}
     #shopify-section-{{ section.id }} {
       --article-banner-grid-area: auto;
@@ -92,14 +207,182 @@
   {%- endif -%}
 </style>
 
-<div class="article" {% if section.settings.allow_transparent_header %}allow-transparent-header{% endif %}>
-  {%- render 'article-banner', show_date: section.settings.show_date, show_author: section.settings.show_author, show_comments_count: section.settings.show_comments_count, layout: section.settings.layout, article_image: article_image -%}
 
-  <div class="container">
-    <div class="article-content v-stack gap-8 sm:gap-10">
-      <div class="prose">
+<style>
+  .recommecnd-box .recommend-media-box{
+    position:relative;
+  }
+  .recommecnd-box .recommend-media-box:hover .second-image{
+    opacity:1;
+  }
+  .recommecnd-box .recommend-media-box .second-image{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    left:0;
+    top:0;
+    opacity:0;
+    transition:opacity .5s ease;
+  }
+  .recommecnd-box .recommend-card{
+    height:auto;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+  }
+  .recommecnd-box .recommend-list{
+    align-items:stretch;
+  }
+  .recommecnd-box .recommend-swiper{
+    position:relative;
+  }
+  .recommecnd-box .re-btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    z-index:1;
+        padding: 10px;
+  }
+  .recommecnd-box .re-btn.recommend-button-prev{
+    left:5px;
+  }
+  .recommecnd-box .re-btn.recommend-button-next{
+    right:5px;
+  }
+</style>
+
+<style>
+  .tab-recommend-sticky{
+        height: 6460px;
+        margin-top: 4rem;
+            display: flex
+;
+    justify-content: flex-end;
+  }
+  .tab-recommecnd-box{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 20px;
+    position: sticky;
+    top: 13rem;
+        width: 100%;
+    {% comment %} margin: 0 auto; {% endcomment %}
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        height: fit-content;
+  }
+  .tab-recommecnd-box .tab-title{
+    font-size: 16px;
+    font-weight: bolder;
+    font-weight: 600;
+    line-height: 25.6px;
+  }
+  .tab-recommecnd-box .tab-recommend-list{
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      overflow: scroll;
+      max-height: 500px;
+      scrollbar-width: none;
+  }
+      .tab-card{
+        display:flex;
+        gap:20px;
+    }
+    .tab-recommecnd-box .tab-media-box{
+      position:relative;
+      display: flex;
+    align-items: center;
+    flex:1;
+    }
+    .tab-recommecnd-box .tab-cont{
+      flex:3;
+    }
+      .tab-recommecnd-box .tab-media-box:hover .second-image{
+    opacity:1;
+  }
+  .tab-recommecnd-box .first-image{
+    max-height: 150px;
+    aspect-ratio: 1 / 1;
+  }
+  .tab-recommecnd-box .second-image{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    left:0;
+    top:0;
+    opacity:0;
+    transition:opacity .5s ease;
+  }
+  .tab-recommecnd-box .card-titile{
+            font-size: 14px;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 16px;
+    font-weight: bolder;
+    }
+</style>
+
+<div class="article" {% if section.settings.allow_transparent_header %}allow-transparent-header{% endif %}>
+ 
+  {% if settings.show_article_breadcrumbs and section.settings.show_breadcrumbs %}
+    <div class="breadcrumbs {% if settings.show_article_breadcrumbs_mobile == false %}hidden-mobile{% endif %}">
+      
+      <div class="breadcrumbs-item" data-separator="{{ settings.article_breadcrumbs_separator | default: '/' }}">
+        <a href="{{ shop.secure_url }}{{ blog.url }}">{{ blog.title }}</a>
+      </div>
+
+      <div class="breadcrumbs-item" data-separator="{{ settings.article_breadcrumbs_separator | default: '/' }}">
+        <span>{{ article.title }}</span>
+      </div>
+    </div>
+    {% endif %}
+  
+    {%- render 'article-banner', show_date: section.settings.show_date, show_author: section.settings.show_author, show_comments_count: section.settings.show_comments_count, layout: section.settings.layout, article_image: article_image -%}
+
+  <div class="container left-tab">
+    <div id="{{ section.id }}-target-container" class="target-container">
+    </div>
+    
+    <div class="article-content">
+
+      <div id="{{ section.id }}-article-content" class=" prose">
         {{ article.content }}
       </div>
+        {% assign show_recommend = false %}
+  {% for block in section.blocks %}
+    {{ block.type }}
+    {% if block.type == "recommend" and article.metafields.custom.recommecnd_list != blank %}
+      <div class="recommecnd-box box-{{ block.id }}">
+        <div class="rec-title">{{ block.settings.title }}</div>
+        {% if article.metafields.custom.tab_recommecnd_list != blank %}
+        {% assign show_recommend = true %}
+        <div class="recommend-swiper">
+          <div class="recommend-list swiper-wrapper">
+              {% for product in article.metafields.custom.recommecnd_list.value  %}
+                {% render 'recommend-card',block:block ,product:product,enable_slide:true %}
+              {% endfor %}
+          </div>
+            {% comment %} <div class="re-btn recommend-button-next">
+              {%render 'icon' ,icon:"chevron-right",height:'20px',width:'20px' %}
+            </div>
+            <div class="re-btn recommend-button-prev">
+              {%render 'icon' ,icon:"chevron-left",height:'20px',width:'20px' %}
+            </div> {% endcomment %}
+        </div>
+        {% endif %}
+      </div>
+    {% break %}
+    {% endif %}
+  {% endfor %}
 
       {%- if section.settings.show_share_buttons -%}
         <div class="share-buttons gap-3">
@@ -121,26 +404,189 @@
           </ul>
         </div>
       {%- endif -%}
+
+     
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'navigation' -%}
+            {%- render 'article-navigation', show_date: section.settings.show_date, show_author: section.settings.show_author, show_comments_count: section.settings.show_comments_count, block_attributes: block.shopify_attributes -%}
+    
+          {%- when 'comments' -%}
+            {%- render 'article-comments', show_gravatar: block.settings.show_gravatar, comments_pagination: block.settings.comments_per_page, block_attributes: block.shopify_attributes -%}
+        {%- endcase -%}
+      {%- endfor -%}
     </div>
 
-    {%- for block in section.blocks -%}
-      {%- case block.type -%}
-        {%- when 'navigation' -%}
-          {%- render 'article-navigation', show_date: section.settings.show_date, show_author: section.settings.show_author, show_comments_count: section.settings.show_comments_count, block_attributes: block.shopify_attributes -%}
+    <div class="empty-container full-tab-recommend">
+          {% for block in section.blocks %}
+            {% if block.type == "recommend" and article.metafields.custom.tab_recommecnd_list != blank %}
+      <div class="tab-recommend-sticky">
 
-        {%- when 'comments' -%}
-          {%- render 'article-comments', show_gravatar: block.settings.show_gravatar, comments_pagination: block.settings.comments_per_page, block_attributes: block.shopify_attributes -%}
-      {%- endcase -%}
-    {%- endfor -%}
+              <div class="tab-recommecnd-box tab-box-{{ block.id }}">
+                <div class="tab-title">{{ block.settings.tab-title }}</div>
+                {% if article.metafields.custom.tab_recommecnd_list != blank %}
+                  <div class="tab-recommend-list">
+                      {% for product in article.metafields.custom.tab_recommecnd_list.value  %}
+                        {% render 'tab-recommend-card',block:block ,product:product %}
+                      {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+      </div>
+
+            {% break %}
+            {% endif %} 
+          {% endfor %}
+    </div>
+
+    {% if settings.show_article_table_of_contents %}
+      <article-table-of-contents article-content-id="{{ section.id }}-article-content"
+      target-container-id="{{ section.id }}-target-container"></article-table-of-contents>
+    {% endif %}
   </div>
-</div>
 
+  
+</div>
+<script>
+  {% if show_recommend %}
+    const element = document.querySelector('.recommecnd-box');
+    const target = document.querySelector('.recommecd-container');
+    target.appendChild(element); 
+
+    const recommend_swiper = new Swiper(".recommend-swiper", {
+      loop:false,
+      slidesPerView: 4,
+      spaceBetween: 20,
+      {% comment %} navigation: {
+        nextEl: '.recommend-button-next',
+        prevEl: '.recommend-button-prev',
+      }, {% endcomment %}
+      breakpoints: {
+        1300: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        360:{
+          slidesPerView: 2,
+          spaceBetween: 10, 
+        }
+      }
+
+    });
+  {% endif %}
+</script>
+<script>
+  (function () {
+    var contentEl = document.getElementById('{{ section.id }}-article-content');
+    if (!contentEl) return;
+
+    var rawHtml = contentEl.innerHTML || '';
+    if (!rawHtml) return;
+
+    // Only support HTML comment markers to keep page content clean:
+    // <!-- FAQ_START --> ... <!-- FAQ_END -->
+    var markerRegex = /<!--\s*FAQ_START\s*-->([\s\S]*?)<!--\s*FAQ_END\s*-->/i;
+    var markerMatch = rawHtml.match(markerRegex);
+    if (!markerMatch || !markerMatch[1]) return;
+
+    var faqContainer = document.createElement('div');
+    faqContainer.innerHTML = markerMatch[1];
+
+    var nodes = faqContainer.querySelectorAll('h1,h2,h3,h4,h5,h6,p,li,div,strong');
+    if (!nodes.length) return;
+
+    var qaPairs = [];
+    var current = null;
+
+    function normalizeText(value) {
+      return (value || '').replace(/\s+/g, ' ').trim();
+    }
+
+    function parseQuestion(text) {
+      // Match Q, Q1, Q12 with optional separators/spaces and Chinese/English colon
+      var cleaned = normalizeText(text);
+      if (!cleaned) return null;
+
+      var match = cleaned.match(/^Q\s*(\d+)?\s*[\.\-:：]?\s*(.+)$/i);
+      if (!match || !match[2]) return null;
+
+      var questionText = normalizeText(match[2]);
+      return questionText || null;
+    }
+
+    function pushCurrentIfValid() {
+      if (!current) return;
+      current.answer = normalizeText(current.answer);
+      if (current.question && current.answer) {
+        qaPairs.push({
+          question: current.question,
+          answer: current.answer
+        });
+      }
+    }
+
+    nodes.forEach(function (node) {
+      var text = normalizeText(node.textContent);
+      if (!text) return;
+
+      var parsedQuestion = parseQuestion(text);
+      if (parsedQuestion) {
+        pushCurrentIfValid();
+        current = { question: parsedQuestion, answer: '' };
+        return;
+      }
+
+      if (current) {
+        current.answer += (current.answer ? ' ' : '') + text;
+      }
+    });
+
+    pushCurrentIfValid();
+
+    if (!qaPairs.length) return;
+
+    var faqJsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: qaPairs.map(function (item) {
+        return {
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer
+          }
+        };
+      })
+    };
+
+    var script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(faqJsonLd);
+    document.head.appendChild(script);
+  })();
+</script>
 {% schema %}
 {
   "name": "Blog post",
   "class": "shopify-section--main-article",
   "tag": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "面包屑相关配置",
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "label": "是否显示面包屑",
+      "default": true
+    },
+   
     {
       "type": "checkbox",
       "id": "allow_transparent_header",
@@ -254,6 +700,29 @@
     }
   ],
   "blocks": [
+    {
+      "type": "recommend",
+      "name":"recommend",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default":"Recommend products"
+        },
+        {
+          "type": "header",
+          "content": "Tab recommend"
+        },
+                {
+          "type": "text",
+          "id": "tab-title",
+          "label": "Title",
+          "default":"Recommend products"
+        },
+      ] 
+    },
     {
       "type": "navigation",
       "name": "Prev/next blog posts",

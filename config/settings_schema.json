@@ -7,6 +7,85 @@
     "theme_documentation_url": "https://support.maestrooo.com/",
     "theme_support_url": "https://support.maestrooo.com/article/203-contact-us"
   },
+        {
+    "name": "全局设置",
+    "settings": [
+      {
+        "type": "header",
+        "content": "产品推荐、搜索处不要展示某些产品"
+      },
+      {
+        "type": "textarea",
+        "id": "product_recommendations_exclude_handles",
+        "label": "不要展示的产品的handle(句柄)，多个使用英文,间隔",
+        "info": "handle请到后台产品产品定义处(https:\/\/admin.shopify.com\/store\/merach-fitness-store\/products\/8206727053487)，滑到最底部，点击Search engine listing边上的编辑按钮，下面有一个URL handle，复制products\/后面的字符串就是handle。值举例：worry-free-purchase,whole-body-vibration-plate-black"
+      },
+      {
+        "type": "header",
+        "content": "博客文章相关配置"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_article_table_of_contents",
+        "label": "是否显示文章目录",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "文章面包屑相关配置"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_article_breadcrumbs",
+        "label": "PC端是否显示文章面包屑, 默认为 true 显示",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_article_breadcrumbs_mobile",
+        "label": "移动端是否显示文章面包屑, 默认为 false 不显示",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "article_breadcrumbs_separator",
+        "label": "文章面包屑分隔符",
+        "info": "默认是斜杠 /，如果设置为空，则使用默认的 /。",
+        "default": "/"
+      },
+      {
+        "type": "range",
+        "id": "article_breadcrumbs_margin_left",
+        "label": "文章面包屑左边距(百分比)",
+        "min": 0,
+        "max": 100,
+        "default": 3
+      },
+      {
+        "type": "header",
+        "content": "产品面包屑相关配置"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_product_breadcrumbs",
+        "label": "PC端是否显示产品面包屑, 默认为 true 显示",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_product_breadcrumbs_mobile",
+        "label": "移动端是否显示产品面包屑, 默认为 false 不显示",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "product_breadcrumbs_separator",
+        "label": "产品面包屑分隔符",
+        "info": "默认是斜杠 /，如果设置为空，则使用默认的 /。",
+        "default": "/"
+      }
+    ]
+  },
   {
     "name": "Appearance and spacing",
     "settings": [
