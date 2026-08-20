@@ -223,8 +223,8 @@
         "image_KCgwTH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/T27-motor-care_1.jpg",
-            "mobile_image": "shopify://shop_images/KV_3.jpg",
+            "image": "shopify://shop_images/w60-uk-banner-pc.jpg",
+            "mobile_image": "shopify://shop_images/w60-uk-banner-m.jpg",
             "content_max_width": 660,
             "mobile_text_position": "place-self-start-center text-center",
             "desktop_text_position": "sm:place-self-center-start sm:text-start",
