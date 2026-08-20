@@ -262,6 +262,7 @@
     },
     "activity_newsletter_QDqwnb": {
       "type": "activity-newsletter",
+      "disabled": true,
       "name": "Activity Newsletter",
       "settings": {
         "anchor_id": "multi-column-product-pro",
@@ -282,6 +283,78 @@
         "button_text_color": "",
         "success_background": "#00a341",
         "success_color": "#00a341"
+      }
+    },
+    "rich_text_tGHLPA": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_fQwmnE": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading",
+            "subheading-tag": "p"
+          }
+        },
+        "heading_3cjYRW": {
+          "type": "heading",
+          "settings": {
+            "text": "Exclusive £100 Discount Code",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "richtext_zp8Tmj": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_fQwmnE",
+        "heading_3cjYRW",
+        "richtext_zp8Tmj"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "anchor_id": "",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "17872295077db5131c": {
+      "type": "apps",
+      "blocks": {
+        "omnisend_email_marketing_sms_embedded_form_GyJjr3": {
+          "type": "shopify://apps/omnisend-email-marketing-sms/blocks/embedded-form/44704aa2-794f-4c5d-8c8e-039c841158e9",
+          "settings": {
+            "form_id": "6a86f21e8217bf1c54760263"
+          }
+        }
+      },
+      "block_order": [
+        "omnisend_email_marketing_sms_embedded_form_GyJjr3"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
       }
     },
     "rich_text_QGJYJe": {
@@ -2189,6 +2262,8 @@
     "main",
     "slideshow_ckHb9d",
     "activity_newsletter_QDqwnb",
+    "rich_text_tGHLPA",
+    "17872295077db5131c",
     "rich_text_QGJYJe",
     "custom_media_grid_M8L6nj",
     "rich_text_L7YbRD",
