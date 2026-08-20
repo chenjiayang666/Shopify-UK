@@ -1406,6 +1406,7 @@
         "heading_wWMXqE",
         "richtext_fNwhLp"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "anchor_id": "",
@@ -1422,6 +1423,7 @@
     },
     "video_BVT49R": {
       "type": "video",
+      "disabled": true,
       "custom_css": [
         "video-media {aspect-ratio: 16 / 7;}"
       ],
