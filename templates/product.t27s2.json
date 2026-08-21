@@ -696,67 +696,6 @@
         "show_mob_pag": false
       }
     },
-    "slide_banner_WnCrr4": {
-      "type": "slide-banner",
-      "blocks": {
-        "banner_XnM47q": {
-          "type": "banner",
-          "settings": {
-            "url": ""
-          }
-        }
-      },
-      "block_order": [
-        "banner_XnM47q"
-      ],
-      "name": "Slide Banner",
-      "settings": {
-        "anchor_id": "multi-column-product-pro",
-        "animate": true,
-        "padding-top": 20,
-        "padding-bottom": 20,
-        "padding-gap-left": 20,
-        "padding-gap-right": 20,
-        "max-width": 1000,
-        "media-maxwidth": 1000,
-        "padding-top-mob": 0,
-        "padding-bottom-mob": 20,
-        "padding-gap-left-mob": 20,
-        "padding-gap-right-mob": 20,
-        "title": "",
-        "heading_tag": "h1",
-        "subtitle": "",
-        "button_text": "Show Now",
-        "button_link": "",
-        "show_button_shadow": true,
-        "section-bg": "",
-        "title-color": "#000",
-        "subtitle-color": "#000",
-        "button_bg": "#fff",
-        "button_color": "#0096f9",
-        "article-card-bg": "#fff",
-        "article-color": "#000",
-        "default-ratio": "355/200",
-        "default-card-bg": "#fff",
-        "default-title-color": "#000",
-        "default-subtitle-color": "#101820",
-        "default-button-color": "#101820",
-        "section-bg-mob": "#000",
-        "title-color-mob": "#fff",
-        "subtitle-color-mob": "#fff",
-        "banner_radius": 0,
-        "slide_per_view": 1,
-        "slide_per_splite": 0,
-        "slide_gap": 20,
-        "show-button": false,
-        "slide-button-bg": "white",
-        "slide-button-color": "#000000",
-        "slide_per_view_mob": 1,
-        "slide_per_splite_mob": 0,
-        "slide_gap_mob": 20,
-        "show_mob_pag": false
-      }
-    },
     "rich_text_EenLUr": {
       "type": "rich-text",
       "blocks": {
@@ -817,11 +756,8 @@
         "autoplay": false,
         "show_step": true,
         "video_size": "auto",
-        "video": "shopify://files/videos/（有字幕logo）T27S2-TVC-英-80s.mp4",
-        "mobile_video": "shopify://files/videos/(有字幕)W60-TVC-英-80s-竖屏.mp4",
+        "video": "shopify://files/videos/w60-pp-video.mp4",
         "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "poster": "shopify://shop_images/video-cover-pc.jpg",
-        "poster_mob": "shopify://shop_images/video-cover-m.jpg",
         "text_color": "#ffffff",
         "overlay_color": "#000000",
         "overlay_opacity": 0
@@ -836,7 +772,7 @@
             "text": "A Treadmill-Grade Walking Pad",
             "remove_margin": false,
             "heading-tag": "p",
-            "heading_tag": "h2",
+            "heading_tag": "h4",
             "text_color": "",
             "gradient": "",
             "shadow": ""
@@ -932,7 +868,7 @@
       ],
       "name": "Media Tab",
       "settings": {
-        "show_content": "mobile_pc",
+        "show_content": "pc",
         "animate": true,
         "anchor_id": "discount-tab",
         "padding-top": 20,
@@ -1000,7 +936,6 @@
         "item_rfzjTj",
         "item_JJWRJW"
       ],
-      "disabled": true,
       "name": "Media with text scroll",
       "settings": {
         "show_content": "mobile",
@@ -2270,7 +2205,6 @@
     "custom_media_grid_M8L6nj",
     "rich_text_L7YbRD",
     "slide_banner_qJRJyr",
-    "slide_banner_WnCrr4",
     "rich_text_EenLUr",
     "video_xHN38A",
     "rich_text_HE7NWK",
