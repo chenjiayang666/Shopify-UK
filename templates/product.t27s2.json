@@ -892,6 +892,7 @@
         "item_FgpDV8": {
           "type": "item",
           "settings": {
+            "image_mob": "shopify://shop_images/merach-w60-eu-pdp-m-new-1.jpg",
             "img_text": "Worried about capacity?",
             "media_width": 50,
             "title": "",
@@ -902,6 +903,7 @@
         "item_8MxMrX": {
           "type": "item",
           "settings": {
+            "image_mob": "shopify://shop_images/merach-w60-eu-pdp-m-new-4.jpg",
             "img_text": "Worried about intensity?",
             "media_width": 50,
             "title": "",
@@ -912,6 +914,7 @@
         "item_rfzjTj": {
           "type": "item",
           "settings": {
+            "image_mob": "shopify://shop_images/merach-w60-eu-pdp-m-new-2.jpg",
             "img_text": "Concerned about noise?",
             "media_width": 50,
             "title": "",
@@ -922,6 +925,7 @@
         "item_JJWRJW": {
           "type": "item",
           "settings": {
+            "image_mob": "shopify://shop_images/merach-w60-eu-pdp-m-new-3.jpg",
             "img_text": "Fear the grind?",
             "media_width": 50,
             "title": "",
