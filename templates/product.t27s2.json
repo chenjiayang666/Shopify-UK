@@ -1249,7 +1249,7 @@
             "image": "shopify://shop_images/w60-m-pdp-1.jpg",
             "column_size": "2",
             "item_title": "",
-            "title": "Pick up the Pace up to 400 lb. It Stays Steady",
+            "title": "Pick up the Pace up to 330 lb. It Stays Steady",
             "heading_tag": "h4",
             "content": "<p>3.5 HP peak brushless motor plus a 70 lb reinforced steel frame, it stays stable so you can walk faster without holding back.</p>",
             "link_url": "",
@@ -1319,7 +1319,7 @@
         "heading_wWMXqE": {
           "type": "heading",
           "settings": {
-            "text": "Automatic Incline up to 5°",
+            "text": "8.75% Automatic Incline",
             "remove_margin": false,
             "heading-tag": "p",
             "heading_tag": "h2",
@@ -1331,7 +1331,7 @@
         "richtext_fNwhLp": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Move beyond a flat walk. With automatic incline up to 5°, the W60 adds an uphill challenge to your home workout.</p>"
+            "content": "<p>Move beyond a flat walk. With automatic incline up to 8.75%, the W60 adds an uphill-inspired challenge to your home workout.</p>"
           }
         }
       },
@@ -1386,7 +1386,7 @@
             "image": "shopify://shop_images/w60-m-new_4.jpg",
             "column_size": "3",
             "item_title": "",
-            "title": "Same Time, Double the Fat Burn",
+            "title": "More Fat Burn with Every Step",
             "heading_tag": "h4",
             "content": "<p>Incline walking engages your core and lower body, helping you reach a more effective zone for maximum fat burn.</p>",
             "link_url": "",
@@ -1616,7 +1616,6 @@
         "item_kW3gFi",
         "item_bPhBYg"
       ],
-      "disabled": true,
       "custom_css": [
         "@media (max-width: 750px) {.section-gap {padding-right: 0; }}"
       ],
