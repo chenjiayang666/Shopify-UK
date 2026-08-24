@@ -299,7 +299,7 @@
         "heading_3cjYRW": {
           "type": "heading",
           "settings": {
-            "text": "Exclusive £100 Discount Code",
+            "text": "Exclusive £60 Discount Code",
             "remove_margin": false,
             "heading-tag": "p",
             "heading_tag": "h2",
@@ -321,7 +321,6 @@
         "heading_3cjYRW",
         "richtext_zp8Tmj"
       ],
-      "disabled": true,
       "name": "Rich text",
       "settings": {
         "anchor_id": "",
@@ -349,7 +348,6 @@
       "block_order": [
         "omnisend_email_marketing_sms_embedded_form_GyJjr3"
       ],
-      "disabled": true,
       "settings": {
         "full_width": true,
         "remove_vertical_spacing": false,
