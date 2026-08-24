@@ -403,7 +403,7 @@
         "background": "",
         "background_gradient": "",
         "text_color": "",
-        "section_pdtop": 60,
+        "section_pdtop": 10,
         "section_pdbot": 70
       }
     },
