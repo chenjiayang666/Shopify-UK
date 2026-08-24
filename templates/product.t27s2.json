@@ -331,8 +331,8 @@
         "background": "",
         "background_gradient": "",
         "text_color": "",
-        "section_pdtop": 70,
-        "section_pdbot": 70
+        "section_pdtop": 80,
+        "section_pdbot": 20
       }
     },
     "17872295077db5131c": {
