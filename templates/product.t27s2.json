@@ -321,6 +321,7 @@
         "heading_3cjYRW",
         "richtext_zp8Tmj"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "anchor_id": "",
@@ -348,6 +349,7 @@
       "block_order": [
         "omnisend_email_marketing_sms_embedded_form_GyJjr3"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "remove_vertical_spacing": false,
@@ -403,7 +405,7 @@
         "background": "",
         "background_gradient": "",
         "text_color": "",
-        "section_pdtop": 0,
+        "section_pdtop": 60,
         "section_pdbot": 70
       }
     },
