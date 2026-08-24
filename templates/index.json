@@ -161,7 +161,6 @@
         },
         "image_dBFVWY": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/w60-uk-hp-banner-pc.jpg",
             "mobile_image": "shopify://shop_images/w60-hp-banner-m.jpg",
