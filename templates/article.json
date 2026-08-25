@@ -1,1 +1,58 @@
-{"sections":{"main":{"type":"main-article","blocks":{"navigation":{"type":"navigation","settings":{}},"comments":{"type":"comments","settings":{}}},"block_order":["navigation","comments"],"settings":{}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "navigation": {
+          "type": "navigation",
+          "settings": {}
+        },
+        "recommend_iWf6m8": {
+          "type": "recommend",
+          "settings": {
+            "title": "Recommend products",
+            "tab-title": "Recommend products"
+          }
+        },
+        "comments": {
+          "type": "comments",
+          "settings": {
+            "show_gravatar": true,
+            "comments_per_page": 5
+          }
+        }
+      },
+      "block_order": [
+        "navigation",
+        "recommend_iWf6m8",
+        "comments"
+      ],
+      "settings": {
+        "show_breadcrumbs": false,
+        "allow_transparent_header": false,
+        "layout": "content_first",
+        "show_author": false,
+        "show_date": true,
+        "show_comments_count": true,
+        "show_share_buttons": true,
+        "banner_background": "",
+        "banner_text_color": "",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "content_width": "1150px"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
