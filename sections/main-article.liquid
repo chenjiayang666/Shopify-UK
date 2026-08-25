@@ -359,7 +359,6 @@
       </div>
         {% assign show_recommend = false %}
   {% for block in section.blocks %}
-    {{ block.type }}
     {% if block.type == "recommend" and article.metafields.custom.recommecnd_list != blank %}
       <div class="recommecnd-box box-{{ block.id }}">
         <div class="rec-title">{{ block.settings.title }}</div>
