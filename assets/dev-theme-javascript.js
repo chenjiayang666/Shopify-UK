@@ -757,7 +757,6 @@ class ArticleTableOfContents extends HTMLElement {
           padding-top: 0;
           box-sizing: border-box;
           margin: 4rem 0;
-          background-color: white;
           height: ${articleContentHeight}px;
       `;
 
