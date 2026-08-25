@@ -25,6 +25,7 @@
         },
         "comments": {
           "type": "comments",
+          "disabled": true,
           "settings": {
             "show_gravatar": true,
             "comments_per_page": 5
@@ -42,7 +43,7 @@
         "layout": "content_first",
         "show_author": false,
         "show_date": true,
-        "show_comments_count": true,
+        "show_comments_count": false,
         "show_share_buttons": true,
         "banner_background": "",
         "banner_text_color": "",
