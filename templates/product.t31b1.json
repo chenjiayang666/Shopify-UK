@@ -1,1 +1,1658 @@
-{"sections":{"main":{"type":"main-product","blocks":{"vendor":{"type":"vendor","disabled":true,"settings":{}},"title":{"type":"title","settings":{"heading_tag":"h2"}},"badges":{"type":"badges","settings":{}},"rating":{"type":"rating","settings":{"show_empty":false}},"price":{"type":"price","settings":{"show_taxes_notice":false}},"klarna_on_site_messaging_app_block_9UkB6d":{"type":"shopify:\/\/apps\/klarna-on-site-messaging\/blocks\/app-block\/b95936a9-74b6-4a95-8103-6a1b6459c25e","settings":{"data_key":"credit-promotion-badge","theme":"default","topPadding":"0","bottomPadding":"0","messagePrefix":""}},"payment_terms":{"type":"payment_terms","settings":{}},"separator":{"type":"separator","settings":{}},"description":{"type":"description","settings":{"icon":"none","icon_width":20,"collapse_content":false}},"selleasy_lb_upsell_widget_pal_U4ghHL":{"type":"shopify:\/\/apps\/selleasy\/blocks\/lb-upsell-widget-pal\/790c1a03-a71f-4bc1-9869-00dad526d3c2","settings":{}},"product_variations_hJeP98":{"type":"product_variations","disabled":true,"settings":{"option_name":"","option_value_metafield":"","products":[],"selector_style":"swatch"}},"variant_picker":{"type":"variant_picker","settings":{"hide_sold_out_variants":false,"stack_blocks":true,"selector_style":"block","swatch_selector_style":"swatch","variant_image_options":"","size_chart_page":""}},"text_3tyUw6":{"type":"text","disabled":true,"settings":{"text":"<p>Share some content to your customers about your products.<\/p>"}},"quantity_selector":{"type":"quantity_selector","settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_payment_button":true,"show_gift_card_recipient":true,"show_cutdown":false,"cutdown_text":"End in:","sale_cutdown":"2026-12-20 23:59:59","buy_text":"Buy now","buy_style":"fill","add_style":"fill","cutdown_color":"","atc_button_background":"","atc_button_text_color":"","atc_button_background2":"","atc_button_text_color2":"","payment_button_background":"","payment_button_text_color":""}},"liquid_B8ikTz":{"type":"liquid","settings":{"liquid":"<style>\n    .payment-icons-container {\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: center;\n        margin: 0 -5px; \n    }\n\n    .payment-icons-container img {\n        height: 30px;\n        margin: 5px; \n    }\n\n    @media only screen and (max-width: 600px) {\n        .payment-icons-container img {\n            height: 25px; \n            margin: 3px; \n        }\n    }\n<\/style>\n\n<div class=\"payment-icons-container\">\n    <img src=\"{{ 'paypal' | payment_type_img_url }}\" alt=\"paypal\" \/>\n    <img src=\"{{ 'visa' | payment_type_img_url }}\" alt=\"visa\" \/>\n    <img src=\"{{ 'master' | payment_type_img_url }}\" alt=\"master\" \/>\n    <img src=\"{{ 'american_express' | payment_type_img_url }}\" alt=\"american express\" \/>    \n    <img src=\"{{ 'discover' | payment_type_img_url }}\" alt=\"discover\" \/>\n   <img src=\"{{ 'klarna' | payment_type_img_url }}\" alt=\"klarna\" \/>    \n    <img src=\"{{ 'apple_pay' | payment_type_img_url }}\" alt=\"apple pay\" \/>\n<img src=\"{{ 'google_pay' | payment_type_img_url }}\" alt=\"google pay\" \/>\n<\/div>"}},"collapsible_text_Nqt9FQ":{"type":"collapsible_text","settings":{"icon":"none","custom_icon":"shopify:\/\/shop_images\/merach_trust_logo_4.png","icon_width":20,"title":"Free Shipping","content":"<p>Our commitment: The best shipping solutions for you<\/p><p><strong>Order Processing Schedule:<\/strong><\/p><p>Processing Time: Within 48 business hours<\/p><p>Shipping Methods: Fedex, UPS, DHL, DPD, TNT, GLS<\/p><p>Shipping Time: 3–7 business days<\/p><p>Total Duration: 4-9 business days (Excluding special circumstances such as force majeure, e.g., bad weather)<\/p><p>Order Processing Hours: Mon-Fri: 9 a.m. to 6 p.m. (GMT+1)<\/p><p>Shipping Costs: Free Shipping<\/p><p>Our goal is to provide the best shipping solution for your order and ensure that the product arrives quickly and in good condition. Everything is done for our customers to have a great shopping experience.<\/p>","page":""}},"collapsible_text_Bqfbtz":{"type":"collapsible_text","settings":{"icon":"none","custom_icon":"shopify:\/\/shop_images\/merach_trust_logo_2.png","icon_width":20,"title":"30-Day Return","content":"<p>You have the option to cancel this product within 30 days. Please refer to our <a href=\"https:\/\/uk.merachfit.com\/pages\/return-refund\" title=\"https:\/\/uk.merachfit.com\/pages\/return-refund\">return & refund policy.<\/a><\/p>","page":""}},"collapsible_text_WKgPd4":{"type":"collapsible_text","settings":{"icon":"none","custom_icon":"shopify:\/\/shop_images\/merach_trust_logo_5.png","icon_width":20,"title":"24-Month Warranty","content":"<p>Merach provides a 2-year warranty to ensure a secure and reliable shopping experience for our customers.<\/p><p>For more details, please refer to our warranty terms. If you have any questions, please contact us via email at <a>info.uk@merachfit.com<\/a>.<\/p>","page":""}},"share_buttons_ELE6Aj":{"type":"share_buttons","settings":{"alignment":"start"}}},"block_order":["vendor","title","badges","rating","price","klarna_on_site_messaging_app_block_9UkB6d","payment_terms","separator","description","selleasy_lb_upsell_widget_pal_U4ghHL","product_variations_hJeP98","variant_picker","text_3tyUw6","quantity_selector","buy_buttons","liquid_B8ikTz","collapsible_text_Nqt9FQ","collapsible_text_Bqfbtz","collapsible_text_WKgPd4","share_buttons_ELE6Aj"],"settings":{"full_width":true,"show_fixed_add_to_cart":true,"desktop_media_width":55,"desktop_media_layout":"carousel_thumbnails_left","mobile_media_size":"expanded","mobile_carousel_control":"thumbnails","enable_video_autoplay":false,"enable_video_looping":true,"enable_image_zoom":true,"max_image_zoom_level":3,"background":"","background_gradient":"","text_color":"","input_background":"rgba(0,0,0,0)","input_text_color":""}},"related-products":{"type":"related-products","disabled":true,"settings":{"recommendations_count":6,"products":[],"full_width":true,"stack_products":true,"show_progress_bar":false,"products_per_row_mobile":"1","products_per_row_desktop":3,"subheading":"","title":"You may also like","content":"","background":"","background_gradient":"","text_color":"","heading_color":"","heading_gradient":"","product_card_background":"","product_card_text_color":""}},"slideshow_YmCwBE":{"type":"slideshow","blocks":{"image_LnkBg4":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline_8.jpg","mobile_image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline_1.jpg","content_max_width":780,"mobile_text_position":"place-self-start-center text-center","desktop_text_position":"sm:place-self-center sm:text-center","subheading":"18-Level Auto Incline Treadmill","title":"Conquer Every Hill — Train Smarter, Climb Stronger!","heading_tag":"h2","button_text":"","button_link":"","text_color":"#f8f8f8","button_background":"#ffffff","button_text_color":"#000000","overlay_color":"#000000","overlay_opacity":0,"background":"","background_gradient":""}}},"block_order":["image_LnkBg4"],"settings":{"full_width":true,"allow_transparent_header":true,"show_initial_transition":false,"image_size":"auto","controls_type":"dots","transition_type":"fade_with_text","autoplay":false,"cycle_speed":6,"background":"#f2f2f2","background_gradient":""}},"press_m4qctV":{"type":"press","blocks":{"quote_t4iPWf":{"type":"quote","settings":{"logo":"shopify:\/\/shop_images\/merach_press_logo_3.png","logo_width":100,"author":"","content":"Das Merach Rudergerät ist einfach zu montieren und macht während des Betriebs praktisch keinen Lärm!","show_rating":false,"rating":4}},"quote_ELnUeb":{"type":"quote","settings":{"logo":"shopify:\/\/shop_images\/merach_press_logo_5.png","logo_width":100,"author":"","content":"Alle diese Modelle sind zumindest teilweise zusammengebaut und mit der Merach-App kompatibel, die Kurse anbietet, mit denen Sie Ihr neues Fitnessgerät nutzen können.","show_rating":false,"rating":4}},"quote_A8rc7q":{"type":"quote","settings":{"logo":"shopify:\/\/shop_images\/merach_press_logo_2.png","logo_width":100,"author":"","content":"Merach hilft Ihnen, Ihren Platz optimal zu nutzen, denn es lässt sich bequem zusammenklappen und unter dem Bett, im Schrank, hinter dem Schreibtisch und so weiter verstauen.","show_rating":false,"rating":4}},"quote_fGeyE9":{"type":"quote","settings":{"logo":"shopify:\/\/shop_images\/merach_press_logo_4.png","logo_width":100,"author":"","content":"Das Gerät selbst verfügt über 16 Widerstandsstufen, rutschfeste Pedale und ein flüsterleises Design, das weder Ihre Familie noch Ihre Nachbarn im Erdgeschoss stört.","show_rating":false,"rating":4}},"quote_FnHYAU":{"type":"quote","settings":{"logo":"shopify:\/\/shop_images\/merach_press_logo_1.png","logo_width":100,"author":"","content":"Das Merach Rudergerät für zu Hause fordert Sie auf einer ganz neuen Ebene.","show_rating":false,"rating":4}}},"block_order":["quote_t4iPWf","quote_ELnUeb","quote_A8rc7q","quote_fGeyE9","quote_FnHYAU"],"disabled":true,"settings":{"full_width":true,"content_size":"medium","background":"","background_gradient":"","text_color":"","heading_color":"","heading_gradient":"","logo_item_background":"","logo_item_border":""}},"image_link_blocks_jM444X":{"type":"image-link-blocks","blocks":{"item_nTKCVk":{"type":"item","settings":{"stretch_image":true,"link_text":"","link_url":"","background":"","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"item_cULFzj":{"type":"item","settings":{"stretch_image":true,"link_text":"","link_url":"","background":"","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"item_G7NNVF":{"type":"item","settings":{"stretch_image":true,"link_text":"","link_url":"","background":"","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"item_ARkqPE":{"type":"item","settings":{"stretch_image":true,"link_text":"","link_url":"","background":"","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"item_pRgNBC":{"type":"item","settings":{"stretch_image":true,"link_text":"","link_url":"","background":"","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}}},"block_order":["item_nTKCVk","item_cULFzj","item_G7NNVF","item_ARkqPE","item_pRgNBC"],"disabled":true,"settings":{"anchor_id":"image-link-blocks","full_width":false,"block_size":"medium","subheading":"","title":"","content":"","link_url":"","link_text":"","background":"","background_gradient":"","text_color":"","heading_color":"","heading_gradient":""}},"rich_text_KmMfit":{"type":"rich-text","blocks":{"heading_ytdVKE":{"type":"heading","settings":{"text":"Hear from the Experts","heading_tag":"h3","text_color":"","gradient":""}}},"block_order":["heading_ytdVKE"],"disabled":true,"settings":{"anchor_id":"rich-text","full_width":true,"content_width":"small","text_position":"center","background":"","background_gradient":"","text_color":""}},"video_carousel_MXzNaK":{"type":"Video-Carousel","blocks":{"video_jGFMDM":{"type":"video","settings":{"video":"shopify:\/\/files\/videos\/Ben-UK-T31-0217.mp4","video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","title":""}},"video_MUjRW8":{"type":"video","settings":{"video":"shopify:\/\/files\/videos\/Nurse-T31-REEL.mp4","video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","title":""}},"video_RMJ34q":{"type":"video","settings":{"video":"shopify:\/\/files\/videos\/Kelly-UK-T31B1-0128.mp4","video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","title":""}},"video_3FBVmX":{"type":"video","settings":{"video":"shopify:\/\/files\/videos\/Ash-T31-UK-0316.mp4","video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","title":""}},"video_irjwdr":{"type":"video","settings":{"video":"shopify:\/\/files\/videos\/MOVE-UK-T31-0316.mp4","video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","title":""}}},"block_order":["video_jGFMDM","video_MUjRW8","video_RMJ34q","video_3FBVmX","video_irjwdr"],"name":"Video list","settings":{"slider_gap":10,"card_radius":10,"autoplay":false,"full_width":true,"stack_collections":false,"collections_per_row":5,"show_progress_bar":false,"subheading":"","title":"Hear from the Experts","content":"","link_url":"","link_text":"","flex_direction":"row","flex_align":"center-center","section_bg":"","background":"","background_gradient":"","text_color":"","heading_color":"","heading_gradient":""}},"image_link_blocks_CX6KFw":{"type":"image-link-blocks","blocks":{"item_amtW9d":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/merach_home_fitness_pr_logo_6.png","stretch_image":true,"link_text":"","link_url":"","background":"","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"item_EerJhV":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/merach_home_fitness_pr_logo_4.png","stretch_image":true,"link_text":"","link_url":"","background":"","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"item_WezA9c":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/merach_home_fitness_pr_logo_2.png","stretch_image":true,"link_text":"","link_url":"","background":"","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"item_JWVheh":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/merach_home_fitness_pr_logo_5.png","stretch_image":true,"link_text":"","link_url":"","background":"","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"item_9J4faL":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/merach_home_fitness_pr_logo_3.png","stretch_image":true,"link_text":"","link_url":"","background":"","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"item_T9wPkg":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/merach_home_fitness_pr_logo_1.png","stretch_image":true,"link_text":"","link_url":"","background":"","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}}},"block_order":["item_amtW9d","item_EerJhV","item_WezA9c","item_JWVheh","item_9J4faL","item_T9wPkg"],"disabled":true,"settings":{"anchor_id":"image-link-blocks","full_width":true,"block_size":"small","subheading":"","title":"","content":"","link_url":"","link_text":"","background":"","background_gradient":"","text_color":"","heading_color":"","heading_gradient":""}},"video_carousel_6Jrz3E":{"type":"Video-Carousel","blocks":{"video_pMFcVE":{"type":"video","settings":{"video":"shopify:\/\/files\/videos\/Nurse-T31-REEL.mp4","video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","title":""}},"video_biXybj":{"type":"video","settings":{"video":"shopify:\/\/files\/videos\/Ben-UK-T31-0217.mp4","video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","title":""}},"video_Lnb7CQ":{"type":"video","settings":{"video":"shopify:\/\/files\/videos\/Kelly-UK-T31B1-0128.mp4","video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","title":""}}},"block_order":["video_pMFcVE","video_biXybj","video_Lnb7CQ"],"disabled":true,"name":"Video list","settings":{"slider_gap":20,"card_radius":10,"autoplay":false,"full_width":false,"stack_collections":false,"collections_per_row":4,"show_progress_bar":false,"subheading":"","title":"Hear from the Experts","content":"","link_url":"","link_text":"","flex_direction":"row","flex_align":"center-center","section_bg":"","background":"","background_gradient":"","text_color":"","heading_color":"","heading_gradient":""}},"impact_text_X9jCW7":{"type":"impact-text","blocks":{"item_Erm9bY":{"type":"item","settings":{"title":"18","subheading":"18-Level Automatic Incline Adjustment","content":"<p>Simulates Real Outdoor Terrain for Intense Workouts<\/p>","button_text":"","button_url":"","animate_impact_text":false,"animate_impact_text_duration":2}}},"block_order":["item_Erm9bY"],"settings":{"full_width":true,"stack_mobile":true,"text_alignment":"center","impact_text_style":"fill","text_divider":"none","impact_text_size_ratio":1,"background":"","background_gradient":"","heading_text_color":"","heading_gradient":"","text_color":"","button_background":"","button_text_color":""}},"media_with_text_DhFPkU":{"type":"media-with-text","blocks":{"image_U3DLJp":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-1_1.jpg","media_width":50,"media_position":"start","text_position":"place-self-center text-center","icon":"none","icon_width":48,"subheading":"18 Automatic Incline Levels & 3 Professional Modes","title":"Simulates Real Outdoor Terrain","content":"<p>This treadmill offers 18 automatic incline levels and 3 professional modes – Steady Climb, Power Hike, and Hill Sprint – to help you strengthen your lower body and boost endurance. Enjoy the feel of an outdoor run, no matter the weather.<br\/><\/p>","link_text":"","link_url":"","background":"#000000","background_gradient":"","text_color":"#ffffff","text_gradient":"","button_background":"","button_text_color":""}},"image_CqTifB":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-1_3.jpg","media_width":50,"media_position":"end","text_position":"place-self-center text-center","icon":"none","icon_width":48,"subheading":"3.5 Horsepower","title":"Diversified Training Intensity","content":"<p>Powered by a strong 3.5HP motor with speeds up to 8.7mph, this treadmill delivers smooth, consistent performance – perfect for both everyday fitness and serious runners.<\/p>","link_text":"","link_url":"","background":"#000000","background_gradient":"","text_color":"#ffffff","text_gradient":"","button_background":"","button_text_color":""}},"image_t6K6Gk":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-1_4.jpg","media_width":50,"media_position":"start","text_position":"place-self-center text-center","icon":"none","icon_width":48,"subheading":"Personalised Coaching & LCD Display","title":"Train Smarter and More Efficiently","content":"<p>Connect to the MERACH app to access tailored coaching programmes. Track your time, speed, distance, and calories on the clear LCD display, while real-time heart rate monitoring helps you stay in your ideal training zone.<\/p>","link_text":"","link_url":"","background":"#000000","background_gradient":"","text_color":"#ffffff","text_gradient":"","button_background":"","button_text_color":""}}},"block_order":["image_U3DLJp","image_CqTifB","image_t6K6Gk"],"settings":{"full_width":false,"alternate_media_position":false,"spacing":"small"}},"rich_text_4BhJJq":{"type":"rich-text","blocks":{"heading_GEKJkT":{"type":"heading","settings":{"text":"Fold Away in Seconds","heading_tag":"h1","text_color":"","gradient":""}},"subheading_Jpctdy":{"type":"subheading","settings":{"text":"Hydraulic System for Effortless Storage"}}},"block_order":["heading_GEKJkT","subheading_Jpctdy"],"settings":{"anchor_id":"rich-text","full_width":true,"content_width":"small","text_position":"center","background":"#12121a","background_gradient":"","text_color":"#ffffff"}},"slideshow_RDKtdF":{"type":"slideshow","blocks":{"image_Wrc3F4":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline_5.jpg","mobile_image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline_2.jpg","content_max_width":780,"mobile_text_position":"place-self-center text-center","desktop_text_position":"sm:place-self-center sm:text-center","subheading":"","title":"","heading_tag":"h0","button_text":"","button_link":"","text_color":"#ffffff","button_background":"#ffffff","button_text_color":"#000000","overlay_color":"#000000","overlay_opacity":0,"background":"","background_gradient":""}},"image_METpA6":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline_7.jpg","mobile_image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline_4.jpg","content_max_width":780,"mobile_text_position":"place-self-center text-center","desktop_text_position":"sm:place-self-center sm:text-center","subheading":"","title":"","heading_tag":"h0","button_text":"","button_link":"","text_color":"#ffffff","button_background":"#ffffff","button_text_color":"#000000","overlay_color":"#000000","overlay_opacity":0,"background":"","background_gradient":""}}},"block_order":["image_Wrc3F4","image_METpA6"],"name":"Slideshow","settings":{"full_width":true,"allow_transparent_header":true,"show_initial_transition":false,"image_size":"auto","controls_type":"dots","transition_type":"fade_with_text","autoplay":false,"cycle_speed":6,"background":"#f2f2f2","background_gradient":""}},"video_eJGQY3":{"type":"video","blocks":{"play_HxTDQV":{"type":"play","settings":{}},"heading_KfWJQ6":{"type":"heading","settings":{"text":"Video","heading_tag":"h1"}}},"block_order":["play_HxTDQV","heading_KfWJQ6"],"disabled":true,"settings":{"full_width":true,"allow_transparent_header":false,"autoplay":false,"video_size":"auto","external_video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":30}},"rich_text_BmQRfp":{"type":"rich-text","blocks":{"subheading_TDy4Wa":{"type":"subheading","settings":{"text":"Hydraulic System for Effortless Storage"}}},"block_order":["subheading_TDy4Wa"],"disabled":true,"settings":{"anchor_id":"rich-text","full_width":true,"content_width":"large","text_position":"center","background":"#12121a","background_gradient":"","text_color":"#ffffff"}},"rich_text_9TzVfL":{"type":"rich-text","blocks":{"heading_CUeT8p":{"type":"heading","settings":{"text":"Every Detail Makes Fitness More Efficient","heading_tag":"h3","text_color":"","gradient":""}}},"block_order":["heading_CUeT8p"],"settings":{"anchor_id":"rich-text","full_width":true,"content_width":"small","text_position":"center","background":"","background_gradient":"","text_color":""}},"media_grid_gQay8n":{"type":"media-grid","blocks":{"image_MgnbcT":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_2.jpg","title":"Built-in 20 Programs","heading_tag":"h4","link_url":"","link_text":"","mobile_text_position":"place-self-end-center text-center","desktop_column_span":2,"desktop_row_span":2,"desktop_text_position":"sm:place-self-end-center sm:text-center","background":"#000000","background_gradient":"","text_color":"#ffffff","text_gradient":"","button_background":"#000000","button_text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"image_DHkwLg":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_3.jpg","title":"Satefy Key","heading_tag":"h4","link_url":"","link_text":"","mobile_text_position":"place-self-center-end text-end","desktop_column_span":2,"desktop_row_span":1,"desktop_text_position":"sm:place-self-center-end sm:text-end","background":"#000000","background_gradient":"","text_color":"#ffffff","text_gradient":"","button_background":"#000000","button_text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"image_VwQ7Hg":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_4.jpg","title":"Heart Rate Monitor","heading_tag":"h4","link_url":"","link_text":"","mobile_text_position":"place-self-end-center text-center","desktop_column_span":1,"desktop_row_span":1,"desktop_text_position":"sm:place-self-end-center sm:text-center","background":"#000000","background_gradient":"","text_color":"#ffffff","text_gradient":"","button_background":"#000000","button_text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"image_jM4iEh":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_5.jpg","title":"Bottle Holder","heading_tag":"h4","link_url":"","link_text":"","mobile_text_position":"place-self-end-center text-center","desktop_column_span":1,"desktop_row_span":1,"desktop_text_position":"sm:place-self-end-center sm:text-center","background":"#000000","background_gradient":"","text_color":"#ffffff","text_gradient":"","button_background":"#000000","button_text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}}},"block_order":["image_MgnbcT","image_DHkwLg","image_VwQ7Hg","image_jM4iEh"],"name":"Media grid","settings":{"anchor_id":"media-grid","full_width":true,"reduce_width":false,"desktop_row_height":290,"mobile_row_height":150,"background":"","background_gradient":""}},"multi_column_bUcXYW":{"type":"multi-column","blocks":{"item_77zXwN":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_7.jpg","column_size":"3","title":"Wide Running Surface","heading_tag":"h4","content":"<p>Enjoy an 18.11\" x 47.24\" spacious, non-slip running deck for a safer and more natural stride. Ideal for walking, jogging, or running with confidence and comfort.<\/p>","link_url":"","link_text":"","link_style":"link","check-bg":"#000000","check-color":"#ffffff"}},"item_AUKXdT":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Merach-T31b1-Treadmill-Details_1_4.png","column_size":"3","title":"7-Layer Soft Silent Running Belt","heading_tag":"h4","content":"<p>Our foldable treadmill features a 7-layer soft running belt that absorbs impact, protects joints, and ensures a quiet, stable stride—ideal for home or apartment workouts.<\/p>","link_url":"","link_text":"","link_style":"link","check-bg":"#000000","check-color":"#ffffff"}},"item_FWiCMj":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_1.jpg","column_size":"3","title":"12 Silicone Shock Absorption","heading_tag":"h4","content":"<p>Built with 12 high-elastic silicone shock absorbers to reduce joint pressure and vibration, delivering a smooth, comfortable run on every step.<\/p>","link_url":"","link_text":"","link_style":"link","check-bg":"#000000","check-color":"#ffffff"}},"item_NnRWkE":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_9.jpg","column_size":"3","title":"Free MERACH APP","heading_tag":"h4","content":"<p>Sync via Bluetooth to the MERACH App to track time, distance, speed, and calories. Access smart fitness data and adjust workouts instantly.<\/p>","link_url":"","link_text":"","link_style":"link","check-bg":"#000000","check-color":"#ffffff"}},"item_HxLrkL":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_8.jpg","column_size":"3","title":"<45 dB Low Noise","heading_tag":"h4","content":"<p>This quiet treadmill for home use operates under 45 dB, letting you exercise anytime without disturbing family or neighbors—perfect for small spaces.<\/p>","link_url":"","link_text":"","link_style":"link","check-bg":"#000000","check-color":"#ffffff"}},"item_cmGzgG":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_10.jpg","column_size":"3","title":"Compatible Apps","heading_tag":"h4","content":"<p>Merach, Kinomap, Zwift, Apple Health, Google Fit.<\/p>","link_url":"","link_text":"","link_style":"link","check-bg":"#000000","check-color":"#ffffff"}}},"block_order":["item_77zXwN","item_AUKXdT","item_FWiCMj","item_NnRWkE","item_HxLrkL","item_cmGzgG"],"settings":{"full_width":true,"stack_on_mobile":false,"gap":"medium","text_alignment":"center","subheading":"","title":"","content":"","background":"","background_gradient":"","text_color":""}},"faq_weMq9E":{"type":"faq","blocks":{"item_wxtgXi":{"type":"item","settings":{"title":"1. How steep is the incline on the Merach T31B1 treadmill?","content":"<p>The Merach T31B1 features 18 automatic incline levels up to 18%. This allows you to switch easily between flat running and challenging hill training, helping to improve endurance, strength and calorie burning.<\/p>"}},"item_ipmC7L":{"type":"item","settings":{"title":"2. What speed does the Merach T31B1 treadmill reach?","content":"<p>The treadmill offers a speed range of 1–14 km\/h (0.6–8.7 mph), making it suitable for walking, brisk walking, jogging and running workouts at home.<br\/><\/p>"}},"item_HXX7xV":{"type":"item","settings":{"title":"3. What is the maximum user weight for the Merach T31B1 treadmill?","content":"<p>The sturdy home treadmill supports a maximum user weight of up to 159 kg. Its robust frame provides stable and secure workouts, even during more intense training sessions.<\/p>"}},"item_DkTw8N":{"type":"item","settings":{"title":"4. What training programmes does the Merach T31B1 treadmill offer?","content":"<p>The treadmill includes three professional training modes:<br\/><br\/>Steady Climb for consistent incline training<br\/>Power Hike for endurance-focused workouts<br\/>Hill Sprint for high-intensity interval training<br\/><br\/>In addition, the treadmill offers 20 built-in workout programmes.<\/p>"}},"item_gm8BdE":{"type":"item","settings":{"title":"5. Is the Merach T31B1 treadmill joint-friendly?","content":"<p>Yes. The treadmill features a 7-layer running belt and 12 silicone shock absorbers, which help reduce impact and joint stress. This design provides a more comfortable and joint-friendly running experience.<\/p>"}},"item_fTHWjV":{"type":"item","settings":{"title":"6. Is the Merach T31B1 treadmill foldable and space-saving?","content":"<p>Yes. The treadmill is equipped with a hydraulic folding system that allows it to be folded in about 30 seconds. This makes it ideal for homes, flats and compact home gyms where space is limited.<\/p>"}}},"block_order":["item_wxtgXi","item_ipmC7L","item_HXX7xV","item_DkTw8N","item_gm8BdE","item_fTHWjV"],"settings":{"full_width":true,"subheading":"","title":"FAQ","content":"","team_avatar_width":160,"support_hours":"","answer_time":"","button_text":"","button_url":"","text_position":"center","background":"","background_gradient":"","text_color":"","heading_color":"","heading_gradient":"","button_background":"","button_text_color":"","accordion_background":"","accordion_text_color":""}},"rich_text_CzBXFD":{"type":"rich-text","blocks":{"heading_KfNYbA":{"type":"heading","settings":{"text":"What's in the box?","heading_tag":"h3","text_color":"","gradient":""}},"subheading_PkNjM9":{"type":"subheading","settings":{"text":"90% Pre-Assembled"}}},"block_order":["heading_KfNYbA","subheading_PkNjM9"],"disabled":true,"settings":{"anchor_id":"rich-text","full_width":true,"content_width":"small","text_position":"center","background":"","background_gradient":"","text_color":""}},"specification_table_N4iPYp":{"type":"specification-table","blocks":{"row_FijwjU":{"type":"row","settings":{"heading":"Steuerelemente und Funktionen","value":"<p>111<\/p>"}},"row_jqYT34":{"type":"row","settings":{"heading":"Abmessungen der Maschine","value":"<p>Value 2<\/p>"}},"row_zdjWzD":{"type":"row","settings":{"heading":"Garantie","value":"<ul><li>Rahmen: 12 Monate<\/li><li>Motor: 12 Monate<\/li><li>Teile: 12 Monate<\/li><li>Verschleißteile: 12 Monate<\/li><li>Kosmetische Teile: 90 Tage<\/li><li>Gewerbliche Nutzung: Nicht verfügbar, nur für den privaten Gebrauch.<\/li><\/ul>"}}},"block_order":["row_FijwjU","row_jqYT34","row_zdjWzD"],"disabled":true,"settings":{"full_width":true,"subheading":"","title":"","content":"<p>Hier finden Sie die Details zum Produkt. Sollten Sie weitere Informationen benötigen, zögern Sie bitte nicht, uns zu kontaktieren.<\/p><p>E-Mail: <a href=\"mailto:info@merachfit.de\" target=\"_blank\" title=\"mailto:info@merachfit.de\">info@merachfit.de<\/a><\/p>","button_text":"","button_url":"","text_position":"start","max_rows":5,"view_all_text":"View all","view_less_text":"View less","background":"","background_gradient":"","text_color":"","heading_color":"","heading_gradient":"","button_background":"","button_text_color":"","chart_background":"","chart_text_color":"","chart_true_false_color":""}},"image_with_text_overlay_GAfaFJ":{"type":"image-with-text-overlay","disabled":true,"settings":{"anchor_id":"image-with-text-overlay","full_width":true,"allow_transparent_header":false,"enable_parallax":false,"image_size":"auto","image":"shopify:\/\/shop_images\/Merach_T12B2_Foldable_Treadmill_with_15_Auto_Incline-3_7.jpg","mobile_image":"shopify:\/\/shop_images\/Merach_T12B2_Foldable_Treadmill_with_15_Auto_Incline-3_3.jpg","mobile_text_position":"place-self-center text-center","desktop_text_position":"sm:place-self-center sm:text-center","text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":0}},"accordion_content_ABVBL4":{"type":"accordion-content","blocks":{"item_VcpLPc":{"type":"item","settings":{"icon":"none","icon_width":20,"title":"Controls and Functions","content":"<ul><li>Display: LED Display<\/li><li>Motor: 2.5 HP<\/li><li>Speed\/Incline Adjustable: Speed (Remote Control) \/ Incline (Manually Adjustable)<\/li><li>Speed Range: 0.5–7.5 mph<\/li><li>Incline Range: 3 Levels: 0%, 3%, 6%<\/li><li>Incline Range: N\/A<\/li><li>Running Surface: 108.0 * 42.0 cm<\/li><li>LED Screen Data Monitor: Speed, Time, Calories, Distance, Heart Rate, and More<\/li><li>Foldable: Yes<\/li><li>Bluetooth: Yes<\/li><li>Noise Level: &lt;40 dB<\/li><li>Accessory Holders: 2 Water Bottle Holders<\/li><\/ul>","page":""}},"item_NhAFCk":{"type":"item","settings":{"icon":"none","icon_width":20,"title":"Machine Dimensions","content":"<ul><li>Weight Capacity: 120 kg<\/li><li>Assembled Dimensions: 133 * 70 * 125 cm<\/li><li>Folded Dimensions: 65 * 70 * 125 cm<\/li><li>Carton Dimensions: 136.5 * 71.0 * 22.0 cm<\/li><li>Item Weight: 42 kg<\/li><li>Packed Weight: 49 kg<\/li><\/ul>","page":""}},"item_Nxwg4T":{"type":"item","settings":{"icon":"none","icon_width":20,"title":"Warranty","content":"<ul><li>Frame: 12 months<\/li><li>Motor: 12 months<\/li><li>Parts: 12 months<\/li><li>Wear Parts: 12 months<\/li><li>Decoration Parts: 90 days<\/li><li>Commercial Use: Not available, for private use only.<\/li><\/ul>","page":""}},"item_Pgrxki":{"type":"item","settings":{"icon":"none","icon_width":20,"title":"Packing List","content":"<ul><li>Main Frame Machine x1<\/li><li>Inner Hex Screws x2<\/li><li>Spring Washers x2<\/li><li>Flat Washers x2<\/li><li>Lubricant x1<\/li><li>Phillips Head Screws x2<\/li><li>Self-Tapping Screws x4<\/li><li>AMC Washers x4<\/li><li>Spring Washers x4<\/li><li>Inner Hex Round Head Screws x4<\/li><li>16mm Inner Hex Wrench x1<\/li><li>Safety Lock x1<\/li><li>Power Cord x1<\/li><li>Right Lower Cover x1<\/li><li>Left Lower Cover x1<\/li><li>Left Rear Corner Protector x1<\/li><li>Right Rear Corner Protector x1<\/li><li>5mm Inner Hex Wrench x1<\/li><li>Cross Wrench x1<\/li><li>User Manual x1<br\/><\/li><\/ul>","page":""}},"item_KG8pzh":{"type":"item","disabled":true,"settings":{"icon":"none","icon_width":20,"title":"Benutzerhandbuch","content":"<p>Download-Anleitung &lt;&lt;<\/p>","page":""}}},"block_order":["item_VcpLPc","item_NhAFCk","item_Nxwg4T","item_Pgrxki","item_KG8pzh"],"disabled":true,"settings":{"full_width":true,"subheading":"","title":"Product Specification","content":"<p>Here are the product details. If you need further information, please do not hesitate to contact us.<br\/><br\/>Email: <a href=\"mailto:info.uk@merachfit.com\" title=\"mailto:info.uk@merachfit.com\">info.uk@merachfit.com<\/a><\/p>","button_text":"","button_url":"","text_position":"start","background":"","background_gradient":"","text_color":"","heading_color":"","heading_gradient":"","button_background":"","button_text_color":"","accordion_background":"","accordion_text_color":""}},"text_with_icons_NxFBYQ":{"type":"text-with-icons","blocks":{"item_xkqbRm":{"type":"item","settings":{"icon":"picto-coupon","custom_icon":"shopify:\/\/shop_images\/merach_trust_logo_4.png","mobile_icon_width":32,"icon_width":32,"icon_background_type":"circle","icon_background":"#f8f8f8","icon_color":"","title":"Free Shipping","content":"<p>Fast delivery in 3-7 business days with free shipping<\/p>"}},"item_hQMYRL":{"type":"item","settings":{"icon":"picto-coupon","custom_icon":"shopify:\/\/shop_images\/merach_trust_logo_2.png","mobile_icon_width":32,"icon_width":32,"icon_background_type":"circle","icon_background":"#f8f8f8","icon_color":"","title":"30-Day Return","content":"<p>New, unused products can be returned within 30 days of order delivery<\/p>"}},"item_K9GgUM":{"type":"item","settings":{"icon":"picto-coupon","custom_icon":"shopify:\/\/shop_images\/merach_trust_logo_5.png","mobile_icon_width":32,"icon_width":32,"icon_background_type":"circle","icon_background":"#f8f8f8","icon_color":"","title":"24-Month Warranty","content":"<p>Free replacement and support for 24 months<\/p>"}},"item_CbBhgD":{"type":"item","settings":{"icon":"picto-coupon","custom_icon":"shopify:\/\/shop_images\/merach_trust_logo_6.png","mobile_icon_width":32,"icon_width":32,"icon_background_type":"circle","icon_background":"#f8f8f8","icon_color":"","title":"Fast Response","content":"<p>The professional Merach customer service team is always ready to assist you<\/p>"}},"item_FzVDki":{"type":"item","settings":{"icon":"picto-coupon","custom_icon":"shopify:\/\/shop_images\/merach_trust_logo_1.png","mobile_icon_width":32,"icon_width":32,"icon_background_type":"circle","icon_background":"#f8f8f8","icon_color":"","title":"Secure Payment","content":"<p>Supports PayPal, credit card, Google Pay, etc<\/p>"}}},"block_order":["item_xkqbRm","item_hQMYRL","item_K9GgUM","item_CbBhgD","item_FzVDki"],"settings":{"anchor_id":"text-with-icons","full_width":true,"stack_on_mobile":false,"title":"","heading_tag":"h5","text_alignment":"center","icon_spacing":"medium","background":"#f8f8f8","background_gradient":"","text_color":""}}},"order":["main","related-products","slideshow_YmCwBE","press_m4qctV","image_link_blocks_jM444X","rich_text_KmMfit","video_carousel_MXzNaK","image_link_blocks_CX6KFw","video_carousel_6Jrz3E","impact_text_X9jCW7","media_with_text_DhFPkU","rich_text_4BhJJq","slideshow_RDKtdF","video_eJGQY3","rich_text_BmQRfp","rich_text_9TzVfL","media_grid_gQay8n","multi_column_bUcXYW","faq_weMq9E","rich_text_CzBXFD","specification_table_N4iPYp","image_with_text_overlay_GAfaFJ","accordion_content_ABVBL4","text_with_icons_NxFBYQ"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "disabled": true,
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "badges": {
+          "type": "badges",
+          "settings": {}
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {
+            "show_empty": false
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "klarna_on_site_messaging_app_block_9UkB6d": {
+          "type": "shopify://apps/klarna-on-site-messaging/blocks/app-block/b95936a9-74b6-4a95-8103-6a1b6459c25e",
+          "settings": {
+            "data_key": "credit-promotion-badge",
+            "theme": "default",
+            "topPadding": "0",
+            "bottomPadding": "0",
+            "messagePrefix": ""
+          }
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
+          }
+        },
+        "selleasy_lb_upsell_widget_pal_U4ghHL": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-pal/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
+        "product_variations_hJeP98": {
+          "type": "product_variations",
+          "disabled": true,
+          "settings": {
+            "option_name": "",
+            "option_value_metafield": "",
+            "products": [],
+            "selector_style": "swatch"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "text_3tyUw6": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share some content to your customers about your products.</p>"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "show_cutdown": false,
+            "cutdown_text": "End in:",
+            "sale_cutdown": "2026-12-20 23:59:59",
+            "buy_text": "Buy now",
+            "buy_style": "fill",
+            "add_style": "fill",
+            "cutdown_color": "",
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "atc_button_background2": "",
+            "atc_button_text_color2": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "liquid_B8ikTz": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<style>\n    .payment-icons-container {\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: center;\n        margin: 0 -5px; \n    }\n\n    .payment-icons-container img {\n        height: 30px;\n        margin: 5px; \n    }\n\n    @media only screen and (max-width: 600px) {\n        .payment-icons-container img {\n            height: 25px; \n            margin: 3px; \n        }\n    }\n</style>\n\n<div class=\"payment-icons-container\">\n    <img src=\"{{ 'paypal' | payment_type_img_url }}\" alt=\"paypal\" />\n    <img src=\"{{ 'visa' | payment_type_img_url }}\" alt=\"visa\" />\n    <img src=\"{{ 'master' | payment_type_img_url }}\" alt=\"master\" />\n    <img src=\"{{ 'american_express' | payment_type_img_url }}\" alt=\"american express\" />    \n    <img src=\"{{ 'discover' | payment_type_img_url }}\" alt=\"discover\" />\n   <img src=\"{{ 'klarna' | payment_type_img_url }}\" alt=\"klarna\" />    \n    <img src=\"{{ 'apple_pay' | payment_type_img_url }}\" alt=\"apple pay\" />\n<img src=\"{{ 'google_pay' | payment_type_img_url }}\" alt=\"google pay\" />\n</div>"
+          }
+        },
+        "collapsible_text_Nqt9FQ": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_4.png",
+            "icon_width": 20,
+            "title": "Free Shipping",
+            "content": "<p>Our commitment: The best shipping solutions for you</p><p><strong>Order Processing Schedule:</strong></p><p>Processing Time: Within 48 business hours</p><p>Shipping Methods: Fedex, UPS, DHL, DPD, TNT, GLS</p><p>Shipping Time: 3–7 business days</p><p>Total Duration: 4-9 business days (Excluding special circumstances such as force majeure, e.g., bad weather)</p><p>Order Processing Hours: Mon-Fri: 9 a.m. to 6 p.m. (GMT+1)</p><p>Shipping Costs: Free Shipping</p><p>Our goal is to provide the best shipping solution for your order and ensure that the product arrives quickly and in good condition. Everything is done for our customers to have a great shopping experience.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_Bqfbtz": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_2.png",
+            "icon_width": 20,
+            "title": "30-Day Return",
+            "content": "<p>You have the option to cancel this product within 30 days. Please refer to our <a href=\"https://uk.merachfit.com/pages/return-refund\" title=\"https://uk.merachfit.com/pages/return-refund\">return & refund policy.</a></p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_WKgPd4": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_5.png",
+            "icon_width": 20,
+            "title": "24-Month Warranty",
+            "content": "<p>Merach provides a 2-year warranty to ensure a secure and reliable shopping experience for our customers.</p><p>For more details, please refer to our warranty terms. If you have any questions, please contact us via email at <a>info.uk@merachfit.com</a>.</p>",
+            "page": ""
+          }
+        },
+        "share_buttons_ELE6Aj": {
+          "type": "share_buttons",
+          "settings": {
+            "alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "badges",
+        "rating",
+        "price",
+        "klarna_on_site_messaging_app_block_9UkB6d",
+        "payment_terms",
+        "separator",
+        "description",
+        "selleasy_lb_upsell_widget_pal_U4ghHL",
+        "product_variations_hJeP98",
+        "variant_picker",
+        "text_3tyUw6",
+        "quantity_selector",
+        "buy_buttons",
+        "liquid_B8ikTz",
+        "collapsible_text_Nqt9FQ",
+        "collapsible_text_Bqfbtz",
+        "collapsible_text_WKgPd4",
+        "share_buttons_ELE6Aj"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_fixed_add_to_cart": true,
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_left",
+        "mobile_media_size": "expanded",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "recommendations_count": 6,
+        "products": [],
+        "full_width": true,
+        "stack_products": true,
+        "show_progress_bar": false,
+        "products_per_row_mobile": "1",
+        "products_per_row_desktop": 3,
+        "subheading": "",
+        "title": "You may also like",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "slideshow_YmCwBE": {
+      "type": "slideshow",
+      "blocks": {
+        "image_LnkBg4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline_8.jpg",
+            "mobile_image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline_1.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "18-Level Auto Incline Treadmill",
+            "title": "Conquer Every Hill — Train Smarter, Climb Stronger!",
+            "heading_tag": "h2",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#f8f8f8",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_LnkBg4"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
+        "background_gradient": ""
+      }
+    },
+    "press_m4qctV": {
+      "type": "press",
+      "blocks": {
+        "quote_t4iPWf": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/merach_press_logo_3.png",
+            "logo_width": 100,
+            "author": "",
+            "content": "Das Merach Rudergerät ist einfach zu montieren und macht während des Betriebs praktisch keinen Lärm!",
+            "show_rating": false,
+            "rating": 4
+          }
+        },
+        "quote_ELnUeb": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/merach_press_logo_5.png",
+            "logo_width": 100,
+            "author": "",
+            "content": "Alle diese Modelle sind zumindest teilweise zusammengebaut und mit der Merach-App kompatibel, die Kurse anbietet, mit denen Sie Ihr neues Fitnessgerät nutzen können.",
+            "show_rating": false,
+            "rating": 4
+          }
+        },
+        "quote_A8rc7q": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/merach_press_logo_2.png",
+            "logo_width": 100,
+            "author": "",
+            "content": "Merach hilft Ihnen, Ihren Platz optimal zu nutzen, denn es lässt sich bequem zusammenklappen und unter dem Bett, im Schrank, hinter dem Schreibtisch und so weiter verstauen.",
+            "show_rating": false,
+            "rating": 4
+          }
+        },
+        "quote_fGeyE9": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/merach_press_logo_4.png",
+            "logo_width": 100,
+            "author": "",
+            "content": "Das Gerät selbst verfügt über 16 Widerstandsstufen, rutschfeste Pedale und ein flüsterleises Design, das weder Ihre Familie noch Ihre Nachbarn im Erdgeschoss stört.",
+            "show_rating": false,
+            "rating": 4
+          }
+        },
+        "quote_FnHYAU": {
+          "type": "quote",
+          "settings": {
+            "logo": "shopify://shop_images/merach_press_logo_1.png",
+            "logo_width": 100,
+            "author": "",
+            "content": "Das Merach Rudergerät für zu Hause fordert Sie auf einer ganz neuen Ebene.",
+            "show_rating": false,
+            "rating": 4
+          }
+        }
+      },
+      "block_order": [
+        "quote_t4iPWf",
+        "quote_ELnUeb",
+        "quote_A8rc7q",
+        "quote_fGeyE9",
+        "quote_FnHYAU"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "content_size": "medium",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "logo_item_background": "",
+        "logo_item_border": ""
+      }
+    },
+    "image_link_blocks_jM444X": {
+      "type": "image-link-blocks",
+      "blocks": {
+        "item_nTKCVk": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_cULFzj": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_G7NNVF": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_ARkqPE": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_pRgNBC": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item_nTKCVk",
+        "item_cULFzj",
+        "item_G7NNVF",
+        "item_ARkqPE",
+        "item_pRgNBC"
+      ],
+      "disabled": true,
+      "settings": {
+        "anchor_id": "image-link-blocks",
+        "full_width": false,
+        "block_size": "medium",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "rich_text_KmMfit": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ytdVKE": {
+          "type": "heading",
+          "settings": {
+            "text": "Hear from the Experts",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h3",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_ytdVKE"
+      ],
+      "disabled": true,
+      "settings": {
+        "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "video_carousel_MXzNaK": {
+      "type": "Video-Carousel",
+      "blocks": {
+        "video_jGFMDM": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/michaelkalucoaching-uk-kol-merach-t31b1.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_XGLyVt": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Ben-UK-T31-0217.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_MUjRW8": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Nurse-T31-REEL.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_RMJ34q": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Kelly-UK-T31B1-0128.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_3FBVmX": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Ash-T31-UK-0316.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_irjwdr": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/MOVE-UK-T31-0316.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_jGFMDM",
+        "video_XGLyVt",
+        "video_MUjRW8",
+        "video_RMJ34q",
+        "video_3FBVmX",
+        "video_irjwdr"
+      ],
+      "name": "Video list",
+      "settings": {
+        "slider_gap": 10,
+        "card_radius": 10,
+        "autoplay": false,
+        "full_width": true,
+        "stack_collections": false,
+        "collections_per_row": 5,
+        "show_progress_bar": false,
+        "subheading": "",
+        "title": "Hear from the Experts",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "flex_direction": "row",
+        "flex_align": "center-center",
+        "section_bg": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "image_link_blocks_CX6KFw": {
+      "type": "image-link-blocks",
+      "blocks": {
+        "item_amtW9d": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_6.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_EerJhV": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_4.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_WezA9c": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_2.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_JWVheh": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_5.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_9J4faL": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_3.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_T9wPkg": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach_home_fitness_pr_logo_1.png",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item_amtW9d",
+        "item_EerJhV",
+        "item_WezA9c",
+        "item_JWVheh",
+        "item_9J4faL",
+        "item_T9wPkg"
+      ],
+      "disabled": true,
+      "settings": {
+        "anchor_id": "image-link-blocks",
+        "full_width": true,
+        "block_size": "small",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "video_carousel_6Jrz3E": {
+      "type": "Video-Carousel",
+      "blocks": {
+        "video_pMFcVE": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Nurse-T31-REEL.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_biXybj": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Ben-UK-T31-0217.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        },
+        "video_Lnb7CQ": {
+          "type": "video",
+          "settings": {
+            "video": "shopify://files/videos/Kelly-UK-T31B1-0128.mp4",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_pMFcVE",
+        "video_biXybj",
+        "video_Lnb7CQ"
+      ],
+      "disabled": true,
+      "name": "Video list",
+      "settings": {
+        "slider_gap": 20,
+        "card_radius": 10,
+        "autoplay": false,
+        "full_width": false,
+        "stack_collections": false,
+        "collections_per_row": 4,
+        "show_progress_bar": false,
+        "subheading": "",
+        "title": "Hear from the Experts",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "flex_direction": "row",
+        "flex_align": "center-center",
+        "section_bg": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "impact_text_X9jCW7": {
+      "type": "impact-text",
+      "blocks": {
+        "item_Erm9bY": {
+          "type": "item",
+          "settings": {
+            "title": "18",
+            "subheading": "18-Level Automatic Incline Adjustment",
+            "content": "<p>Simulates Real Outdoor Terrain for Intense Workouts</p>",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": false,
+            "animate_impact_text_duration": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_Erm9bY"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "none",
+        "impact_text_size_ratio": 1,
+        "background": "",
+        "background_gradient": "",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "media_with_text_DhFPkU": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_U3DLJp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-1_1.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "18 Automatic Incline Levels & 3 Professional Modes",
+            "title": "Simulates Real Outdoor Terrain",
+            "content": "<p>This treadmill offers 18 automatic incline levels and 3 professional modes – Steady Climb, Power Hike, and Hill Sprint – to help you strengthen your lower body and boost endurance. Enjoy the feel of an outdoor run, no matter the weather.<br/></p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_CqTifB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-1_3.jpg",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "3.5 Horsepower",
+            "title": "Diversified Training Intensity",
+            "content": "<p>Powered by a strong 3.5HP motor with speeds up to 8.7mph, this treadmill delivers smooth, consistent performance – perfect for both everyday fitness and serious runners.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "image_t6K6Gk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-1_4.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "Personalised Coaching & LCD Display",
+            "title": "Train Smarter and More Efficiently",
+            "content": "<p>Connect to the MERACH app to access tailored coaching programmes. Track your time, speed, distance, and calories on the clear LCD display, while real-time heart rate monitoring helps you stay in your ideal training zone.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_U3DLJp",
+        "image_CqTifB",
+        "image_t6K6Gk"
+      ],
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "small"
+      }
+    },
+    "rich_text_4BhJJq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_GEKJkT": {
+          "type": "heading",
+          "settings": {
+            "text": "Fold Away in Seconds",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "subheading_Jpctdy": {
+          "type": "subheading",
+          "settings": {
+            "text": "Hydraulic System for Effortless Storage",
+            "subheading-tag": "p"
+          }
+        }
+      },
+      "block_order": [
+        "heading_GEKJkT",
+        "subheading_Jpctdy"
+      ],
+      "settings": {
+        "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "#12121a",
+        "background_gradient": "",
+        "text_color": "#ffffff",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "slideshow_RDKtdF": {
+      "type": "slideshow",
+      "blocks": {
+        "image_Wrc3F4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline_5.jpg",
+            "mobile_image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline_2.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        },
+        "image_METpA6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline_7.jpg",
+            "mobile_image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline_4.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "",
+            "title": "",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Wrc3F4",
+        "image_METpA6"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
+        "background_gradient": ""
+      }
+    },
+    "video_eJGQY3": {
+      "type": "video",
+      "blocks": {
+        "play_HxTDQV": {
+          "type": "play",
+          "settings": {}
+        },
+        "heading_KfWJQ6": {
+          "type": "heading",
+          "settings": {
+            "text": "Video",
+            "title_seo": "",
+            "heading_tag": "h1",
+            "heading_size": "dev-xx-large"
+          }
+        }
+      },
+      "block_order": [
+        "play_HxTDQV",
+        "heading_KfWJQ6"
+      ],
+      "disabled": true,
+      "settings": {
+        "anchor_id": "minimum-slide",
+        "full_width": true,
+        "max-width": 1200,
+        "allow_transparent_header": false,
+        "autoplay": false,
+        "show_step": false,
+        "video_size": "auto",
+        "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "rich_text_BmQRfp": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_TDy4Wa": {
+          "type": "subheading",
+          "settings": {
+            "text": "Hydraulic System for Effortless Storage",
+            "subheading-tag": "p"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_TDy4Wa"
+      ],
+      "disabled": true,
+      "settings": {
+        "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "large",
+        "text_position": "center",
+        "background": "#12121a",
+        "background_gradient": "",
+        "text_color": "#ffffff",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "rich_text_9TzVfL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_CUeT8p": {
+          "type": "heading",
+          "settings": {
+            "text": "Every Detail Makes Fitness More Efficient",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h3",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_CUeT8p"
+      ],
+      "settings": {
+        "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "media_grid_gQay8n": {
+      "type": "media-grid",
+      "blocks": {
+        "image_MgnbcT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_2.jpg",
+            "title": "Built-in 20 Programs",
+            "heading_tag": "h4",
+            "link_url": "",
+            "link_text": "",
+            "mobile_text_position": "place-self-end-center text-center",
+            "desktop_column_span": 2,
+            "desktop_row_span": 2,
+            "desktop_text_position": "sm:place-self-end-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_DHkwLg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_3.jpg",
+            "title": "Satefy Key",
+            "heading_tag": "h4",
+            "link_url": "",
+            "link_text": "",
+            "mobile_text_position": "place-self-center-end text-end",
+            "desktop_column_span": 2,
+            "desktop_row_span": 1,
+            "desktop_text_position": "sm:place-self-center-end sm:text-end",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_VwQ7Hg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_4.jpg",
+            "title": "Heart Rate Monitor",
+            "heading_tag": "h4",
+            "link_url": "",
+            "link_text": "",
+            "mobile_text_position": "place-self-end-center text-center",
+            "desktop_column_span": 1,
+            "desktop_row_span": 1,
+            "desktop_text_position": "sm:place-self-end-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_jM4iEh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_5.jpg",
+            "title": "Bottle Holder",
+            "heading_tag": "h4",
+            "link_url": "",
+            "link_text": "",
+            "mobile_text_position": "place-self-end-center text-center",
+            "desktop_column_span": 1,
+            "desktop_row_span": 1,
+            "desktop_text_position": "sm:place-self-end-center sm:text-center",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "#000000",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_MgnbcT",
+        "image_DHkwLg",
+        "image_VwQ7Hg",
+        "image_jM4iEh"
+      ],
+      "name": "Media grid",
+      "settings": {
+        "anchor_id": "media-grid",
+        "full_width": true,
+        "reduce_width": false,
+        "desktop_row_height": 290,
+        "mobile_row_height": 150,
+        "background": "",
+        "background_gradient": ""
+      }
+    },
+    "multi_column_bUcXYW": {
+      "type": "multi-column",
+      "blocks": {
+        "item_77zXwN": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_7.jpg",
+            "column_size": "3",
+            "title": "Wide Running Surface",
+            "heading_tag": "h4",
+            "content": "<p>Enjoy an 18.11\" x 47.24\" spacious, non-slip running deck for a safer and more natural stride. Ideal for walking, jogging, or running with confidence and comfort.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000000",
+            "check-color": "#ffffff"
+          }
+        },
+        "item_AUKXdT": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Merach-T31b1-Treadmill-Details_1_4.png",
+            "column_size": "3",
+            "title": "7-Layer Soft Silent Running Belt",
+            "heading_tag": "h4",
+            "content": "<p>Our foldable treadmill features a 7-layer soft running belt that absorbs impact, protects joints, and ensures a quiet, stable stride—ideal for home or apartment workouts.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000000",
+            "check-color": "#ffffff"
+          }
+        },
+        "item_FWiCMj": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_1.jpg",
+            "column_size": "3",
+            "title": "12 Silicone Shock Absorption",
+            "heading_tag": "h4",
+            "content": "<p>Built with 12 high-elastic silicone shock absorbers to reduce joint pressure and vibration, delivering a smooth, comfortable run on every step.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000000",
+            "check-color": "#ffffff"
+          }
+        },
+        "item_NnRWkE": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_9.jpg",
+            "column_size": "3",
+            "title": "Free MERACH APP",
+            "heading_tag": "h4",
+            "content": "<p>Sync via Bluetooth to the MERACH App to track time, distance, speed, and calories. Access smart fitness data and adjust workouts instantly.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000000",
+            "check-color": "#ffffff"
+          }
+        },
+        "item_HxLrkL": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_8.jpg",
+            "column_size": "3",
+            "title": "<45 dB Low Noise",
+            "heading_tag": "h4",
+            "content": "<p>This quiet treadmill for home use operates under 45 dB, letting you exercise anytime without disturbing family or neighbors—perfect for small spaces.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000000",
+            "check-color": "#ffffff"
+          }
+        },
+        "item_cmGzgG": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Merach_T31B1_Foldable_Treadmill_with_18_Auto_Incline-2_10.jpg",
+            "column_size": "3",
+            "title": "Compatible Apps",
+            "heading_tag": "h4",
+            "content": "<p>Merach, Kinomap, Zwift, Apple Health, Google Fit.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000000",
+            "check-color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "item_77zXwN",
+        "item_AUKXdT",
+        "item_FWiCMj",
+        "item_NnRWkE",
+        "item_HxLrkL",
+        "item_cmGzgG"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "faq_weMq9E": {
+      "type": "faq",
+      "blocks": {
+        "item_wxtgXi": {
+          "type": "item",
+          "settings": {
+            "title": "1. How steep is the incline on the Merach T31B1 treadmill?",
+            "content": "<p>The Merach T31B1 features 18 automatic incline levels up to 18%. This allows you to switch easily between flat running and challenging hill training, helping to improve endurance, strength and calorie burning.</p>"
+          }
+        },
+        "item_ipmC7L": {
+          "type": "item",
+          "settings": {
+            "title": "2. What speed does the Merach T31B1 treadmill reach?",
+            "content": "<p>The treadmill offers a speed range of 1–14 km/h (0.6–8.7 mph), making it suitable for walking, brisk walking, jogging and running workouts at home.<br/></p>"
+          }
+        },
+        "item_HXX7xV": {
+          "type": "item",
+          "settings": {
+            "title": "3. What is the maximum user weight for the Merach T31B1 treadmill?",
+            "content": "<p>The sturdy home treadmill supports a maximum user weight of up to 159 kg. Its robust frame provides stable and secure workouts, even during more intense training sessions.</p>"
+          }
+        },
+        "item_DkTw8N": {
+          "type": "item",
+          "settings": {
+            "title": "4. What training programmes does the Merach T31B1 treadmill offer?",
+            "content": "<p>The treadmill includes three professional training modes:<br/><br/>Steady Climb for consistent incline training<br/>Power Hike for endurance-focused workouts<br/>Hill Sprint for high-intensity interval training<br/><br/>In addition, the treadmill offers 20 built-in workout programmes.</p>"
+          }
+        },
+        "item_gm8BdE": {
+          "type": "item",
+          "settings": {
+            "title": "5. Is the Merach T31B1 treadmill joint-friendly?",
+            "content": "<p>Yes. The treadmill features a 7-layer running belt and 12 silicone shock absorbers, which help reduce impact and joint stress. This design provides a more comfortable and joint-friendly running experience.</p>"
+          }
+        },
+        "item_fTHWjV": {
+          "type": "item",
+          "settings": {
+            "title": "6. Is the Merach T31B1 treadmill foldable and space-saving?",
+            "content": "<p>Yes. The treadmill is equipped with a hydraulic folding system that allows it to be folded in about 30 seconds. This makes it ideal for homes, flats and compact home gyms where space is limited.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_wxtgXi",
+        "item_ipmC7L",
+        "item_HXX7xV",
+        "item_DkTw8N",
+        "item_gm8BdE",
+        "item_fTHWjV"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "FAQ",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "rich_text_CzBXFD": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_KfNYbA": {
+          "type": "heading",
+          "settings": {
+            "text": "What's in the box?",
+            "remove_margin": false,
+            "heading-tag": "p",
+            "heading_tag": "h3",
+            "text_color": "",
+            "gradient": "",
+            "shadow": ""
+          }
+        },
+        "subheading_PkNjM9": {
+          "type": "subheading",
+          "settings": {
+            "text": "90% Pre-Assembled",
+            "subheading-tag": "p"
+          }
+        }
+      },
+      "block_order": [
+        "heading_KfNYbA",
+        "subheading_PkNjM9"
+      ],
+      "disabled": true,
+      "settings": {
+        "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
+      }
+    },
+    "specification_table_N4iPYp": {
+      "type": "specification-table",
+      "blocks": {
+        "row_FijwjU": {
+          "type": "row",
+          "settings": {
+            "heading": "Steuerelemente und Funktionen",
+            "value": "<p>111</p>"
+          }
+        },
+        "row_jqYT34": {
+          "type": "row",
+          "settings": {
+            "heading": "Abmessungen der Maschine",
+            "value": "<p>Value 2</p>"
+          }
+        },
+        "row_zdjWzD": {
+          "type": "row",
+          "settings": {
+            "heading": "Garantie",
+            "value": "<ul><li>Rahmen: 12 Monate</li><li>Motor: 12 Monate</li><li>Teile: 12 Monate</li><li>Verschleißteile: 12 Monate</li><li>Kosmetische Teile: 90 Tage</li><li>Gewerbliche Nutzung: Nicht verfügbar, nur für den privaten Gebrauch.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "row_FijwjU",
+        "row_jqYT34",
+        "row_zdjWzD"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "",
+        "content": "<p>Hier finden Sie die Details zum Produkt. Sollten Sie weitere Informationen benötigen, zögern Sie bitte nicht, uns zu kontaktieren.</p><p>E-Mail: <a href=\"mailto:info@merachfit.de\" target=\"_blank\" title=\"mailto:info@merachfit.de\">info@merachfit.de</a></p>",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "max_rows": 5,
+        "view_all_text": "View all",
+        "view_less_text": "View less",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "chart_background": "",
+        "chart_text_color": "",
+        "chart_true_false_color": ""
+      }
+    },
+    "image_with_text_overlay_GAfaFJ": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "anchor_id": "image-with-text-overlay",
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/Merach_T12B2_Foldable_Treadmill_with_15_Auto_Incline-3_7.jpg",
+        "mobile_image": "shopify://shop_images/Merach_T12B2_Foldable_Treadmill_with_15_Auto_Incline-3_3.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "accordion_content_ABVBL4": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_VcpLPc": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Controls and Functions",
+            "content": "<ul><li>Display: LED Display</li><li>Motor: 2.5 HP</li><li>Speed/Incline Adjustable: Speed (Remote Control) / Incline (Manually Adjustable)</li><li>Speed Range: 0.5–7.5 mph</li><li>Incline Range: 3 Levels: 0%, 3%, 6%</li><li>Incline Range: N/A</li><li>Running Surface: 108.0 * 42.0 cm</li><li>LED Screen Data Monitor: Speed, Time, Calories, Distance, Heart Rate, and More</li><li>Foldable: Yes</li><li>Bluetooth: Yes</li><li>Noise Level: &lt;40 dB</li><li>Accessory Holders: 2 Water Bottle Holders</li></ul>",
+            "page": ""
+          }
+        },
+        "item_NhAFCk": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Machine Dimensions",
+            "content": "<ul><li>Weight Capacity: 120 kg</li><li>Assembled Dimensions: 133 * 70 * 125 cm</li><li>Folded Dimensions: 65 * 70 * 125 cm</li><li>Carton Dimensions: 136.5 * 71.0 * 22.0 cm</li><li>Item Weight: 42 kg</li><li>Packed Weight: 49 kg</li></ul>",
+            "page": ""
+          }
+        },
+        "item_Nxwg4T": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Warranty",
+            "content": "<ul><li>Frame: 12 months</li><li>Motor: 12 months</li><li>Parts: 12 months</li><li>Wear Parts: 12 months</li><li>Decoration Parts: 90 days</li><li>Commercial Use: Not available, for private use only.</li></ul>",
+            "page": ""
+          }
+        },
+        "item_Pgrxki": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Packing List",
+            "content": "<ul><li>Main Frame Machine x1</li><li>Inner Hex Screws x2</li><li>Spring Washers x2</li><li>Flat Washers x2</li><li>Lubricant x1</li><li>Phillips Head Screws x2</li><li>Self-Tapping Screws x4</li><li>AMC Washers x4</li><li>Spring Washers x4</li><li>Inner Hex Round Head Screws x4</li><li>16mm Inner Hex Wrench x1</li><li>Safety Lock x1</li><li>Power Cord x1</li><li>Right Lower Cover x1</li><li>Left Lower Cover x1</li><li>Left Rear Corner Protector x1</li><li>Right Rear Corner Protector x1</li><li>5mm Inner Hex Wrench x1</li><li>Cross Wrench x1</li><li>User Manual x1<br/></li></ul>",
+            "page": ""
+          }
+        },
+        "item_KG8pzh": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Benutzerhandbuch",
+            "content": "<p>Download-Anleitung &lt;&lt;</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_VcpLPc",
+        "item_NhAFCk",
+        "item_Nxwg4T",
+        "item_Pgrxki",
+        "item_KG8pzh"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Product Specification",
+        "content": "<p>Here are the product details. If you need further information, please do not hesitate to contact us.<br/><br/>Email: <a href=\"mailto:info.uk@merachfit.com\" title=\"mailto:info.uk@merachfit.com\">info.uk@merachfit.com</a></p>",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "text_with_icons_NxFBYQ": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_xkqbRm": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_4.png",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "circle",
+            "icon_background": "#f8f8f8",
+            "icon_color": "",
+            "title": "Free Shipping",
+            "content": "<p>Fast delivery in 3-7 business days with free shipping</p>"
+          }
+        },
+        "item_hQMYRL": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_2.png",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "circle",
+            "icon_background": "#f8f8f8",
+            "icon_color": "",
+            "title": "30-Day Return",
+            "content": "<p>New, unused products can be returned within 30 days of order delivery</p>"
+          }
+        },
+        "item_K9GgUM": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_5.png",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "circle",
+            "icon_background": "#f8f8f8",
+            "icon_color": "",
+            "title": "24-Month Warranty",
+            "content": "<p>Free replacement and support for 24 months</p>"
+          }
+        },
+        "item_CbBhgD": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_6.png",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "circle",
+            "icon_background": "#f8f8f8",
+            "icon_color": "",
+            "title": "Fast Response",
+            "content": "<p>The professional Merach customer service team is always ready to assist you</p>"
+          }
+        },
+        "item_FzVDki": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/merach_trust_logo_1.png",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "circle",
+            "icon_background": "#f8f8f8",
+            "icon_color": "",
+            "title": "Secure Payment",
+            "content": "<p>Supports PayPal, credit card, Google Pay, etc</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_xkqbRm",
+        "item_hQMYRL",
+        "item_K9GgUM",
+        "item_CbBhgD",
+        "item_FzVDki"
+      ],
+      "settings": {
+        "anchor_id": "text-with-icons",
+        "full_width": true,
+        "stack_on_mobile": false,
+        "title": "",
+        "heading_tag": "h5",
+        "text_alignment": "center",
+        "icon_spacing": "medium",
+        "background": "#f8f8f8",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "slideshow_YmCwBE",
+    "press_m4qctV",
+    "image_link_blocks_jM444X",
+    "rich_text_KmMfit",
+    "video_carousel_MXzNaK",
+    "image_link_blocks_CX6KFw",
+    "video_carousel_6Jrz3E",
+    "impact_text_X9jCW7",
+    "media_with_text_DhFPkU",
+    "rich_text_4BhJJq",
+    "slideshow_RDKtdF",
+    "video_eJGQY3",
+    "rich_text_BmQRfp",
+    "rich_text_9TzVfL",
+    "media_grid_gQay8n",
+    "multi_column_bUcXYW",
+    "faq_weMq9E",
+    "rich_text_CzBXFD",
+    "specification_table_N4iPYp",
+    "image_with_text_overlay_GAfaFJ",
+    "accordion_content_ABVBL4",
+    "text_with_icons_NxFBYQ"
+  ]
+}
