@@ -757,10 +757,12 @@
         "show_step": true,
         "video_size": "auto",
         "video": "shopify://files/videos/w60-pp-video.mp4",
+        "mobile_video": "shopify://files/videos/w60-pp-video-m-1.mp4",
         "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "poster": "shopify://shop_images/w60-pp-video-media-pc.jpg",
         "text_color": "#ffffff",
         "overlay_color": "#000000",
-        "overlay_opacity": 0
+        "overlay_opacity": 20
       }
     },
     "rich_text_HE7NWK": {
