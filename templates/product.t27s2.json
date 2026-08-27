@@ -198,7 +198,6 @@
         "share_buttons_WzxkJw",
         "liquid_B8ikTz"
       ],
-      "disabled": true,
       "settings": {
         "full_width": true,
         "show_fixed_add_to_cart": true,
@@ -1573,9 +1572,9 @@
             "column_size": "3",
             "item_title": "Kimi 5’6” 132 lbs",
             "content_img": "shopify://shop_images/1_7cfe4773-4398-4807-a343-1ec13a27c963.png",
-            "title": "",
+            "title": "Low",
             "heading_tag": "h4",
-            "content": "",
+            "content": "<p>Recovery and warm-ups</p>",
             "link_url": "",
             "link_text": "",
             "link_style": "link",
@@ -1589,9 +1588,9 @@
             "column_size": "3",
             "item_title": "Luc 6’1” 265 lbs",
             "content_img": "shopify://shop_images/2_1746cd6f-e7fc-43ad-94b4-caff196b1da6.png",
-            "title": "",
+            "title": "Mid",
             "heading_tag": "h4",
-            "content": "",
+            "content": "<p>Steady cardio and light sweat</p>",
             "link_url": "",
             "link_text": "",
             "link_style": "link",
@@ -1605,9 +1604,9 @@
             "column_size": "3",
             "item_title": "Nata 5’7” 119 lbs",
             "content_img": "shopify://shop_images/3_56bc60d8-b938-40e4-809d-78ff2eb71e2e.png",
-            "title": "",
+            "title": "High",
             "heading_tag": "h4",
-            "content": "",
+            "content": "<p>More challenge and fat burn</p>",
             "link_url": "",
             "link_text": "",
             "link_style": "link",
@@ -1644,86 +1643,6 @@
         "text_color": "",
         "column_gap": 24,
         "column_gap_mob": 10
-      }
-    },
-    "multi_column_pro_U9kUry": {
-      "type": "multi-column-pro",
-      "blocks": {
-        "item_cthLVi": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/1_7cfe4773-4398-4807-a343-1ec13a27c963.png",
-            "column_size": "3",
-            "item_title": "",
-            "title": "Low",
-            "heading_tag": "h4",
-            "content": "<p>Recovery and warm-ups</p>",
-            "link_url": "",
-            "link_text": "",
-            "link_style": "link",
-            "title_color": "#39c4f4"
-          }
-        },
-        "item_N9BApU": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/2_1746cd6f-e7fc-43ad-94b4-caff196b1da6.png",
-            "column_size": "3",
-            "item_title": "",
-            "title": "Mid",
-            "heading_tag": "h4",
-            "content": "<p>Steady cardio and light sweat</p>",
-            "link_url": "",
-            "link_text": "",
-            "link_style": "link",
-            "title_color": "#009af1"
-          }
-        },
-        "item_riPmU3": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/3_56bc60d8-b938-40e4-809d-78ff2eb71e2e.png",
-            "column_size": "3",
-            "item_title": "",
-            "title": "High",
-            "heading_tag": "h4",
-            "content": "<p>More challenge and fat burn</p>",
-            "link_url": "",
-            "link_text": "",
-            "link_style": "link",
-            "title_color": "#005ad9"
-          }
-        }
-      },
-      "block_order": [
-        "item_cthLVi",
-        "item_N9BApU",
-        "item_riPmU3"
-      ],
-      "custom_css": [
-        "@media (max-width: 750px) {.section-gap {padding-right: 0; }}"
-      ],
-      "name": "Multi-column-pro",
-      "settings": {
-        "padding-top": 20,
-        "padding-bottom": 20,
-        "padding-gap": 20,
-        "max-width": 1200,
-        "padding-top-mob": 0,
-        "padding-bottom-mob": 0,
-        "padding-gap-mob": 20,
-        "full_width": true,
-        "stack_on_mobile": false,
-        "gap": "medium",
-        "text_alignment": "center",
-        "subheading": "",
-        "title": "",
-        "content": "",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "column_gap": 24,
-        "column_gap_mob": 15
       }
     },
     "rich_text_iCJgdm": {
@@ -2225,7 +2144,6 @@
     "slide_banner_9qJwP4",
     "rich_text_maEFzW",
     "multi_column_pro_VFBDtn",
-    "multi_column_pro_U9kUry",
     "rich_text_iCJgdm",
     "multi_column_pro_F3JQdB",
     "rich_text_TUtpcx",
