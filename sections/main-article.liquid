@@ -114,6 +114,9 @@
     max-width: 1660px;
     padding: 0 40px;
   }
+  #shopify-section-{{ section.id }} .recommecd-container *{
+    margin:0;
+  }
   @media screen and (max-width: 768px) {
     #shopify-section-{{ section.id }} .container {
       padding-left: max(var(--container-gutter), 50% - var(--container-max-width) / 2);
@@ -212,6 +215,16 @@
   .recommecnd-box .recommend-media-box{
     position:relative;
   }
+    .recommecnd-box .recommend-card__badge-list,
+  .tab-recommecnd-box .recommend-card__badge-list {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    pointer-events: none;
+    display: grid;
+    gap: var(--spacing-2);
+  }
   .recommecnd-box .recommend-media-box:hover .second-image{
     opacity:1;
   }
@@ -230,6 +243,10 @@
     justify-content: space-around;
     display: flex;
     flex-direction: column;
+        background: white;
+    border-radius: 8px;
+    padding: 0 20px 20px;
+    gap: 5px;
   }
   .recommecnd-box .recommend-list{
     align-items:stretch;
@@ -328,6 +345,12 @@
     text-overflow: ellipsis;
     line-height: 16px;
     font-weight: bolder;
+    }
+
+    @media (max-width: 750px) {
+      .recommecd-container .card-titile {
+        font-size: 12px;
+      }
     }
 </style>
 
@@ -454,7 +477,7 @@
 
     const recommend_swiper = new Swiper(".recommend-swiper", {
       loop:false,
-      slidesPerView: 4,
+      slidesPerView: 3,
       spaceBetween: 20,
       {% comment %} navigation: {
         nextEl: '.recommend-button-next',
@@ -462,7 +485,7 @@
       }, {% endcomment %}
       breakpoints: {
         1300: {
-          slidesPerView: 4,
+          slidesPerView: 3,
           spaceBetween: 20,
         },
         768: {
