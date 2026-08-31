@@ -347,6 +347,7 @@
       "block_order": [
         "image_VCRQTr"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "allow_transparent_header": true,
@@ -367,9 +368,12 @@
           "type": "heading",
           "settings": {
             "text": "Merach Auszeichnungen",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h3",
             "text_color": "",
-            "gradient": ""
+            "gradient": "",
+            "shadow": ""
           }
         }
       },
@@ -379,12 +383,15 @@
       "disabled": true,
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "small",
         "text_position": "center",
         "background": "",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "image_link_blocks_CX6KFw": {
@@ -576,6 +583,7 @@
         "item_dzTGmw",
         "item_Erm9bY"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "stack_mobile": false,
@@ -736,6 +744,7 @@
         "image_yA94Vx",
         "image_tqfHPc"
       ],
+      "disabled": true,
       "settings": {
         "anchor_id": "media-grid",
         "full_width": true,
@@ -869,23 +878,30 @@
           "type": "heading",
           "settings": {
             "text": "10-Minute Efficient Workout",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h3",
             "text_color": "",
-            "gradient": ""
+            "gradient": "",
+            "shadow": ""
           }
         }
       },
       "block_order": [
         "heading_VippNh"
       ],
+      "disabled": true,
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "small",
         "text_position": "center",
         "background": "",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "images_with_text_scrolling_URXLDR": {
@@ -938,6 +954,7 @@
         "item_akix7x",
         "item_MGpy8p"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "stack_on_mobile": false,
@@ -958,23 +975,30 @@
           "type": "heading",
           "settings": {
             "text": "5 Modes",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h1",
             "text_color": "",
-            "gradient": ""
+            "gradient": "",
+            "shadow": ""
           }
         }
       },
       "block_order": [
         "heading_8nMt4g"
       ],
+      "disabled": true,
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "small",
         "text_position": "center",
         "background": "",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "hot_spots_WYmxLE": {
@@ -1048,6 +1072,7 @@
         "item_tWn3UC",
         "item_QMhYUK"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "image": "shopify://shop_images/Merach_2314B2_Adjustable_Ab_Trainer-4_1.jpg",
