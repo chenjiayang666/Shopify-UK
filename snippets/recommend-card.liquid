@@ -26,7 +26,7 @@
 
     <div class="product-button">
         {%- capture product_form_id -%}product-form-{{ block.settings.product.id }}-{{ section.id }}{%- endcapture -%}
-        {%- render 'buy-buttons', button_size:'sm',style: 'fill',product: product, form_id: product_form_id, show_payment_button: false, show_gift_card_recipient: false, atc_button_background: '#000000', atc_button_text_color: '#ffffff', payment_button_background: block.settings.payment_button_background, payment_button_text_color: block.settings.payment_button_text_color -%}
+        {%- render 'buy-buttons', button_size:'sm',style: 'fill',product: product, form_id: product_form_id, show_payment_button: false, show_gift_card_recipient: false, atc_button_background: block.settings.button_color, atc_button_text_color: block.settings.button_text_color, payment_button_background: block.settings.payment_button_background, payment_button_text_color: block.settings.payment_button_text_color -%}
         <div style="margin-top:10px !important">
         {%- render 'button', href: product.url, content: 'Learn more', size: 'sm', style: 'outline', background: '#ffffff', text_color: '#000000', stretch: true -%}
         </div>
