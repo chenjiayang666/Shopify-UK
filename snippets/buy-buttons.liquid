@@ -30,7 +30,7 @@
   {%- assign show_payment_button = false -%}
 {%- endif -%}
 
-{%- form 'product', product, is: 'product-form', id: form_id , data-product-id: product.id -%}
+{%- form 'product', product, is: 'product-form', id: form_id -%}
   <input
     type="hidden"
     {% if variant_picker_block != blank %}
@@ -107,7 +107,8 @@
         secondary: show_payment_button,
         subdued: button_disabled,
         background: atc_button_background,
-        text_color: atc_button_text_color
+        text_color: atc_button_text_color,
+        style:style
       -%}
 
       {%- if show_payment_button -%}
