@@ -479,6 +479,7 @@
           "type": "video",
           "settings": {
             "video": "shopify://files/videos/michaelkalucoaching-uk-kol-merach-t31b1.mp4",
+            "poster": "shopify://shop_images/merach-kol-uk-t31-pm.webp",
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "title": ""
           }
