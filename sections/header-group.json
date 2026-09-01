@@ -80,7 +80,6 @@
         },
         "message_PYcTLy": {
           "type": "message",
-          "disabled": true,
           "settings": {
             "text": "Big Savings Are Here!",
             "url": "shopify://pages/flash-sale"
