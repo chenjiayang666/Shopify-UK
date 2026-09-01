@@ -30,7 +30,6 @@
         "heading_yGtPWJ",
         "richtext_mWaLFE"
       ],
-      "disabled": true,
       "settings": {
         "anchor_id": "image-with-text-overlay",
         "full_width": true,
@@ -69,6 +68,7 @@
         "heading_NiGxtx",
         "richtext_NiqPny"
       ],
+      "disabled": true,
       "settings": {
         "anchor_id": "image-with-text-overlay",
         "full_width": true,
@@ -206,9 +206,12 @@
           "type": "heading",
           "settings": {
             "text": "Why Own an Indoor Exercise Bike at Home?",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h1",
             "text_color": "",
-            "gradient": ""
+            "gradient": "",
+            "shadow": ""
           }
         },
         "richtext_XckabJ": {
@@ -224,12 +227,15 @@
       ],
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "large",
         "text_position": "start",
         "background": "#f2f2f2",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "slideshow_iETYeN": {
@@ -585,7 +591,8 @@
         "subheading_NhYQDN": {
           "type": "subheading",
           "settings": {
-            "text": "Best Smart Home Gym Equipment"
+            "text": "Best Smart Home Gym Equipment",
+            "subheading-tag": "p"
           }
         },
         "richtext_XwHcL3": {
@@ -601,12 +608,15 @@
       ],
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "large",
         "text_position": "start",
         "background": "#f2f2f2",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     }
   },

@@ -16,42 +16,49 @@
       "blocks": {
         "blacklist_qxjXPF": {
           "type": "blacklist",
+          "disabled": true,
           "settings": {
             "text": "ultrawalk-w60-explore"
           }
         },
         "blacklist_cPiBKk": {
           "type": "blacklist",
+          "disabled": true,
           "settings": {
             "text": "t27-explore"
           }
         },
         "blacklist_7QBwHe": {
           "type": "blacklist",
+          "disabled": true,
           "settings": {
             "text": "index"
           }
         },
         "blacklist_tKARm9": {
           "type": "blacklist",
+          "disabled": true,
           "settings": {
             "text": "s26-aura-exercise-bike-guide"
           }
         },
         "blacklist_yQFyDp": {
           "type": "blacklist",
+          "disabled": true,
           "settings": {
             "text": "t70-aura"
           }
         },
         "blacklist_eGXTKW": {
           "type": "blacklist",
+          "disabled": true,
           "settings": {
             "text": "$50 Merach UltraTread Series Deposit Reservation"
           }
         },
         "blacklist_HHCfjy": {
           "type": "blacklist",
+          "disabled": true,
           "settings": {
             "text": "$10 Merach UltraTread Series Deposit Reservation"
           }
@@ -65,6 +72,7 @@
         },
         "message_Lhn7Fh": {
           "type": "message",
+          "disabled": true,
           "settings": {
             "text": "Save £40 on Orders £500 +",
             "url": "shopify://pages/sales"
@@ -72,6 +80,7 @@
         },
         "message_PYcTLy": {
           "type": "message",
+          "disabled": true,
           "settings": {
             "text": "Big Savings Are Here!",
             "url": "shopify://pages/flash-sale"
