@@ -57,6 +57,12 @@
           "type": "separator",
           "settings": {}
         },
+        "omnisend_email_marketing_sms_embedded_form_bgP7RT": {
+          "type": "shopify://apps/omnisend-email-marketing-sms/blocks/embedded-form/44704aa2-794f-4c5d-8c8e-039c841158e9",
+          "settings": {
+            "form_id": "6a86f21e8217bf1c54760263"
+          }
+        },
         "description": {
           "type": "description",
           "settings": {
@@ -77,12 +83,6 @@
             "content": "<p>20 % RABATT vom 5. März bis 25. März für den Frühlingssale</p>",
             "background": "#eaf2ed",
             "text_color": "#00a341"
-          }
-        },
-        "omnisend_email_marketing_sms_embedded_form_bgP7RT": {
-          "type": "shopify://apps/omnisend-email-marketing-sms/blocks/embedded-form/44704aa2-794f-4c5d-8c8e-039c841158e9",
-          "settings": {
-            "form_id": "6a86f21e8217bf1c54760263"
           }
         },
         "product_variations_hJeP98": {
@@ -191,9 +191,9 @@
         "klarna_on_site_messaging_app_block_QTc7ti",
         "payment_terms",
         "separator",
+        "omnisend_email_marketing_sms_embedded_form_bgP7RT",
         "description",
         "offer_7pCCwP",
-        "omnisend_email_marketing_sms_embedded_form_bgP7RT",
         "product_variations_hJeP98",
         "variant_picker",
         "text_3tyUw6",
@@ -221,49 +221,6 @@
         "text_color": "",
         "input_background": "rgba(0,0,0,0)",
         "input_text_color": ""
-      }
-    },
-    "slideshow_ckHb9d": {
-      "type": "slideshow",
-      "blocks": {
-        "image_KCgwTH": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/w60-uk-banner-pc.jpg",
-            "mobile_image": "shopify://shop_images/w60-uk-banner-m.jpg",
-            "content_max_width": 660,
-            "mobile_text_position": "place-self-start-center text-center",
-            "desktop_text_position": "sm:place-self-center-start sm:text-start",
-            "subheading": "",
-            "title": "",
-            "heading_tag": "h3",
-            "button_text": "",
-            "button_link": "",
-            "text_color": "#323c4f",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0,
-            "background": "",
-            "background_gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_KCgwTH"
-      ],
-      "name": "Slideshow",
-      "settings": {
-        "full_width": true,
-        "allow_transparent_header": true,
-        "show_initial_transition": false,
-        "image_size": "auto",
-        "controls_type": "dots",
-        "transition_type": "fade_with_text",
-        "autoplay": false,
-        "cycle_speed": 6,
-        "background": "#f2f2f2",
-        "background_gradient": ""
       }
     },
     "activity_newsletter_QDqwnb": {
@@ -585,6 +542,49 @@
         "desktop_row_height": 90,
         "mobile_row_height": 150,
         "background": "",
+        "background_gradient": ""
+      }
+    },
+    "slideshow_ckHb9d": {
+      "type": "slideshow",
+      "blocks": {
+        "image_KCgwTH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/w60-uk-banner-pc.jpg",
+            "mobile_image": "shopify://shop_images/w60-uk-banner-m.jpg",
+            "content_max_width": 660,
+            "mobile_text_position": "place-self-start-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "subheading": "",
+            "title": "",
+            "heading_tag": "h3",
+            "button_text": "",
+            "button_link": "",
+            "text_color": "#323c4f",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_KCgwTH"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": true,
+        "show_initial_transition": false,
+        "image_size": "auto",
+        "controls_type": "dots",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#f2f2f2",
         "background_gradient": ""
       }
     },
