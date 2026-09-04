@@ -79,6 +79,12 @@
             "text_color": "#00a341"
           }
         },
+        "omnisend_email_marketing_sms_embedded_form_bgP7RT": {
+          "type": "shopify://apps/omnisend-email-marketing-sms/blocks/embedded-form/44704aa2-794f-4c5d-8c8e-039c841158e9",
+          "settings": {
+            "form_id": "6a86f21e8217bf1c54760263"
+          }
+        },
         "product_variations_hJeP98": {
           "type": "product_variations",
           "settings": {
@@ -130,6 +136,12 @@
             "payment_button_text_color": ""
           }
         },
+        "liquid_B8ikTz": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<style>\n    .payment-icons-container {\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: center;\n        margin: 0 -5px; \n    }\n\n    .payment-icons-container img {\n        height: 30px;\n        margin: 5px; \n    }\n\n    @media only screen and (max-width: 600px) {\n        .payment-icons-container img {\n            height: 25px; \n            margin: 3px; \n        }\n    }\n</style>\n\n<div class=\"payment-icons-container\">\n    <img src=\"{{ 'paypal' | payment_type_img_url }}\" alt=\"paypal\" />\n    <img src=\"{{ 'visa' | payment_type_img_url }}\" alt=\"visa\" />\n    <img src=\"{{ 'master' | payment_type_img_url }}\" alt=\"master\" />\n    <img src=\"{{ 'american_express' | payment_type_img_url }}\" alt=\"american express\" />    \n    <img src=\"{{ 'discover' | payment_type_img_url }}\" alt=\"discover\" />\n   <img src=\"{{ 'klarna' | payment_type_img_url }}\" alt=\"klarna\" />    \n    <img src=\"{{ 'apple_pay' | payment_type_img_url }}\" alt=\"apple pay\" />\n<img src=\"{{ 'google_pay' | payment_type_img_url }}\" alt=\"google pay\" />\n</div>"
+          }
+        },
         "collapsible_text_CGKapf": {
           "type": "collapsible_text",
           "settings": {
@@ -168,12 +180,6 @@
           "settings": {
             "alignment": "start"
           }
-        },
-        "liquid_B8ikTz": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "<style>\n    .payment-icons-container {\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: center;\n        margin: 0 -5px; \n    }\n\n    .payment-icons-container img {\n        height: 30px;\n        margin: 5px; \n    }\n\n    @media only screen and (max-width: 600px) {\n        .payment-icons-container img {\n            height: 25px; \n            margin: 3px; \n        }\n    }\n</style>\n\n<div class=\"payment-icons-container\">\n    <img src=\"{{ 'paypal' | payment_type_img_url }}\" alt=\"paypal\" />\n    <img src=\"{{ 'visa' | payment_type_img_url }}\" alt=\"visa\" />\n    <img src=\"{{ 'master' | payment_type_img_url }}\" alt=\"master\" />\n    <img src=\"{{ 'american_express' | payment_type_img_url }}\" alt=\"american express\" />    \n    <img src=\"{{ 'discover' | payment_type_img_url }}\" alt=\"discover\" />\n   <img src=\"{{ 'klarna' | payment_type_img_url }}\" alt=\"klarna\" />    \n    <img src=\"{{ 'apple_pay' | payment_type_img_url }}\" alt=\"apple pay\" />\n<img src=\"{{ 'google_pay' | payment_type_img_url }}\" alt=\"google pay\" />\n</div>"
-          }
         }
       },
       "block_order": [
@@ -187,18 +193,18 @@
         "separator",
         "description",
         "offer_7pCCwP",
+        "omnisend_email_marketing_sms_embedded_form_bgP7RT",
         "product_variations_hJeP98",
         "variant_picker",
         "text_3tyUw6",
         "quantity_selector",
         "buy_buttons",
+        "liquid_B8ikTz",
         "collapsible_text_CGKapf",
         "collapsible_text_9FPnBd",
         "collapsible_text_meVwGT",
-        "share_buttons_WzxkJw",
-        "liquid_B8ikTz"
+        "share_buttons_WzxkJw"
       ],
-      "disabled": true,
       "settings": {
         "full_width": true,
         "show_fixed_add_to_cart": true,
@@ -321,6 +327,7 @@
         "heading_3cjYRW",
         "richtext_zp8Tmj"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "anchor_id": "",
@@ -348,6 +355,7 @@
       "block_order": [
         "omnisend_email_marketing_sms_embedded_form_GyJjr3"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "remove_vertical_spacing": false,
@@ -2122,12 +2130,12 @@
   },
   "order": [
     "main",
-    "slideshow_ckHb9d",
     "activity_newsletter_QDqwnb",
     "rich_text_tGHLPA",
     "17872295077db5131c",
     "rich_text_QGJYJe",
     "custom_media_grid_M8L6nj",
+    "slideshow_ckHb9d",
     "rich_text_L7YbRD",
     "slide_banner_qJRJyr",
     "rich_text_EenLUr",
