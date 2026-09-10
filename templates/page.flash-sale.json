@@ -21,6 +21,7 @@
       "blocks": {
         "subheading_wGYULi": {
           "type": "subheading",
+          "disabled": true,
           "settings": {
             "text": "Curated Summer Flash Deals"
           }
@@ -28,7 +29,7 @@
         "heading_pxVNxy": {
           "type": "heading",
           "settings": {
-            "text": "Summer Flash Sale",
+            "text": "Flash Sale",
             "heading_tag": "h1"
           }
         }
@@ -81,15 +82,19 @@
           "type": "heading",
           "settings": {
             "text": "Must-Have Products Under £70",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h2",
             "text_color": "#ed1b24",
-            "gradient": "linear-gradient(36deg, rgba(237, 27, 36, 1) 17%, rgba(255, 201, 104, 1) 54%, rgba(203, 68, 194, 1) 86%)"
+            "gradient": "linear-gradient(36deg, rgba(237, 27, 36, 1) 17%, rgba(255, 201, 104, 1) 54%, rgba(203, 68, 194, 1) 86%)",
+            "shadow": ""
           }
         },
         "subheading_8VzB6q": {
           "type": "subheading",
           "settings": {
-            "text": "Buy 2 items, save 10%! Stack Your Subscriber Discount on Single Items!"
+            "text": "Buy 2 items, save 10%! Stack Your Subscriber Discount on Single Items!",
+            "subheading-tag": "p"
           }
         }
       },
@@ -100,12 +105,15 @@
       "name": "Rich text",
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": false,
         "content_width": "large",
         "text_position": "center",
         "background": "",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "pure_collections_container_JYUtKi": {
@@ -284,15 +292,19 @@
           "type": "heading",
           "settings": {
             "text": "Winter’s Best Home Gym Gifts",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h2",
             "text_color": "#ed1b24",
-            "gradient": "linear-gradient(36deg, rgba(237, 27, 36, 1) 17%, rgba(255, 201, 104, 1) 54%, rgba(203, 68, 194, 1) 86%)"
+            "gradient": "linear-gradient(36deg, rgba(237, 27, 36, 1) 17%, rgba(255, 201, 104, 1) 54%, rgba(203, 68, 194, 1) 86%)",
+            "shadow": ""
           }
         },
         "subheading_VwLMtQ": {
           "type": "subheading",
           "settings": {
-            "text": "Limited availability. Only while stocks last."
+            "text": "Limited availability. Only while stocks last.",
+            "subheading-tag": "p"
           }
         }
       },
@@ -304,12 +316,15 @@
       "name": "Rich text",
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "large",
         "text_position": "center",
         "background": "",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "rich_text_qhw4bM": {
@@ -319,16 +334,20 @@
           "type": "heading",
           "settings": {
             "text": "Smart Savings",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h2",
             "text_color": "#f90303",
-            "gradient": "linear-gradient(90deg, rgba(240, 69, 87, 1), rgba(255, 201, 104, 1) 52.518%, rgba(203, 68, 194, 1) 100%)"
+            "gradient": "linear-gradient(90deg, rgba(240, 69, 87, 1), rgba(255, 201, 104, 1) 52.518%, rgba(203, 68, 194, 1) 100%)",
+            "shadow": ""
           }
         },
         "subheading_M3hXA7": {
           "type": "subheading",
           "disabled": true,
           "settings": {
-            "text": "Limited availability. Only while stocks last."
+            "text": "Limited availability. Only while stocks last.",
+            "subheading-tag": "p"
           }
         }
       },
@@ -339,12 +358,15 @@
       "name": "Rich text",
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "small",
         "text_position": "center",
         "background": "#ffebda",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "rich_text_zL43yg": {
@@ -352,12 +374,15 @@
       "name": "Rich text",
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "large",
         "text_position": "center",
         "background": "",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "rich_text_yac7jb": {
@@ -367,15 +392,19 @@
           "type": "heading",
           "settings": {
             "text": "Full-Body Workout Gear",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h2",
             "text_color": "#ed1b24",
-            "gradient": "linear-gradient(36deg, rgba(237, 27, 36, 1) 17%, rgba(255, 201, 104, 1) 54%, rgba(203, 68, 194, 1) 86%)"
+            "gradient": "linear-gradient(36deg, rgba(237, 27, 36, 1) 17%, rgba(255, 201, 104, 1) 54%, rgba(203, 68, 194, 1) 86%)",
+            "shadow": ""
           }
         },
         "subheading_RziFVf": {
           "type": "subheading",
           "settings": {
-            "text": "Up to £290 Off"
+            "text": "Up to £290 Off",
+            "subheading-tag": "p"
           }
         }
       },
@@ -387,12 +416,15 @@
       "name": "Rich text",
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "large",
         "text_position": "center",
         "background": "",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "featured_collection_8aE4M3": {
@@ -427,12 +459,15 @@
       "name": "Rich text",
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "large",
         "text_position": "center",
         "background": "",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "pure_collections_container_pCJawU": {
@@ -540,9 +575,12 @@
           "type": "heading",
           "settings": {
             "text": "Home Elliptical Trainers",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h2",
             "text_color": "#ed1b24",
-            "gradient": "linear-gradient(36deg, rgba(237, 27, 36, 1) 17%, rgba(255, 201, 104, 1) 54%, rgba(203, 68, 194, 1) 86%)"
+            "gradient": "linear-gradient(36deg, rgba(237, 27, 36, 1) 17%, rgba(255, 201, 104, 1) 54%, rgba(203, 68, 194, 1) 86%)",
+            "shadow": ""
           }
         }
       },
@@ -552,12 +590,15 @@
       "name": "Rich text",
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "large",
         "text_position": "center",
-        "background": "#f1f1f1",
+        "background": "",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "pure_collections_container_VkgzMQ": {
@@ -625,8 +666,8 @@
         "products_count": 50,
         "products_per_row_mobile": "2",
         "products_per_row_desktop": 5,
-        "background_tab": "#f1f1f1",
-        "background": "#f1f1f1",
+        "background_tab": "",
+        "background": "",
         "badge_Spare_bg_color_left": "#ffc968",
         "badge_Spare_bg_color_right": "#cb44c2",
         "badge_Spare_color": "#ffffff",
@@ -642,9 +683,12 @@
           "type": "heading",
           "settings": {
             "text": "Loved by Customers & Creators",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h2",
             "text_color": "",
-            "gradient": ""
+            "gradient": "",
+            "shadow": ""
           }
         }
       },
@@ -654,12 +698,15 @@
       "name": "Rich text",
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "large",
         "text_position": "center",
-        "background": "#f1f1f1",
+        "background": "",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "video_carousel_mH6HDb": {
@@ -730,7 +777,7 @@
         "flex_direction": "row",
         "flex_align": "center-center",
         "section_bg": "",
-        "background": "#f1f1f1",
+        "background": "",
         "background_gradient": "",
         "text_color": "",
         "heading_color": "",
@@ -814,16 +861,20 @@
           "type": "subheading",
           "disabled": true,
           "settings": {
-            "text": "Subheading"
+            "text": "Subheading",
+            "subheading-tag": "p"
           }
         },
         "heading_nKwUdd": {
           "type": "heading",
           "settings": {
             "text": "Why Choose Merach",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h2",
             "text_color": "",
-            "gradient": ""
+            "gradient": "",
+            "shadow": ""
           }
         },
         "richtext_Rn7T3W": {
@@ -842,12 +893,15 @@
       "name": "Rich text",
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "small",
         "text_position": "center",
-        "background": "#f1f1f1",
+        "background": "",
         "background_gradient": "",
-        "text_color": "#3a3a3a"
+        "text_color": "#3a3a3a",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "image_link_blocks_nCD4R8": {
@@ -949,7 +1003,7 @@
         "content": "",
         "link_url": "",
         "link_text": "",
-        "background": "#f1f1f1",
+        "background": "",
         "background_gradient": "",
         "text_color": "#000000",
         "heading_color": "",
