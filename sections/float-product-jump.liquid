@@ -1,0 +1,795 @@
+{% comment %}
+  Float product jump — 右下角固定产品跳转浮层
+  折叠：主图 + 标题；展开：副标题、价格、按钮等
+{% endcomment %}
+
+{%- assign jump_product = section.settings.product -%}
+{%- if jump_product != blank -%}
+  {%- liquid
+    assign jump_title = section.settings.title | default: jump_product.title
+    assign jump_subtitle = section.settings.subtitle
+    assign jump_image = section.settings.custom_image | default: jump_product.featured_image
+    assign jump_url = section.settings.button_link | default: jump_product.url
+    assign jump_button = section.settings.button_label | default: 'Shop now'
+    assign jump_variant = jump_product.selected_or_first_available_variant
+    assign jump_price = jump_variant.price
+    assign jump_compare = jump_variant.compare_at_price
+    assign jump_mode = section.settings.action_mode | default: 'detail'
+  -%}
+
+  <style>
+    /* 宽度落在 section 上，并用 right 锚定，展开时向左变宽，不会超出右边界 */
+    #shopify-section-{{ section.id }} {
+      position: fixed;
+      z-index: {{ section.settings.z_index | default: 40 }};
+      right: {{ section.settings.offset_right | default: 24 }}px;
+      bottom: {{ section.settings.offset_bottom | default: 24 }}px;
+      left: auto;
+      width: {{ section.settings.collapsed_width | default: 260 }}px;
+      max-width: calc(100vw - {{ section.settings.offset_right | default: 24 }}px);
+      pointer-events: none;
+      transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      border-radius: {{ section.settings.card_radius | default: 16 }}px;
+      overflow:hidden;
+      box-shadow:
+  0 2px 6px rgba(0, 0, 0, 0.08),
+  0 12px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    #shopify-section-{{ section.id }}:has(.fpj.is-open) {
+      width: {{ section.settings.expanded_width | default: 320 }}px;
+    }
+
+    #shopify-section-{{ section.id }} .fpj {
+      width: 100%;
+      box-sizing: border-box;
+      pointer-events: auto;
+      background: {{ section.settings.card_bg | default: '#ffffff' }};
+      color: {{ section.settings.text_color | default: '#111111' }};
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.14);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+    }
+
+    #shopify-section-{{ section.id }} .fpj.is-open {
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+    }
+
+    #shopify-section-{{ section.id }} .fpj__summary {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      text-align: left;
+      font: inherit;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__media {
+      flex: 0 0 auto;
+      width: {{ section.settings.image_size | default: 52 }}px;
+      height: {{ section.settings.image_size | default: 52 }}px;
+      border-radius: {{ section.settings.image_radius | default: 10 }}px;
+      overflow: hidden;
+      background: #f3f3f3;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__summary-text {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__title {
+      margin: 0;
+      font-size: {{ section.settings.title_size | default: 14 }}px;
+      font-weight: {{ section.settings.title_weight | default: 600 }};
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__chevron {
+      flex: 0 0 auto;
+      width: 20px;
+      height: 20px;
+      color: {{ section.settings.muted_color | default: '#8a8a8a' }};
+      transition: transform 0.3s ease;
+    }
+
+    #shopify-section-{{ section.id }} .fpj.is-open .fpj__chevron {
+      transform: rotate(180deg);
+    }
+
+    #shopify-section-{{ section.id }} .fpj__details {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    #shopify-section-{{ section.id }} .fpj.is-open .fpj__details {
+      grid-template-rows: 1fr;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__details-inner {
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__body {
+      padding: 0 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid {{ section.settings.divider_color | default: '#eeeeee' }};
+      padding-top: 14px;
+      margin-top: 2px;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.25s ease 0.05s, transform 0.25s ease 0.05s;
+    }
+
+    #shopify-section-{{ section.id }} .fpj.is-open .fpj__body {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #shopify-section-{{ section.id }} .fpj__subtitle {
+      margin: 0;
+      font-size: {{ section.settings.subtitle_size | default: 13 }}px;
+      font-weight: 400;
+      line-height: 1.45;
+      color: {{ section.settings.muted_color | default: '#8a8a8a' }};
+    }
+
+    #shopify-section-{{ section.id }} .fpj__prices {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__price {
+      font-size: {{ section.settings.price_size | default: 18 }}px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__compare {
+      font-size: 13px;
+      color: {{ section.settings.muted_color | default: '#8a8a8a' }};
+      text-decoration: line-through;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      border: 0;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      font-family: inherit;
+      text-decoration: none;
+      text-align: center;
+      box-sizing: border-box;
+      padding: {{ section.settings.button_padding_y | default: 12 }}px {{ section.settings.button_padding_x | default: 16 }}px;
+      border-radius: {{ section.settings.button_radius | default: 999 }}px;
+      background: {{ section.settings.button_bg | default: '#111111' }};
+      color: {{ section.settings.button_color | default: '#ffffff' }};
+      font-size: {{ section.settings.button_size | default: 14 }}px;
+      font-weight: 600;
+      line-height: 1.2;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__btn-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.15s ease;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__btn-spinner {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__btn-spinner::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      border-top-color: currentColor;
+      animation: fpj-spin-{{ section.id }} 0.7s linear infinite;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__btn[aria-busy="true"] {
+      pointer-events: none;
+      cursor: wait;
+      transform: none;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__btn[aria-busy="true"] .fpj__btn-label {
+      opacity: 0;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__btn[aria-busy="true"] .fpj__btn-spinner {
+      display: flex;
+    }
+
+    @keyframes fpj-spin-{{ section.id }} {
+      to { transform: rotate(360deg); }
+    }
+
+    #shopify-section-{{ section.id }} .fpj__btn:hover:not(:disabled):not([aria-busy="true"]) {
+      background: {{ section.settings.button_bg_hover | default: '#333333' }};
+      color: {{ section.settings.button_color_hover | default: '#ffffff' }};
+      transform: translateY(-1px);
+    }
+
+    #shopify-section-{{ section.id }} .fpj__btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__buy-form {
+      margin: 0;
+      width: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .fpj__footnote {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.4;
+      color: {{ section.settings.muted_color | default: '#8a8a8a' }};
+      text-align: center;
+    }
+
+    @media screen and (max-width: 749px) {
+      #shopify-section-{{ section.id }} {
+        right: {{ section.settings.offset_right_mob | default: 12 }}px;
+        bottom: {{ section.settings.offset_bottom_mob | default: 12 }}px;
+        max-width: calc(100vw - {{ section.settings.offset_right_mob | default: 12 }}px - {{ section.settings.offset_right_mob | default: 12 }}px);
+        {% if section.settings.collapsed_width_mob > 0 %}
+          width: {{ section.settings.collapsed_width_mob }}px;
+        {% else %}
+          width: min(280px, calc(100vw - {{ section.settings.offset_right_mob | default: 12 }}px * 2));
+        {% endif %}
+      }
+
+      #shopify-section-{{ section.id }}:has(.fpj.is-open) {
+        width: min({{ section.settings.expanded_width_mob | default: 320 }}px, calc(100vw - {{ section.settings.offset_right_mob | default: 12 }}px * 2));
+      }
+
+      {% if section.settings.hide_on_mobile %}
+        #shopify-section-{{ section.id }} {
+          display: none;
+        }
+      {% endif %}
+    }
+  </style>
+
+  <div
+    class="fpj"
+    data-fpj
+    data-fpj-start="{{ section.settings.start_expanded | default: false }}"
+    {{ section.shopify_attributes }}
+  >
+    <button type="button" class="fpj__summary" data-fpj-toggle aria-expanded="false" aria-controls="fpj-details-{{ section.id }}">
+      <div class="fpj__media">
+        {%- if jump_image != blank -%}
+          {{ jump_image | image_url: width: 200 | image_tag: loading: 'lazy', widths: '52,78,104,156,200', sizes: '52px', alt: jump_title }}
+        {%- endif -%}
+      </div>
+      <div class="fpj__summary-text">
+        <p class="fpj__title">{{ jump_title | escape }}</p>
+      </div>
+      <svg class="fpj__chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="fpj__details" id="fpj-details-{{ section.id }}">
+      <div class="fpj__details-inner">
+        <div class="fpj__body">
+          {%- if jump_subtitle != blank -%}
+            <p class="fpj__subtitle">{{ jump_subtitle | escape }}</p>
+          {%- endif -%}
+
+          {%- if section.settings.show_price -%}
+            <div class="fpj__prices">
+              <span class="fpj__price">{{ jump_price | money }}</span>
+              {%- if jump_compare != blank and jump_compare > jump_price -%}
+                <span class="fpj__compare">{{ jump_compare | money }}</span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if jump_button != blank -%}
+            {%- if jump_mode == 'buy' -%}
+              {%- form 'product', jump_product, class: 'fpj__buy-form' -%}
+                <input type="hidden" name="id" value="{{ jump_variant.id }}">
+                <input type="hidden" name="quantity" value="1">
+                <input type="hidden" name="return_to" value="{{ routes.root_url }}checkout">
+                <button
+                  type="submit"
+                  class="fpj__btn"
+                  data-fpj-buy-btn
+                  {% unless jump_variant.available %}disabled{% endunless %}
+                >
+                  <span class="fpj__btn-label">
+                    {%- if jump_variant.available -%}
+                      {{ jump_button | escape }}
+                    {%- else -%}
+                      Sold out
+                    {%- endif -%}
+                  </span>
+                  <span class="fpj__btn-spinner" aria-hidden="true"></span>
+                </button>
+              {%- endform -%}
+            {%- else -%}
+              <a class="fpj__btn" href="{{ jump_url }}" data-fpj-detail-btn>
+                <span class="fpj__btn-label">{{ jump_button | escape }}</span>
+                <span class="fpj__btn-spinner" aria-hidden="true"></span>
+              </a>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- if section.settings.footnote != blank -%}
+            <p class="fpj__footnote">{{ section.settings.footnote | escape }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.querySelector('#shopify-section-{{ section.id }} [data-fpj]');
+      if (!root) return;
+      const toggle = root.querySelector('[data-fpj-toggle]');
+      if (!toggle) return;
+
+      const setOpen = (open) => {
+        root.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      };
+
+      const setBusy = (el, busy) => {
+        if (!el) return;
+        if (busy) {
+          el.setAttribute('aria-busy', 'true');
+        } else {
+          el.removeAttribute('aria-busy');
+        }
+      };
+
+      if (root.dataset.fpjStart === 'true') {
+        setOpen(true);
+      }
+
+      toggle.addEventListener('click', function () {
+        setOpen(!root.classList.contains('is-open'));
+      });
+
+      document.addEventListener('click', function (event) {
+        if (!root.classList.contains('is-open')) return;
+        if (root.contains(event.target)) return;
+        if ({{ section.settings.close_on_outside_click | json }}) {
+          setOpen(false);
+        }
+      });
+
+      const buyForm = root.querySelector('.fpj__buy-form');
+      const buyBtn = root.querySelector('[data-fpj-buy-btn]');
+      if (buyForm && buyBtn) {
+        buyForm.addEventListener('submit', function () {
+          if (buyBtn.disabled || buyBtn.getAttribute('aria-busy') === 'true') return;
+          setBusy(buyBtn, true);
+        });
+      }
+
+      const detailBtn = root.querySelector('[data-fpj-detail-btn]');
+      if (detailBtn) {
+        detailBtn.addEventListener('click', function () {
+          if (detailBtn.getAttribute('aria-busy') === 'true') return;
+          setBusy(detailBtn, true);
+        });
+      }
+
+      window.addEventListener('pageshow', function () {
+        setBusy(buyBtn, false);
+        setBusy(detailBtn, false);
+      });
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Float product jump",
+  "tag": "section",
+  "class": "shopify-section--float-product-jump",
+  "enabled_on": {
+    "templates": ["*"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "固定在页面右下角的产品跳转浮层：默认只显示主图和标题，点击后展开更多信息。"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "产品"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_image",
+      "label": "自定义主图",
+      "info": "不填则使用产品主图"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "info": "不填则使用产品标题"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "副标题（展开后显示）"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "展开后显示价格",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "action_mode",
+      "label": "按钮模式",
+      "options": [
+        {
+          "value": "detail",
+          "label": "跳转详情"
+        },
+        {
+          "value": "buy",
+          "label": "直接购买"
+        }
+      ],
+      "default": "detail",
+      "info": "直接购买：加购默认可用变体并跳转结账页"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "按钮文案",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "按钮链接",
+      "info": "仅「跳转详情」模式生效；不填则跳转产品详情页"
+    },
+    {
+      "type": "text",
+      "id": "footnote",
+      "label": "底部说明（展开后显示）"
+    },
+    {
+      "type": "header",
+      "content": "交互"
+    },
+    {
+      "type": "checkbox",
+      "id": "start_expanded",
+      "label": "初始展开",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "close_on_outside_click",
+      "label": "点击外部收起",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_on_mobile",
+      "label": "移动端隐藏",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "位置与尺寸"
+    },
+    {
+      "type": "range",
+      "id": "offset_right",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "距右侧 (PC)",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "offset_bottom",
+      "min": 0,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "label": "距底部 (PC)",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "offset_right_mob",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "距右侧 (Mobile)",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "offset_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "距底部 (Mobile)",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "collapsed_width",
+      "min": 180,
+      "max": 360,
+      "step": 10,
+      "unit": "px",
+      "label": "折叠宽度 (PC)",
+      "default": 260
+    },
+    {
+      "type": "range",
+      "id": "expanded_width",
+      "min": 240,
+      "max": 420,
+      "step": 10,
+      "unit": "px",
+      "label": "展开宽度 (PC)",
+      "default": 320
+    },
+    {
+      "type": "range",
+      "id": "collapsed_width_mob",
+      "min": 0,
+      "max": 360,
+      "step": 10,
+      "unit": "px",
+      "label": "折叠宽度 (Mobile)",
+      "info": "0 表示自适应（最大约屏宽-24）",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "expanded_width_mob",
+      "min": 240,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "展开宽度 (Mobile)",
+      "default": 320
+    },
+    {
+      "type": "range",
+      "id": "z_index",
+      "min": 10,
+      "max": 99,
+      "step": 1,
+      "label": "层级 z-index",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "卡片样式"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "卡片背景",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "主文字色",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "次要文字色",
+      "default": "#8a8a8a"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "分割线颜色",
+      "default": "#eeeeee"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "卡片圆角",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "min": 40,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "主图尺寸",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "主图圆角",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "标题字号",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "title_weight",
+      "label": "标题字重",
+      "options": [
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "SemiBold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "min": 11,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "副标题字号",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "price_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "价格字号",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "按钮样式"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "按钮背景",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "按钮文字",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_hover",
+      "label": "Hover 背景",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_color_hover",
+      "label": "Hover 文字",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "按钮字号",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "按钮圆角",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "button_padding_y",
+      "min": 8,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "按钮上下内边距",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_padding_x",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "按钮左右内边距",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Float product jump",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
