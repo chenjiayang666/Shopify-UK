@@ -1239,7 +1239,7 @@
         "image_eGhe3g": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/prime_day_sale_dt_1.jpg",
+            "image": "shopify://shop_images/merach-2026-autumn-sale-_1_e25916d3-9f21-4ecb-be63-72e72c611d70.jpg",
             "title": "",
             "heading_tag": "h4",
             "link_url": "",
@@ -1261,7 +1261,7 @@
         "image_g8qQkp": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/prime_day_sale_dt_2.jpg",
+            "image": "shopify://shop_images/merach-2026-autumn-sale-_2.jpg",
             "title": "",
             "heading_tag": "h4",
             "link_url": "",
@@ -1283,7 +1283,7 @@
         "image_AGKx7U": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/prime_day_sale_dt_3.jpg",
+            "image": "shopify://shop_images/merach-2026-autumn-sale-_3.jpg",
             "title": "",
             "heading_tag": "h4",
             "link_url": "",
@@ -1305,7 +1305,7 @@
         "image_n6y8g6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/prime_day_sale_dt_4.jpg",
+            "image": "shopify://shop_images/merach-2026-autumn-sale-_4.jpg",
             "title": "",
             "heading_tag": "h4",
             "link_url": "",
@@ -1338,7 +1338,7 @@
         "reduce_width": false,
         "desktop_row_height": 290,
         "mobile_row_height": 150,
-        "background": "#eaf4ff",
+        "background": "#F6DBBC",
         "background_gradient": ""
       }
     },
