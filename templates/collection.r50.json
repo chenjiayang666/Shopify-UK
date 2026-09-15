@@ -11,15 +11,112 @@
   "sections": {
     "banner": {
       "type": "collection-banner",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "allow_transparent_header": false,
+        "enable_parallax": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "collection_title_size": "h0",
+        "image_size": "auto",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "featured_product": "",
+        "featured_product_heading": "Featured product",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
     },
     "main": {
       "type": "main-collection",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "products_per_page": 24,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 3,
+        "filter_layout": "sidebar",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_filter_values_count": true,
+        "open_first_filter_group": false
+      }
+    },
+    "us_float_image_block_iBKXXA": {
+      "type": "us-float-image-block",
+      "blocks": {
+        "block_NypNjc": {
+          "type": "block",
+          "settings": {
+            "product": "merach-r50-rowing-machine-with-air-resistance",
+            "url": "",
+            "title": "BarBend",
+            "subtitle": "Discover our new collection of high-quality products."
+          }
+        },
+        "block_ftWWxD": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "url": "",
+            "title": "BarBend",
+            "subtitle": "Discover our new collection of high-quality products."
+          }
+        },
+        "block_ewbdGg": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "url": "",
+            "title": "BarBend",
+            "subtitle": "Discover our new collection of high-quality products."
+          }
+        },
+        "block_rC9MC4": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "url": "",
+            "title": "BarBend",
+            "subtitle": "Discover our new collection of high-quality products."
+          }
+        }
+      },
+      "block_order": [
+        "block_NypNjc",
+        "block_ftWWxD",
+        "block_ewbdGg",
+        "block_rC9MC4"
+      ],
+      "name": "Float Image Block",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "max-width": 1600,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 20,
+        "padding-gap-mob": 20,
+        "title": "WHY MERACH",
+        "heading_tag": "h1",
+        "subtitle": "",
+        "section-bg": "",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "card-bg": "#000",
+        "card-title-color": "#fff",
+        "card_description_color": "#ECECE7"
+      }
     }
   },
   "order": [
     "banner",
-    "main"
+    "main",
+    "us_float_image_block_iBKXXA"
   ]
 }
