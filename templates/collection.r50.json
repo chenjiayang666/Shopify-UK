@@ -89,11 +89,81 @@
         "button_padding_y": 12,
         "button_padding_x": 16
       }
+    },
+    "us_float_image_block_X9cppw": {
+      "type": "us-float-image-block",
+      "blocks": {
+        "block_CBmm49": {
+          "type": "block",
+          "settings": {
+            "product": "merach-r50-rowing-machine-with-air-resistance",
+            "image": "shopify://shop_images/merach-r50-project-new-2.jpg",
+            "url": "",
+            "title": "VERSATILE ADAPTATION FOR ALL",
+            "subtitle": "Offering a zero-burden, highly adaptable workout."
+          }
+        },
+        "block_7mxaMm": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "url": "",
+            "title": "BarBend",
+            "subtitle": "Discover our new collection of high-quality products."
+          }
+        },
+        "block_VfDtfg": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "url": "",
+            "title": "BarBend",
+            "subtitle": "Discover our new collection of high-quality products."
+          }
+        },
+        "block_HdVwUN": {
+          "type": "block",
+          "settings": {
+            "product": "",
+            "url": "",
+            "title": "BarBend",
+            "subtitle": "Discover our new collection of high-quality products."
+          }
+        }
+      },
+      "block_order": [
+        "block_CBmm49",
+        "block_7mxaMm",
+        "block_VfDtfg",
+        "block_HdVwUN"
+      ],
+      "name": "Float Image Block",
+      "settings": {
+        "anchor_id": "multi-column-product-pro",
+        "animate": true,
+        "padding-top": 20,
+        "padding-bottom": 20,
+        "padding-gap": 20,
+        "max-width": 1600,
+        "padding-top-mob": 20,
+        "padding-bottom-mob": 20,
+        "padding-gap-mob": 20,
+        "title": "WHY MERACH",
+        "heading_tag": "h1",
+        "subtitle": "",
+        "section-bg": "",
+        "title-color": "#000",
+        "subtitle-color": "#000",
+        "card-bg": "#000",
+        "card-title-color": "#fff",
+        "card_description_color": "#ECECE7"
+      }
     }
   },
   "order": [
     "banner",
     "main",
-    "float_product_jump_JEfpey"
+    "float_product_jump_JEfpey",
+    "us_float_image_block_X9cppw"
   ]
 }
