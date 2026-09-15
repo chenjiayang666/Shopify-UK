@@ -164,7 +164,7 @@
             "item-name": "Built for Different Goals and Routines",
             "img": "shopify://shop_images/merach-r50-project-new-13.png",
             "product": "merach-r50-rowing-machine-with-air-resistance",
-            "discount_mode": "percentage",
+            "discount_mode": "amount",
             "badge_width": 120,
             "badge_height": 120,
             "badge_font_size": 32,
@@ -234,7 +234,7 @@
             "text_color": "#0c0c0c",
             "text_gradient": "",
             "button_background": "#ffffff",
-            "button_text_color": "#00B7FF"
+            "button_text_color": "#21ADC8"
           }
         }
       },
@@ -262,7 +262,7 @@
           "type": "heading",
           "settings": {
             "text": "CONVENIENCE & THE PERFECT EQUIPMENT FOR HOME-GYM",
-            "heading_tag": "h1"
+            "heading_tag": "h2"
           }
         },
         "richtext_RtBkK3": {
@@ -292,6 +292,59 @@
         "overlay_color": "#000000",
         "overlay_opacity": 0
       }
+    },
+    "images_with_text_scrolling_KTqVDJ": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_dhJRjm": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach-r50-project-5.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "3 types of rowing machines - Magnetic",
+            "content": "<p>Smooth, steady resistance for controlled workouts.Low-noise performance that fits seamlessly into your home.Ideal for focused sessions, from warm-ups to longer endurance rows.</p>"
+          }
+        },
+        "item_zEeNNV": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach-r50-project-6.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "3 types of rowing machines - Air",
+            "content": "<p>The harder you row, the more resistance you feel.Push your pace and the machine responds instantly.Responsive resistance for everything from light cardio to challenging workouts.</p>"
+          }
+        },
+        "item_DRmGNC": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/merach-r50-project-7.jpg",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "3 types of rowing machines - Water",
+            "content": "<p>Fluid resistance that mimics the feel of rowing on water.Progressive resistance with a natural, rhythmic feel.Perfect for relaxed rows, steady sessions, and an immersive experience.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_dhJRjm",
+        "item_zEeNNV",
+        "item_DRmGNC"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "show_counter": true,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
     }
   },
   "order": [
@@ -302,6 +355,7 @@
     "image_with_text_overlay_Eax9wU",
     "link_tab_check_Ka6xBW",
     "media_with_text_XQiGPM",
-    "image_with_text_overlay_hRaTqN"
+    "image_with_text_overlay_hRaTqN",
+    "images_with_text_scrolling_KTqVDJ"
   ]
 }
