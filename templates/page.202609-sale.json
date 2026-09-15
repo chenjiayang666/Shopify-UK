@@ -244,7 +244,7 @@
             "discount_mode": "amount",
             "badge_width": 120,
             "badge_height": 95,
-            "badge_font_size": 30,
+            "badge_font_size": 25,
             "badge_text_color": "#ffffff",
             "badge_position": "left",
             "tag": "",
