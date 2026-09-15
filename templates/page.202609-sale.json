@@ -246,7 +246,7 @@
             "badge_height": 100,
             "badge_font_size": 25,
             "badge_text_color": "#ffffff",
-            "badge_position": "right",
+            "badge_position": "left",
             "tag": "",
             "product-title": "",
             "subtitle": "",
