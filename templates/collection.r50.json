@@ -90,57 +90,103 @@
         "button_padding_x": 16
       }
     },
-    "us_float_image_block_X9cppw": {
-      "type": "us-float-image-block",
+    "image_with_text_overlay_yFgneN": {
+      "type": "image-with-text-overlay",
       "blocks": {
-        "block_CBmm49": {
-          "type": "block",
+        "subheading_VTk6Df": {
+          "type": "subheading",
+          "disabled": true,
           "settings": {
-            "product": "merach-r50-rowing-machine-with-air-resistance",
-            "image": "shopify://shop_images/merach-r50-project-new-2.jpg",
-            "url": "",
-            "title": "VERSATILE ADAPTATION FOR ALL",
-            "subtitle": "Offering a zero-burden, highly adaptable workout."
+            "text": "Subheading"
           }
         },
-        "block_7mxaMm": {
-          "type": "block",
+        "heading_FMHJVQ": {
+          "type": "heading",
           "settings": {
-            "product": "",
-            "url": "",
-            "title": "BarBend",
-            "subtitle": "Discover our new collection of high-quality products."
+            "text": "VERSATILE ADAPTATION FOR ALL",
+            "heading_tag": "h1"
           }
         },
-        "block_VfDtfg": {
-          "type": "block",
+        "richtext_FXR9jy": {
+          "type": "richtext",
           "settings": {
-            "product": "",
-            "url": "",
-            "title": "BarBend",
-            "subtitle": "Discover our new collection of high-quality products."
-          }
-        },
-        "block_HdVwUN": {
-          "type": "block",
-          "settings": {
-            "product": "",
-            "url": "",
-            "title": "BarBend",
-            "subtitle": "Discover our new collection of high-quality products."
+            "content": "<p>Offering a zero-burden, highly adaptable workout.<br/><br/></p>"
           }
         }
       },
       "block_order": [
-        "block_CBmm49",
-        "block_7mxaMm",
-        "block_VfDtfg",
-        "block_HdVwUN"
+        "subheading_VTk6Df",
+        "heading_FMHJVQ",
+        "richtext_FXR9jy"
       ],
-      "name": "Float Image Block",
+      "name": "Image with text overlay",
+      "settings": {
+        "anchor_id": "image-with-text-overlay",
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/VERSATILE_ADAPTATION_FOR_ALL.jpg",
+        "mobile_image": "shopify://shop_images/merach-r50-project-new-2.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center-start sm:text-start",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "image_with_text_overlay_Eax9wU": {
+      "type": "image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "anchor_id": "image-with-text-overlay",
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/merach-r50-project-new-3.jpg",
+        "mobile_image": "shopify://shop_images/merach-r50-project-new-10.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "link_tab_check_Ka6xBW": {
+      "type": "link-tab-check",
+      "blocks": {
+        "item_JHXzeW": {
+          "type": "item",
+          "settings": {
+            "image-flex": "left",
+            "content-flex": "left",
+            "item-name": "ONE ROWER, BUILT FOR YOU",
+            "img": "shopify://shop_images/merach-r50-project-new-13.png",
+            "product": "merach-r50-rowing-machine-with-air-resistance",
+            "discount_mode": "percentage",
+            "badge_width": 120,
+            "badge_height": 120,
+            "badge_font_size": 32,
+            "badge_text_color": "#FFFFFF",
+            "badge_position": "right",
+            "tag": "New Release",
+            "product-title": "",
+            "subtitle": "",
+            "description": "",
+            "button_add_text": "Shop Now",
+            "button_sold_out_text": "Sold out",
+            "button-link": "",
+            "button-text": "View more"
+          }
+        }
+      },
+      "block_order": [
+        "item_JHXzeW"
+      ],
+      "name": "link-tab-check",
       "settings": {
         "anchor_id": "multi-column-product-pro",
-        "animate": true,
         "padding-top": 20,
         "padding-bottom": 20,
         "padding-gap": 20,
@@ -148,15 +194,21 @@
         "padding-top-mob": 20,
         "padding-bottom-mob": 20,
         "padding-gap-mob": 20,
-        "title": "WHY MERACH",
+        "title": "",
         "heading_tag": "h1",
         "subtitle": "",
         "section-bg": "",
-        "title-color": "#000",
-        "subtitle-color": "#000",
-        "card-bg": "#000",
-        "card-title-color": "#fff",
-        "card_description_color": "#ECECE7"
+        "title-color": "",
+        "subtitle-color": "",
+        "card-bg": "",
+        "card-color": "",
+        "tag-color": "",
+        "custom-button-color": "",
+        "button-color": "",
+        "button-color-active": "",
+        "price-color": "#3B7E89",
+        "button-bg": "",
+        "button-bg-active": ""
       }
     }
   },
@@ -164,6 +216,8 @@
     "banner",
     "main",
     "float_product_jump_JEfpey",
-    "us_float_image_block_X9cppw"
+    "image_with_text_overlay_yFgneN",
+    "image_with_text_overlay_Eax9wU",
+    "link_tab_check_Ka6xBW"
   ]
 }
