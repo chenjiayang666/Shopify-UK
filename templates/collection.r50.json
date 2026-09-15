@@ -206,10 +206,10 @@
         "tag-color": "",
         "custom-button-color": "",
         "button-color": "",
-        "button-color-active": "",
+        "button-color-active": "#0095FF",
         "price-color": "#DA0000",
-        "button-bg": "",
-        "button-bg-active": ""
+        "button-bg": "#FFFFFF",
+        "button-bg-active": "#0095FF"
       }
     },
     "media_with_text_XQiGPM": {
