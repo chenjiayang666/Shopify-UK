@@ -45,78 +45,55 @@
         "open_first_filter_group": false
       }
     },
-    "us_float_image_block_iBKXXA": {
-      "type": "us-float-image-block",
-      "blocks": {
-        "block_NypNjc": {
-          "type": "block",
-          "settings": {
-            "product": "merach-r50-rowing-machine-with-air-resistance",
-            "url": "",
-            "title": "BarBend",
-            "subtitle": "Discover our new collection of high-quality products."
-          }
-        },
-        "block_ftWWxD": {
-          "type": "block",
-          "settings": {
-            "product": "",
-            "url": "",
-            "title": "BarBend",
-            "subtitle": "Discover our new collection of high-quality products."
-          }
-        },
-        "block_ewbdGg": {
-          "type": "block",
-          "settings": {
-            "product": "",
-            "url": "",
-            "title": "BarBend",
-            "subtitle": "Discover our new collection of high-quality products."
-          }
-        },
-        "block_rC9MC4": {
-          "type": "block",
-          "settings": {
-            "product": "",
-            "url": "",
-            "title": "BarBend",
-            "subtitle": "Discover our new collection of high-quality products."
-          }
-        }
-      },
-      "block_order": [
-        "block_NypNjc",
-        "block_ftWWxD",
-        "block_ewbdGg",
-        "block_rC9MC4"
-      ],
-      "name": "Float Image Block",
+    "float_product_jump_JEfpey": {
+      "type": "float-product-jump",
+      "name": "Float product jump",
       "settings": {
-        "anchor_id": "multi-column-product-pro",
-        "animate": true,
-        "padding-top": 20,
-        "padding-bottom": 20,
-        "padding-gap": 20,
-        "max-width": 1600,
-        "padding-top-mob": 20,
-        "padding-bottom-mob": 20,
-        "padding-gap-mob": 20,
-        "title": "WHY MERACH",
-        "heading_tag": "h1",
+        "product": "merach-r50-rowing-machine-with-air-resistance",
+        "title": "",
         "subtitle": "",
-        "section-bg": "",
-        "title-color": "#000",
-        "subtitle-color": "#000",
-        "card-bg": "#000",
-        "card-title-color": "#fff",
-        "card_description_color": "#ECECE7"
+        "show_price": true,
+        "action_mode": "detail",
+        "button_label": "Shop now",
+        "button_link": "",
+        "footnote": "",
+        "start_expanded": false,
+        "close_on_outside_click": true,
+        "hide_on_mobile": false,
+        "offset_right": 24,
+        "offset_bottom": 25,
+        "offset_right_mob": 12,
+        "offset_bottom_mob": 12,
+        "collapsed_width": 260,
+        "expanded_width": 320,
+        "collapsed_width_mob": 0,
+        "expanded_width_mob": 320,
+        "z_index": 40,
+        "card_bg": "#ffffff",
+        "text_color": "#111111",
+        "muted_color": "#8a8a8a",
+        "divider_color": "#eeeeee",
+        "card_radius": 16,
+        "image_size": 52,
+        "image_radius": 10,
+        "title_size": 14,
+        "title_weight": "600",
+        "subtitle_size": 13,
+        "price_size": 18,
+        "button_bg": "#111111",
+        "button_color": "#ffffff",
+        "button_bg_hover": "#333333",
+        "button_color_hover": "#ffffff",
+        "button_size": 14,
+        "button_radius": 40,
+        "button_padding_y": 12,
+        "button_padding_x": 16
       }
     }
   },
   "order": [
     "banner",
     "main",
-    "us_float_image_block_iBKXXA"
+    "float_product_jump_JEfpey"
   ]
 }
