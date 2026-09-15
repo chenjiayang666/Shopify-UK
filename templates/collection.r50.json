@@ -168,7 +168,7 @@
             "badge_width": 120,
             "badge_height": 120,
             "badge_font_size": 32,
-            "badge_text_color": "#FFFFFF",
+            "badge_text_color": "#ffffff",
             "badge_position": "right",
             "tag": "",
             "product-title": "Merach NovaRow R50 Air Resistance Rowing Machine",
@@ -199,17 +199,17 @@
         "heading_tag": "h3",
         "subtitle": "",
         "section-bg": "",
-        "title-color": "#0095FF",
+        "title-color": "#0095ff",
         "subtitle-color": "",
         "card-bg": "",
         "card-color": "",
         "tag-color": "",
         "custom-button-color": "",
         "button-color": "",
-        "button-color-active": "#0095FF",
-        "price-color": "#DA0000",
-        "button-bg": "#FFFFFF",
-        "button-bg-active": "#0095FF"
+        "button-color-active": "#FFFFFF",
+        "price-color": "#da0000",
+        "button-bg": "#ffffff",
+        "button-bg-active": "#FFFFFF"
       }
     },
     "media_with_text_XQiGPM": {
@@ -229,9 +229,9 @@
             "content": "<ul><li>engages 86% of your major muscle groups</li><li>combines cardiovascular conditioning with strength training</li><li>non-weight-bearing exercise without common workout injuries<br/><br/></li></ul>",
             "link_text": "",
             "link_url": "",
-            "background": "#FFFFFF",
+            "background": "#ffffff",
             "background_gradient": "",
-            "text_color": "#0C0C0C",
+            "text_color": "#0c0c0c",
             "text_gradient": "",
             "button_background": "",
             "button_text_color": ""
