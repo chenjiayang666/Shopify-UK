@@ -233,7 +233,7 @@
             "background_gradient": "",
             "text_color": "#0c0c0c",
             "text_gradient": "",
-            "button_background": "#0C0C0C",
+            "button_background": "#FFFFFF",
             "button_text_color": "#21ADC8"
           }
         }
@@ -345,6 +345,146 @@
         "heading_color": "",
         "heading_gradient": ""
       }
+    },
+    "media_with_text_QeQqLr": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_86z93w": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/merach-rudergerate-r50-pj-2.gif",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "DYNAMIC AIR RESISTANCE",
+            "content": "<p>The airflow responds instantly to your pull, so the harder you row, the more resistance you generate. This dynamic resistance creates a natural, progressive feel that adapts to your pace throughout the workout.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text_color": "#0C0C0C",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_86z93w"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "small"
+      }
+    },
+    "media_with_text_4Ch3Hq": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_Ci4gMH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/merach-rudergerate-r50-pj-1.webp",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "10 ADJUSTABLE DAMPER LEVELS",
+            "content": "<p>With 10 adjustable damper levels, you can easily change the airflow and resistance feel, from lighter strokes for recovery to stronger resistance for more demanding full-body training.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text_color": "#0C0C0C",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Ci4gMH"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "small"
+      }
+    },
+    "multi_column_KEKt76": {
+      "type": "multi-column",
+      "blocks": {
+        "item_FACCi7": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Merach_NovaRow_R50_Pro_Air_Rower_35.jpg",
+            "column_size": "3",
+            "title": "Ergonomic Comfort",
+            "heading_tag": "h4",
+            "content": "<p>A supportive ergonomic seat keeps you comfortable through every stroke. Its contoured shape helps maintain proper positioning throughout your workout.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000",
+            "check-color": "#fff"
+          }
+        },
+        "item_nb7XaY": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Merach_R50_Pro_Rowing_Machine_with_with_HD_Screen-3_5.jpg",
+            "column_size": "3",
+            "title": "Flexible Storage",
+            "heading_tag": "h4",
+            "content": "<p>The separable design makes storage more flexible when not in use, helping you save space at home. <strong>Unfolded: </strong>238 × 610 × 1,020 mm; <strong>Stored:</strong> 635 × 835 × 1,370 mm.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000",
+            "check-color": "#fff"
+          }
+        },
+        "item_7Pgz7U": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Merach_R50_Pro_Rowing_Machine_with_with_HD_Screen-3_2.jpg",
+            "column_size": "3",
+            "title": "Essential Workout Data",
+            "heading_tag": "h4",
+            "content": "<p>Track your pace and performance as you row, with key metrics including 500m pace, SPM, power and heart rate. Stay focused on your workout with clear, easy-to-read data.</p>",
+            "link_url": "",
+            "link_text": "",
+            "link_style": "link",
+            "check-bg": "#000",
+            "check-color": "#fff"
+          }
+        }
+      },
+      "block_order": [
+        "item_FACCi7",
+        "item_nb7XaY",
+        "item_7Pgz7U"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "medium",
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
     }
   },
   "order": [
@@ -356,6 +496,9 @@
     "link_tab_check_Ka6xBW",
     "media_with_text_XQiGPM",
     "image_with_text_overlay_hRaTqN",
-    "images_with_text_scrolling_KTqVDJ"
+    "images_with_text_scrolling_KTqVDJ",
+    "media_with_text_QeQqLr",
+    "media_with_text_4Ch3Hq",
+    "multi_column_KEKt76"
   ]
 }
