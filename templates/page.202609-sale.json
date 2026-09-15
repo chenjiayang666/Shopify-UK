@@ -243,7 +243,7 @@
             "product": "merach-r28r1-water-rowing-machine",
             "discount_mode": "amount",
             "badge_width": 120,
-            "badge_height": 80,
+            "badge_height": 90,
             "badge_font_size": 25,
             "badge_text_color": "#ffffff",
             "badge_position": "left",
