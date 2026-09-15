@@ -77,8 +77,16 @@
             "url": "shopify://products/merach-walking-pad-t27b2"
           }
         },
+        "message_YPT8Lr": {
+          "type": "message",
+          "settings": {
+            "text": "Fall Fitness Sale — Up to 40% OFF",
+            "url": "shopify://pages/sales"
+          }
+        },
         "message_PYcTLy": {
           "type": "message",
+          "disabled": true,
           "settings": {
             "text": "Big Savings Are Here!",
             "url": "shopify://pages/flash-sale"
@@ -102,6 +110,7 @@
         "blacklist_HHCfjy",
         "message_HPgqpt",
         "message_Lhn7Fh",
+        "message_YPT8Lr",
         "message_PYcTLy",
         "message_7PjAM7"
       ],
