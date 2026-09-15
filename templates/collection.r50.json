@@ -190,6 +190,7 @@
         "padding-top": 20,
         "padding-bottom": 20,
         "padding-gap": 20,
+        "badge_img": "shopify://shop_images/icon_discount.png",
         "max-width": 1600,
         "padding-top-mob": 20,
         "padding-bottom-mob": 20,
