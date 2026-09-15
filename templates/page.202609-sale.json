@@ -156,7 +156,7 @@
         "item_c9fM6F": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Discount_sale_1.png",
+            "image": "shopify://shop_images/merach-2026-autumn-sale-_1_3.png",
             "stretch_image": true,
             "link_text": "",
             "link_url": "",
@@ -169,7 +169,7 @@
         "item_rDUYr9": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Discount_sale_2.png",
+            "image": "shopify://shop_images/merach-2026-autumn-sale-_1.png",
             "stretch_image": true,
             "link_text": "",
             "link_url": "",
@@ -182,7 +182,7 @@
         "item_rnUcra": {
           "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Discount_sale_3.png",
+            "image": "shopify://shop_images/merach-2026-autumn-sale-_1_2.png",
             "stretch_image": true,
             "link_text": "",
             "link_url": "",
@@ -332,7 +332,7 @@
         "card-bg": "#EAF4FF",
         "card-color": "#1a1a1a",
         "tag-color": "",
-        "custom-button-color": "#FFFFFF",
+        "custom-button-color": "#ffffff",
         "button-color": "#1a1a1a",
         "button-color-active": "#ffffff",
         "price-color": "#f83a3a",
@@ -548,15 +548,19 @@
           "type": "heading",
           "settings": {
             "text": "Deals By Category",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h2",
             "text_color": "",
-            "gradient": ""
+            "gradient": "",
+            "shadow": ""
           }
         },
         "subheading_nAEgzh": {
           "type": "subheading",
           "settings": {
-            "text": "Smart Home Gym Gifts"
+            "text": "Smart Home Gym Gifts",
+            "subheading-tag": "p"
           }
         }
       },
@@ -567,12 +571,15 @@
       "disabled": true,
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "large",
         "text_position": "center",
         "background": "#fbf6de",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "image_link_blocks_fVtGVq": {
@@ -1172,9 +1179,12 @@
           "type": "heading",
           "settings": {
             "text": "The MERACH Advantage: Shop with Confidence",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h2",
             "text_color": "",
-            "gradient": ""
+            "gradient": "",
+            "shadow": ""
           }
         },
         "richtext_zA6XHT": {
@@ -1190,12 +1200,15 @@
       ],
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "large",
         "text_position": "center",
         "background": "#eaf4ff",
         "background_gradient": "",
-        "text_color": "#000000"
+        "text_color": "#000000",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "media_grid_fDfaGd": {
@@ -1336,9 +1349,12 @@
           "type": "heading",
           "settings": {
             "text": "Merach Customer Story",
+            "remove_margin": false,
+            "heading-tag": "p",
             "heading_tag": "h1",
             "text_color": "",
-            "gradient": ""
+            "gradient": "",
+            "shadow": ""
           }
         }
       },
@@ -1349,12 +1365,15 @@
       "name": "Rich text",
       "settings": {
         "anchor_id": "rich-text",
+        "show_content": "mobile_pc",
         "full_width": true,
         "content_width": "small",
         "text_position": "center",
         "background": "#eaf4ff",
         "background_gradient": "",
-        "text_color": "#000000"
+        "text_color": "#000000",
+        "section_pdtop": 70,
+        "section_pdbot": 70
       }
     },
     "video_carousel_TaHgGw": {
