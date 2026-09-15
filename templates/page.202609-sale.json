@@ -332,7 +332,7 @@
         "card-bg": "#FFFFFF",
         "card-color": "#1a1a1a",
         "tag-color": "",
-        "custom-button-color": "#ffffff",
+        "custom-button-color": "#000000",
         "button-color": "#1a1a1a",
         "button-color-active": "#000000",
         "price-color": "#f83a3a",
