@@ -128,7 +128,7 @@
         "image_size": "auto",
         "image": "shopify://shop_images/VERSATILE_ADAPTATION_FOR_ALL.jpg",
         "mobile_image": "shopify://shop_images/merach-r50-project-new-2.jpg",
-        "mobile_text_position": "place-self-center text-center",
+        "mobile_text_position": "place-self-end-center text-center",
         "desktop_text_position": "sm:place-self-center-start sm:text-start",
         "text_color": "#ffffff",
         "overlay_color": "#000000",
@@ -150,7 +150,7 @@
         "desktop_text_position": "sm:place-self-center sm:text-center",
         "text_color": "#ffffff",
         "overlay_color": "#000000",
-        "overlay_opacity": 30
+        "overlay_opacity": 0
       }
     },
     "link_tab_check_Ka6xBW": {
@@ -161,7 +161,7 @@
           "settings": {
             "image-flex": "left",
             "content-flex": "left",
-            "item-name": "ONE ROWER, BUILT FOR YOU",
+            "item-name": "Built for Different Goals and Routines",
             "img": "shopify://shop_images/merach-r50-project-new-13.png",
             "product": "merach-r50-rowing-machine-with-air-resistance",
             "discount_mode": "percentage",
@@ -194,11 +194,11 @@
         "padding-top-mob": 20,
         "padding-bottom-mob": 20,
         "padding-gap-mob": 20,
-        "title": "",
-        "heading_tag": "h1",
+        "title": "ONE ROWER, BUILT FOR YOU",
+        "heading_tag": "h3",
         "subtitle": "",
         "section-bg": "",
-        "title-color": "",
+        "title-color": "#0095FF",
         "subtitle-color": "",
         "card-bg": "",
         "card-color": "",
@@ -210,6 +210,84 @@
         "button-bg": "",
         "button-bg-active": ""
       }
+    },
+    "media_with_text_XQiGPM": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_MymFan": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/merach-r50-project-new-13.png",
+            "media_width": 50,
+            "media_position": "end",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Heading",
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#000000",
+            "background_gradient": "",
+            "text_color": "#ffffff",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_MymFan"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": false,
+        "alternate_media_position": false,
+        "spacing": "small"
+      }
+    },
+    "image_with_text_overlay_hRaTqN": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_UEmJqC": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_b7JbfF": {
+          "type": "heading",
+          "settings": {
+            "text": "Image with text overlay",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_RtBkK3": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_UEmJqC",
+        "heading_b7JbfF",
+        "richtext_RtBkK3"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "anchor_id": "image-with-text-overlay",
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
     }
   },
   "order": [
@@ -218,6 +296,8 @@
     "float_product_jump_JEfpey",
     "image_with_text_overlay_yFgneN",
     "image_with_text_overlay_Eax9wU",
-    "link_tab_check_Ka6xBW"
+    "link_tab_check_Ka6xBW",
+    "media_with_text_XQiGPM",
+    "image_with_text_overlay_hRaTqN"
   ]
 }
