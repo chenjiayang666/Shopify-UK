@@ -187,9 +187,9 @@
       "name": "link-tab-check",
       "settings": {
         "anchor_id": "multi-column-product-pro",
-        "padding-top": 20,
-        "padding-bottom": 20,
-        "padding-gap": 20,
+        "padding-top": 0,
+        "padding-bottom": 0,
+        "padding-gap": 0,
         "badge_img": "shopify://shop_images/icon_discount.png",
         "max-width": 1600,
         "padding-top-mob": 20,
