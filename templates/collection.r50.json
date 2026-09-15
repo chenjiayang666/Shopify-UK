@@ -199,7 +199,7 @@
         "heading_tag": "h3",
         "subtitle": "",
         "section-bg": "",
-        "title-color": "#0095ff",
+        "title-color": "#00B7FF",
         "subtitle-color": "",
         "card-bg": "",
         "card-color": "",
@@ -234,7 +234,7 @@
             "text_color": "#0c0c0c",
             "text_gradient": "",
             "button_background": "#ffffff",
-            "button_text_color": ""
+            "button_text_color": "#00B7FF"
           }
         }
       },
@@ -253,6 +253,7 @@
       "blocks": {
         "subheading_UEmJqC": {
           "type": "subheading",
+          "disabled": true,
           "settings": {
             "text": "Subheading"
           }
@@ -260,12 +261,13 @@
         "heading_b7JbfF": {
           "type": "heading",
           "settings": {
-            "text": "Image with text overlay",
+            "text": "CONVENIENCE & THE PERFECT EQUIPMENT FOR HOME-GYM",
             "heading_tag": "h1"
           }
         },
         "richtext_RtBkK3": {
           "type": "richtext",
+          "disabled": true,
           "settings": {
             "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
           }
@@ -278,16 +280,17 @@
       ],
       "name": "Image with text overlay",
       "settings": {
-        "anchor_id": "image-with-text-overlay",
+        "anchor_id": "",
         "full_width": true,
         "allow_transparent_header": false,
         "enable_parallax": false,
         "image_size": "auto",
-        "mobile_text_position": "place-self-center text-center",
-        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "image": "shopify://shop_images/merach-r50-project-3.jpg",
+        "mobile_text_position": "place-self-start-center text-center",
+        "desktop_text_position": "sm:place-self-start-center sm:text-center",
         "text_color": "#ffffff",
         "overlay_color": "#000000",
-        "overlay_opacity": 30
+        "overlay_opacity": 0
       }
     }
   },
