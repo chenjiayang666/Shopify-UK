@@ -206,10 +206,10 @@
         "tag-color": "",
         "custom-button-color": "",
         "button-color": "",
-        "button-color-active": "#FFFFFF",
+        "button-color-active": "#ffffff",
         "price-color": "#da0000",
         "button-bg": "#ffffff",
-        "button-bg-active": "#0095FF"
+        "button-bg-active": "#00B7FF"
       }
     },
     "media_with_text_XQiGPM": {
@@ -233,7 +233,7 @@
             "background_gradient": "",
             "text_color": "#0c0c0c",
             "text_gradient": "",
-            "button_background": "#FFFFFF",
+            "button_background": "#ffffff",
             "button_text_color": ""
           }
         }
