@@ -199,7 +199,7 @@
         "heading_tag": "h3",
         "subtitle": "",
         "section-bg": "",
-        "title-color": "#00B7FF",
+        "title-color": "#00b7ff",
         "subtitle-color": "",
         "card-bg": "",
         "card-color": "",
@@ -209,7 +209,7 @@
         "button-color-active": "#ffffff",
         "price-color": "#da0000",
         "button-bg": "#ffffff",
-        "button-bg-active": "#21B2C8"
+        "button-bg-active": "#21b2c8"
       }
     },
     "media_with_text_XQiGPM": {
@@ -233,8 +233,8 @@
             "background_gradient": "",
             "text_color": "#0c0c0c",
             "text_gradient": "",
-            "button_background": "#FFFFFF",
-            "button_text_color": "#21ADC8"
+            "button_background": "#ffffff",
+            "button_text_color": "#21adc8"
           }
         }
       },
@@ -262,7 +262,7 @@
           "type": "heading",
           "settings": {
             "text": "CONVENIENCE & THE PERFECT EQUIPMENT FOR HOME-GYM",
-            "heading_tag": "h2"
+            "heading_tag": "h4"
           }
         },
         "richtext_RtBkK3": {
@@ -286,6 +286,7 @@
         "enable_parallax": false,
         "image_size": "auto",
         "image": "shopify://shop_images/merach-r50-project-3.jpg",
+        "mobile_image": "shopify://shop_images/merach-r50-project-new-7.jpg",
         "mobile_text_position": "place-self-start-center text-center",
         "desktop_text_position": "sm:place-self-start-center sm:text-center",
         "text_color": "#ffffff",
@@ -363,9 +364,9 @@
             "content": "<p>The airflow responds instantly to your pull, so the harder you row, the more resistance you generate. This dynamic resistance creates a natural, progressive feel that adapts to your pace throughout the workout.</p>",
             "link_text": "",
             "link_url": "",
-            "background": "#FFFFFF",
+            "background": "#ffffff",
             "background_gradient": "",
-            "text_color": "#0C0C0C",
+            "text_color": "#0c0c0c",
             "text_gradient": "",
             "button_background": "",
             "button_text_color": ""
@@ -399,9 +400,9 @@
             "content": "<p>With 10 adjustable damper levels, you can easily change the airflow and resistance feel, from lighter strokes for recovery to stronger resistance for more demanding full-body training.</p>",
             "link_text": "",
             "link_url": "",
-            "background": "#FFFFFF",
+            "background": "#ffffff",
             "background_gradient": "",
-            "text_color": "#0C0C0C",
+            "text_color": "#0c0c0c",
             "text_gradient": "",
             "button_background": "",
             "button_text_color": ""
