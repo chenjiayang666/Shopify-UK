@@ -55,7 +55,7 @@
         "show_price": true,
         "action_mode": "buy",
         "button_label": "Shop now",
-        "button_link": "shopify://products/merach-r50-rowing-machine-with-air-resistance",
+        "button_link": "",
         "footnote": "",
         "start_expanded": false,
         "close_on_outside_click": true,
