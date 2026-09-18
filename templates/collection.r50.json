@@ -164,7 +164,7 @@
             "item-name": "Built for Different Goals and Routines",
             "img": "shopify://shop_images/merach-r50-project-new-13.png",
             "product": "merach-r50-rowing-machine-with-air-resistance",
-            "discount_mode": "amount",
+            "discount_mode": "percentage",
             "badge_width": 120,
             "badge_height": 120,
             "badge_font_size": 32,
