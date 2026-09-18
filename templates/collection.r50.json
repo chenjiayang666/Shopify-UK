@@ -486,6 +486,28 @@
         "background_gradient": "",
         "text_color": ""
       }
+    },
+    "1789698615c9a36746": {
+      "type": "apps",
+      "blocks": {
+        "omnisend_email_marketing_sms_embedded_form_CTgfWh": {
+          "type": "shopify://apps/omnisend-email-marketing-sms/blocks/embedded-form/44704aa2-794f-4c5d-8c8e-039c841158e9",
+          "settings": {
+            "form_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "omnisend_email_marketing_sms_embedded_form_CTgfWh"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
     }
   },
   "order": [
@@ -500,6 +522,7 @@
     "images_with_text_scrolling_KTqVDJ",
     "media_with_text_QeQqLr",
     "media_with_text_4Ch3Hq",
-    "multi_column_KEKt76"
+    "multi_column_KEKt76",
+    "1789698615c9a36746"
   ]
 }
