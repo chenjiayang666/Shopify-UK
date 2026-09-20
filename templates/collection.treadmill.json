@@ -30,6 +30,7 @@
         "heading_yGtPWJ",
         "richtext_mWaLFE"
       ],
+      "disabled": true,
       "settings": {
         "anchor_id": "image-with-text-overlay",
         "full_width": true,
@@ -47,15 +48,14 @@
     },
     "image_with_text_overlay_pMytrn": {
       "type": "image-with-text-overlay",
-      "disabled": true,
       "settings": {
         "anchor_id": "image-with-text-overlay",
         "full_width": true,
         "allow_transparent_header": false,
         "enable_parallax": false,
         "image_size": "auto",
-        "image": "shopify://shop_images/summer_sale_update_collection_6.jpg",
-        "mobile_image": "shopify://shop_images/summer_sale_update_collection_5.jpg",
+        "image": "shopify://shop_images/merach-sale-202609-collection-1.png",
+        "mobile_image": "shopify://shop_images/merach-sale-202609-collection-2.png",
         "mobile_text_position": "place-self-center text-center",
         "desktop_text_position": "sm:place-self-center sm:text-center",
         "text_color": "#ffffff",
