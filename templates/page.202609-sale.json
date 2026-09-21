@@ -945,25 +945,6 @@
     "pure_collections_container_8qjUxk": {
       "type": "pure-collections-container",
       "blocks": {
-        "tab_fRQWBy": {
-          "type": "tab",
-          "settings": {
-            "title": "Great Value"
-          }
-        },
-        "products_collection_cAXNYa": {
-          "type": "products_collection",
-          "settings": {
-            "products": [
-              "merach-r07w1-full-body-workout-squat-assist-trainer",
-              "merach-2415b1-ab-workout-machine",
-              "merach-2440-vibration-plate-with-200-kg-weight-capacity"
-            ],
-            "collection": "",
-            "discount_texts": "",
-            "rewrite_titles": ""
-          }
-        },
         "tab_U8aBPk": {
           "type": "tab",
           "settings": {
@@ -978,6 +959,25 @@
               "merach-s29b1-exercise-bike-350-lbs-max-capacity",
               "merach-s26b4-indoor-exercise-bike-with-hd-screen",
               "merach-s29r2-self-powered-exercise-bike"
+            ],
+            "collection": "",
+            "discount_texts": "",
+            "rewrite_titles": ""
+          }
+        },
+        "tab_fRQWBy": {
+          "type": "tab",
+          "settings": {
+            "title": "Great Value"
+          }
+        },
+        "products_collection_cAXNYa": {
+          "type": "products_collection",
+          "settings": {
+            "products": [
+              "merach-r07w1-full-body-workout-squat-assist-trainer",
+              "merach-2415b1-ab-workout-machine",
+              "merach-2440-vibration-plate-with-200-kg-weight-capacity"
             ],
             "collection": "",
             "discount_texts": "",
@@ -1029,10 +1029,10 @@
         }
       },
       "block_order": [
-        "tab_fRQWBy",
-        "products_collection_cAXNYa",
         "tab_U8aBPk",
         "products_collection_wfhyyY",
+        "tab_fRQWBy",
+        "products_collection_cAXNYa",
         "tab_W6aadm",
         "products_collection_xMqzqE",
         "tab_NeJHkL",
