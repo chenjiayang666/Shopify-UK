@@ -250,7 +250,7 @@
             "tag": "",
             "product-title": "",
             "subtitle": "",
-            "description": "<ul><li>10-level air resistance system</li><li>Ergonomic comfort seat</li><li>50KG peak resistance</li></ul>",
+            "description": "<ul><li>Adjustable tablet holder</li><li>180° foldable storage</li><li>Professional training monitor</li></ul>",
             "button_add_text": "Shop Now",
             "button_sold_out_text": "Sold out",
             "button-link": "",
@@ -389,9 +389,9 @@
             "column_size": "4",
             "title": "",
             "heading_tag": "h4",
-            "content": "180° foldable storage",
-            "content_two": "Adjustable tablet holder",
-            "content_three": "Water tank capacity: 14L",
+            "content": "Foldable Design",
+            "content_two": "Max.  353 lbs",
+            "content_three": "10-Level \\nAir Resistance",
             "link_url": "",
             "link_text": "",
             "link_style": "link"
@@ -423,9 +423,9 @@
             "column_size": "4",
             "title": "",
             "heading_tag": "h4",
-            "content": "Max Weight 350 lbs",
-            "content_two": "22 lbs Flywheel",
-            "content_three": "16 Adjustable Resistance Levels",
+            "content": "Max Weight 269 lbs",
+            "content_two": "Non-Slip Handlebars",
+            "content_three": "Upgraded LCD Display",
             "link_url": "",
             "link_text": "",
             "link_style": "link"
@@ -977,7 +977,6 @@
           "type": "products_collection",
           "settings": {
             "products": [
-              "merach-s36l5-indoor-exercise-bike-with-hd-screen",
               "merach-s28b1-exercise-bike-with-6-incline",
               "merach-s29b1-exercise-bike-350-lbs-max-capacity",
               "merach-s26b4-indoor-exercise-bike-with-hd-screen",
