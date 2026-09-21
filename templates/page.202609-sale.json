@@ -861,13 +861,13 @@
           "type": "products_collection",
           "settings": {
             "products": [
-              "merach-w50-treadmill-with-12-auto-incline",
               "merach-r23r1-water-rowing-machine",
               "merach-s19b1-recumbent-exercise-bike",
               "merach-s08b1-recumbent-exercise-bike",
               "merach-s23b1-recumbent-exercise-bike",
               "merach-e27b3-elliptical-trainer",
-              "merach-e33b3-self-powered-elliptical-trainer"
+              "merach-e33b3-self-powered-elliptical-trainer",
+              "merach-w50-treadmill-with-12-auto-incline"
             ],
             "collection": "",
             "discount_texts": "",
