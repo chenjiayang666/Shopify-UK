@@ -238,9 +238,9 @@
           "settings": {
             "image-flex": "right",
             "content-flex": "left",
-            "item-name": "R28R1 Rower",
-            "img": "shopify://shop_images/merach-2026-autumn-sale-r28r1.jpg",
-            "product": "merach-r28r1-water-rowing-machine",
+            "item-name": "R11B2",
+            "img": "shopify://shop_images/merach-r50-project-new-13.png",
+            "product": "merach-r50-rowing-machine-with-air-resistance",
             "discount_mode": "amount",
             "badge_width": 120,
             "badge_height": 100,
